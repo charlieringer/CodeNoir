@@ -81,3 +81,53 @@ class TerminalObj extends SmallObject
     rect(startX, startY, endX, endY);
   }
 }
+
+class PapersObject extends SmallObject
+{
+  StringList dataList = new StringList();
+  int x, y;
+  Level level;
+
+  PapersObject(int x, int y, String path, Level parentLevel)
+  {
+    level = parentLevel;
+    this.x = x;
+    this.y = y;
+
+    String data[] = loadStrings(path);
+
+    int count = 0;
+    if (data.length > 0)
+    {
+      for (String line : data) {
+        dataList.append(line);
+      }
+    }
+  }
+
+  void displayInGame()
+  {
+    fill(255);
+    rectMode(CORNERS);
+    rect(x, y, x+20, y+20);
+  }
+
+  void displayOnOwn()
+  {
+    fill(255);
+    rect(100, 50, width-100, height-50);
+    fill(0);
+    for(int i = 0; i < dataList.size(); i++)
+    {
+      text(dataList.get(i), 150, 50*i);
+    }
+  }
+
+  void pressed()
+  {
+    if (key == TAB)
+    {
+      level.levelState = LevelState.LEVEL;
+    }
+  }
+}

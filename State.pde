@@ -14,5 +14,6 @@ enum LevelState {
   LOCKPICK, //2
   FINGERPRINT, //3
   CAMERA, //4 
-  SERVER //5
+  SERVER, //5
+  PAPERS //6
 }

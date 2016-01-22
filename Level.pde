@@ -7,12 +7,14 @@ class Level
   ArrayList<Room> rooms = new ArrayList<Room>();
   ArrayList<SecurityCamera> secCams = new ArrayList<SecurityCamera>();
   ArrayList<Guard> guards = new ArrayList<Guard>();
+  ArrayList<PapersObject> papers = new ArrayList<PapersObject>();
   Player player;
 
   LevelState levelState;
 
   Terminal currTerminal;
   LockPuzzle currLock;
+  PapersObject currPapers;
   //Current ServerPuzzle
   //Current FingerPritnPuzzle
   //Current Lock Puzzle
@@ -53,6 +55,8 @@ class Level
     desks.add(new Desk( 520, 460, 620, 480));
     desks.add(new Desk( 520, 560, 620, 580));
 
+    desks.add(new Desk(120, 270, 140, 360));
+
     doors.add(new Door( 240, 50, 'v', 't', this));
     doors.add(new Door( 830, 160, 'h', 'l', this, 4));
 
@@ -70,6 +74,8 @@ class Level
     guards.add(new Guard(840, 340, 'r', 'b'));
     guards.add(new Guard(840, 540, 'l', 'l'));
 
+    papers.add(new PapersObject(120, 280, "Testdata.txt", this));
+    papers.add(new PapersObject(120, 330, "Testdata.txt", this));
 
     secCams.add(new SecurityCamera(700, 20, 500, 160, 900, 160, 700, 20));
     player = new Player(walls, desks, doors, guards);
@@ -98,6 +104,9 @@ class Level
       break;
     case SERVER:
       break;
+    case PAPERS:
+      currPapers.displayOnOwn();
+      break;
     }
   }
 
@@ -105,28 +114,32 @@ class Level
   {
     background(200);
 
-    for (int i = 0; i < walls.size (); i++) { 
-      walls.get(i).drawWall();
+    for (Wall wall : walls) { 
+      wall.drawWall();
     }
-    for (int i = 0; i < desks.size (); i++) { 
-      desks.get(i).drawObj();
+    for (LargeObject desk : desks) { 
+      desk.drawObj();
     }
-    for (int i = 0; i < doors.size (); i++) { 
-      doors.get(i).drawObj();
+    for (LargeObject door : doors) { 
+      door.drawObj();
     }
-    for (int i = 0; i < terminals.size (); i++) { 
-      terminals.get(i).drawObj();
+    for (SmallObject terminal : terminals) { 
+      terminal.drawObj();
     }
-    for (int i = 0; i < secCams.size (); i++) { 
-      secCams.get(i).drawCamera(); 
-      if (secCams.get(i).checkForPlayer(player)) gameOver = true;
+    for (PapersObject paper : papers) {
+      paper.displayInGame();
     }
-    player.updateAndDraw();
-    for (int i = 0; i < guards.size(); i++) { 
-      guards.get(i).moveandDrawGuard(walls, desks); 
-      if (!gameOver) gameOver = guards.get(i).checkForPlayer(player, walls);
+    for (SecurityCamera secCam : secCams) { 
+      secCam.drawCamera(); 
+      if (secCam.checkForPlayer(player)) gameOver = true;
     }
 
+    for (Guard guard : guards)
+    {
+      guard.moveandDrawGuard(walls, desks);
+      if (!gameOver) gameOver = guard.checkForPlayer(player, walls);
+    }
+    player.updateAndDraw();
     player.checkVision(rooms);
     checkPlayerAdjacency();
     if (gameOver) state = State.POSTGAMELOSE;
@@ -184,6 +197,24 @@ class Level
         return;
       }
     }
+
+    for (int i = 0; i < papers.size (); i++) 
+    { 
+
+      int papersSX = papers.get(i).x;
+      int papersSY = papers.get(i).y;
+      int papersEX = papersSX+20;
+      int papersEY = papersSY+20;
+
+      if ((playerSX == papersEX && playerSY < papersEY && playerEY > papersSY) || 
+        (playerSY == papersEY && playerSX < papersEX && playerEX > papersSX) || 
+        (playerEX == papersSX && playerSY < papersEY && playerEY > papersSY) || 
+        (playerEY == papersSY && playerSX < papersEX && playerEX > papersSX))
+      {
+        status.drawStatusBar("Papers - press SPACE to read");
+        return;
+      }
+    }
     status.drawStatusBar("");
   }
 
@@ -206,6 +237,9 @@ class Level
       break;
     case SERVER:
       break;
+    case PAPERS:
+      currPapers.pressed();
+      break;
     }
   }
 
@@ -227,8 +261,9 @@ class Level
       break;
     case SERVER:
       break;
+    case PAPERS:
+      break;
     }
-    
   }
 
 
@@ -277,6 +312,25 @@ class Level
           assert(terminals.get(i).linkedTerm != null);
           currTerminal = terminals.get(i).linkedTerm;
           levelState = LevelState.TERMINAL;
+          return;
+        }
+      }
+
+      for (int i = 0; i < papers.size (); i++) 
+      { 
+
+        int papersSX = papers.get(i).x;
+        int papersSY = papers.get(i).y;
+        int papersEX = papersSX+20;
+        int papersEY = papersSY+20;
+
+        if ((playerSX == papersEX && playerSY < papersEY && playerEY > papersSY) || 
+          (playerSY == papersEY && playerSX < papersEX && playerEX > papersSX) || 
+          (playerEX == papersSX && playerSY < papersEY && playerEY > papersSY) || 
+          (playerEY == papersSY && playerSX < papersEX && playerEX > papersSX))
+        {
+          levelState = LevelState.PAPERS;
+          currPapers = papers.get(i);
           return;
         }
       }

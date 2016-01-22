@@ -11,6 +11,7 @@ class Player
   boolean goingDown = false;
   boolean goingLeft = false;
   boolean goingRight = false;
+  boolean hasData = false;
 
   Player(ArrayList<Wall> walls, ArrayList<LargeObject> desks, ArrayList<Door> doors, ArrayList<Guard> guards)
   {
@@ -122,6 +123,9 @@ class Player
       {
         goingRight = state;
       }
+    } else if (key == ' ')
+    {
+      interact();
     }
   }
   void checkVision(ArrayList<Room> visionRooms)

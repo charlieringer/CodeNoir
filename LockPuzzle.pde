@@ -65,7 +65,6 @@ class LockPuzzle
         return false;
       }
     }
-    print("end");
     return true;
   }
 

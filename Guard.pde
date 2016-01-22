@@ -20,104 +20,92 @@ class Guard
     this.turn = turn;
   }
 
-  public void drawGuard()
-  {
-    if (alive)
-    {
-      fill(255, 0, 0);
-      rect(posX, posY, 30, 30);
-    } else 
-    {
-      fill(255, 0, 255);
-      rect(posX, posY, 30, 30);
-    }
-  }
-
   public void moveandDrawGuard(ArrayList<Wall> wallObjs, ArrayList<LargeObject> desks)
   {
-    if (!alive) return;
-    if (heading == 'u') posY-=2; 
-    else if (heading == 'd') posY+=2;
-    else if (heading == 'l') posX-=2;
-    else if (heading == 'r') posX+=2;
-
-    for (int i = 0; i < wallObjs.size (); i++)
+    if (!alive)
     {
-      int wallSX = wallObjs.get(i).startX;
-      int wallSY = wallObjs.get(i).startY;
-      int wallEX = wallObjs.get(i).endX;
-      int wallEY = wallObjs.get(i).endY;
-
-      if (posX < wallEX && posX+30 > wallSX && posY <= wallEY && posY+2 > wallEY && heading == 'u') 
-      {
-        if (turn == 'b') turnAround();
-        else if ( turn == 'l') turnLeft();
-        else if ( turn == 'r') turnRight();
-      }
-      if (posX < wallEX && posX+30 > wallSX && posY+30 >= wallSY && posY+28 < wallSY && heading == 'd')
-      {
-        if (turn == 'b') turnAround();
-        else if ( turn == 'l') turnLeft();
-        else if ( turn == 'r') turnRight();
-      }
-      if (posY < wallEY && posY+30 > wallSY && posX <= wallEX && posX+2 > wallEX  && heading == 'l')
-      {
-        if (turn == 'b') turnAround();
-        else if ( turn == 'l') turnLeft();
-        else if ( turn == 'r') turnRight();
-      }
-      if (posY < wallEY && posY+30 > wallSY && posX+30 >= wallSX && posX+28 < wallSX && heading == 'r')
-      {
-        if (turn == 'b') turnAround();
-        else if ( turn == 'l') turnLeft();
-        else if ( turn == 'r') turnRight();
-      }
-    }
-
-    for (int i = 0; i < desks.size (); i++)
-    {
-      int deskSX = desks.get(i).startX;
-      int deskSY = desks.get(i).startY;
-      int deskEX = desks.get(i).endX;
-      int deskEY = desks.get(i).endY;
-
-      if (posX < deskEX && posX+30 > deskSX && posY <= deskEY && posY+2 > deskEY && heading == 'u')
-
-      {
-        if (turn == 'b') turnAround();
-        else if ( turn == 'l') turnLeft();
-        else if ( turn == 'r') turnRight();
-      }      
-      if (posX < deskEX && posX+30 > deskSX && posY+30 >= deskSY && posY+28 < deskSY && heading == 'd')
-      {
-        if (turn == 'b') turnAround();
-        else if ( turn == 'l') turnLeft();
-        else if ( turn == 'r') turnRight();
-      }
-      if (posY < deskEY && posY+30 > deskSY && posX <= deskEX && posX+2 > deskEX  && heading == 'l')
-      {
-        if (turn == 'b') turnAround();
-        else if ( turn == 'l') turnLeft();
-        else if ( turn == 'r') turnRight();
-      }
-      if (posY < deskEY && posY+30 > deskSY && posX+30 >= deskSX && posX+28 < deskSX && heading == 'r')
-      {
-        if (turn == 'b') turnAround();
-        else if ( turn == 'l') turnLeft();
-        else if ( turn == 'r') turnRight();
-      }
-    }
-    
-    if (alive)
-    {
-      fill(255, 0, 0);
-      rect(posX, posY, 30, 30);
-    } else 
-    {
+      rectMode(CORNER);
       fill(255, 0, 255);
+      rect(posX, posY, 30, 30);
+      return;
+    } else {
+      if (heading == 'u') posY-=2; 
+      else if (heading == 'd') posY+=2;
+      else if (heading == 'l') posX-=2;
+      else if (heading == 'r') posX+=2;
+
+      for (int i = 0; i < wallObjs.size (); i++)
+      {
+        int wallSX = wallObjs.get(i).startX;
+        int wallSY = wallObjs.get(i).startY;
+        int wallEX = wallObjs.get(i).endX;
+        int wallEY = wallObjs.get(i).endY;
+
+        if (posX < wallEX && posX+30 > wallSX && posY <= wallEY && posY+2 > wallEY && heading == 'u') 
+        {
+          if (turn == 'b') turnAround();
+          else if ( turn == 'l') turnLeft();
+          else if ( turn == 'r') turnRight();
+        }
+        if (posX < wallEX && posX+30 > wallSX && posY+30 >= wallSY && posY+28 < wallSY && heading == 'd')
+        {
+          if (turn == 'b') turnAround();
+          else if ( turn == 'l') turnLeft();
+          else if ( turn == 'r') turnRight();
+        }
+        if (posY < wallEY && posY+30 > wallSY && posX <= wallEX && posX+2 > wallEX  && heading == 'l')
+        {
+          if (turn == 'b') turnAround();
+          else if ( turn == 'l') turnLeft();
+          else if ( turn == 'r') turnRight();
+        }
+        if (posY < wallEY && posY+30 > wallSY && posX+30 >= wallSX && posX+28 < wallSX && heading == 'r')
+        {
+          if (turn == 'b') turnAround();
+          else if ( turn == 'l') turnLeft();
+          else if ( turn == 'r') turnRight();
+        }
+      }
+
+      for (int i = 0; i < desks.size (); i++)
+      {
+        int deskSX = desks.get(i).startX;
+        int deskSY = desks.get(i).startY;
+        int deskEX = desks.get(i).endX;
+        int deskEY = desks.get(i).endY;
+
+        if (posX < deskEX && posX+30 > deskSX && posY <= deskEY && posY+2 > deskEY && heading == 'u')
+
+        {
+          if (turn == 'b') turnAround();
+          else if ( turn == 'l') turnLeft();
+          else if ( turn == 'r') turnRight();
+        }      
+        if (posX < deskEX && posX+30 > deskSX && posY+30 >= deskSY && posY+28 < deskSY && heading == 'd')
+        {
+          if (turn == 'b') turnAround();
+          else if ( turn == 'l') turnLeft();
+          else if ( turn == 'r') turnRight();
+        }
+        if (posY < deskEY && posY+30 > deskSY && posX <= deskEX && posX+2 > deskEX  && heading == 'l')
+        {
+          if (turn == 'b') turnAround();
+          else if ( turn == 'l') turnLeft();
+          else if ( turn == 'r') turnRight();
+        }
+        if (posY < deskEY && posY+30 > deskSY && posX+30 >= deskSX && posX+28 < deskSX && heading == 'r')
+        {
+          if (turn == 'b') turnAround();
+          else if ( turn == 'l') turnLeft();
+          else if ( turn == 'r') turnRight();
+        }
+      }
+      rectMode(CORNER);
+      fill(255, 0, 0);
       rect(posX, posY, 30, 30);
     }
   }
+
 
   private void turnAround()
   {
@@ -169,8 +157,6 @@ class Guard
           rectMode(CORNERS);
           noStroke();
           rect(visionSX, visionSY, visionEX, visionEY);
-          player.drawPlayer();
-          println("SPOTTED");
           return true;
         }
         for (int i = 0; i < wallObjs.size (); i++)
@@ -184,12 +170,10 @@ class Guard
             rectMode(CORNERS);
             noStroke();
             rect(visionSX, visionSY, visionEX, visionEY);
-            player.drawPlayer();
             return false;
           }
           if (testCount > 1000)
           {
-            println("We have a problem here");
             return false;
           }
         }
@@ -213,7 +197,6 @@ class Guard
           rectMode(CORNERS);
           noStroke();
           rect(visionSX, visionSY, visionEX, visionEY);
-          println("SPOTTED");
           return true;
         }
         for (int i = 0; i < wallObjs.size (); i++)
@@ -227,12 +210,10 @@ class Guard
             rectMode(CORNERS);
             noStroke();
             rect(visionSX, visionSY, visionEX, visionEY);
-            player.drawPlayer();
             return false;
           }
           if (testCount > 1000)
           {
-            println("We have a problem here");
             return false;
           }
         }
@@ -256,9 +237,7 @@ class Guard
           fill(255, 255, 0, 75);
           rectMode(CORNERS);
           noStroke();
-          rect(visionSX, visionSY, visionEX, visionEY);
-          player.drawPlayer();
-          println("SPOTTED");
+          rect(visionSX, visionSY, visionEX, visionEY); 
           return true;
         }
         for (int i = 0; i < wallObjs.size (); i++)
@@ -272,12 +251,10 @@ class Guard
             rectMode(CORNERS);
             noStroke();
             rect(visionSX, visionSY, visionEX, visionEY);
-            player.drawPlayer();
             return false;
           }
           if (testCount > 1000)
           {
-            println("We have a problem here");
             return false;
           }
         }
@@ -301,7 +278,6 @@ class Guard
           rectMode(CORNERS);
           noStroke();
           rect(visionSX, visionSY, visionEX, visionEY);
-          println("SPOTTED");
           return true;
         }
         for (int i = 0; i < wallObjs.size (); i++)
@@ -315,19 +291,12 @@ class Guard
             rectMode(CORNERS);
             noStroke();
             rect(visionSX, visionSY, visionEX, visionEY);
-            player.drawPlayer();
-            return false;
-          }
-          if (testCount > 1000)
-          {
-            println("We have a problem here");
             return false;
           }
         }
         visionEX++;
       }
     }
-    println("Fell out the bottom.");
     return false;
   }
 }
