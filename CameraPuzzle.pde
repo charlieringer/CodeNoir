@@ -12,8 +12,8 @@ class CameraPuzzle
     walls.add(new CPWall(0, height-5, width, height));
     walls.add(new CPWall(width-5, 0, width, height));
 
-    int gap = height/2;
-    camera = new Camera(10, gap+15, 'r', 2);
+    int gap = height/2-25;
+    camera = new Camera(10, gap+25, 'r', 2);
 
     for (int i = 40; i < width-40; i+=20)
     {
@@ -22,13 +22,13 @@ class CameraPuzzle
       else if ( move == 1 && gap > 60 ) gap-=15;
 
       walls.add(new CPWall(i, 0, i+20, gap));
-      walls.add(new CPWall(i, gap+40, i+20, height));
+      walls.add(new CPWall(i, gap+50, i+20, height));
     }
   }
 
   void reset() {
-    int gap = height/2;
-    camera = new Camera(10, gap+15, 'r', 2);
+    int gap = height/2-25;
+    camera = new Camera(10, gap+25, 'r', 2);
     gameOver = false;
   }
 
