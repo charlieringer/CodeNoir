@@ -9,6 +9,7 @@ class Level
   ArrayList<Guard> guards = new ArrayList<Guard>();
   ArrayList<PapersObject> papers = new ArrayList<PapersObject>();
   Player player;
+  Endpoint end;
 
   LevelState levelState;
 
@@ -41,7 +42,6 @@ class Level
     walls.add(new Wall(1170, 160, 1200, 180));
 
     walls.add(new Wall(240, 0, 260, 50));
-    walls.add(new Wall(830, 400, 900, 470));
 
     desks.add(new Desk( 60, 120, 160, 140));
 
@@ -82,6 +82,7 @@ class Level
 
     terminals.add(new TerminalObj(85, 120, 105, 140, 4, 4, this, doors.get(0)));
     terminals.add(new TerminalObj(355, 560, 375, 580, 4, 4, this, secCams.get(0)));
+    end = new Endpoint(1100, 540, 1180, 580);
   }
 
   void drawLevel()
@@ -139,10 +140,12 @@ class Level
       guard.moveandDrawGuard(walls, desks);
       if (!gameOver) gameOver = guard.checkForPlayer(player, walls);
     }
+    end.drawEndpoint();
     player.updateAndDraw();
     player.checkVision(rooms);
     checkPlayerAdjacency();
     if (gameOver) state = State.POSTGAMELOSE;
+    if (end.levelCompleted(player)) state = State.POSTGAMEWIN;
   }
 
 

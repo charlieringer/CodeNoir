@@ -8,12 +8,12 @@ enum State {
     POSTGAMELOSE //6
 }
 
-enum LevelState {
+  enum LevelState {
   LEVEL, //0
-  TERMINAL, //1
-  LOCKPICK, //2
-  FINGERPRINT, //3
-  CAMERA, //4 
-  SERVER, //5
-  PAPERS //6
+    TERMINAL, //1
+    LOCKPICK, //2
+    FINGERPRINT, //3
+    CAMERA, //4 
+    SERVER, //5
+    PAPERS //6
 }

@@ -8,36 +8,44 @@ class Terminal
   Level parentLevel;
   Door linkedDoor;
   SecurityCamera linkedCamera;
+  String data;
 
-  Terminal(int codeLength, int difficutly, Level level)
+  Terminal(int codeLength, int difficutly, Level level, Door door, SecurityCamera cam, String dataPath)
   {
     //Resizing  will need to change when we make this properly
     backgroundImage.resize(400, 400);
     puzzle = new HackPuzzle(codeLength, 1, difficutly);
     subroutines = new ArrayList<Subroutine>();
     parentLevel = level;
-  }
 
-  Terminal(int codeLength, int difficutly, Level level, Door door)
-  {
-    //Resizing  will need to change when we make this properly
-    backgroundImage.resize(400, 400);
-    puzzle = new HackPuzzle(codeLength, 1, difficutly);
-    subroutines = new ArrayList<Subroutine>();
-    subroutines.add(new DoorSubroutine(door));
-    parentLevel = level;
     linkedDoor = door;
+    if (door != null) subroutines.add(new DoorSubroutine(door));
+
+    linkedCamera = cam;
+    if (linkedCamera != null) subroutines.add(new CameraSubroutine(cam));
+
+    data = dataPath;
+    if (data != null) subroutines.add(new DataSubroutine(data));
   }
 
-  Terminal(int codeLength, int difficutly, Level level, SecurityCamera cam)
-  {
-    //Resizing  will need to change when we make this properly
-    backgroundImage.resize(400, 400);
-    puzzle = new HackPuzzle(codeLength, 1, difficutly);
-    subroutines = new ArrayList<Subroutine>();
-     subroutines.add(new CameraSubroutine(cam));
-    parentLevel = level;
-    linkedCamera = cam;
+  Terminal(int codeLength, int difficutly, Level level, Door door) { 
+    this(codeLength, difficutly, level, door, null, null);
+  }
+  Terminal(int codeLength, int difficutly, Level level, SecurityCamera cam) { 
+    this(codeLength, difficutly, level, null, cam, null);
+  }
+  Terminal(int codeLength, int difficutly, Level level, String data ) { 
+    this(codeLength, difficutly, level, null, null, data);
+  }
+
+  Terminal(int codeLength, int difficutly, Level level, Door door, SecurityCamera cam ) { 
+    this(codeLength, difficutly, level, door, cam, null);
+  }
+  Terminal(int codeLength, int difficutly, Level level, Door door, String data ) { 
+    this(codeLength, difficutly, level, door, null, data);
+  }
+  Terminal(int codeLength, int difficutly, Level level, SecurityCamera cam, String data ) { 
+    this(codeLength, difficutly, level, null, cam, data);
   }
 
   void drawTerminal()
@@ -141,7 +149,8 @@ class Terminal
     }
     void execute()
     {
-      linkedDoor.open();
+      if (linkedDoor.locked) linkedDoor.open();
+      else linkedDoor.close();
     }
   }
 
@@ -161,12 +170,12 @@ class Terminal
       {
         text("Turn off camera", x, y);
       } else {
-        text("Turn on camerar", x, y);
+        text("Turn on camera", x, y);
       }
     }
     void execute()
     {
-      linkedCam.on = false;
+      linkedCam.on = !linkedCam.on;
     }
   }
 
@@ -174,9 +183,19 @@ class Terminal
   class DataSubroutine extends Subroutine
   {
     StringList data;
-    DataSubroutine()
+    boolean displayingData = false;
+
+    DataSubroutine(String path)
     {
-      title = "Read data";
+    }
+    void drawSubroutine(int x, int y)
+    {
+      if (!displayingData)
+      {
+        text("Read File", x, y);
+      } else {
+        text("Display file here", x, y);
+      }
     }
 
     void execute()

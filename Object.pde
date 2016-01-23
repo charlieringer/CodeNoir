@@ -64,16 +64,6 @@ class TerminalObj extends SmallObject
     assert(linkedTerm != null);
   }
 
-  TerminalObj(int newSX, int newSY, int newEX, int newEY, int codeLength, int difficulty, Level level)
-  {
-    startX = newSX;
-    startY = newSY;
-    endX = newEX;
-    endY = newEY;
-    linkedTerm = new Terminal(codeLength, difficulty, level);
-    assert(linkedTerm != null);
-  }
-
   void drawObj()
   {
     fill(128);
@@ -117,7 +107,7 @@ class PapersObject extends SmallObject
     fill(255);
     rect(100, 50, width-100, height-50);
     fill(0);
-    for(int i = 0; i < dataList.size(); i++)
+    for (int i = 0; i < dataList.size(); i++)
     {
       text(dataList.get(i), 150, 50*i);
     }

@@ -24,8 +24,10 @@ void draw()
     level.drawLevel();
     break;
   case POSTGAMEWIN:
+    background(255);
     break;
   case POSTGAMELOSE:
+    background(0);
     break;
   }
 }
