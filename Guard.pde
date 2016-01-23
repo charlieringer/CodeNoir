@@ -151,7 +151,7 @@ class Guard
       {
         testCount++;
         if (visionEY <= player.posY+30 && visionSY > player.posY+30 && 
-          ((player.posX+15) > visionSX) && ((player.posX+15) < visionEX) ) 
+          ((player.posX+30) > visionSX) && ((player.posX) < visionEX) ) 
         {
           fill(255, 255, 0, 75);
           rectMode(CORNERS);
@@ -191,7 +191,7 @@ class Guard
       {
         testCount++;
         if (visionEY >= player.posY && visionSY < player.posY && 
-          ((player.posX+15) > visionSX) && ((player.posX+15) < visionEX) ) 
+          ((player.posX+30) > visionSX) && ((player.posX) < visionEX) ) 
         {
           fill(255, 255, 0, 75);
           rectMode(CORNERS);
@@ -232,7 +232,7 @@ class Guard
       {
         testCount++;
         if (visionEX <= player.posX+30 && visionSX > player.posX+30 && 
-          ((player.posY+15) > visionSY) && ((player.posY+15) < visionEY) ) 
+          ((player.posY+30) > visionSY) && ((player.posY) < visionEY) ) 
         {
           fill(255, 255, 0, 75);
           rectMode(CORNERS);
@@ -272,7 +272,7 @@ class Guard
       {
         testCount++;
         if (visionEX >= player.posX && visionSX < player.posX && 
-          ((player.posY+15) > visionSY) && ((player.posY+15) < visionEY) ) 
+          ((player.posY+30) > visionSY) && ((player.posY) < visionEY) ) 
         {
           fill(255, 255, 0, 75);
           rectMode(CORNERS);
