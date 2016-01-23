@@ -53,6 +53,16 @@ class TerminalObj extends SmallObject
     linkedTerm = new Terminal(codeLength, difficulty, level, linkedDoor);
     assert(linkedTerm != null);
   }
+  
+    TerminalObj(int newSX, int newSY, int newEX, int newEY, int codeLength, int difficulty, Level level, Door linkedDoor, String data)
+  {
+    startX = newSX;
+    startY = newSY;
+    endX = newEX;
+    endY = newEY;
+    linkedTerm = new Terminal(codeLength, difficulty, level, linkedDoor, data);
+    assert(linkedTerm != null);
+  }
 
   TerminalObj(int newSX, int newSY, int newEX, int newEY, int codeLength, int difficulty, Level level, SecurityCamera linkedCam)
   {

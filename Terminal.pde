@@ -8,7 +8,8 @@ class Terminal
   Level parentLevel;
   Door linkedDoor;
   SecurityCamera linkedCamera;
-  String data;
+  StringList dataStrings = new StringList();
+  boolean drawingData = false;
 
   Terminal(int codeLength, int difficutly, Level level, Door door, SecurityCamera cam, String dataPath)
   {
@@ -24,8 +25,14 @@ class Terminal
     linkedCamera = cam;
     if (linkedCamera != null) subroutines.add(new CameraSubroutine(cam));
 
-    data = dataPath;
-    if (data != null) subroutines.add(new DataSubroutine(data));
+    if (dataPath != null)
+    {
+      String data[] = loadStrings(dataPath);
+      for (String line : data) {
+        dataStrings.append(line);
+      }
+      subroutines.add(new DataSubroutine(this));
+    }
   }
 
   Terminal(int codeLength, int difficutly, Level level, Door door) { 
@@ -56,7 +63,15 @@ class Terminal
     if (!puzzle.finished)
     {
       puzzle.drawGame();
-    } else {
+    } else if (drawingData)
+    {
+      fill(255);
+      for (int i = 0; i < dataStrings.size(); i++)
+      {
+        text(dataStrings.get(i), 150, 50*i);
+      }
+    } else 
+    {
       textSize(10);
       fill(0, 255, 0);
       text("Welcome USER, please select function: ", 65, 60);
@@ -68,7 +83,8 @@ class Terminal
   {
     if (key == TAB)
     {
-      parentLevel.levelState = LevelState.LEVEL;
+      if (drawingData) drawingData = false;
+      else parentLevel.levelState = LevelState.LEVEL;
     }
     if (!puzzle.finished)
     {
@@ -182,24 +198,18 @@ class Terminal
 
   class DataSubroutine extends Subroutine
   {
-    StringList data;
-    boolean displayingData = false;
-
-    DataSubroutine(String path)
-    {
+    Terminal parentTerm;
+    DataSubroutine(Terminal parent) {
+      parentTerm = parent;
     }
     void drawSubroutine(int x, int y)
     {
-      if (!displayingData)
-      {
-        text("Read File", x, y);
-      } else {
-        text("Display file here", x, y);
-      }
+      text("Read File", x, y);
     }
 
     void execute()
     {
+      parentTerm.drawingData = true;
     }
   }
 }

@@ -9,6 +9,7 @@ class Level
   ArrayList<Guard> guards = new ArrayList<Guard>();
   ArrayList<PapersObject> papers = new ArrayList<PapersObject>();
   Player player;
+  Server server;
   Endpoint end;
 
   LevelState levelState;
@@ -80,7 +81,11 @@ class Level
     secCams.add(new SecurityCamera(700, 20, 500, 160, 900, 160, 700, 20));
     player = new Player(walls, desks, doors, guards);
 
-    terminals.add(new TerminalObj(85, 120, 105, 140, 4, 4, this, doors.get(0)));
+    //RIGHT NOW WE HAVE A WALL BELOW THE SERVER TO STOP THE USER WALKING OVER IT
+    walls.add(new Wall(830, 390, 930, 450));
+    server = new Server(830, 390, 930, 450);
+
+    terminals.add(new TerminalObj(85, 120, 105, 140, 4, 4, this, doors.get(0), "Testdata.txt"));
     terminals.add(new TerminalObj(355, 560, 375, 580, 4, 4, this, secCams.get(0)));
     end = new Endpoint(1100, 540, 1180, 580);
   }
@@ -140,6 +145,7 @@ class Level
       guard.moveandDrawGuard(walls, desks);
       if (!gameOver) gameOver = guard.checkForPlayer(player, walls);
     }
+    server.drawOnLevel();
     end.drawEndpoint();
     player.updateAndDraw();
     player.checkVision(rooms);
@@ -217,6 +223,20 @@ class Level
         status.drawStatusBar("Papers - press SPACE to read");
         return;
       }
+    }
+
+    int serverSX = server.sX;
+    int serverSY = server.sY;
+    int serverEX = server.eX;
+    int serverEY = server.eY;
+
+    if ((playerSX == serverEX && playerSY < serverEY && playerEY > serverSY) || 
+      (playerSY == serverEY && playerSX < serverEX && playerEX > serverSX) || 
+      (playerEX == serverSX && playerSY < serverEY && playerEY > serverSY) || 
+      (playerEY == serverSY && playerSX < serverEX && playerEX > serverSX))
+    {
+      status.drawStatusBar("Server - press SPACE to download data");
+      return;
     }
     status.drawStatusBar("");
   }
@@ -336,6 +356,20 @@ class Level
           currPapers = papers.get(i);
           return;
         }
+      }
+
+      int serverSX = server.sX;
+      int serverSY = server.sY;
+      int serverEX = server.eX;
+      int serverEY = server.eY;
+
+      if ((playerSX == serverEX && playerSY < serverEY && playerEY > serverSY) || 
+        (playerSY == serverEY && playerSX < serverEX && playerEX > serverSX) || 
+        (playerEX == serverSX && playerSY < serverEY && playerEY > serverSY) || 
+        (playerEY == serverSY && playerSX < serverEX && playerEX > serverSX))
+      {
+        player.hasData = true;
+        return;
       }
     }
     player.handleKey(true);
