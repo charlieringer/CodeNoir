@@ -1,4 +1,4 @@
-class Maze {
+class ServerPuzzle {
   PFont pixel;
   PImage lock, Key;
   BufferedReader reader;
@@ -16,7 +16,7 @@ class Maze {
   ArrayList<cornerWire> corners = new ArrayList<cornerWire>();
   String[] separate = new String[55];
 
-  Maze() {
+  ServerPuzzle() {
     pixel = createFont("west_england.ttf", 38);
     lock = loadImage("lock.png");
     Key = loadImage("key.png");

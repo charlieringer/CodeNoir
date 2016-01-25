@@ -17,9 +17,7 @@ class Level
   Terminal currTerminal;
   LockPuzzle currLock;
   PapersObject currPapers;
-  //Current ServerPuzzle
   //Current FingerPritnPuzzle
-  //Current Lock Puzzle
   //Current Camera Puzzle
 
 
@@ -109,6 +107,7 @@ class Level
     case CAMERA:
       break;
     case SERVER:
+      server.drawOnOwn();
       break;
     case PAPERS:
       currPapers.displayOnOwn();
@@ -368,7 +367,7 @@ class Level
         (playerEX == serverSX && playerSY < serverEY && playerEY > serverSY) || 
         (playerEY == serverSY && playerSX < serverEX && playerEX > serverSX))
       {
-        player.hasData = true;
+        levelState = LevelState.SERVER;
         return;
       }
     }
