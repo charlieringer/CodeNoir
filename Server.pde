@@ -20,8 +20,12 @@ class Server
   }
   
   void drawOnOwn()
-  {
-    puzzle.drawMaze();
+  { 
+    if(puzzle.gameWin == false) {
+      puzzle.drawMaze();
+    } else {
+      puzzle.win();
+    }
   }
   
   
