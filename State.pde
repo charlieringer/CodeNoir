@@ -1,5 +1,5 @@
 enum State {
-  FRONTEND, //0
+    FRONTEND, //0
     CONTROLS, //1
     LEVELSELECT, //2
     SETTINGS, //3
@@ -8,8 +8,8 @@ enum State {
     POSTGAMELOSE //6
 }
 
-  enum LevelState {
-  LEVEL, //0
+enum LevelState {
+    LEVEL, //0
     TERMINAL, //1
     LOCKPICK, //2
     FINGERPRINT, //3

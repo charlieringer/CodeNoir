@@ -81,7 +81,7 @@ class Level
 
     //RIGHT NOW WE HAVE A WALL BELOW THE SERVER TO STOP THE USER WALKING OVER IT
     walls.add(new Wall(830, 390, 930, 450));
-    server = new Server(830, 390, 930, 450);
+    server = new Server(830, 390, 930, 450, this);
 
     terminals.add(new TerminalObj(85, 120, 105, 140, 4, 4, this, doors.get(0), "Testdata.txt"));
     terminals.add(new TerminalObj(355, 560, 375, 580, 4, 4, this, secCams.get(0)));
@@ -282,6 +282,7 @@ class Level
     case CAMERA:
       break;
     case SERVER:
+    server.handleKey();
       break;
     case PAPERS:
       break;
@@ -372,5 +373,27 @@ class Level
       }
     }
     player.handleKey(true);
+  }
+
+  void handleMousePressed()
+  {
+    switch(levelState)
+    {
+    case LEVEL:
+      break;
+    case TERMINAL:
+      break;
+    case FINGERPRINT:
+      break;
+    case LOCKPICK:
+      break;
+    case CAMERA:
+      break;
+    case SERVER:
+      server.handleMousePressed();
+      break;
+    case PAPERS:
+      break;
+    }
   }
 }

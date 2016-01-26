@@ -80,4 +80,23 @@ void keyReleased()
 void mousePressed()
 {
   println(mouseX, mouseY);
+
+  switch(state)
+  {
+  case FRONTEND:
+    break;
+  case CONTROLS:
+    break;
+  case LEVELSELECT:
+    break;
+  case SETTINGS:
+    break;
+  case INGAME:
+    level.handleMousePressed();
+    break;
+  case POSTGAMEWIN:
+    break;
+  case POSTGAMELOSE:
+    break;
+  }
 }
