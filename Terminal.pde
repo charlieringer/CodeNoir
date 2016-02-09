@@ -11,11 +11,11 @@ class Terminal
   StringList dataStrings = new StringList();
   boolean drawingData = false;
 
-  Terminal(int codeLength, int difficutly, Level level, Door door, SecurityCamera cam, String dataPath)
+  Terminal(int codeLength, Level level, Door door, SecurityCamera cam, String dataPath)
   {
     //Resizing  will need to change when we make this properly
     backgroundImage.resize(400, 400);
-    puzzle = new HackPuzzle(codeLength, 1, difficutly);
+    puzzle = new HackPuzzle(codeLength);
     subroutines = new ArrayList<Subroutine>();
     parentLevel = level;
 
@@ -35,24 +35,24 @@ class Terminal
     }
   }
 
-  Terminal(int codeLength, int difficutly, Level level, Door door) { 
-    this(codeLength, difficutly, level, door, null, null);
+  Terminal(int codeLength, Level level, Door door) { 
+    this(codeLength, level, door, null, null);
   }
-  Terminal(int codeLength, int difficutly, Level level, SecurityCamera cam) { 
-    this(codeLength, difficutly, level, null, cam, null);
+  Terminal(int codeLength, Level level, SecurityCamera cam) { 
+    this(codeLength, level, null, cam, null);
   }
-  Terminal(int codeLength, int difficutly, Level level, String data ) { 
-    this(codeLength, difficutly, level, null, null, data);
+  Terminal(int codeLength, Level level, String data ) { 
+    this(codeLength, level, null, null, data);
   }
 
-  Terminal(int codeLength, int difficutly, Level level, Door door, SecurityCamera cam ) { 
-    this(codeLength, difficutly, level, door, cam, null);
+  Terminal(int codeLength, Level level, Door door, SecurityCamera cam ) { 
+    this(codeLength, level, door, cam, null);
   }
-  Terminal(int codeLength, int difficutly, Level level, Door door, String data ) { 
-    this(codeLength, difficutly, level, door, null, data);
+  Terminal(int codeLength, Level level, Door door, String data ) { 
+    this(codeLength, level, door, null, data);
   }
-  Terminal(int codeLength, int difficutly, Level level, SecurityCamera cam, String data ) { 
-    this(codeLength, difficutly, level, null, cam, data);
+  Terminal(int codeLength, Level level, SecurityCamera cam, String data ) { 
+    this(codeLength, level, null, cam, data);
   }
 
   void drawTerminal()
@@ -229,12 +229,12 @@ class HackPuzzle
   int startRange;
   int endRange;
 
-  HackPuzzle(int codelength, int startrange, int endrange)
+  HackPuzzle(int codelength)
   {
     //Standard setting of these vals based on what is passed in to the constuctor
     codeLength = codelength;
-    startRange = startrange;
-    endRange = endrange;
+    startRange = 1;
+    endRange = 4;
     //Initialise all of the data
     guess = new Guess();
     previousGuesses = new GuessList();

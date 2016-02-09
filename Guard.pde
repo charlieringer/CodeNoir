@@ -8,11 +8,11 @@ class Guard
 {
   int posX;
   int posY;
-  char heading; 
-  char turn;
+  String heading; 
+  String turn;
   boolean alive = true;
 
-  Guard(int posX, int posY, char heading, char turn)
+  Guard(int posX, int posY, String heading, String turn)
   {
     this.posX = posX;
     this.posY = posY;
@@ -29,10 +29,10 @@ class Guard
       rect(posX, posY, 30, 30);
       return;
     } else {
-      if (heading == 'u') posY-=2; 
-      else if (heading == 'd') posY+=2;
-      else if (heading == 'l') posX-=2;
-      else if (heading == 'r') posX+=2;
+      if (heading.equals("u")) posY-=2; 
+      else if (heading.equals("d")) posY+=2;
+      else if (heading.equals("l")) posX-=2;
+      else if (heading.equals("r")) posX+=2;
 
       for (int i = 0; i < wallObjs.size (); i++)
       {
@@ -41,29 +41,29 @@ class Guard
         int wallEX = wallObjs.get(i).endX;
         int wallEY = wallObjs.get(i).endY;
 
-        if (posX < wallEX && posX+30 > wallSX && posY <= wallEY && posY+2 > wallEY && heading == 'u') 
+        if (posX < wallEX && posX+30 > wallSX && posY <= wallEY && posY+2 > wallEY && heading.equals("u")) 
         {
-          if (turn == 'b') turnAround();
-          else if ( turn == 'l') turnLeft();
-          else if ( turn == 'r') turnRight();
+          if (turn.equals("b")) turnAround();
+          else if ( turn.equals("l")) turnLeft();
+          else if ( turn.equals("r")) turnRight();
         }
-        if (posX < wallEX && posX+30 > wallSX && posY+30 >= wallSY && posY+28 < wallSY && heading == 'd')
+        if (posX < wallEX && posX+30 > wallSX && posY+30 >= wallSY && posY+28 < wallSY && heading.equals("d"))
         {
-          if (turn == 'b') turnAround();
-          else if ( turn == 'l') turnLeft();
-          else if ( turn == 'r') turnRight();
+          if (turn.equals("b")) turnAround();
+          else if ( turn.equals("l")) turnLeft();
+          else if ( turn.equals("r")) turnRight();
         }
-        if (posY < wallEY && posY+30 > wallSY && posX <= wallEX && posX+2 > wallEX  && heading == 'l')
+        if (posY < wallEY && posY+30 > wallSY && posX <= wallEX && posX+2 > wallEX  && heading.equals("l"))
         {
-          if (turn == 'b') turnAround();
-          else if ( turn == 'l') turnLeft();
-          else if ( turn == 'r') turnRight();
+          if (turn.equals("b")) turnAround();
+          else if ( turn.equals("l")) turnLeft();
+          else if ( turn.equals("r")) turnRight();
         }
-        if (posY < wallEY && posY+30 > wallSY && posX+30 >= wallSX && posX+28 < wallSX && heading == 'r')
+        if (posY < wallEY && posY+30 > wallSY && posX+30 >= wallSX && posX+28 < wallSX && heading.equals("r"))
         {
-          if (turn == 'b') turnAround();
-          else if ( turn == 'l') turnLeft();
-          else if ( turn == 'r') turnRight();
+          if (turn.equals("b")) turnAround();
+          else if ( turn.equals("l")) turnLeft();
+          else if ( turn.equals("r")) turnRight();
         }
       }
 
@@ -74,30 +74,30 @@ class Guard
         int deskEX = desks.get(i).endX;
         int deskEY = desks.get(i).endY;
 
-        if (posX < deskEX && posX+30 > deskSX && posY <= deskEY && posY+2 > deskEY && heading == 'u')
+        if (posX < deskEX && posX+30 > deskSX && posY <= deskEY && posY+2 > deskEY && heading.equals("u"))
 
         {
-          if (turn == 'b') turnAround();
-          else if ( turn == 'l') turnLeft();
-          else if ( turn == 'r') turnRight();
+          if (turn.equals("b")) turnAround();
+          else if ( turn.equals("l")) turnLeft();
+          else if ( turn.equals("r")) turnRight();
         }      
-        if (posX < deskEX && posX+30 > deskSX && posY+30 >= deskSY && posY+28 < deskSY && heading == 'd')
+        if (posX < deskEX && posX+30 > deskSX && posY+30 >= deskSY && posY+28 < deskSY && heading.equals("d"))
         {
-          if (turn == 'b') turnAround();
-          else if ( turn == 'l') turnLeft();
-          else if ( turn == 'r') turnRight();
+          if (turn.equals("b")) turnAround();
+          else if ( turn.equals("l")) turnLeft();
+          else if ( turn.equals("r")) turnRight();
         }
-        if (posY < deskEY && posY+30 > deskSY && posX <= deskEX && posX+2 > deskEX  && heading == 'l')
+        if (posY < deskEY && posY+30 > deskSY && posX <= deskEX && posX+2 > deskEX  && heading.equals("l"))
         {
-          if (turn == 'b') turnAround();
-          else if ( turn == 'l') turnLeft();
-          else if ( turn == 'r') turnRight();
+          if (turn.equals("b")) turnAround();
+          else if ( turn.equals("l")) turnLeft();
+          else if ( turn.equals("r")) turnRight();
         }
-        if (posY < deskEY && posY+30 > deskSY && posX+30 >= deskSX && posX+28 < deskSX && heading == 'r')
+        if (posY < deskEY && posY+30 > deskSY && posX+30 >= deskSX && posX+28 < deskSX && heading.equals("r"))
         {
-          if (turn == 'b') turnAround();
-          else if ( turn == 'l') turnLeft();
-          else if ( turn == 'r') turnRight();
+          if (turn.equals("b")) turnAround();
+          else if ( turn.equals("l")) turnLeft();
+          else if ( turn.equals("r")) turnRight();
         }
       }
       rectMode(CORNER);
@@ -109,26 +109,26 @@ class Guard
 
   private void turnAround()
   {
-    if (heading == 'u') heading = 'd'; 
-    else if (heading == 'd') heading = 'u'; 
-    else if (heading == 'l') heading = 'r'; 
-    else if (heading == 'r') heading = 'l';
+    if (heading.equals("u")) heading = "d"; 
+    else if (heading.equals("d")) heading = "u"; 
+    else if (heading.equals("l")) heading = "r"; 
+    else if (heading.equals("r")) heading = "l";
   }
 
   private void turnLeft()
   {
-    if (heading == 'u') heading = 'l'; 
-    else if (heading == 'd') heading = 'r'; 
-    else if (heading == 'l') heading = 'd'; 
-    else if (heading == 'r') heading = 'u';
+    if (heading.equals("u")) heading = "l"; 
+    else if (heading.equals("d")) heading = "r"; 
+    else if (heading.equals("l")) heading = "d"; 
+    else if (heading.equals("r")) heading = "u";
   }
 
   private void turnRight()
   {
-    if (heading == 'u') heading = 'r'; 
-    else if (heading == 'd') heading = 'l'; 
-    else if (heading == 'l') heading = 'u'; 
-    else if (heading == 'r') heading = 'd';
+    if (heading.equals("u")) heading = "r"; 
+    else if (heading.equals("d")) heading = "l"; 
+    else if (heading.equals("l")) heading = "u"; 
+    else if (heading.equals("r")) heading = "d";
   }
 
   public boolean checkForPlayer(Player player, ArrayList<Wall> wallObjs)
@@ -138,7 +138,7 @@ class Guard
     int visionSY;
     int visionEX;
     int visionEY;
-    if (heading == 'u')
+    if (heading.equals("u"))
     {
 
       visionSY = visionEY = posY;
@@ -179,7 +179,7 @@ class Guard
         }
         visionEY--;
       }
-    } else if (heading == 'd') 
+    } else if (heading.equals("d")) 
     {
       visionSY = visionEY = posY+30;
       visionSX = posX;
@@ -220,7 +220,7 @@ class Guard
         visionEY++;
       }
       return false;
-    } else if (heading == 'l')
+    } else if (heading.equals("l"))
     {
       visionSX = visionEX = posX;
       visionSY = posY;
@@ -260,7 +260,7 @@ class Guard
         }
         visionEX--;
       }
-    } else if (heading == 'r')
+    } else if (heading.equals("r"))
     {
       visionSX = visionEX = posX+30;
       visionSY = posY;

@@ -2,20 +2,20 @@
 
 class Door extends LargeObject
 {
-  char orientaion; 
-  char doorType; //l = lockpick, t = terminal, f = fingerprint
+  String orientaion; 
+  String doorType; //l = lockpick, t = terminal, f = fingerprint
   int lengthOfTumbler;
   Level parentLevel;
 
   LockPuzzle doorLock;
-  Door(int newSX, int newSY, char orient, char type, Level parentLevel, int tumblerLength)
+  Door(int newSX, int newSY, String orient, String type, Level parentLevel, int tumblerLength)
   {
     this.parentLevel = parentLevel;
     if (tumblerLength != 0)
     {
       doorLock = new LockPuzzle(tumblerLength, this, parentLevel);
     }
-    if ((orientaion = orient) == 'v')
+    if ((orientaion = orient).equals("v"))
     {
       startX = newSX;
       startY = newSY;
@@ -30,7 +30,7 @@ class Door extends LargeObject
     locked = true;
     doorType = type;
   }
-  Door(int newSX, int newSY, char orient, char type, Level parentLevel)
+  Door(int newSX, int newSY, String orient, String type, Level parentLevel)
   {
     this( newSX, newSY, orient, type, parentLevel, 0);
   }
@@ -44,7 +44,7 @@ class Door extends LargeObject
   void open()
   {
     locked = false;
-    if (orientaion == 'v')
+    if (orientaion.equals("v"))
     {
       endY = startY+20;
     } else {
@@ -55,7 +55,7 @@ class Door extends LargeObject
   void close()
   {
     locked = true;
-    if (orientaion == 'v')
+    if (orientaion.equals("v"))
     {
       endY = startY+80;
     } else {

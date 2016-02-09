@@ -26,66 +26,152 @@ class Level
 
   Level() {
     levelState = LevelState.LEVEL;
-    walls.add(new Wall(0, 0, width, 20));
-    walls.add(new Wall(0, 580, width, 600));
-    walls.add(new Wall(0, 0, 20, 600));
-    walls.add(new Wall(width-20, 0, width, 600));
 
-    walls.add(new Wall(240, 130, 260, 600));
-    walls.add(new Wall(660, 160, 680, 600));
-    walls.add(new Wall(width-120, 160, width-100, 600));
+    XML level = loadXML("testlevel.xml");
 
-    walls.add(new Wall(240, 160, 410, 180));
-    walls.add(new Wall(490, 160, 830, 180));
-    walls.add(new Wall(910, 160, 1110, 180));
-    walls.add(new Wall(1170, 160, 1200, 180));
+    XML[] wallXML = level.getChildren("wall");
+    for (int i = 0; i < wallXML.length; i++) {
+      int sX = wallXML[i].getInt("sX");
+      int sY = wallXML[i].getInt("sY");
+      int eX = wallXML[i].getInt("eX");
+      int eY = wallXML[i].getInt("eY");
+      walls.add(new Wall(sX, sY, eX, eY));
+    }
 
-    walls.add(new Wall(240, 0, 260, 50));
+    XML[] roomXML = level.getChildren("room");
+    for (int i = 0; i < roomXML.length; i++) {
+      int sX = roomXML[i].getInt("sX");
+      int sY = roomXML[i].getInt("sY");
+      int eX = roomXML[i].getInt("eX");
+      int eY = roomXML[i].getInt("eY");
+      rooms.add(new Room(sX, sY, eX, eY));
+    }
 
-    desks.add(new Desk( 60, 120, 160, 140));
+    XML[] deskXML = level.getChildren("desk");
+    for (int i = 0; i < deskXML.length; i++) {
+      int sX = deskXML[i].getInt("sX");
+      int sY = deskXML[i].getInt("sY");
+      int eX = deskXML[i].getInt("eX");
+      int eY = deskXML[i].getInt("eY");
+      desks.add(new Desk(sX, sY, eX, eY));
+    }
 
-    desks.add(new Desk( 320, 260, 420, 280));
-    desks.add(new Desk( 320, 360, 420, 380));
-    desks.add(new Desk( 320, 460, 420, 480));
-    desks.add(new Desk( 320, 560, 420, 580));
+    XML[] guardXML = level.getChildren("guard");
+    for (int i = 0; i < guardXML.length; i++) {
+      int sX = guardXML[i].getInt("sX");
+      int sY = guardXML[i].getInt("sY");
+      String facing = guardXML[i].getString("startingOrientation");
+      String turning = guardXML[i].getString("onCollisionTurn");
+      guards.add(new Guard(sX, sY, facing, turning));
+    }
 
-    desks.add(new Desk( 520, 260, 620, 280));
-    desks.add(new Desk( 520, 360, 620, 380));
-    desks.add(new Desk( 520, 460, 620, 480));
-    desks.add(new Desk( 520, 560, 620, 580));
+    XML[] papersXML = level.getChildren("paper");
+    for (int i = 0; i < papersXML.length; i++) {
+      int sX = papersXML[i].getInt("sX");
+      int sY = papersXML[i].getInt("sY");
+      String dataPath = papersXML[i].getString("dataPath");
+      papers.add(new PapersObject(sX, sY, dataPath, this));
+    }
 
-    desks.add(new Desk(120, 270, 140, 360));
+    XML[] cameraXML = level.getChildren("camera");
+    for (int i = 0; i < cameraXML.length; i++)
+    {
+      int p1X = cameraXML[i].getInt("pointOneX");
+      int p1Y = cameraXML[i].getInt("pointOneY");
+      int p2X = cameraXML[i].getInt("pointTwoX");
+      int p2Y = cameraXML[i].getInt("pointTwoY");
+      int p3X = cameraXML[i].getInt("pointThreeX");
+      int p3Y = cameraXML[i].getInt("pointThreeY");
+      int camX = cameraXML[i].getInt("cameraPointX");
+      int camY = cameraXML[i].getInt("cameraPointY");
+      secCams.add(new SecurityCamera(p1X, p1Y, p2X, p2Y, p3X, p3Y, camX, camY));
+    }
 
-    doors.add(new Door( 240, 50, 'v', 't', this));
-    doors.add(new Door( 830, 160, 'h', 'l', this, 4));
+    XML serverXML = level.getChild("server");
+    int sX = serverXML.getInt("sX");
+    int sY = serverXML.getInt("sY");
+    int eX = serverXML.getInt("eX");
+    int eY = serverXML.getInt("eY");
+    walls.add(new Wall(sX, sY, eX, eY));
+    server = new Server(sX, sY, eX, eY, this);
 
-    rooms.add(new Room(0, 0, 250, 600));
-    rooms.add(new Room(249, 0, 1200, 171));
-    rooms.add(new Room(250, 170, 670, 600));
-    rooms.add(new Room(670, 170, 1100, 600));
-    rooms.add(new Room(1100, 170, 1200, 600));
+    XML endXML = level.getChild("end");
+    sX = endXML.getInt("sX");
+    sY = endXML.getInt("sY");
+    eX = endXML.getInt("eX");
+    eY = endXML.getInt("eY");
+    end = new Endpoint(sX, sY, eX, eY);
 
-    guards.add(new Guard(360, 220, 'l', 'b'));
-    guards.add(new Guard(360, 310, 'r', 'b'));
-    guards.add(new Guard(360, 400, 'l', 'b'));
-    guards.add(new Guard(360, 500, 'r', 'b'));
-    guards.add(new Guard(840, 220, 'l', 'b'));
-    guards.add(new Guard(840, 340, 'r', 'b'));
-    guards.add(new Guard(840, 540, 'l', 'l'));
+    XML[] doorXML = level.getChildren("door");
+    for (int i = 0; i < doorXML.length; i++)
+    {
+      int x = doorXML[i].getInt("sX");
+      int y = doorXML[i].getInt("sY");
+      String orientation = doorXML[i].getString("orientation");
+      String lockType = doorXML[i].getString("locktype");
+      if (doorXML[i].hasAttribute("pins"))
+      {
+        int pins = doorXML[i].getInt("pins");
+        doors.add(new Door( x, y, orientation, lockType, this, pins));
+      } else {
+        doors.add(new Door( x, y, orientation, lockType, this));
+      }
+    }
 
-    papers.add(new PapersObject(120, 280, "Testdata.txt", this));
-    papers.add(new PapersObject(120, 330, "Testdata.txt", this));
+    XML[] terminalXML = level.getChildren("terminal");
+    for (int i = 0; i < terminalXML.length; i++)
+    {
+      boolean hasConnectedDoor = false;
+      boolean hasConnectedCam = false;
+      boolean hasConnectedData = false;
+      int tsX = terminalXML[i].getInt("sX");
+      int tsY = terminalXML[i].getInt("sY");
+      int teX = tsX+20;
+      int teY = tsY+20;
+      int codeLength = terminalXML[i].getInt("codeLength");
 
-    secCams.add(new SecurityCamera(700, 20, 500, 160, 900, 160, 700, 20));
+      if  (terminalXML[i].hasAttribute("connectedDoorID")) hasConnectedDoor = true;
+      if  (terminalXML[i].hasAttribute("connectedCamID")) hasConnectedCam = true;
+      if  (terminalXML[i].hasAttribute("connectedDataPath")) hasConnectedData = true;
+
+      if (hasConnectedDoor && !hasConnectedCam && !hasConnectedData)
+      {
+        Door linkedDoor = doors.get(terminalXML[i].getInt("connectedDoorID"));
+        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedDoor));
+      } else if (!hasConnectedDoor && hasConnectedCam && !hasConnectedData)
+      {
+        SecurityCamera linkedCam = secCams.get(terminalXML[i].getInt("connectedCamID"));
+        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedCam));
+      } else if (!hasConnectedDoor && !hasConnectedCam && hasConnectedData)
+      {
+        String dataPath = terminalXML[i].getString("connectedData");
+        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, dataPath));
+      } else if (hasConnectedDoor && hasConnectedCam && !hasConnectedData)
+      {
+        Door linkedDoor = doors.get(terminalXML[i].getInt("connectedDoorID"));
+        SecurityCamera linkedCam = secCams.get(terminalXML[i].getInt("connectedCamID"));
+        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedDoor, linkedCam));
+      } else if (hasConnectedDoor && !hasConnectedCam && hasConnectedData)
+      {
+        
+        Door linkedDoor = doors.get(terminalXML[i].getInt("connectedDoorID"));
+        String dataPath = terminalXML[i].getString("connectedDataPath");
+        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedDoor, dataPath));
+      } else if (!hasConnectedDoor && hasConnectedCam && hasConnectedData)
+      {
+        SecurityCamera linkedCam = secCams.get(terminalXML[i].getInt("connectedCamID"));
+        String dataPath = terminalXML[i].getString("connectedData");
+        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedCam, dataPath));
+      } else if (hasConnectedDoor && !hasConnectedCam && !hasConnectedData)
+      {
+        Door linkedDoor = doors.get(terminalXML[i].getInt("connectedDoorID"));
+        SecurityCamera linkedCam = secCams.get(terminalXML[i].getInt("connectedCamID"));
+        String dataPath = terminalXML[i].getString("connectedData");
+        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedDoor, linkedCam, dataPath));
+      }
+    }
+
     player = new Player(walls, desks, doors, guards);
-
-    //RIGHT NOW WE HAVE A WALL BELOW THE SERVER TO STOP THE USER WALKING OVER IT
-    walls.add(new Wall(830, 390, 930, 450));
-    server = new Server(830, 390, 930, 450, this);
-
-    terminals.add(new TerminalObj(85, 120, 105, 140, 4, 4, this, doors.get(0), "Testdata.txt"));
-    terminals.add(new TerminalObj(355, 560, 375, 580, 4, 4, this, secCams.get(0)));
-    end = new Endpoint(1100, 540, 1180, 580);
   }
 
   void drawLevel()
@@ -120,6 +206,7 @@ class Level
     background(200);
 
     for (Wall wall : walls) { 
+
       wall.drawWall();
     }
     for (LargeObject desk : desks) { 
@@ -138,12 +225,13 @@ class Level
       secCam.drawCamera(); 
       if (secCam.checkForPlayer(player)) gameOver = true;
     }
-
     for (Guard guard : guards)
     {
       guard.moveandDrawGuard(walls, desks);
       if (!gameOver) gameOver = guard.checkForPlayer(player, walls);
     }
+
+
     server.drawOnLevel();
     end.drawEndpoint();
     player.updateAndDraw();
@@ -174,13 +262,13 @@ class Level
           (playerEX == doorSX  && playerSY < doorEY && playerEY > doorSY) || 
           (playerEY == doorSY && playerSX < doorEX && playerEX > doorSX))
         {
-          if (doors.get(i).doorType == 't')
+          if (doors.get(i).doorType.equals("t"))
           {
             status.drawStatusBar("Door (locked) - Find terminal to unlock");
-          } else if (doors.get(i).doorType == 'l')
+          } else if (doors.get(i).doorType.equals("l"))
           {
             status.drawStatusBar("Locked Door - press SPACE to pick lock");
-          } else if (doors.get(i).doorType == 'f')
+          } else if (doors.get(i).doorType.equals("f"))
           {
             status.drawStatusBar("Locked Door - Find fingerprint to unlock");
           }
@@ -282,7 +370,7 @@ class Level
     case CAMERA:
       break;
     case SERVER:
-    server.handleKey();
+      server.handleKey();
       break;
     case PAPERS:
       break;
@@ -301,7 +389,7 @@ class Level
       int playerEY = playerSY+30;
       for (int i = 0; i < doors.size (); i++) 
       { 
-        if ( doors.get(i).locked && doors.get(i).doorType == 'l')
+        if ( doors.get(i).locked && doors.get(i).doorType.equals("l"))
         {
           int doorSX = doors.get(i).startX;
           int doorSY = doors.get(i).startY;
