@@ -1,24 +1,22 @@
-State state;
+StateClass state;
 Level level;
 Menu menu;
 
 void setup()
 {
   size(1200, 620);
-  state = State.FRONTEND;
+  state = new StateClass();
   level = new Level();
-  menu = new Menu();
+  menu = new Menu(state);
 }
 
 void draw()
 {
-  switch(state)
+  switch(state.state)
   {
   case FRONTEND:
     menu.drawMenu();
-    if(menu.playNew == true) {
-      state = State.INGAME;
-    }
+    
     break;
   case CONTROLS:
     break;
@@ -41,7 +39,7 @@ void draw()
 
 void keyPressed()
 {
-  switch(state)
+  switch(state.state)
   {
   case FRONTEND:
     menu.handleKey();
@@ -64,7 +62,7 @@ void keyPressed()
 
 void keyReleased()
 {
-  switch(state)
+  switch(state.state)
   {
   case FRONTEND:
     break;
@@ -88,7 +86,7 @@ void mousePressed()
 {
   println(mouseX, mouseY);
 
-  switch(state)
+  switch(state.state)
   {
   case FRONTEND:
     menu.handleMouse();

@@ -1,3 +1,14 @@
+class StateClass
+{
+  State state;
+  
+  StateClass()
+  {
+    state = State.FRONTEND;
+  }
+}
+
+
 enum State {
     FRONTEND, //0
     CONTROLS, //1

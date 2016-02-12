@@ -237,8 +237,8 @@ class Level
     player.updateAndDraw();
     player.checkVision(rooms);
     checkPlayerAdjacency();
-    if (gameOver) state = State.POSTGAMELOSE;
-    if (end.levelCompleted(player)) state = State.POSTGAMEWIN;
+    if (gameOver) state.state = State.POSTGAMELOSE;
+    if (end.levelCompleted(player)) state.state = State.POSTGAMEWIN;
   }
 
 

@@ -6,17 +6,22 @@ class Menu {
  Controls controls;
  Settings settings;
  boolean playNew = false;
+ StateClass state;
  
- Menu() {
+ Menu(StateClass state) {
    MenuState = menuState.INITIAL;
    screen = new initialScreen();
    mainScreen = new mainMenu();
    Continue = new continueGame();
    controls = new Controls();
    settings = new Settings();
+   this.state = state;
  } 
   
- void drawMenu() {   
+ void drawMenu() { 
+   if(playNew == true) {
+      state.state = State.INGAME;
+    }
    switch(MenuState) {
      case INITIAL:
        screen.drawInitial();
