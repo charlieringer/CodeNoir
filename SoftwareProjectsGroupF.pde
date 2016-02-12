@@ -16,7 +16,6 @@ void draw()
   {
   case FRONTEND:
     menu.drawMenu();
-    
     break;
   case CONTROLS:
     break;
