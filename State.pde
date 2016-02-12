@@ -17,3 +17,12 @@ enum LevelState {
     SERVER, //5
     PAPERS //6
 }
+
+enum menuState {
+  INITIAL,
+  MAIN,
+  NEWGAME,
+  CONTINUEMENU,
+  CONTROLS,
+  SETTINGS
+}
