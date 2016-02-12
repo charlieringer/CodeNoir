@@ -43,7 +43,7 @@
 
 	<camera pointOneX="700" pointOneY="20" pointTwoX="500" pointTwoY="160" pointThreeX="900" pointThreeY="160" cameraPointX="700" cameraPointY="20"></camera>
 	
-	<server sX="830" sY="390" eX="930" eY="450"></server>
+	<server sX="830" sY="390" eX="930" eY="450" level="level.txt" solution="solution.txt"></server>
 
 	<end sX="1100" sY="540" eX="1180" eY="580"></end>
 

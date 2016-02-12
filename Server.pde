@@ -4,14 +4,14 @@ class Server
   ServerPuzzle puzzle;
   Level parentLevel;
   
-  Server(int sX, int sY, int eX, int eY, Level parentLevel)
+  Server(int sX, int sY, int eX, int eY, Level parentLevel, String lvl, String win)
   {
     this.sX = sX;
     this.sY = sY;
     this.eX = eX;
     this.eY = eY;
     this.parentLevel = parentLevel;
-    puzzle = new ServerPuzzle("level.txt", "solution.txt"); 
+    puzzle = new ServerPuzzle(lvl, win); 
   }
   
   void drawOnLevel()

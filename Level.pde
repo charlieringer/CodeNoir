@@ -92,8 +92,10 @@ class Level
     int sY = serverXML.getInt("sY");
     int eX = serverXML.getInt("eX");
     int eY = serverXML.getInt("eY");
+    String lvl = serverXML.getString("level");
+    String win = serverXML.getString("solution");
     walls.add(new Wall(sX, sY, eX, eY));
-    server = new Server(sX, sY, eX, eY, this);
+    server = new Server(sX, sY, eX, eY, this, lvl, win);
 
     XML endXML = level.getChild("end");
     sX = endXML.getInt("sX");
