@@ -2,6 +2,7 @@ class Menu {
  menuState MenuState;
  initialScreen screen;
  mainMenu mainScreen;
+ continueGame Continue;
  Controls controls;
  Settings settings;
  boolean playNew = false;
@@ -10,6 +11,7 @@ class Menu {
    MenuState = menuState.INITIAL;
    screen = new initialScreen();
    mainScreen = new mainMenu();
+   Continue = new continueGame();
    controls = new Controls();
    settings = new Settings();
  } 
@@ -21,6 +23,9 @@ class Menu {
        break;
      case MAIN:
        mainScreen.drawMain();
+       break;
+     case CONTINUEMENU:
+       Continue.drawContinue();
        break;
      case CONTROLS:
        controls.drawControls();
@@ -53,7 +58,7 @@ class Menu {
     
         //continue game is pressed
         if(mouseX > 750 && mouseX < 1050 && mouseY > 200 && mouseY < 250) {
-          //MenuState = menuState.CONTINUEMENU;
+          MenuState = menuState.CONTINUEMENU;
         }
     
         //controls is pressed
