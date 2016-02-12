@@ -21,7 +21,6 @@ enum LevelState {
 enum menuState {
   INITIAL,
   MAIN,
-  NEWGAME,
   CONTINUEMENU,
   CONTROLS,
   SETTINGS

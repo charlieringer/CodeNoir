@@ -4,6 +4,7 @@ class Menu {
  mainMenu mainScreen;
  Controls controls;
  Settings settings;
+ boolean playNew = false;
  
  Menu() {
    MenuState = menuState.INITIAL;
@@ -45,10 +46,9 @@ class Menu {
       case INITIAL:
         break;
       case MAIN:
-        //mainScreen.handleClick();
         //new game is pressed
         if(mouseX > 750 && mouseX < 1050 && mouseY > 100 && mouseY < 150) {
-          //MenuState = menuState.NEWGAME;
+          playNew = true;
         }
     
         //continue game is pressed

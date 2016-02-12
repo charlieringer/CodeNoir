@@ -16,6 +16,9 @@ void draw()
   {
   case FRONTEND:
     menu.drawMenu();
+    if(menu.playNew == true) {
+      state = State.INGAME;
+    }
     break;
   case CONTROLS:
     break;
