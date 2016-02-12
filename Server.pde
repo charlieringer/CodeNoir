@@ -11,7 +11,7 @@ class Server
     this.eX = eX;
     this.eY = eY;
     this.parentLevel = parentLevel;
-    puzzle = new ServerPuzzle(); 
+    puzzle = new ServerPuzzle("level.txt", "solution.txt"); 
   }
   
   void drawOnLevel()

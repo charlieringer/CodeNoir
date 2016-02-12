@@ -18,21 +18,21 @@ class ServerPuzzle {
   String[] separate = new String[55];
   boolean drawn = false;
 
-  ServerPuzzle() {
-    pixel = createFont("west_england.ttf", 38);
+  ServerPuzzle(String level, String solve) {
+    pixel = createFont("renegado.ttf", 30);
     lock = loadImage("lock.png");
     Key = loadImage("key.png");
 
     lock.resize(50, 50);
     Key.resize(100, 100);
 
-    reader = createReader("level.txt");
+    reader = createReader(level);
     design = new IntList();
     solution = new IntList();
 
     readLevel();
     constructLevel();
-    readSolution();
+    readSolution(solve);
   }
 
   void drawMaze() {
@@ -144,8 +144,8 @@ class ServerPuzzle {
     }
   }
 
-  void readSolution() {
-    String lines[] = loadStrings("solution.txt");
+  void readSolution(String s) {
+    String lines[] = loadStrings(s);
     for (int i = 0; i < lines.length; i++) {
       solution.append(int(lines[i]));
     }
