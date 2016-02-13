@@ -11,7 +11,7 @@ class Button {
     this.textY = textY;
     this.title = title;
     
-    cyber = createFont("renegado.ttf", 30);
+    cyber = createFont("Fonts/renegado.ttf", 30);
   }
   
   void drawButton() {

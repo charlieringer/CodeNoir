@@ -24,10 +24,10 @@ class Level
   boolean gameOver = false;
   StatusBar status = new StatusBar();
 
-  Level() {
+  Level(String levelDataPath) {
     levelState = LevelState.LEVEL;
 
-    XML level = loadXML("testlevel.xml");
+    XML level = loadXML(levelDataPath);
 
     XML[] wallXML = level.getChildren("wall");
     for (int i = 0; i < wallXML.length; i++) {

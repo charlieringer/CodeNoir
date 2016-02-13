@@ -2,7 +2,7 @@ class continueGame {
  PFont cyber;
   
  continueGame() {
-   cyber = createFont("renegado.ttf", 50);
+   cyber = createFont("Fonts/renegado.ttf", 50);
    
    
  }

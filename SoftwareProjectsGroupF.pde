@@ -6,7 +6,7 @@ void setup()
 {
   size(1200, 620);
   state = new StateClass();
-  level = new Level();
+  level = new Level("Levels/Level_1/testlevel.xml");
   menu = new Menu(state);
 }
 

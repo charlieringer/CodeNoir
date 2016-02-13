@@ -3,15 +3,15 @@ class Controls {
   PFont cyber;
   
   Controls() {
-    city = loadImage("pixels-3.jpeg");
+    city = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
     city.resize(1200, 620);
-    arrows = loadImage("arrows.png");
+    arrows = loadImage("Art_Assets/Frontend/arrows.png");
     arrows.resize(300, 200);
-    space = loadImage("space_tab.png");
+    space = loadImage("Art_Assets/Frontend/space_tab.png");
     space.resize(600, 200);
-    home = loadImage("home.png");
+    home = loadImage("Art_Assets/Frontend/home.png");
     home.resize(75, 75);
-    cyber = createFont("renegado.ttf", 50);
+    cyber = createFont("Fonts/renegado.ttf", 50);
   }
   
   void drawControls() {

@@ -3,7 +3,7 @@ class Terminal
   HackPuzzle puzzle;
   ArrayList<Subroutine> subroutines;
   //Bachround image (placeholder currently)
-  PImage backgroundImage = loadImage("computer.png");
+  PImage backgroundImage = loadImage("Art_Assets/In_Game/Terminal/computer.png");
   int selected = 0;
   Level parentLevel;
   Door linkedDoor;

@@ -27,7 +27,7 @@ class LockPuzzle
     {
       pin[i] = new Pins(200+(i*20), 100);
     }
-    backgroundImage = loadImage("door.jpg");
+    backgroundImage = loadImage("Art_Assets/In_Game/Lockpick/door.jpg");
     backgroundImage.resize(400, 400);
     linkedDoor = door;
   }
@@ -167,7 +167,7 @@ class Tumbler
 
 class Lockpick 
 {
-  PImage lockpickimage = loadImage("lockpick.png");
+  PImage lockpickimage = loadImage("Art_Assets/In_Game/Lockpick/lockpick.png");
   // image credit: http://abstract.desktopnexus.com/wallpaper/699441/
   // lockpick position variables
   float posX = 0;

@@ -19,9 +19,9 @@ class ServerPuzzle {
   boolean drawn = false;
 
   ServerPuzzle(String level, String solve) {
-    pixel = createFont("renegado.ttf", 30);
-    lock = loadImage("lock.png");
-    Key = loadImage("key.png");
+    pixel = createFont("Fonts/renegado.ttf", 30);
+    lock = loadImage("Art_Assets/In_Game/Server/lock.png");
+    Key = loadImage("Art_Assets/In_Game/Server/key.png");
 
     lock.resize(50, 50);
     Key.resize(100, 100);

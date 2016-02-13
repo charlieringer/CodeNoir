@@ -3,8 +3,8 @@ class initialScreen {
   PImage city;
   
   initialScreen() {
-    cyber = createFont("renegado.ttf", 130);
-    city = loadImage("pixels-3.jpeg");
+    cyber = createFont("Fonts/renegado.ttf", 130);
+    city = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
     city.resize(1200, 620);
   }
   

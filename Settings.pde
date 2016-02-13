@@ -3,14 +3,14 @@ class Settings {
   PImage city, music, sound, home;
   
   Settings() {
-    cyber = createFont("renegado.ttf", 50);
-    city = loadImage("pixels-3.jpeg");
+    cyber = createFont("Fonts/renegado.ttf", 50);
+    city = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
     city.resize(1200, 620);
-    music = loadImage("music.png");
+    music = loadImage("Art_Assets/Frontend/music.png");
     music.resize(150, 150);
-    sound = loadImage("sound.png");
+    sound = loadImage("Art_Assets/Frontend/sound.png");
     sound.resize(165, 150);
-    home = loadImage("home.png");
+    home = loadImage("Art_Assets/Frontend/home.png");
     home.resize(75, 75);
   }
   

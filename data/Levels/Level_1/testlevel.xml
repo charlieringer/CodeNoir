@@ -38,12 +38,12 @@
 	<guard sX="840" sY="340" startingOrientation="l" onCollisionTurn="b"></guard>
 	<guard sX="840" sY="540" startingOrientation="l" onCollisionTurn="l"></guard>
 
-	<paper sX="120" sY="280" dataPath="Testdata.txt"></paper>
-	<paper sX="120" sY="320" dataPath="Testdata.txt"></paper>
+	<paper sX="120" sY="280" dataPath="Levels/Level_1/Testdata.txt"></paper>
+	<paper sX="120" sY="320" dataPath="Levels/Level_1/Testdata.txt"></paper>
 
 	<camera pointOneX="700" pointOneY="20" pointTwoX="500" pointTwoY="160" pointThreeX="900" pointThreeY="160" cameraPointX="700" cameraPointY="20"></camera>
 	
-	<server sX="830" sY="390" eX="930" eY="450" level="level.txt" solution="solution.txt"></server>
+	<server sX="830" sY="390" eX="930" eY="450" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
 
 	<end sX="1100" sY="540" eX="1180" eY="580"></end>
 
@@ -51,7 +51,7 @@
 	<door sX="830" sY="160" orientation="h" locktype="l" pins="4"></door>
 
 
-	<terminal sX="85" sY="120" connectedDoorID="0" codeLength="4" connectedDataPath="Testdata.txt"></terminal>
+	<terminal sX="85" sY="120" connectedDoorID="0" codeLength="4" connectedDataPath="Levels/Level_1/Testdata.txt"></terminal>
 	<terminal sX="355" sY="560" connectedCamID="0" codeLength="4"></terminal>
 </testlevel>
 

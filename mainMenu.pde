@@ -4,8 +4,8 @@ class mainMenu {
   ArrayList<Button> buttons = new ArrayList<Button>();
   
   mainMenu() {
-    cyber = createFont("renegado.ttf", 30);
-    scape = loadImage("pixels-3.jpeg");
+    cyber = createFont("Fonts/renegado.ttf", 30);
+    scape = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
     scape.resize(1200, 620);
     
     //add buttons to arraylist
