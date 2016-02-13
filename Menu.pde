@@ -102,8 +102,211 @@ class Menu {
         }
         break;
     }
+ } 
+}
+
+class initialScreen {
+  PFont cyber;
+  PImage city;
+  
+  initialScreen() {
+    cyber = createFont("Fonts/renegado.ttf", 130);
+    city = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
+    city.resize(1200, 620);
+  }
+  
+  void drawInitial() {
+   //background
+   background(city);
+   
+   //game title and banner
+   //fill(0);
+   //rect(170, 205, 870, 110, 20);
+   textFont(cyber);
+   fill(255);
+   text("Code Noir", 175, 300);
+   
+   //press space to continue
+   fill(0);
+   rect(0, 450, 1200, 75);
+   fill(255);
+   textSize(40);
+   text("Press space to continue", 275, 500);
+  }
+}
+
+class mainMenu {
+  PFont cyber;
+  PImage scape;
+  ArrayList<Button> buttons = new ArrayList<Button>();
+  
+  mainMenu() {
+    cyber = createFont("Fonts/renegado.ttf", 30);
+    scape = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
+    scape.resize(1200, 620);
+    
+    //add buttons to arraylist
+    buttons.add(new Button("New Game", 750, 100, 810, 135));
+    buttons.add(new Button("Continue Game", 750, 200, 755, 235));
+    buttons.add(new Button("Controls", 750, 300, 810, 335));
+    buttons.add(new Button("Settings", 750, 400, 822, 435));
+    buttons.add(new Button("Quit", 750, 500, 865, 535));
+  }
+  
+  void drawMain() {
+    //draws background
+    background(scape);
+    
+    //draws button banner
+    fill(0);
+    rect(750, 0, 300, 620);
+    
+    //draw game title
+    fill(255);
+    textSize(100);
+    text("Code Noir", 30, 100);
+    
+    //draw all buttons
+    for(int i = 0; i < buttons.size(); i++) {
+      buttons.get(i).drawButton();
+      buttons.get(i).checkHover();
+    }
+  }
+}
+
+class continueGame {
+ PFont cyber;
+  
+ continueGame() {
+   cyber = createFont("Fonts/renegado.ttf", 50);
+   
+   
  }
  
+ void drawContinue() {
+   background(0);
+ }
+}
+
+class Controls {
+  PImage city, arrows, space, home;
+  PFont cyber;
   
+  Controls() {
+    city = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
+    city.resize(1200, 620);
+    arrows = loadImage("Art_Assets/Frontend/arrows.png");
+    arrows.resize(300, 200);
+    space = loadImage("Art_Assets/Frontend/space_tab.png");
+    space.resize(600, 200);
+    home = loadImage("Art_Assets/Frontend/home.png");
+    home.resize(75, 75);
+    cyber = createFont("Fonts/renegado.ttf", 50);
+  }
   
+  void drawControls() {
+    //draws background
+    background(city); 
+    
+    //draw various text
+    fill(255);
+    textFont(cyber);
+    text("Controls", 30, 50);
+    
+    //draws control images
+    fill(0);
+    rect(120, 195, 310, 210, 20);
+    rect(470, 195, 610, 210, 20);
+    rect(1095, 20, 85, 85, 20);
+    image(arrows, 125, 200);
+    image(space, 475, 200);
+    image(home, 1100, 25);
+  }
+}
+
+class Settings {
+  PFont cyber;
+  PImage city, music, sound, home;
+  
+  Settings() {
+    cyber = createFont("Fonts/renegado.ttf", 50);
+    city = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
+    city.resize(1200, 620);
+    music = loadImage("Art_Assets/Frontend/music.png");
+    music.resize(150, 150);
+    sound = loadImage("Art_Assets/Frontend/sound.png");
+    sound.resize(165, 150);
+    home = loadImage("Art_Assets/Frontend/home.png");
+    home.resize(75, 75);
+  }
+  
+  void drawSettings() {
+   //draw background
+   background(city);
+    
+   //draw images
+   fill(0);
+   rect(345, 195, 160, 160, 20);
+   rect(695, 195, 175, 160, 20);
+   rect(1095, 20, 85, 85, 20);
+   rect(320, 390, 200, 50, 20);
+   rect(625, 390, 320, 50, 20);
+   image(music, 350, 200);
+   image(sound, 700, 200);
+   image(home, 1100, 25);
+    
+   //draw various text
+   fill(255);
+   textFont(cyber);
+   text("Settings", 30, 50); 
+   text("Music", 335, 430);
+   text("Sound FX", 635, 430);
+  }  
+}
+
+class Button {
+  PFont cyber;
+  int rectX, rectY, textX, textY;
+  String title;
+  Boolean hover = false;
+  
+  Button(String title, int rectX, int rectY, int textX, int textY) {
+    this.rectX = rectX;
+    this.rectY = rectY;
+    this.textX = textX;
+    this.textY = textY;
+    this.title = title;
+    
+    cyber = createFont("Fonts/renegado.ttf", 30);
+  }
+  
+  void drawButton() {
+    if(hover == true) {
+      //button outline
+      fill(255);
+      rect(rectX, rectY, 300, 50);
+      
+      //button text
+      textFont(cyber);
+      fill(0);
+      text(title, textX, textY);
+    } else {
+      //button outline
+      fill(0);
+      rect(rectX, rectY, 300, 50);
+    
+      //button text
+      textFont(cyber);
+      fill(255);
+      text(title, textX, textY);
+    }
+  }
+  
+  void checkHover() {
+    if(mouseX > rectX && mouseX < rectX + 300 && mouseY > rectY && mouseY < rectY + 50) {
+      hover = true;
+    } else {
+      hover = false;
+    }
+  } 
 }
