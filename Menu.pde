@@ -81,6 +81,12 @@ class Menu {
           exit();
         }
         break;
+      case CONTINUEMENU:
+        //home button is pressed
+        if(mouseX > 1095 && mouseX < 1180 && mouseY > 20 && mouseY < 105) {
+          MenuState = menuState.MAIN;
+        }
+        break;
       case CONTROLS:
         //home button is pressed
         if(mouseX > 1095 && mouseX < 1180 && mouseY > 20 && mouseY < 105) {
@@ -176,15 +182,52 @@ class mainMenu {
 
 class continueGame {
  PFont cyber;
+ PImage scape, home;
+ ArrayList<Button> buttons = new ArrayList<Button>();
   
  continueGame() {
    cyber = createFont("Fonts/renegado.ttf", 50);
-   
-   
+   scape = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
+   scape.resize(1200, 620);
+   home = loadImage("Art_Assets/Frontend/home.png");
+   home.resize(75, 75);
+   //Button(String title, int rectX, int rectY, int textX, int textY, int wide, int leng)
+   //add buttons to arraylist
+   buttons.add(new Button("1", 250, 380, 290, 440, 100, 100));
+   buttons.add(new Button("2", 400, 380, 440, 440, 100, 100));
+   buttons.add(new Button("3", 550, 380, 590, 440, 100, 100));
+   buttons.add(new Button("4", 250, 250, 285, 310, 100, 100));
+   buttons.add(new Button("5", 400, 250, 440, 310, 100, 100));
+   buttons.add(new Button("6", 550, 250, 585, 310, 100, 100));
+   buttons.add(new Button("7", 250, 120, 285, 180, 100, 100));
+   buttons.add(new Button("8", 400, 120, 440, 180, 100, 100));
+   buttons.add(new Button("9", 550, 120, 585, 180, 100, 100));
+   buttons.add(new Button("10", 260, 15, 435, 65, 380, 80));
  }
  
  void drawContinue() {
-   background(0);
+   //draws background- temporary 
+   background(scape);
+   
+   //draws home button
+   fill(0);
+   rect(1095, 20, 85, 85, 20);
+   image(home, 1100, 25);
+   
+   //temporary placeholder for skyscraper
+   rect(200, 0, 500, 620);
+   
+   //temporary windows
+   for(int i = 0; i < buttons.size(); i++) {
+     buttons.get(i).drawContinue();
+     buttons.get(i).checkContinueHover();
+   }
+     
+   //temporary door
+   fill(255);
+   rect(375, 510, 150, 220);
+   fill(0);
+   line(450, 510, 450, 730);  
  }
 }
 
@@ -266,9 +309,11 @@ class Settings {
 
 class Button {
   PFont cyber;
-  int rectX, rectY, textX, textY;
+  PImage lock_yellow, lock_white;
+  int rectX, rectY, textX, textY, wide, leng;
   String title;
   Boolean hover = false;
+  Boolean completed = false;
   
   Button(String title, int rectX, int rectY, int textX, int textY) {
     this.rectX = rectX;
@@ -278,6 +323,22 @@ class Button {
     this.title = title;
     
     cyber = createFont("Fonts/renegado.ttf", 30);
+  }
+  
+  Button(String title, int rectX, int rectY, int textX, int textY, int wide, int leng) {
+    this.rectX = rectX;
+    this.rectY = rectY;
+    this.textX = textX;
+    this.textY = textY;
+    this.title = title;
+    this.wide = wide;
+    this.leng = leng;
+    
+    cyber = createFont("Fonts/renegado.ttf", 30);
+    lock_white = loadImage("Art_Assets/Frontend/lock_white.png");
+    lock_white.resize(150, 150);
+    lock_yellow = loadImage("Art_Assets/Frontend/lock_yellow.png");
+    lock_yellow.resize(150, 150);
   }
   
   void drawButton() {
@@ -302,11 +363,54 @@ class Button {
     }
   }
   
+  void drawContinue() {
+   if(completed == true) {
+     if(hover == false) {
+       //button outline
+       fill(255);
+       rect(rectX, rectY, wide, leng);
+       //button text
+       textFont(cyber);
+       fill(0);
+       text(title, textX, textY);
+     } else {
+       //button outline
+       fill(249, 255, 50);
+       rect(rectX, rectY, wide, leng);
+       //button text
+       fill(0);
+       text(title, textX, textY);
+     }
+   } else {
+     if(hover == false) {
+       //button outline
+       fill(255);
+       rect(rectX, rectY, wide, leng);
+       //button locked
+       image(lock_white, textX-35, textY-60);
+     } else {
+       //button outline
+       fill(249, 255, 50);
+       rect(rectX, rectY, wide, leng);
+       //button locked
+       image(lock_yellow, textX-35, textY-60);
+     }
+    }
+   }
+   
   void checkHover() {
     if(mouseX > rectX && mouseX < rectX + 300 && mouseY > rectY && mouseY < rectY + 50) {
       hover = true;
     } else {
       hover = false;
     }
-  } 
+  }
+  
+  void checkContinueHover() {
+    if(mouseX > rectX && mouseX < rectX + wide && mouseY > rectY && mouseY < rectY + leng) {
+      hover = true;
+    } else {
+      hover = false;
+    }
+  }
 }
