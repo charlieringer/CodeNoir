@@ -1,10 +1,12 @@
 StateClass state;
 Level level;
 Menu menu;
+SaveGame save;
 
 void setup()
 {
   size(1200, 620);
+  save = new SaveGame();
   state = new StateClass();
   level = new Level("Levels/Level_1/testlevel.xml");
   menu = new Menu(state);
