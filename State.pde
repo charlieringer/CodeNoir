@@ -1,10 +1,12 @@
 class StateClass
 {
   State state;
+  levelChoiceState lvlChoice;
   
   StateClass()
   {
     state = State.FRONTEND;
+    lvlChoice = levelChoiceState.LVL1;
   }
 }
 

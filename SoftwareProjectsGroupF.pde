@@ -8,8 +8,8 @@ void setup()
   size(1200, 620);
   save = new SaveGame();
   state = new StateClass();
-  level = new Level("Levels/Level_1/testlevel.xml");
   menu = new Menu(state);
+  level = new Level("Levels/Level_1/testlevel.xml");
 }
 
 void draw()
@@ -18,12 +18,6 @@ void draw()
   {
   case FRONTEND:
     menu.drawMenu();
-    break;
-  case CONTROLS:
-    break;
-  case LEVELSELECT:
-    break;
-  case SETTINGS:
     break;
   case INGAME:
     level.drawLevel();
@@ -45,12 +39,6 @@ void keyPressed()
   case FRONTEND:
     menu.handleKey();
     break;
-  case CONTROLS:
-    break;
-  case LEVELSELECT:
-    break;
-  case SETTINGS:
-    break;
   case INGAME:
     level.handleKeyOn();
     break;
@@ -66,12 +54,6 @@ void keyReleased()
   switch(state.state)
   {
   case FRONTEND:
-    break;
-  case CONTROLS:
-    break;
-  case LEVELSELECT:
-    break;
-  case SETTINGS:
     break;
   case INGAME:
     level.handleKeyOff();
@@ -91,12 +73,6 @@ void mousePressed()
   {
   case FRONTEND:
     menu.handleMouse();
-    break;
-  case CONTROLS:
-    break;
-  case LEVELSELECT:
-    break;
-  case SETTINGS:
     break;
   case INGAME:
     level.handleMousePressed();

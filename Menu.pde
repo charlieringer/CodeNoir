@@ -20,7 +20,8 @@ class Menu {
   
  void drawMenu() { 
    if(playNew == true) {
-      state.state = State.INGAME;
+     state.lvlChoice = levelChoiceState.LVL1; 
+     state.state = State.INGAME;
     }
    switch(MenuState) {
      case INITIAL:
@@ -85,6 +86,56 @@ class Menu {
         //home button is pressed
         if(mouseX > 1095 && mouseX < 1180 && mouseY > 20 && mouseY < 105) {
           MenuState = menuState.MAIN;
+        }
+        //level 1
+        if(mouseX > 250 && mouseX < 350 && mouseY > 380 && mouseY < 480) {
+          state.lvlChoice = levelChoiceState.LVL1; 
+          state.state = State.INGAME;
+        }
+        //level 2
+        if(mouseX > 400 && mouseX < 500 && mouseY > 380 && mouseY < 480) {
+          state.lvlChoice = levelChoiceState.LVL2; 
+          state.state = State.INGAME;
+        }
+        //level 3
+        if(mouseX > 550 && mouseX < 650 && mouseY > 380 && mouseY < 480) {
+          state.lvlChoice = levelChoiceState.LVL3; 
+          state.state = State.INGAME;
+        }
+        //level 4
+        if(mouseX > 250 && mouseX < 350 && mouseY > 250 && mouseY < 350) {
+          state.lvlChoice = levelChoiceState.LVL4; 
+          state.state = State.INGAME;
+        }
+        //level 5
+        if(mouseX > 400 && mouseX < 500 && mouseY > 250 && mouseY < 350) {
+          state.lvlChoice = levelChoiceState.LVL5; 
+          state.state = State.INGAME;
+        }
+        //level 6
+        if(mouseX > 550 && mouseX < 650 && mouseY > 250 && mouseY < 350) {
+          state.lvlChoice = levelChoiceState.LVL6; 
+          state.state = State.INGAME;
+        }
+        //level 7
+        if(mouseX > 250 && mouseX < 350 && mouseY > 120 && mouseY < 220) {
+          state.lvlChoice = levelChoiceState.LVL7; 
+          state.state = State.INGAME;
+        }
+        //level 8
+        if(mouseX > 400 && mouseX < 500 && mouseY > 120 && mouseY < 220) {
+          state.lvlChoice = levelChoiceState.LVL8; 
+          state.state = State.INGAME;
+        }
+        //level 9
+        if(mouseX > 550 && mouseX < 650 && mouseY > 120 && mouseY < 220) {
+          state.lvlChoice = levelChoiceState.LVL9; 
+          state.state = State.INGAME;
+        }
+        //level 10
+        if(mouseX > 260 && mouseX < 640 && mouseY > 15 && mouseY < 95) {
+          state.lvlChoice = levelChoiceState.LVL10; 
+          state.state = State.INGAME;
         }
         break;
       case CONTROLS:
@@ -191,7 +242,6 @@ class continueGame {
    scape.resize(1200, 620);
    home = loadImage("Art_Assets/Frontend/home.png");
    home.resize(75, 75);
-   //Button(String title, int rectX, int rectY, int textX, int textY, int wide, int leng)
    //add buttons to arraylist
    buttons.add(new Button("1", 250, 380, 290, 440, 100, 100));
    buttons.add(new Button("2", 400, 380, 440, 440, 100, 100));
@@ -313,7 +363,7 @@ class Button {
   int rectX, rectY, textX, textY, wide, leng;
   String title;
   Boolean hover = false;
-  Boolean completed = false;
+  Boolean completed = true;
   
   Button(String title, int rectX, int rectY, int textX, int textY) {
     this.rectX = rectX;

@@ -89,8 +89,6 @@ class ServerPuzzle {
 
   void constructLevel() {
     for (int i = 0; i < design.size(); i++) {
-      //println(xpos);
-      //println(ypos);
       switch(design.get(i)) {
       case 1:
         keyVect = new PVector(100+(xpos*100), 130+(ypos*100));
