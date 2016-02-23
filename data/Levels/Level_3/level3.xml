@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<level3> <!-- Canteeen -->
+
+	<!-- Walls -->
+	<!-- outter walls -->
+	<wall sX="0" sY="0" eX="1200" eY="20"></wall>
+	<wall sX="0" sY="580" eX="1200" eY="600"></wall>
+	<wall sX="0" sY="0" eX="20" eY="600"></wall>
+	<wall sX="1180" sY="0" eX="1200" eY="600"></wall>
+	
+	
+	<!-- Rooms -->
+	<!-- Whole floor -->
+	<room sX="0" sY="0" eX="1200" eY="600"></room>
+	
+	
+	<!-- Cameras -->
+	<camera pointOneX="380" pointOneY="20" pointTwoX="360" pointTwoY="50" pointThreeX="400" pointThreeY="50" cameraPointX="380" cameraPointY="20"></camera>
+	
+	
+	<!-- Servers -->
+	<server sX="1160" sY="20" eX="1180" eY="30" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+	
+	
+	<!-- End -->-
+	<end sX="1100" sY="20" eX="1180" eY="200"></end>
+	
+</level3>
+

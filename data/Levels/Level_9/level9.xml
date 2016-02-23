@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<level9><!-- Boardroom -->
+	
+	<!-- Walls -->
+	<!-- outter walls -->
+	<wall sX="0" sY="0" eX="1200" eY="20"></wall>
+	<wall sX="0" sY="580" eX="1200" eY="600"></wall>
+	<wall sX="0" sY="0" eX="20" eY="600"></wall>
+	<wall sX="1180" sY="0" eX="1200" eY="600"></wall>
+	
+	<!-- partition 1 -->
+	<wall sX="200" sY="0" eX="220" eY="260"></wall>
+	<wall sX="200" sY="340" eX="220" eY="600"></wall>
+	
+	
+	<!-- Rooms -->
+	<!-- Whole floor -->
+	<room sX="0" sY="0" eX="1200" eY="600"></room>
+	
+	
+	<!-- Doors -->
+	<!-- terminal door -->
+	<door sX="200" sY="260" orientation="v" locktype="t"></door>
+	
+	
+	<!-- Tables -->
+	<!-- large table -->
+	<desk sX="380" sY="150" eX="1020" eY="450"></desk>
+	<!-- Small Table -->
+	<desk sX="180" sY="100" eX="200" eY="200"></desk>
+	
+	
+	<!-- Terminals -->
+	<terminal sX="180" sY="130" connectedCamID="0" codeLength="4"></terminal>
+	
+	
+	<!-- Cameras -->
+	<camera pointOneX="380" pointOneY="20" pointTwoX="360" pointTwoY="50" pointThreeX="400" pointThreeY="50" cameraPointX="380" cameraPointY="20"></camera>
+	
+	
+	<!-- Servers -->
+	<server sX="1160" sY="20" eX="1180" eY="30" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+	
+	
+	<!-- End -->
+	<!-- supposed to be a fireplace -->
+	<end sX="1160" sY="200" eX="1180" eY="400"></end>
+	
+</level9>
+

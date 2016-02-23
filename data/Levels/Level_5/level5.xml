@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<level5><!-- Server room -->
+
+	<!-- Walls -->
+	<!-- outter walls -->
+	<wall sX="0" sY="0" eX="1200" eY="20"></wall>
+	<wall sX="0" sY="580" eX="1200" eY="600"></wall>
+	<wall sX="0" sY="0" eX="20" eY="600"></wall>
+	<wall sX="1180" sY="0" eX="1200" eY="600"></wall>
+	
+	<!-- partition 1 -->
+	<wall sX="200" sY="0" eX="220" eY="260"></wall>
+	<wall sX="200" sY="340" eX="220" eY="600"></wall>
+	
+	<!-- partition 2 -->
+	<wall sX="960" sY="0" eX="980" eY="260"></wall>
+	<wall sX="960" sY="340" eX="980" eY="600"></wall>
+	
+	
+	<!-- Rooms -->
+	<!-- First room -->
+	<room sX="0" sY="0" eX="220" eY="600"></room>
+	
+	<!-- Server room and end room -->
+	<room sX="220" sY="0" eX="1200" eY="600"></room>
+	
+
+	<!-- using tables for servers for the time being -->
+	<!-- table 1 -->
+	<desk sX="350" sY="100" eX="400" eY="300"></desk>
+	<desk sX="350" sY="300" eX="400" eY="500"></desk>
+	
+	<!-- table 2 -->
+	<desk sX="550" sY="100" eX="600" eY="300"></desk>
+	<desk sX="550" sY="300" eX="600" eY="500"></desk>
+	
+	<!-- table 3 -->
+	<desk sX="750" sY="100" eX="800" eY="300"></desk>
+	<desk sX="750" sY="300" eX="800" eY="500"></desk>
+	
+	
+	<!-- Cameras -->
+	<camera pointOneX="380" pointOneY="20" pointTwoX="360" pointTwoY="50" pointThreeX="400" pointThreeY="50" cameraPointX="380" cameraPointY="20"></camera>
+	
+	
+	<!-- Servers -->
+	<!-- server 1 -->
+	<server sX="350" sY="100" eX="400" eY="300" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+	<server sX="350" sY="300" eX="400" eY="500" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>	
+	
+	<!-- server 2 -->
+	<server sX="550" sY="100" eX="600" eY="300" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+	<server sX="550" sY="300" eX="600" eY="500" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+	
+	<!-- server 3 -->
+	<server sX="750" sY="100" eX="800" eY="300" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+	<server sX="750" sY="300" eX="800" eY="500" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+	
+	
+	<!-- Doors -->
+	<!-- finger scanner door -->
+	<door sX="200" sY="260" orientation="v" locktype="f"></door>
+	
+	<!-- end level door -->
+	<door sX="960" sY="260" orientation="v" locktype="l" pins="4"></door>
+	
+	
+	<!-- End -->-
+	<end sX="980" sY="20" eX="1180" eY="600"></end>
+	
+</level5>
+

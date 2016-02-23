@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<level6> <!-- Archives room -->
+
+	<!-- Walls -->
+	<!-- outter walls -->
+	<wall sX="0" sY="0" eX="1200" eY="20"></wall>
+	<wall sX="0" sY="580" eX="1200" eY="600"></wall>
+	<wall sX="0" sY="0" eX="20" eY="600"></wall>
+	<wall sX="1180" sY="0" eX="1200" eY="600"></wall>
+	
+	<!-- wall partitions -->
+	<wall sX="200" sY="100" eX="220" eY="600"></wall>
+	<wall sX="960" sY="0" eX="980" eY="260"></wall>
+	<wall sX="960" sY="340" eX="980" eY="600"></wall>
+	
+	
+	<!-- Rooms -->
+	<!-- First room -->
+	<room sX="0" sY="0" eX="220" eY="600"></room>
+	
+	<!-- Main room and end room -->
+	<room sX="220" sY="0" eX="1200" eY="600"></room>
+	
+	
+	<!-- Tables -->
+	<!-- First room -->
+	<desk sX="180" sY="150" eX="200" eY="250"></desk>
+	<!-- Main room -->
+	<desk sX="280" sY="100" eX="320" eY="440"></desk>
+	<desk sX="840" sY="100" eX="880" eY="440"></desk>
+	<desk sX="300" sY="490" eX="530" eY="530"></desk>
+	<desk sX="630" sY="490" eX="860" eY="530"></desk>
+		
+	<!-- Archive Shelves -->
+	<desk sX="380" sY="100" eX="480" eY="440"></desk>
+	<desk sX="530" sY="100" eX="630" eY="440"></desk>
+	<desk sX="680" sY="100" eX="780" eY="440"></desk> 
+	
+	<!-- Doors -->
+	<!-- First door -->
+	<door sX="200" sY="20" orientation="v" locktype="t"></door>
+	
+	<!-- end level door -->
+	<door sX="960" sY="260" orientation="v" locktype="l" pins="4"></door>
+	
+	
+	<!-- Cameras -->
+	<camera pointOneX="220" pointOneY="470" pointTwoX="630" pointTwoY="440" pointThreeX="630" pointThreeY="490" cameraPointX="220" cameraPointY="470"></camera>
+	<camera pointOneX="510" pointOneY="20" pointTwoX="480" pointTwoY="480" pointThreeX="530" pointThreeY="480" cameraPointX="510" cameraPointY="20"></camera>
+	<camera pointOneX="920" pointOneY="20" pointTwoX="880" pointTwoY="480" pointThreeX="960" pointThreeY="480" cameraPointX="920" cameraPointY="20"></camera>
+	
+	
+	<!-- Servers -->
+	<server sX="1160" sY="20" eX="1180" eY="30" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+	
+	
+	<!-- Terminals -->
+	<terminal sX="180" sY="200" connectedCamID="0" codeLength="4"></terminal>
+	<terminal sX="280" sY="150" connectedCamID="0" codeLength="4"></terminal>
+	<terminal sX="350" sY="490" connectedCamID="0" codeLength="4"></terminal>
+	<terminal sX="800" sY="510" connectedCamID="0" codeLength="4"></terminal>
+	
+	<!-- End -->-
+	<end sX="980" sY="20" eX="1180" eY="600"></end>
+	
+</level6>
+

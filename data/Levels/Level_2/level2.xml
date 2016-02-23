@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<level2> <!-- Office floor -->
+
+	<!-- Walls -->
+	<!-- outter walls -->
+	<wall sX="0" sY="0" eX="1200" eY="20"></wall>
+	<wall sX="0" sY="580" eX="1200" eY="600"></wall>
+	<wall sX="0" sY="0" eX="20" eY="600"></wall>
+	<wall sX="1180" sY="0" eX="1200" eY="600"></wall>
+	
+	<!-- small office and room with large table -->
+	<wall sX="240" sY="0" eX="260" eY="140"></wall>
+	<wall sX="240" sY="240" eX="260" eY="600"></wall>
+	<wall sX="0" sY="350" eX="240" eY="370"></wall>
+
+	<!-- large office -->
+	<wall sX="500" sY="200" eX="520" eY="620"></wall>
+	<wall sX="500" sY="200" eX="780" eY="220"></wall>
+	<wall sX="880" sY="200" eX="1200" eY="220"></wall>
+	
+	<wall sX="600" sY="280" eX="610" eY="520"></wall>
+	<wall sX="760" sY="280" eX="770" eY="520"></wall>
+	<wall sX="930" sY="280" eX="940" eY="520"></wall>
+	<wall sX="1100" sY="280" eX="1110" eY="520"></wall>
+	<wall sX="600" sY="400" eX="1100" eY="410"></wall>
+	
+	
+	<!-- Rooms -->
+	<!-- room with large table -->
+	<room sX="0" sY="0" eX="260" eY="350"></room>
+	<!-- small office -->
+	<room sX="0" sY="370" eX="250" eY="600"></room>
+	<!-- large office -->
+	<room sX="260" sY="0" eX="1200" eY="600"></room>
+	
+	
+	<!-- Tables -->
+	<!-- room with large table -->
+	<desk sX="60" sY="50" eX="200" eY="300"></desk>
+	<!-- small office -->
+	<desk sX="80" sY="450" eX="120" eY="580"></desk>
+	<!-- large office -->
+	<desk sX="610" sY="360" eX="760" eY="400"></desk>
+	<desk sX="770" sY="360" eX="930" eY="400"></desk>
+	<desk sX="940" sY="360" eX="1100" eY="400"></desk>
+	<desk sX="610" sY="410" eX="760" eY="460"></desk>
+	<desk sX="770" sY="410" eX="930" eY="460"></desk>
+	<desk sX="940" sY="410" eX="1100" eY="460"></desk>
+	
+	
+	<!-- Cameras -->
+	<camera pointOneX="380" pointOneY="20" pointTwoX="280" pointTwoY="400" pointThreeX="480" pointThreeY="400" cameraPointX="380" cameraPointY="20"></camera>
+	
+	
+	<!-- Servers -->
+	<server sX="1100" sY="20" eX="1180" eY="200" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+	
+	
+	<!-- End -->
+	<end sX="260" sY="540" eX="500" eY="580"></end>
+	
+	
+	<!-- Doors -->
+	<door sX="240" sY="400" orientation="v" locktype="f"></door>
+	
+	
+	<!-- Terminals -->
+	<!-- <terminal sX="85" sY="120" connectedDoorID="0" codeLength="4" connectedDataPath="Levels/Level_1/Testdata.txt"></terminal> -->
+	<terminal sX="80" sY="500" connectedCamID="0" codeLength="4"></terminal>
+	<terminal sX="650" sY="360" connectedCamID="0" codeLength="4"></terminal>
+	<terminal sX="810" sY="360" connectedCamID="0" codeLength="4"></terminal>
+	<terminal sX="980" sY="360" connectedCamID="0" codeLength="4"></terminal>
+	<terminal sX="720" sY="440" connectedCamID="0" codeLength="4"></terminal>
+	<terminal sX="890" sY="440" connectedCamID="0" codeLength="4"></terminal>
+	<terminal sX="1060" sY="440" connectedCamID="0" codeLength="4"></terminal>
+	
+	
+</level2>
+
