@@ -20,7 +20,7 @@ class Menu {
   
  void drawMenu() { 
    if(playNew == true) {
-     state.lvlChoice = levelChoiceState.LVL1; 
+     level = new Level("Levels/Level_1/testlevel.xml"); 
      state.state = State.INGAME;
     }
    switch(MenuState) {
@@ -89,52 +89,52 @@ class Menu {
         }
         //level 1
         if(mouseX > 250 && mouseX < 350 && mouseY > 380 && mouseY < 480) {
-          state.lvlChoice = levelChoiceState.LVL1; 
+          level = new Level("Levels/Level_1/testlevel.xml"); 
           state.state = State.INGAME;
         }
         //level 2
         if(mouseX > 400 && mouseX < 500 && mouseY > 380 && mouseY < 480) {
-          state.lvlChoice = levelChoiceState.LVL2; 
+          level = new Level("Levels/Level_2/level2.xml"); 
           state.state = State.INGAME;
         }
         //level 3
         if(mouseX > 550 && mouseX < 650 && mouseY > 380 && mouseY < 480) {
-          state.lvlChoice = levelChoiceState.LVL3; 
+          level = new Level("Levels/Level_3/level3.xml"); 
           state.state = State.INGAME;
         }
         //level 4
         if(mouseX > 250 && mouseX < 350 && mouseY > 250 && mouseY < 350) {
-          state.lvlChoice = levelChoiceState.LVL4; 
+          level = new Level("Levels/Level_4/level4.xml"); 
           state.state = State.INGAME;
         }
         //level 5
         if(mouseX > 400 && mouseX < 500 && mouseY > 250 && mouseY < 350) {
-          state.lvlChoice = levelChoiceState.LVL5; 
+          level = new Level("Levels/Level_5/level5.xml"); 
           state.state = State.INGAME;
         }
         //level 6
         if(mouseX > 550 && mouseX < 650 && mouseY > 250 && mouseY < 350) {
-          state.lvlChoice = levelChoiceState.LVL6; 
+          level = new Level("Levels/Level_6/level6.xml"); 
           state.state = State.INGAME;
         }
         //level 7
         if(mouseX > 250 && mouseX < 350 && mouseY > 120 && mouseY < 220) {
-          state.lvlChoice = levelChoiceState.LVL7; 
+          level = new Level("Levels/Level_7/level7.xml"); 
           state.state = State.INGAME;
         }
         //level 8
         if(mouseX > 400 && mouseX < 500 && mouseY > 120 && mouseY < 220) {
-          state.lvlChoice = levelChoiceState.LVL8; 
+          level = new Level("Levels/Level_8/level8.xml"); 
           state.state = State.INGAME;
         }
         //level 9
         if(mouseX > 550 && mouseX < 650 && mouseY > 120 && mouseY < 220) {
-          state.lvlChoice = levelChoiceState.LVL9; 
+          level = new Level("Levels/Level_9/level9.xml"); 
           state.state = State.INGAME;
         }
         //level 10
         if(mouseX > 260 && mouseX < 640 && mouseY > 15 && mouseY < 95) {
-          state.lvlChoice = levelChoiceState.LVL10; 
+          level = new Level("Levels/Level_10/level10.xml"); 
           state.state = State.INGAME;
         }
         break;

@@ -9,7 +9,6 @@ void setup()
   save = new SaveGame();
   state = new StateClass();
   menu = new Menu(state);
-  level = new Level("Levels/Level_1/testlevel.xml");
 }
 
 void draw()
