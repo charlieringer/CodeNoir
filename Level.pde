@@ -1,7 +1,7 @@
 class Level
 {
   ArrayList<Wall> walls = new ArrayList<Wall>();
-  ArrayList<LargeObject> desks = new ArrayList<LargeObject>();
+  ArrayList<LargeObject> hardObjects = new ArrayList<LargeObject>();
   ArrayList<Door> doors = new ArrayList<Door>();
   ArrayList<SmallObject> terminals = new ArrayList<SmallObject>();
   ArrayList<Room> rooms = new ArrayList<Room>();
@@ -9,14 +9,16 @@ class Level
   ArrayList<Guard> guards = new ArrayList<Guard>();
   ArrayList<PapersObject> papers = new ArrayList<PapersObject>();
   Player player;
-  Server server;
+  ArrayList<Server> servers = new ArrayList<Server>();
   Endpoint end;
+  int dataNeeded = 0;
 
   LevelState levelState;
 
   Terminal currTerminal;
   LockPuzzle currLock;
   PapersObject currPapers;
+  Server currServer;
   //Current FingerPritnPuzzle
   //Current Camera Puzzle
 
@@ -53,7 +55,17 @@ class Level
       int sY = deskXML[i].getInt("sY");
       int eX = deskXML[i].getInt("eX");
       int eY = deskXML[i].getInt("eY");
-      desks.add(new Desk(sX, sY, eX, eY));
+      hardObjects.add(new Desk(sX, sY, eX, eY));
+    }
+
+    XML[] miscXML = level.getChildren("miscObj");
+    for (int i = 0; i < miscXML.length; i++) {
+      int sX = miscXML[i].getInt("sX");
+      int sY = miscXML[i].getInt("sY");
+      int eX = miscXML[i].getInt("eX");
+      int eY = miscXML[i].getInt("eY");
+      String imgPath = miscXML[i].getString("displayImage");
+      hardObjects.add(new MiscObject(sX, sY, eX, eY, imgPath));
     }
 
     XML[] guardXML = level.getChildren("guard");
@@ -87,22 +99,25 @@ class Level
       secCams.add(new SecurityCamera(p1X, p1Y, p2X, p2Y, p3X, p3Y, camX, camY));
     }
 
-    XML serverXML = level.getChild("server");
-    int sX = serverXML.getInt("sX");
-    int sY = serverXML.getInt("sY");
-    int eX = serverXML.getInt("eX");
-    int eY = serverXML.getInt("eY");
-    String lvl = serverXML.getString("level");
-    String win = serverXML.getString("solution");
-    walls.add(new Wall(sX, sY, eX, eY));
-    server = new Server(sX, sY, eX, eY, this, lvl, win);
+    XML[] serverXML = level.getChildren("server");
+    for (int i = 0; i < serverXML.length; i++)
+    {
+      int sX = serverXML[i].getInt("sX");
+      int sY = serverXML[i].getInt("sY");
+      int eX = serverXML[i].getInt("eX");
+      int eY = serverXML[i].getInt("eY");
+      String lvl = serverXML[i].getString("level");
+      String win = serverXML[i].getString("solution");
+      walls.add(new Wall(sX, sY, eX, eY));
+      servers.add(new Server(sX, sY, eX, eY, this, lvl, win));
+    }
 
     XML endXML = level.getChild("end");
-    sX = endXML.getInt("sX");
-    sY = endXML.getInt("sY");
-    eX = endXML.getInt("eX");
-    eY = endXML.getInt("eY");
-    end = new Endpoint(sX, sY, eX, eY);
+    int sX = endXML.getInt("sX");
+    int sY = endXML.getInt("sY");
+    int eX = endXML.getInt("eX");
+    int eY = endXML.getInt("eY");
+    end = new Endpoint(sX, sY, eX, eY, this);
 
     XML[] doorXML = level.getChildren("door");
     for (int i = 0; i < doorXML.length; i++)
@@ -155,7 +170,7 @@ class Level
         terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedDoor, linkedCam));
       } else if (hasConnectedDoor && !hasConnectedCam && hasConnectedData)
       {
-        
+
         Door linkedDoor = doors.get(terminalXML[i].getInt("connectedDoorID"));
         String dataPath = terminalXML[i].getString("connectedDataPath");
         terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedDoor, dataPath));
@@ -172,8 +187,12 @@ class Level
         terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedDoor, linkedCam, dataPath));
       }
     }
-
-    player = new Player(walls, desks, doors, guards);
+    XML playerXML = level.getChild("player");
+    int playerx = playerXML.getInt("sX");
+    int playery = playerXML.getInt("sY");
+    player = new Player(walls, hardObjects, doors, guards, playerx, playery);
+   
+    dataNeeded = level.getChild("dataAmount").getInt("needed");
   }
 
   void drawLevel()
@@ -195,7 +214,7 @@ class Level
     case CAMERA:
       break;
     case SERVER:
-      server.drawOnOwn();
+      currServer.drawOnOwn();
       break;
     case PAPERS:
       currPapers.displayOnOwn();
@@ -211,8 +230,8 @@ class Level
 
       wall.drawWall();
     }
-    for (LargeObject desk : desks) { 
-      desk.drawObj();
+    for (LargeObject obj : hardObjects) { 
+      obj.drawObj();
     }
     for (LargeObject door : doors) { 
       door.drawObj();
@@ -229,12 +248,14 @@ class Level
     }
     for (Guard guard : guards)
     {
-      guard.moveandDrawGuard(walls, desks);
+      guard.moveandDrawGuard(walls, hardObjects);
       if (!gameOver) gameOver = guard.checkForPlayer(player, walls);
     }
 
-
-    server.drawOnLevel();
+    for (Server server : servers)
+    {
+      server.drawOnLevel();
+    }
     end.drawEndpoint();
     player.updateAndDraw();
     player.checkVision(rooms);
@@ -313,19 +334,22 @@ class Level
         return;
       }
     }
+    for (int i = 0; i < servers.size (); i++) 
+    { 
 
-    int serverSX = server.sX;
-    int serverSY = server.sY;
-    int serverEX = server.eX;
-    int serverEY = server.eY;
+      int serverSX = servers.get(i).sX;
+      int serverSY = servers.get(i).sY;
+      int serverEX = servers.get(i).eX;
+      int serverEY = servers.get(i).eY;
 
-    if ((playerSX == serverEX && playerSY < serverEY && playerEY > serverSY) || 
-      (playerSY == serverEY && playerSX < serverEX && playerEX > serverSX) || 
-      (playerEX == serverSX && playerSY < serverEY && playerEY > serverSY) || 
-      (playerEY == serverSY && playerSX < serverEX && playerEX > serverSX))
-    {
-      status.drawStatusBar("Server - press SPACE to download data");
-      return;
+      if ((playerSX == serverEX && playerSY < serverEY && playerEY > serverSY) || 
+        (playerSY == serverEY && playerSX < serverEX && playerEX > serverSX) || 
+        (playerEX == serverSX && playerSY < serverEY && playerEY > serverSY) || 
+        (playerEY == serverSY && playerSX < serverEX && playerEX > serverSX))
+      {
+        status.drawStatusBar("Server - press SPACE to download data");
+        return;
+      }
     }
     status.drawStatusBar("");
   }
@@ -372,7 +396,7 @@ class Level
     case CAMERA:
       break;
     case SERVER:
-      server.handleKey();
+      currServer.handleKey();
       break;
     case PAPERS:
       break;
@@ -448,18 +472,23 @@ class Level
         }
       }
 
-      int serverSX = server.sX;
-      int serverSY = server.sY;
-      int serverEX = server.eX;
-      int serverEY = server.eY;
+      for (int i = 0; i < servers.size (); i++) 
+      { 
 
-      if ((playerSX == serverEX && playerSY < serverEY && playerEY > serverSY) || 
-        (playerSY == serverEY && playerSX < serverEX && playerEX > serverSX) || 
-        (playerEX == serverSX && playerSY < serverEY && playerEY > serverSY) || 
-        (playerEY == serverSY && playerSX < serverEX && playerEX > serverSX))
-      {
-        levelState = LevelState.SERVER;
-        return;
+        int serverSX = servers.get(i).sX;
+        int serverSY = servers.get(i).sY;
+        int serverEX = servers.get(i).eX;
+        int serverEY = servers.get(i).eY;
+
+        if ((playerSX == serverEX && playerSY < serverEY && playerEY > serverSY) || 
+          (playerSY == serverEY && playerSX < serverEX && playerEX > serverSX) || 
+          (playerEX == serverSX && playerSY < serverEY && playerEY > serverSY) || 
+          (playerEY == serverSY && playerSX < serverEX && playerEX > serverSX))
+        {
+          levelState = LevelState.SERVER;
+          currServer = servers.get(i);
+          return;
+        }
       }
     }
     player.handleKey(true);
@@ -480,7 +509,7 @@ class Level
     case CAMERA:
       break;
     case SERVER:
-      server.handleMousePressed();
+      currServer.handleMousePressed();
       break;
     case PAPERS:
       break;

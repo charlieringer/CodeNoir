@@ -3,6 +3,7 @@ class Server
   int sX, sY, eX, eY;
   ServerPuzzle puzzle;
   Level parentLevel;
+  boolean complete = false;
   
   Server(int sX, int sY, int eX, int eY, Level parentLevel, String lvl, String win)
   {
@@ -25,8 +26,12 @@ class Server
   { 
     if(puzzle.gameWin == false) {
       puzzle.drawMaze();
-    } else {
-      if (!parentLevel.player.hasData) parentLevel.player.hasData = true;
+    } else {  
+      if(!complete)
+      {
+        complete = true;
+        parentLevel.player.hasData+=1;
+      }
       puzzle.win();
     }
   }

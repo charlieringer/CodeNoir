@@ -1,5 +1,6 @@
 private class Object
 {
+  PImage displayImage;
   boolean locked;
   int startX;
   int startY;
@@ -19,6 +20,25 @@ class LargeObject extends Object {
 class SmallObject extends Object { 
   Terminal linkedTerm; 
   SmallObject() {
+  }
+}
+
+class MiscObject extends LargeObject
+{
+  MiscObject(int newSX, int newSY, int newEX, int newEY, String displayPath)
+  {
+    startX = newSX;
+    startY = newSY;
+    endX = newEX;
+    endY = newEY;
+    displayImage = loadImage(displayPath);
+  }
+  
+  void drawObj()
+  {
+    fill(0, 60, 15);
+    rectMode(CORNERS);
+    rect(startX, startY, endX, endY);
   }
 }
 
@@ -162,5 +182,16 @@ class PapersObject extends SmallObject
     {
       level.levelState = LevelState.LEVEL;
     }
+  }
+}
+
+class MugObject extends SmallObject
+{
+  MugObject(int sX, int sY, int eX, int eY)
+  {
+    startX = sX;
+    startY = sY;
+    endX = eX;
+    endY = eY;
   }
 }

@@ -11,16 +11,16 @@ class Player
   boolean goingDown = false;
   boolean goingLeft = false;
   boolean goingRight = false;
-  boolean hasData = false;
+  int hasData = 0;
 
-  Player(ArrayList<Wall> walls, ArrayList<LargeObject> desks, ArrayList<Door> doors, ArrayList<Guard> guards)
+  Player(ArrayList<Wall> walls, ArrayList<LargeObject> desks, ArrayList<Door> doors, ArrayList<Guard> guards, int x, int y)
   {
     this.walls = walls;
     this.desks = desks;
     this.guards = guards;
     this.doors = doors;
-    posX = 120;
-    posY = 520;
+    posX = x;
+    posY = y;
   }
 
   void updateAndDraw()

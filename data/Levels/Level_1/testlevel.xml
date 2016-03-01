@@ -29,9 +29,13 @@
 	<desk sX="520" sY="460" eX="620" eY="480"></desk>
 	<desk sX="520" sY="560" eX="620" eY="580"></desk>
 	<desk sX="120" sY="270" eX="140" eY="360"></desk>
+    
+    <miscObj sX="20" sY="260" eX="40" eY="320" displayImage=""></miscObj>
+    <miscObj sX="20" sY="20" eX="60" eY="60" displayImage=""></miscObj>
+
 
 	<guard sX="360" sY="220" startingOrientation="l" onCollisionTurn="b"></guard>
-	<guard sX="360" sY="310" startingOrientation="l" onCollisionTurn="b"></guard>
+	<guard sX="360" sY="310" startingOrientation="l" onCollisionTurn="b"></guard>5
 	<guard sX="360" sY="400" startingOrientation="l" onCollisionTurn="b"></guard>
 	<guard sX="360" sY="500" startingOrientation="l" onCollisionTurn="b"></guard>
 	<guard sX="840" sY="220" startingOrientation="l" onCollisionTurn="b"></guard>
@@ -44,8 +48,10 @@
 	<camera pointOneX="700" pointOneY="20" pointTwoX="500" pointTwoY="160" pointThreeX="900" pointThreeY="160" cameraPointX="700" cameraPointY="20"></camera>
 	
 	<server sX="830" sY="390" eX="930" eY="450" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+    <dataAmount needed = "1"></dataAmount>
 
 	<end sX="1100" sY="540" eX="1180" eY="580"></end>
+    <player sX="120" sY="520"></player>
 
 	<door sX="240" sY="50" orientation="v" locktype="t"></door>
 	<door sX="830" sY="160" orientation="h" locktype="l" pins="4"></door>
