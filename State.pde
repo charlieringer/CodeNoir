@@ -26,7 +26,8 @@ enum LevelState {
     FINGERPRINT, //3
     CAMERA, //4 
     SERVER, //5
-    PAPERS //6
+    PAPERS, //6
+    PAUSE //7
 }
 
 enum menuState {

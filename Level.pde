@@ -15,6 +15,9 @@ class Level
   int dataNeeded = 0;
 
   LevelState levelState;
+  LevelState prevState;
+  
+  PauseScreen pause;
 
   Terminal currTerminal;
   LockPuzzle currLock;
@@ -85,7 +88,7 @@ class Level
       String dataPath = papersXML[i].getString("dataPath");
       papers.add(new PapersObject(sX, sY, dataPath, this));
     }
-    
+
     XML[] cameraXML = level.getChildren("camera");
     for (int i = 0; i < cameraXML.length; i++)
     {
@@ -135,7 +138,7 @@ class Level
         doors.add(new Door( x, y, orientation, lockType, this));
       }
     }
-    
+
     XML[] mugXML = level.getChildren("mug");
     for (int i = 0; i < mugXML.length; i++) {
       sX = mugXML[i].getInt("sX");
@@ -202,6 +205,7 @@ class Level
     player = new Player(walls, hardObjects, doors, guards, playerx, playery);
 
     dataNeeded = level.getChild("dataAmount").getInt("needed");
+    pause = new PauseScreen(this);
   }
 
   void drawLevel()
@@ -229,13 +233,15 @@ class Level
     case PAPERS:
       currPapers.displayOnOwn();
       break;
+     case PAUSE:
+       pause.display();
+       break;
     }
   }
 
   void drawOuterLevel()
   {
     background(200);
-
     for (Wall wall : walls) { 
 
       wall.drawWall();
@@ -307,7 +313,7 @@ class Level
             status.drawStatusBar("Locked Door - press SPACE to pick lock");
           } else if (doors.get(i).doorType.equals("f"))
           {
-            if(doors.get(i).hasFingerPrint)
+            if (doors.get(i).hasFingerPrint)
             {
               status.drawStatusBar("Locked Door - Fingerprint found, press SPACE to unlock");
             } else 
@@ -394,6 +400,18 @@ class Level
 
   void handleKeyOn()
   {
+    if (key == 'p')
+    {
+      if (levelState != LevelState.PAUSE)
+      {
+        prevState = levelState;
+        levelState = LevelState.PAUSE;
+        return;
+      } else {
+        levelState = prevState;
+        return;
+      }
+    }
     switch(levelState)
     {
     case LEVEL:
@@ -415,6 +433,7 @@ class Level
     case PAPERS:
       currPapers.pressed();
       break;
+     case PAUSE:
     }
   }
 
@@ -471,7 +490,7 @@ class Level
               levelState = LevelState.LOCKPICK;
               return;
             }
-            if(doors.get(i).doorType.equals("f") && doors.get(i).hasFingerPrint)
+            if (doors.get(i).doorType.equals("f") && doors.get(i).hasFingerPrint)
             {
               doors.get(i).open();
             }
@@ -577,9 +596,12 @@ class Level
       break;
     case PAPERS:
       break;
+     case PAUSE:
+      pause.handleClick();
+      break;
     }
   }
-  
+
   void handleMouseReleased()
   {
     switch(levelState)
@@ -601,7 +623,7 @@ class Level
       break;
     }
   }
-  
+
   void handleMouseDragged()
   {
     switch(levelState)
@@ -633,5 +655,69 @@ class StatusBar
     rect(0, 600, width, 620);
     fill(255);
     text(status, 100, 610);
+  }
+}
+
+class Endpoint
+{
+  int sX, sY, eX, eY;
+  Level level;
+  Endpoint(int sX, int sY, int eX, int eY, Level level)
+  {
+    this.sX = sX;
+    this.sY = sY;
+    this.eX = eX;
+    this.eY = eY;
+    this.level = level;
+  }
+
+  void drawEndpoint()
+  {
+    fill(255, 0, 0);
+    rect(sX, sY, eX, eY);
+  }
+
+  boolean levelCompleted(Player player)
+  {
+    return ((player.hasData == level.dataNeeded) && player.posX > sX && player.posX+30 < eX && player.posY > sY && player.posY+30 < eY);
+  }
+}
+
+class Room
+{
+  int startX, startY, endX, endY;
+
+  Room(int sX, int sY, int eX, int eY)
+  {
+    startX = sX;
+    startY = sY;
+    endX = eX;
+    endY = eY;
+  }
+  void blackout()
+  {
+    fill(0, 200);
+    rectMode(CORNERS);
+    noStroke();
+    rect(startX, startY, endX, endY);
+  }
+}
+
+class PauseScreen
+{
+  Level parent;
+  
+  PauseScreen(Level _parent)
+  {
+     parent = _parent;
+  }
+  void display()
+  {
+    background(0);
+  }
+  
+  void handleClick()
+  {
+    parent.levelState = parent.prevState;
   }
 }
