@@ -82,3 +82,37 @@ void mousePressed()
     break;
   }
 }
+
+void mouseReleased()
+{
+  println(mouseX, mouseY);
+
+  switch(state.state)
+  {
+  case FRONTEND:
+    break;
+  case INGAME:
+    level.handleMouseReleased();
+    break;
+  case POSTGAMEWIN:
+    break;
+  case POSTGAMELOSE:
+    break;
+  }
+}
+
+void mouseDragged()
+{
+  switch(state.state)
+  {
+  case FRONTEND:
+    break;
+  case INGAME:
+    level.handleMouseDragged();
+    break;
+  case POSTGAMEWIN:
+    break;
+  case POSTGAMELOSE:
+    break;
+  }
+}

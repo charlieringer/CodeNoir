@@ -60,10 +60,9 @@ class Desk extends LargeObject
   }
 }
 
-
-
 class TerminalObj extends SmallObject
 {
+  PImage dispImage = loadImage("Art_Assets/In_Game/Levels/testComp.png");
   TerminalObj(int newSX, int newSY, int newEX, int newEY, int codeLength, Level level, Door linkedDoor)
   {
     startX = newSX;
@@ -132,6 +131,7 @@ class TerminalObj extends SmallObject
     fill(128);
     rectMode(CORNERS);
     rect(startX, startY, endX, endY);
+    image(dispImage,startX,startY);
   }
 }
 
@@ -187,11 +187,51 @@ class PapersObject extends SmallObject
 
 class MugObject extends SmallObject
 {
-  MugObject(int sX, int sY, int eX, int eY)
+  Door linkedDoor;
+  PrintPuzzle linkedPuzzle;
+  
+  MugObject(int sX, int sY, Door door,Level parentLevel)
   {
+    linkedDoor = door;
+    level = parentLevel;
     startX = sX;
     startY = sY;
-    endX = eX;
-    endY = eY;
+    linkedPuzzle = new PrintPuzzle();
+  }
+  
+  void displayInGame()
+  {
+    fill(255);
+    rectMode(CORNERS);
+    rect(startX+5, startY+5, startX+10, startY+10);
+  }
+
+  void displayOnOwn()
+  {
+    linkedPuzzle.drawPuzzle();
+  }
+  
+  void pressed()
+  {
+    if (key == TAB)
+    {
+      if (linkedPuzzle.completed) linkedDoor.hasFingerPrint = true;
+      level.levelState = LevelState.LEVEL;
+    }
+  }
+  
+  void handleMousePressed()
+  {
+    linkedPuzzle.move();
+  }
+  
+  void handleMouseReleased()
+  {
+    linkedPuzzle.snapPiece();
+  }
+  
+  void handleMouseDragged()
+  {
+    linkedPuzzle.draggedPiece();
   }
 }

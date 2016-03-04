@@ -10,6 +10,7 @@ class Level
   ArrayList<PapersObject> papers = new ArrayList<PapersObject>();
   Player player;
   ArrayList<Server> servers = new ArrayList<Server>();
+  ArrayList<MugObject> mugs = new ArrayList<MugObject>();
   Endpoint end;
   int dataNeeded = 0;
 
@@ -19,7 +20,7 @@ class Level
   LockPuzzle currLock;
   PapersObject currPapers;
   Server currServer;
-  //Current FingerPritnPuzzle
+  MugObject currMug;
   //Current Camera Puzzle
 
 
@@ -84,7 +85,7 @@ class Level
       String dataPath = papersXML[i].getString("dataPath");
       papers.add(new PapersObject(sX, sY, dataPath, this));
     }
-
+    
     XML[] cameraXML = level.getChildren("camera");
     for (int i = 0; i < cameraXML.length; i++)
     {
@@ -134,6 +135,14 @@ class Level
         doors.add(new Door( x, y, orientation, lockType, this));
       }
     }
+    
+    XML[] mugXML = level.getChildren("mug");
+    for (int i = 0; i < mugXML.length; i++) {
+      sX = mugXML[i].getInt("sX");
+      sY = mugXML[i].getInt("sY");
+      mugs.add(new MugObject(sX, sY, doors.get(0), this));
+    }
+
 
     XML[] terminalXML = level.getChildren("terminal");
     for (int i = 0; i < terminalXML.length; i++)
@@ -191,7 +200,7 @@ class Level
     int playerx = playerXML.getInt("sX");
     int playery = playerXML.getInt("sY");
     player = new Player(walls, hardObjects, doors, guards, playerx, playery);
-   
+
     dataNeeded = level.getChild("dataAmount").getInt("needed");
   }
 
@@ -207,6 +216,7 @@ class Level
       currTerminal.drawTerminal();
       break;
     case FINGERPRINT:
+      currMug.displayOnOwn();
       break;
     case LOCKPICK:
       currLock.drawPuzzle();
@@ -241,6 +251,10 @@ class Level
     }
     for (PapersObject paper : papers) {
       paper.displayInGame();
+    }
+
+    for (MugObject mug : mugs) {
+      mug.displayInGame();
     }
     for (SecurityCamera secCam : secCams) { 
       secCam.drawCamera(); 
@@ -293,7 +307,13 @@ class Level
             status.drawStatusBar("Locked Door - press SPACE to pick lock");
           } else if (doors.get(i).doorType.equals("f"))
           {
-            status.drawStatusBar("Locked Door - Find fingerprint to unlock");
+            if(doors.get(i).hasFingerPrint)
+            {
+              status.drawStatusBar("Locked Door - Fingerprint found, press SPACE to unlock");
+            } else 
+            {
+              status.drawStatusBar("Locked Door - Find fingerprint to unlock");
+            }
           }
           return;
         }
@@ -351,8 +371,26 @@ class Level
         return;
       }
     }
+    for (int i = 0; i < mugs.size (); i++) 
+    { 
+
+      int mugsSX = mugs.get(i).startX;
+      int mugsSY = mugs.get(i).startY;
+      int mugsEX = mugsSX+20;
+      int mugsEY = mugsSY+20;
+
+      if ((playerSX == mugsEX && playerSY < mugsEY && playerEY > mugsSY) || 
+        (playerSY == mugsEY && playerSX < mugsEX && playerEX > mugsSX) || 
+        (playerEX == mugsSX && playerSY < mugsEY && playerEY > mugsSY) || 
+        (playerEY == mugsSY && playerSX < mugsEX && playerEX > mugsSX))
+      {
+        status.drawStatusBar("Mug - press SPACE to copy fingerprint");
+        return;
+      }
+    }
     status.drawStatusBar("");
   }
+
 
   void handleKeyOn()
   {
@@ -365,6 +403,7 @@ class Level
       currTerminal.checkKey();
       break;
     case FINGERPRINT:
+      currMug.pressed();
       break;
     case LOCKPICK:
       currLock.pressed();
@@ -415,7 +454,7 @@ class Level
       int playerEY = playerSY+30;
       for (int i = 0; i < doors.size (); i++) 
       { 
-        if ( doors.get(i).locked && doors.get(i).doorType.equals("l"))
+        if ( doors.get(i).locked)
         {
           int doorSX = doors.get(i).startX;
           int doorSY = doors.get(i).startY;
@@ -426,10 +465,16 @@ class Level
             (playerEX == doorSX  && playerSY < doorEY && playerEY > doorSY) || 
             (playerEY == doorSY && playerSX < doorEX && playerEX > doorSX))
           {
-            assert(doors.get(i).doorLock  != null);
-            currLock = doors.get(i).doorLock ;
-            levelState = LevelState.LOCKPICK;
-            return;
+            if (doors.get(i).doorType.equals("l"))
+            {
+              currLock = doors.get(i).doorLock ;
+              levelState = LevelState.LOCKPICK;
+              return;
+            }
+            if(doors.get(i).doorType.equals("f") && doors.get(i).hasFingerPrint)
+            {
+              doors.get(i).open();
+            }
           }
         }
       }
@@ -490,6 +535,24 @@ class Level
           return;
         }
       }
+      for (int i = 0; i < mugs.size (); i++) 
+      { 
+
+        int mugSX = mugs.get(i).startX;
+        int mugSY = mugs.get(i).startY;
+        int mugEX = mugSX+20;
+        int mugEY = mugSY+20;
+
+        if ((playerSX == mugEX && playerSY < mugEY && playerEY > mugSY) || 
+          (playerSY == mugEY && playerSX < mugEX && playerEX > mugSX) || 
+          (playerEX == mugSX && playerSY < mugEY && playerEY > mugSY) || 
+          (playerEY == mugSY && playerSX < mugEX && playerEX > mugSX))
+        {
+          levelState = LevelState.FINGERPRINT;
+          currMug = mugs.get(i);
+          return;
+        }
+      }
     }
     player.handleKey(true);
   }
@@ -503,6 +566,7 @@ class Level
     case TERMINAL:
       break;
     case FINGERPRINT:
+      currMug.handleMousePressed();
       break;
     case LOCKPICK:
       break;
@@ -514,5 +578,60 @@ class Level
     case PAPERS:
       break;
     }
+  }
+  
+  void handleMouseReleased()
+  {
+    switch(levelState)
+    {
+    case LEVEL:
+      break;
+    case TERMINAL:
+      break;
+    case FINGERPRINT:
+      currMug.handleMouseReleased();
+      break;
+    case LOCKPICK:
+      break;
+    case CAMERA:
+      break;
+    case SERVER:
+      break;
+    case PAPERS:
+      break;
+    }
+  }
+  
+  void handleMouseDragged()
+  {
+    switch(levelState)
+    {
+    case LEVEL:
+      break;
+    case TERMINAL:
+      break;
+    case FINGERPRINT:
+      currMug.handleMouseDragged();
+      break;
+    case LOCKPICK:
+      break;
+    case CAMERA:
+      break;
+    case SERVER:
+      break;
+    case PAPERS:
+      break;
+    }
+  }
+}
+
+class StatusBar
+{
+  void drawStatusBar(String status)
+  {
+    fill(0);
+    rect(0, 600, width, 620);
+    fill(255);
+    text(status, 100, 610);
   }
 }

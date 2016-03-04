@@ -5,6 +5,7 @@ class Door extends LargeObject
   String orientaion; 
   String doorType; //l = lockpick, t = terminal, f = fingerprint
   int lengthOfTumbler;
+  boolean hasFingerPrint = false;
   Level parentLevel;
 
   LockPuzzle doorLock;

@@ -35,7 +35,7 @@
 
 
 	<guard sX="360" sY="220" startingOrientation="l" onCollisionTurn="b"></guard>
-	<guard sX="360" sY="310" startingOrientation="l" onCollisionTurn="b"></guard>5
+	<guard sX="360" sY="310" startingOrientation="l" onCollisionTurn="b"></guard>
 	<guard sX="360" sY="400" startingOrientation="l" onCollisionTurn="b"></guard>
 	<guard sX="360" sY="500" startingOrientation="l" onCollisionTurn="b"></guard>
 	<guard sX="840" sY="220" startingOrientation="l" onCollisionTurn="b"></guard>
@@ -44,6 +44,7 @@
 
 	<paper sX="120" sY="280" dataPath="Levels/Level_1/Testdata.txt"></paper>
 	<paper sX="120" sY="320" dataPath="Levels/Level_1/Testdata.txt"></paper>
+
 
 	<camera pointOneX="700" pointOneY="20" pointTwoX="500" pointTwoY="160" pointThreeX="900" pointThreeY="160" cameraPointX="700" cameraPointY="20"></camera>
 	

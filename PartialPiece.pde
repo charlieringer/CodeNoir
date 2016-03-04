@@ -12,7 +12,7 @@ class PartialPiece {
     this.y = y;
     reset_x = x;
     reset_y = y;
-    partial = loadImage("Art_Assets/In_Game/Fingerprint/select" + name);
+    partial = loadImage("Art_Assets/In_Game/Fingerprint/select/" + name);
     partial.resize(100, 100);
   }
   
