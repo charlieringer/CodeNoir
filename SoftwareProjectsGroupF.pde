@@ -1,4 +1,4 @@
- StateClass state;
+StateClass state;
 Level level;
 Menu menu;
 SaveGame save;

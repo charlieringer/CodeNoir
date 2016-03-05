@@ -3,7 +3,8 @@ class Terminal
   HackPuzzle puzzle;
   ArrayList<Subroutine> subroutines;
   //Bachround image (placeholder currently)
-  PImage backgroundImage = loadImage("Art_Assets/In_Game/Terminal/computer.png");
+  PImage office = loadImage("Art_Assets/In_Game/Terminal/office.jpeg");
+  PImage backgroundImage = loadImage("Art_Assets/In_Game/Terminal/pixelated computer copy5.png");
   int selected = 0;
   Level parentLevel;
   Door linkedDoor;
@@ -13,8 +14,6 @@ class Terminal
 
   Terminal(int codeLength, Level level, Door door, SecurityCamera cam, String dataPath)
   {
-    //Resizing  will need to change when we make this properly
-    backgroundImage.resize(400, 400);
     puzzle = new HackPuzzle(codeLength);
     subroutines = new ArrayList<Subroutine>();
     parentLevel = level;
@@ -59,22 +58,23 @@ class Terminal
   {
     //Placeholder display code
     background(0);
-    image(backgroundImage, 0, 0);
+    image(office,0, 0);
+    image(backgroundImage, 360, 0);
     if (!puzzle.finished)
     {
       puzzle.drawGame();
     } else if (drawingData)
     {
-      fill(255);
+      fill(0,255,0);
       for (int i = 0; i < dataStrings.size(); i++)
       {
-        text(dataStrings.get(i), 150, 50*i);
+        text(dataStrings.get(i), 460, (20*i)+80);
       }
     } else 
     {
       textSize(10);
       fill(0, 255, 0);
-      text("Welcome USER, please select function: ", 65, 60);
+      text("Welcome USER, please select function: ", 420, 60);
       drawSubroutines();
     }
   }
@@ -120,10 +120,11 @@ class Terminal
   }
   void drawSubroutines()
   {
+    rectMode(CORNER);
     for (int i = 0; i < subroutines.size (); i++)
     {
       // background(0);
-      int x = 65;
+      int x = 430;
       int y = 80 +(i*12);
       if (i==selected)
       {
@@ -258,14 +259,15 @@ class HackPuzzle
     //Placeholder info
     textSize(10);
     fill(0, 255, 0);
-    text("Enter "+ codeLength + " digit Employee Code:", 65, 60);
-    text("Range: "+startRange+"-"+endRange, 65, 70);
-    text("Employee reminder: Type using the keyboard.", 62, 240);
-    text("Backspace to delete.", 162, 252);
+    text("Enter "+ codeLength + " digit Employee Code:", 425, 60);
+    text("Range: "+startRange+"-"+endRange, 425, 70);
+    text("Employee reminder: Type using the keyboard.", 422, 240);
+    text("Backspace to delete.", 422, 252);
   }
 
   void drawGuess()
   {
+    rectMode(CORNER);
     //Place holder but the logic is ok
 
     //Loop through the length of the code and draw a rect
@@ -273,7 +275,7 @@ class HackPuzzle
     {
       fill(128);
       noStroke();
-      rect(i*30+78, 123, 24, 34);
+      rect(i*30+460, 123, 24, 34);
     }
     //Not sure why I copied the int list over from the guess object. Maybe for readablity?
     IntList currentGuess = guess.getGuess();
@@ -282,7 +284,7 @@ class HackPuzzle
       //Prints the guess over the rects earlier
       textSize(30);
       fill(0, 255, 0);
-      text(currentGuess.get(i), i*30+80, 150);
+      text(currentGuess.get(i), i*30+460, 150);
     }
     previousGuesses.displayGuesses(code.getCode());
   }
@@ -416,13 +418,13 @@ class HackPuzzle
         }
         textSize(10);
         fill(0, 255, 0);
-        text("Code: ", 230, i*15+80);
+        text("Code: ", 640, i*15+80);
         int correct = 0;
         int lastIntX = 0; 
         for (int j = 0; j < codeLength; j++) 
         {
           int currGuess = prevGuesses.get(prevGuesses.size()-1-i).get(j);
-          lastIntX = 258+(j*5);
+          lastIntX = 678+(j*5);
           text(currGuess, lastIntX, i*15+80);
           if (currGuess == currentCode[j])
           {

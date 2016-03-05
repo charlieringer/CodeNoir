@@ -1,6 +1,7 @@
 class Server
 {
   int sX, sY, eX, eY;
+  PImage dispImage = loadImage("Art_Assets/In_Game/Levels/server.png");
   ServerPuzzle puzzle;
   Level parentLevel;
   boolean complete = false;
@@ -17,9 +18,7 @@ class Server
   
   void drawOnLevel()
   {
-    fill(0,255,0);
-    rectMode(CORNERS);
-    rect(sX, sY, eX, eY);
+    image(dispImage, sX, sY);
   }
   
   void drawOnOwn()
@@ -118,6 +117,7 @@ class ServerPuzzle {
     for (int i = 0; i < 6; i++) {
       rect(50, 75+(i*100), 1100, 1);
     }
+    noStroke();
   }
 
   void readLevel() {
@@ -222,6 +222,7 @@ class ServerPuzzle {
     fill(60, 228, 34);
     textFont(pixel);
     text("YOU WIN!", 500, 250);
+    noStroke();
   }
 
   void move()
@@ -281,6 +282,7 @@ class Connections {
     
     imageMode(CENTER);
     image(arrow[arrow_pos], posX, posY);
+    imageMode(CORNER);
   }
   
   Boolean checkCorrect(int current_pos) {

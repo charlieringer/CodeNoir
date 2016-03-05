@@ -6,12 +6,15 @@ class Player
   ArrayList<LargeObject> desks;
   ArrayList<Door> doors;
   ArrayList<Guard> guards;
+  ArrayList<PImage> sprites;
 
   boolean goingUp = false;
   boolean goingDown = false;
   boolean goingLeft = false;
   boolean goingRight = false;
   int hasData = 0;
+  int spriteNumb = 0;
+  int storedFrame = 0;
 
   Player(ArrayList<Wall> walls, ArrayList<LargeObject> desks, ArrayList<Door> doors, ArrayList<Guard> guards, int x, int y)
   {
@@ -21,6 +24,10 @@ class Player
     this.doors = doors;
     posX = x;
     posY = y;
+    sprites = new ArrayList<PImage>();
+    sprites.add(loadImage("Art_Assets/In_Game/Player/protagstill.png"));
+    sprites.add(loadImage("Art_Assets/In_Game/Player/protagforward.png"));
+    sprites.add(loadImage("Art_Assets/In_Game/Player/protagforward2.png"));
   }
 
   void updateAndDraw()
@@ -30,9 +37,18 @@ class Player
   }
   void drawPlayer()
   {
-    fill(0, 0, 255);
-    rectMode(CORNER);
-    rect(posX, posY, 30, 30);
+    if (goingUp||goingDown||goingLeft||goingRight)
+    {
+      image(sprites.get(spriteNumb), posX, posY);
+      if (frameCount > storedFrame+10)
+      {
+        storedFrame = frameCount;
+        spriteNumb++;
+        if (spriteNumb == sprites.size()) spriteNumb = 0;
+      }
+    } else {
+      image(sprites.get(0),posX,posY);
+    }
   }
 
   void updatePosition(ArrayList<Wall> wallObjs, ArrayList<LargeObject> desks)

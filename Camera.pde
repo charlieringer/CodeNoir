@@ -9,15 +9,19 @@ class SecurityCamera
   PVector pointB;
   PVector pointC;
   int camLocX, camLocY;
+  PImage onImage;
+  PImage offImage;
   boolean on = true;
 
-  SecurityCamera(int pointXA, int pointYA, int pointXB, int pointYB, int pointXC, int pointYC, int camLocX, int camLocY)
+  SecurityCamera(int pointXA, int pointYA, int pointXB, int pointYB, int pointXC, int pointYC, int camLocX, int camLocY, int rotate)
   {
     pointA = new PVector(pointXA, pointYA);
     pointB = new PVector(pointXB, pointYB);
     pointC = new PVector(pointXC, pointYC);
     this.camLocX = camLocX;
     this.camLocY = camLocY;
+    onImage = loadImage("Art_Assets/In_Game/Levels/Camera/CameraOn"+rotate+".png");
+    offImage = loadImage("Art_Assets/In_Game/Levels/Camera/CameraOff"+rotate+".png");
   }
 
   public void drawCamera()
@@ -26,10 +30,11 @@ class SecurityCamera
     {
       fill(255, 255, 0, 75);
       triangle(pointA.x, pointA.y, pointB.x, pointB.y, pointC.x, pointC.y);
+      image(onImage, camLocX-10, camLocY-5);
+    } else {
+      image(offImage, camLocX-10, camLocY-5);
     }
-    fill(0);
-    ellipseMode(CENTER);
-    ellipse(camLocX, camLocY, 10, 10);
+
   }
 
   public boolean checkForPlayer(Player player)

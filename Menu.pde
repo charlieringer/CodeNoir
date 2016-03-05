@@ -54,7 +54,7 @@ class Menu {
       case MAIN:
         //new game is pressed
         if(mouseX > 750 && mouseX < 1050 && mouseY > 100 && mouseY < 150) {
-          level = new Level("Levels/Level_1/testlevel.xml", state); 
+          level = new Level("Levels/Level_1/level1.xml", state); 
           state.state = State.INGAME;
         }
     
@@ -85,7 +85,7 @@ class Menu {
         }
         //level 1
         if(mouseX > 250 && mouseX < 350 && mouseY > 380 && mouseY < 480) {
-          level = new Level("Levels/Level_1/testlevel.xml", state); 
+          level = new Level("Levels/Level_1/level1.xml", state); 
           state.state = State.INGAME;
         }
         //level 2

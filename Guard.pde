@@ -1,4 +1,4 @@
-//Class for a guard object //<>// //<>// //<>//
+//Class for a guard object //<>// //<>// //<>// //<>//
 //Constructor: takes a starting X and Y (top left corner) and a char (u,d,l,r) for the heading and a turn char (b = backwards, l = left, r = right)
 //drawGuard: takes no params and draws the guard to the screen
 //moveGuard: takes the array of walls and hard objects and moves the guard based on these
@@ -11,6 +11,9 @@ class Guard
   String heading; 
   String turn;
   boolean alive = true;
+  ArrayList<PImage> sprites;
+  int spriteNumb = 0;
+  int storedFrame = 0;
 
   Guard(int posX, int posY, String heading, String turn)
   {
@@ -18,6 +21,9 @@ class Guard
     this.posY = posY;
     this.heading = heading;
     this.turn = turn;
+    sprites = new ArrayList<PImage>();
+    sprites.add(loadImage("Art_Assets/In_Game/Guard/spriteguardforward.png"));
+    sprites.add(loadImage("Art_Assets/In_Game/Guard/spriteguardforward2.png"));
   }
 
   public void moveandDrawGuard(ArrayList<Wall> wallObjs, ArrayList<LargeObject> desks)
@@ -100,9 +106,13 @@ class Guard
           else if ( turn.equals("r")) turnRight();
         }
       }
-      rectMode(CORNER);
-      fill(255, 0, 0);
-      rect(posX, posY, 30, 30);
+      image(sprites.get(spriteNumb), posX, posY);
+      if (frameCount > storedFrame+10)
+      {
+        storedFrame = frameCount;
+        spriteNumb++;
+        if (spriteNumb == sprites.size()) spriteNumb = 0;
+      }
     }
   }
 

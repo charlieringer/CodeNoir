@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<testlevel>
+<level1>
 	<wall sX="0" sY="0" eX="1200" eY="20"></wall>
 	<wall sX="0" sY="580" eX="1200" eY="600"></wall>
 	<wall sX="0" sY="0" eX="20" eY="600"></wall>
@@ -30,9 +30,15 @@
 	<desk sX="520" sY="560" eX="620" eY="580"></desk>
 	<desk sX="120" sY="270" eX="140" eY="360"></desk>
     
-    <miscObj sX="20" sY="260" eX="40" eY="320" displayImage=""></miscObj>
-    <miscObj sX="20" sY="20" eX="60" eY="60" displayImage=""></miscObj>
-
+    <miscObj sX="20" sY="20" eX="60" eY="60" displayImage="Art_Assets/In_Game/Levels/Misc/plant.png"></miscObj>
+    
+    <miscObj sX="20" sY="270" eX="50" eY="300" displayImage="Art_Assets/In_Game/Levels/Misc/seat23.png"></miscObj>
+    <miscObj sX="20" sY="300" eX="50" eY="330" displayImage="Art_Assets/In_Game/Levels/Misc/seat13.png"></miscObj>
+    <miscObj sX="20" sY="330" eX="50" eY="360" displayImage="Art_Assets/In_Game/Levels/Misc/seat03.png"></miscObj>
+    
+    <miscObj sX="210" sY="270" eX="240" eY="300" displayImage="Art_Assets/In_Game/Levels/Misc/seat01.png"></miscObj>
+    <miscObj sX="210" sY="300" eX="240" eY="330" displayImage="Art_Assets/In_Game/Levels/Misc/seat11.png"></miscObj>
+    <miscObj sX="210" sY="330" eX="240" eY="360" displayImage="Art_Assets/In_Game/Levels/Misc/seat21.png"></miscObj>
 
 	<guard sX="360" sY="220" startingOrientation="l" onCollisionTurn="b"></guard>
 	<guard sX="360" sY="310" startingOrientation="l" onCollisionTurn="b"></guard>
@@ -42,13 +48,20 @@
 	<guard sX="840" sY="340" startingOrientation="l" onCollisionTurn="b"></guard>
 	<guard sX="840" sY="540" startingOrientation="l" onCollisionTurn="l"></guard>
 
-	<paper sX="120" sY="280" dataPath="Levels/Level_1/Testdata.txt"></paper>
-	<paper sX="120" sY="320" dataPath="Levels/Level_1/Testdata.txt"></paper>
+	<paper sX="120" sY="280" dataPath="Levels/Level_1/0.txt"></paper>
+	<paper sX="120" sY="320" dataPath="Levels/Level_1/0.txt"></paper>
 
 
-	<camera pointOneX="700" pointOneY="20" pointTwoX="500" pointTwoY="160" pointThreeX="900" pointThreeY="160" cameraPointX="700" cameraPointY="20"></camera>
+	<camera pointOneX="700" pointOneY="20" pointTwoX="500" pointTwoY="160" pointThreeX="900" pointThreeY="160" cameraPointX="700" cameraPointY="20" rotate="0"></camera>
 	
-	<server sX="830" sY="390" eX="930" eY="450" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+    <desk sX="740" sY="260" eX="840" eY="280"></desk>
+    <desk sX="940" sY="260" eX="1040" eY="280"></desk>
+    
+    <desk sX="740" sY="390" eX="870" eY="410"></desk>
+    <desk sX="740" sY="460" eX="870" eY="480"></desk>
+    
+    <server sX="870" sY="390" eX="960" eY="480" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+    
     <dataAmount needed = "1"></dataAmount>
 
 	<end sX="1100" sY="540" eX="1180" eY="580"></end>
@@ -57,9 +70,7 @@
 	<door sX="240" sY="50" orientation="v" locktype="t"></door>
 	<door sX="830" sY="160" orientation="h" locktype="l" pins="4"></door>
 
-	<mug sX="100" sY="200" connectedDoorID=""></mug>
-
-	<terminal sX="85" sY="120" connectedDoorID="0" codeLength="4" connectedDataPath="Levels/Level_1/Testdata.txt"></terminal>
-	<terminal sX="355" sY="560" connectedCamID="0" codeLength="4"></terminal>
-</testlevel>
+	<terminal sX="85" sY="120" connectedDoorID="0" codeLength="4" connectedDataPath="Levels/Level_1/1.txt" rotate="2"></terminal>
+	<terminal sX="355" sY="560" connectedCamID="0" codeLength="4" rotate="2"></terminal>
+</level1>
 

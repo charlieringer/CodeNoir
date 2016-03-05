@@ -13,6 +13,7 @@ class Level
   ArrayList<MugObject> mugs = new ArrayList<MugObject>();
   Endpoint end;
   int dataNeeded = 0;
+  ArrayList<PImage> floorTiles = new ArrayList<PImage>();
   
   StateClass state;
   
@@ -32,7 +33,13 @@ class Level
   boolean gameOver = false;
   StatusBar status = new StatusBar();
 
-  Level(String levelDataPath, StateClass state) {    
+  Level(String levelDataPath, StateClass state) { 
+    
+    floorTiles.add(loadImage("Art_Assets/In_Game/Levels/Floor/floor1.jpeg"));
+    floorTiles.add(loadImage("Art_Assets/In_Game/Levels/Floor/floor2.jpeg"));
+    floorTiles.add(loadImage("Art_Assets/In_Game/Levels/Floor/floor3.jpeg"));
+    floorTiles.add(loadImage("Art_Assets/In_Game/Levels/Floor/floor4.jpeg"));
+    
     levelState = LevelState.LEVEL;
     this.state = state;
 
@@ -103,7 +110,8 @@ class Level
       int p3Y = cameraXML[i].getInt("pointThreeY");
       int camX = cameraXML[i].getInt("cameraPointX");
       int camY = cameraXML[i].getInt("cameraPointY");
-      secCams.add(new SecurityCamera(p1X, p1Y, p2X, p2Y, p3X, p3Y, camX, camY));
+      int rotate = cameraXML[i].getInt("rotate");
+      secCams.add(new SecurityCamera(p1X, p1Y, p2X, p2Y, p3X, p3Y, camX, camY, rotate));
     }
 
     XML[] serverXML = level.getChildren("server");
@@ -160,6 +168,7 @@ class Level
       int tsY = terminalXML[i].getInt("sY");
       int teX = tsX+20;
       int teY = tsY+20;
+      int rotate = terminalXML[i].getInt("rotate");
       int codeLength = terminalXML[i].getInt("codeLength");
 
       if  (terminalXML[i].hasAttribute("connectedDoorID")) hasConnectedDoor = true;
@@ -169,37 +178,37 @@ class Level
       if (hasConnectedDoor && !hasConnectedCam && !hasConnectedData)
       {
         Door linkedDoor = doors.get(terminalXML[i].getInt("connectedDoorID"));
-        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedDoor));
+        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedDoor, rotate));
       } else if (!hasConnectedDoor && hasConnectedCam && !hasConnectedData)
       {
         SecurityCamera linkedCam = secCams.get(terminalXML[i].getInt("connectedCamID"));
-        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedCam));
+        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedCam, rotate));
       } else if (!hasConnectedDoor && !hasConnectedCam && hasConnectedData)
       {
         String dataPath = terminalXML[i].getString("connectedData");
-        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, dataPath));
+        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, dataPath, rotate));
       } else if (hasConnectedDoor && hasConnectedCam && !hasConnectedData)
       {
         Door linkedDoor = doors.get(terminalXML[i].getInt("connectedDoorID"));
         SecurityCamera linkedCam = secCams.get(terminalXML[i].getInt("connectedCamID"));
-        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedDoor, linkedCam));
+        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedDoor, linkedCam, rotate));
       } else if (hasConnectedDoor && !hasConnectedCam && hasConnectedData)
       {
 
         Door linkedDoor = doors.get(terminalXML[i].getInt("connectedDoorID"));
         String dataPath = terminalXML[i].getString("connectedDataPath");
-        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedDoor, dataPath));
+        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedDoor, dataPath, rotate));
       } else if (!hasConnectedDoor && hasConnectedCam && hasConnectedData)
       {
         SecurityCamera linkedCam = secCams.get(terminalXML[i].getInt("connectedCamID"));
         String dataPath = terminalXML[i].getString("connectedData");
-        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedCam, dataPath));
+        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedCam, dataPath, rotate));
       } else if (hasConnectedDoor && !hasConnectedCam && !hasConnectedData)
       {
         Door linkedDoor = doors.get(terminalXML[i].getInt("connectedDoorID"));
         SecurityCamera linkedCam = secCams.get(terminalXML[i].getInt("connectedCamID"));
         String dataPath = terminalXML[i].getString("connectedData");
-        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedDoor, linkedCam, dataPath));
+        terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedDoor, linkedCam, dataPath, rotate));
       }
     }
     XML playerXML = level.getChild("player");
@@ -244,7 +253,7 @@ class Level
 
   void drawOuterLevel()
   {
-    background(200);
+    drawFloor();
     for (Wall wall : walls) { 
 
       wall.drawWall();
@@ -285,6 +294,25 @@ class Level
     checkPlayerAdjacency();
     if (gameOver) state.state = State.POSTGAMELOSE;
     if (end.levelCompleted(player)) state.state = State.POSTGAMEWIN;
+  }
+  
+  void drawFloor()
+  {
+    background(200);
+    if (floorTiles.size() ==0)
+    {
+      return;
+    }
+    
+    int count = 0;
+    for(int i = 0 ; i < width; i+=99)
+    {
+      for(int j = 0; j < height; j +=99)
+      {
+        count++;
+        image(floorTiles.get(count%floorTiles.size()), i, j);
+      }
+    }
   }
 
 
