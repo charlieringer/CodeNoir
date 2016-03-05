@@ -57,6 +57,7 @@
 	<door sX="240" sY="50" orientation="v" locktype="t"></door>
 	<door sX="830" sY="160" orientation="h" locktype="l" pins="4"></door>
 
+	<mug sX="100" sY="200" connectedDoorID=""></mug>
 
 	<terminal sX="85" sY="120" connectedDoorID="0" codeLength="4" connectedDataPath="Levels/Level_1/Testdata.txt"></terminal>
 	<terminal sX="355" sY="560" connectedCamID="0" codeLength="4"></terminal>

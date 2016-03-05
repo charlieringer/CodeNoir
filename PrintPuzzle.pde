@@ -45,14 +45,15 @@ class PrintPuzzle
   {
     background(205, 210, 212);
     textSize(15);
-    text("Replicate the full print in the left 2x6 grid by dragging partial prints from the bottom!", 250, 30);
+    text("Replicate the full print in the left 2x6 grid by dragging partial prints from the bottom!", 180, 30);
     //draw reset button
     stroke(0);
     fill(0);
+    rectMode(CORNER);
     rect(900, 100, 150, 75);
     fill(255);
-    textSize(40);
-    text("RESET", 920, 150);
+    textSize(38);
+    text("RESET", 907, 150);
 
     //draws full print on left
     print.drawPiece();
@@ -311,5 +312,6 @@ class PartialPiece {
   void reset() {
     x = reset_x;
     y = reset_y;
+    clicked = false;
   }
 }

@@ -32,7 +32,7 @@ class Level
   boolean gameOver = false;
   StatusBar status = new StatusBar();
 
-  Level(String levelDataPath, StateClass state) {
+  Level(String levelDataPath, StateClass state) {    
     levelState = LevelState.LEVEL;
     this.state = state;
 
@@ -216,29 +216,29 @@ class Level
     switch(levelState)
     {
     case LEVEL:
-      drawOuterLevel();
-      break;
+     drawOuterLevel();
+     break;
     case TERMINAL:
-      assert(currTerminal != null);
-      currTerminal.drawTerminal();
-      break;
+     assert(currTerminal != null);
+     currTerminal.drawTerminal();
+     break;
     case FINGERPRINT:
-      currMug.displayOnOwn();
-      break;
+     currMug.displayOnOwn();
+     break;
     case LOCKPICK:
-      currLock.drawPuzzle();
-      break;
+     currLock.drawPuzzle();
+     break;
     case CAMERA:
-      break;
+     break;
     case SERVER:
-      currServer.drawOnOwn();
-      break;
+     currServer.drawOnOwn();
+     break;
     case PAPERS:
-      currPapers.displayOnOwn();
+     currPapers.displayOnOwn();
+     break;
+    case PAUSE:
+      pause.display();
       break;
-     case PAUSE:
-       pause.display();
-       break;
     }
   }
 
