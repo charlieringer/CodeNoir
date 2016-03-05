@@ -13,7 +13,9 @@ class Level
   ArrayList<MugObject> mugs = new ArrayList<MugObject>();
   Endpoint end;
   int dataNeeded = 0;
-
+  
+  StateClass state;
+  
   LevelState levelState;
   LevelState prevState;
   
@@ -30,8 +32,9 @@ class Level
   boolean gameOver = false;
   StatusBar status = new StatusBar();
 
-  Level(String levelDataPath) {
+  Level(String levelDataPath, StateClass state) {
     levelState = LevelState.LEVEL;
+    this.state = state;
 
     XML level = loadXML(levelDataPath);
 
@@ -205,7 +208,7 @@ class Level
     player = new Player(walls, hardObjects, doors, guards, playerx, playery);
 
     dataNeeded = level.getChild("dataAmount").getInt("needed");
-    pause = new PauseScreen(this);
+    pause = new PauseScreen(this, state);
   }
 
   void drawLevel()
@@ -706,18 +709,71 @@ class Room
 class PauseScreen
 {
   Level parent;
+  StateClass state;
+  PImage scape;
+  PFont cyber;
+  ArrayList<Button> pauseButtons = new ArrayList<Button>();
   
-  PauseScreen(Level _parent)
+  PauseScreen(Level _parent, StateClass state)
   {
      parent = _parent;
+     this.state = state;
+     scape = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
+     scape.resize(1200, 620);
+     cyber = createFont("Fonts/renegado.ttf", 130);
+     pauseButtons.add(new Button("Continue Game", 750, 100, 755, 135, 30));
+     pauseButtons.add(new Button("Controls", 750, 200, 810, 235, 30));
+     pauseButtons.add(new Button("Settings", 750, 300, 822, 335, 30));
+     pauseButtons.add(new Button("Return To Menu", 750, 400, 755, 435, 28));
+     //note: add an option to save data?
+     pauseButtons.add(new Button("Quit Game", 750, 500, 805, 535, 30));
   }
   void display()
   {
-    background(0);
+    //draws background
+    background(scape);
+    
+    //draws button banner
+    rectMode(CORNER);
+    fill(0);
+    rect(750, 0, 300, 620);
+    
+    //draw game title
+    fill(255);
+    textSize(100);
+    text("Code Noir", 30, 100);
+    
+    //draw buttons
+    for(int i = 0; i < pauseButtons.size(); i++) {
+      pauseButtons.get(i).drawButton();
+      pauseButtons.get(i).checkHover();
+    }
   }
   
   void handleClick()
   {
-    parent.levelState = parent.prevState;
+    //continue game is pressed
+    if(mouseX > 750 && mouseX < 1050 && mouseY > 100 && mouseY < 150) {
+      parent.levelState = parent.prevState;
+    }
+    //controls is pressed
+    if(mouseX > 750 && mouseX < 1050 && mouseY > 200 && mouseY < 250) {
+      state.MenuState = menuState.CONTROLS;
+      state.state = State.FRONTEND;
+    }
+    //settings is pressed
+    if(mouseX > 750 && mouseX < 1050 && mouseY > 300 && mouseY < 350) {
+      state.MenuState = menuState.SETTINGS;
+      state.state = State.FRONTEND;
+    }
+    //return to menu is pressed
+    if(mouseX > 750 && mouseX < 1050 && mouseY > 400 && mouseY < 450) {
+      state.MenuState = menuState.MAIN;
+      state.state = State.FRONTEND;
+    }
+    //quit game is pressed
+    if(mouseX > 750 && mouseX < 1050 && mouseY > 500 && mouseY < 550) {
+      exit();  
+    }
   }
 }

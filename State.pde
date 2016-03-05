@@ -1,10 +1,13 @@
 class StateClass
 {
   State state;
+  menuState MenuState;
   
   StateClass()
   {
     state = State.FRONTEND;
+    MenuState = menuState.INITIAL;
+    
   }
 }
 

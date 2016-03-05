@@ -5,11 +5,10 @@ class Menu {
  continueGame Continue;
  Controls controls;
  Settings settings;
- boolean playNew = false;
  StateClass state;
  
  Menu(StateClass state) {
-   MenuState = menuState.INITIAL;
+   //MenuState = menuState.INITIAL;
    screen = new initialScreen();
    mainScreen = new mainMenu();
    Continue = new continueGame();
@@ -19,11 +18,7 @@ class Menu {
  } 
   
  void drawMenu() { 
-   if(playNew == true) {
-     level = new Level("Levels/Level_1/testlevel.xml"); 
-     state.state = State.INGAME;
-    }
-   switch(MenuState) {
+   switch(state.MenuState) {
      case INITIAL:
        screen.drawInitial();
        break;
@@ -43,38 +38,39 @@ class Menu {
  }
  
  void handleKey() {
-   switch(MenuState) {
+   switch(state.MenuState) {
      case INITIAL:
        if(key == ' ') {
-         MenuState = menuState.MAIN;
+         state.MenuState = menuState.MAIN;
        }
        break;
    }
  }
  
  void handleMouse() {
-    switch(MenuState) {
+    switch(state.MenuState) {
       case INITIAL:
         break;
       case MAIN:
         //new game is pressed
         if(mouseX > 750 && mouseX < 1050 && mouseY > 100 && mouseY < 150) {
-          playNew = true;
+          level = new Level("Levels/Level_1/testlevel.xml", state); 
+          state.state = State.INGAME;
         }
     
         //continue game is pressed
         if(mouseX > 750 && mouseX < 1050 && mouseY > 200 && mouseY < 250) {
-          MenuState = menuState.CONTINUEMENU;
+          state.MenuState = menuState.CONTINUEMENU;
         }
     
         //controls is pressed
         if(mouseX > 750 && mouseX < 1050 && mouseY > 300 && mouseY < 350) {
-          MenuState = menuState.CONTROLS;
+          state.MenuState = menuState.CONTROLS;
         }
     
         //settings is pressed
         if(mouseX > 750 && mouseX < 1050 && mouseY > 400 && mouseY < 450) {
-          MenuState = menuState.SETTINGS;
+          state.MenuState = menuState.SETTINGS;
         }
     
         //quit is pressed
@@ -85,63 +81,63 @@ class Menu {
       case CONTINUEMENU:
         //home button is pressed
         if(mouseX > 1095 && mouseX < 1180 && mouseY > 20 && mouseY < 105) {
-          MenuState = menuState.MAIN;
+          state.MenuState = menuState.MAIN;
         }
         //level 1
         if(mouseX > 250 && mouseX < 350 && mouseY > 380 && mouseY < 480) {
-          level = new Level("Levels/Level_1/testlevel.xml"); 
+          level = new Level("Levels/Level_1/testlevel.xml", state); 
           state.state = State.INGAME;
         }
         //level 2
         if(mouseX > 400 && mouseX < 500 && mouseY > 380 && mouseY < 480) {
-          level = new Level("Levels/Level_2/level2.xml"); 
+          level = new Level("Levels/Level_2/level2.xml", state); 
           state.state = State.INGAME;
         }
         //level 3
         if(mouseX > 550 && mouseX < 650 && mouseY > 380 && mouseY < 480) {
-          level = new Level("Levels/Level_3/level3.xml"); 
+          level = new Level("Levels/Level_3/level3.xml", state); 
           state.state = State.INGAME;
         }
         //level 4
         if(mouseX > 250 && mouseX < 350 && mouseY > 250 && mouseY < 350) {
-          level = new Level("Levels/Level_4/level4.xml"); 
+          level = new Level("Levels/Level_4/level4.xml", state); 
           state.state = State.INGAME;
         }
         //level 5
         if(mouseX > 400 && mouseX < 500 && mouseY > 250 && mouseY < 350) {
-          level = new Level("Levels/Level_5/level5.xml"); 
+          level = new Level("Levels/Level_5/level5.xml", state); 
           state.state = State.INGAME;
         }
         //level 6
         if(mouseX > 550 && mouseX < 650 && mouseY > 250 && mouseY < 350) {
-          level = new Level("Levels/Level_6/level6.xml"); 
+          level = new Level("Levels/Level_6/level6.xml", state); 
           state.state = State.INGAME;
         }
         //level 7
         if(mouseX > 250 && mouseX < 350 && mouseY > 120 && mouseY < 220) {
-          level = new Level("Levels/Level_7/level7.xml"); 
+          level = new Level("Levels/Level_7/level7.xml", state); 
           state.state = State.INGAME;
         }
         //level 8
         if(mouseX > 400 && mouseX < 500 && mouseY > 120 && mouseY < 220) {
-          level = new Level("Levels/Level_8/level8.xml"); 
+          level = new Level("Levels/Level_8/level8.xml", state); 
           state.state = State.INGAME;
         }
         //level 9
         if(mouseX > 550 && mouseX < 650 && mouseY > 120 && mouseY < 220) {
-          level = new Level("Levels/Level_9/level9.xml"); 
+          level = new Level("Levels/Level_9/level9.xml", state); 
           state.state = State.INGAME;
         }
         //level 10
         if(mouseX > 260 && mouseX < 640 && mouseY > 15 && mouseY < 95) {
-          level = new Level("Levels/Level_10/level10.xml"); 
+          level = new Level("Levels/Level_10/level10.xml", state); 
           state.state = State.INGAME;
         }
         break;
       case CONTROLS:
         //home button is pressed
         if(mouseX > 1095 && mouseX < 1180 && mouseY > 20 && mouseY < 105) {
-          MenuState = menuState.MAIN;
+          state.MenuState = menuState.MAIN;
         }
         break;
       case SETTINGS:
@@ -155,7 +151,7 @@ class Menu {
         }
         //home button is pressed
         if(mouseX > 1095 && mouseX < 1180 && mouseY > 20 && mouseY < 105) {
-          MenuState = menuState.MAIN;
+          state.MenuState = menuState.MAIN;
         }
         break;
     }
@@ -373,6 +369,16 @@ class Button {
     this.title = title;
     
     cyber = createFont("Fonts/renegado.ttf", 30);
+  }
+  
+  Button(String title, int rectX, int rectY, int textX, int textY, int fontSize) {
+    this.rectX = rectX;
+    this.rectY = rectY;
+    this.textX = textX;
+    this.textY = textY;
+    this.title = title;
+    
+    cyber = createFont("Fonts/renegado.ttf", fontSize);
   }
   
   Button(String title, int rectX, int rectY, int textX, int textY, int wide, int leng) {

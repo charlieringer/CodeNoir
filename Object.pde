@@ -62,7 +62,7 @@ class Desk extends LargeObject
 
 class TerminalObj extends SmallObject
 {
-  PImage dispImage = loadImage("Art_Assets/In_Game/Levels/testComp.png");
+  //PImage dispImage = loadImage("Art_Assets/In_Game/Levels/testComp.png");
   TerminalObj(int newSX, int newSY, int newEX, int newEY, int codeLength, Level level, Door linkedDoor)
   {
     startX = newSX;
@@ -131,7 +131,7 @@ class TerminalObj extends SmallObject
     fill(128);
     rectMode(CORNERS);
     rect(startX, startY, endX, endY);
-    image(dispImage,startX,startY);
+    //image(dispImage,startX,startY);
   }
 }
 
