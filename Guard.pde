@@ -10,7 +10,7 @@ class Guard
   int posY;
   String heading; 
   String turn;
-  boolean alive = true;
+  boolean alive = false;
   ArrayList<PImage> sprites;
   int spriteNumb = 0;
   int storedFrame = 0;

@@ -51,7 +51,7 @@ class Server
 
 class ServerPuzzle {
   PFont pixel;
-  PImage lock, Key;
+  PImage lock, Key, office;
   PVector lockVect, keyVect;
   BufferedReader reader;
   String line;
@@ -73,6 +73,7 @@ class ServerPuzzle {
     pixel = createFont("Fonts/renegado.ttf", 30);
     lock = loadImage("Art_Assets/In_Game/Server/lock.png");
     Key = loadImage("Art_Assets/In_Game/Server/key.png");
+    office = loadImage("Art_Assets/In_Game/Server/office.jpeg");
 
     lock.resize(50, 50);
     Key.resize(100, 100);
@@ -90,7 +91,7 @@ class ServerPuzzle {
     rectMode(CORNER);
     //init_setup();
     checkWin();
-    background(0);
+    background(office);
     for (int i = 0; i < wires.size (); i++)
     {
       wires.get(i).drawWire();
@@ -143,11 +144,11 @@ class ServerPuzzle {
     for (int i = 0; i < design.size(); i++) {
       switch(design.get(i)) {
       case 1:
-        keyVect = new PVector(100+(xpos*100), 130+(ypos*100));
+        keyVect = new PVector(40+(xpos*100), 90+(ypos*100));
         //image(Key, 50+(xpos*100), 90+(ypos*100));
         break;
       case 2:
-        lockVect = new PVector(105+(xpos*100), 125+(ypos*100));
+        lockVect = new PVector(80+(xpos*100), 100+(ypos*100));
         //image(lock, 80+(xpos*100), 100+(ypos*100));
         break;
       case 3:
@@ -217,11 +218,12 @@ class ServerPuzzle {
 
   void win() {
     fill(0);
-    rect(0, 0, 1200, 600);
+    rect(0, 0, 1200, 620);
     stroke(60, 228, 34);
     fill(60, 228, 34);
     textFont(pixel);
-    text("YOU WIN!", 500, 250);
+    text("DATA DOWNLOADED", 500, 250);
+    text("Press tab to exit.", 500, 300);
     noStroke();
   }
 
