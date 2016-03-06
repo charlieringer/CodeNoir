@@ -11,7 +11,7 @@ class SecurityCamera
   int camLocX, camLocY;
   PImage onImage;
   PImage offImage;
-  boolean on = false;
+  boolean on = true;
 
   SecurityCamera(int pointXA, int pointYA, int pointXB, int pointYB, int pointXC, int pointYC, int camLocX, int camLocY, int rotate)
   {

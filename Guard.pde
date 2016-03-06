@@ -10,8 +10,9 @@ class Guard
   int posY;
   String heading; 
   String turn;
-  boolean alive = false;
+  boolean alive = true;
   ArrayList<PImage> sprites;
+  PImage knockedOut;
   int spriteNumb = 0;
   int storedFrame = 0;
 
@@ -24,15 +25,17 @@ class Guard
     sprites = new ArrayList<PImage>();
     sprites.add(loadImage("Art_Assets/In_Game/Guard/spriteguardforward.png"));
     sprites.add(loadImage("Art_Assets/In_Game/Guard/spriteguardforward2.png"));
+    knockedOut = loadImage("Art_Assets/In_Game/Guard/guardout.png");
   }
 
   public void moveandDrawGuard(ArrayList<Wall> wallObjs, ArrayList<LargeObject> desks)
   {
     if (!alive)
     {
-      rectMode(CORNER);
-      fill(255, 0, 255);
-      rect(posX, posY, 30, 30);
+      image(knockedOut, posX, posY);
+     // rectMode(CORNER);
+//fill(255, 0, 255);
+//rect(posX, posY, 30, 30);
       return;
     } else {
       if (heading.equals("u")) posY-=2; 
