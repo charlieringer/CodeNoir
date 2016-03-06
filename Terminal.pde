@@ -242,7 +242,7 @@ class HackPuzzle
     previousGuesses = new GuessList();
     code = new Code(codelength, startRange, endRange);
     //We have not finished yet
-    finished = false;
+    finished = true;
   }
 
   void drawGame()

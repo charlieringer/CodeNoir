@@ -6,7 +6,7 @@ class LockPuzzle
   boolean finished;
   int timer;
   int nopins;
-  PImage backgroundImage;
+  PImage backgroundImage, office;
   Level parentLevel;
 
   //CDR: Pins should be an array
@@ -25,22 +25,24 @@ class LockPuzzle
     //Pins are made here
     for (int i = 0; i < pin.length; i++)
     {
-      pin[i] = new Pins(200+(i*20), 100);
+      pin[i] = new Pins(565+(i*20), 200);
     }
-    backgroundImage = loadImage("Art_Assets/In_Game/Lockpick/door.jpg");
+    backgroundImage = loadImage("Art_Assets/In_Game/Lockpick/door.jpeg");
     backgroundImage.resize(400, 400);
+    office = loadImage("Art_Assets/In_Game/Lockpick/office.jpeg");
+    office.resize(1200, 620);
     linkedDoor = door;
   }
 
   void drawPuzzle()
   {
 
-    background(0);
-    image(backgroundImage, 0, 0); 
-    textSize(10);
-    fill(0, 255, 0);
-    text("Move the lockpick using the arrow keys.", 65, 60);
-    text("Push all the tumblers into place and then press space to unlock.", 65, 80);
+    background(office);
+    image(backgroundImage, 400, 110); 
+    textSize(20);
+    fill(255);
+    text("Move the lockpick using the arrow keys.", 325, 40);
+    text("Push all the tumblers into place and then press space to unlock.", 150, 70);
     //CDR: It is wasteful to initalise new object every frame 
     tumbler.drawTumbler();
     lockpick.drawLockpick();
@@ -48,6 +50,7 @@ class LockPuzzle
     {
       pin[i].move();
       pin[i].drawPin();
+      println(i + " : " + pin[i].pushedUp);
     }
     lockpick.move();
     lockpick.intersect(pin);
@@ -120,7 +123,7 @@ class Pins
 
   void move()
   {
-    if (pinY >140 && !pushedUp) return;
+    if (pinY > 140 && !pushedUp) return;
     if (waiting)
     {
       if (millis() >= waitTime)
@@ -139,8 +142,9 @@ class Pins
   void up()
   {
     pinY -= 1.5;
-    if (pinY < 70)
+    if (pinY < 170)
     {
+      println("test");
       waiting = true;
       waitTime = ((int)random(8000, 10000))+millis();
     }
@@ -158,10 +162,10 @@ class Tumbler
   {
     fill(160);
     noStroke();
-    rectMode(CENTER);
-    rect(400/2+ 50, 400/2, 150, 200);
+    rectMode(CORNER);
+    rect(525, 185, 150, 200);
     fill(200);
-    rect(400/2+ 50, 400/2, 150, 80);
+    rect(525, 245, 150, 80);
   }
 }
 
@@ -170,8 +174,8 @@ class Lockpick
   PImage lockpickimage = loadImage("Art_Assets/In_Game/Lockpick/lockpick.png");
   // image credit: http://abstract.desktopnexus.com/wallpaper/699441/
   // lockpick position variables
-  float posX = 0;
-  float posY = height/2;
+  float posX = 325;
+  float posY = 280;
   float pointOffSetX = 200;
   float pointOffSetY = 62;
   boolean up, down, left, right = false;
@@ -186,8 +190,8 @@ class Lockpick
 
   void move()
   {
-    if (up && posY > 150) posY -= 1.5;
-    if (down && posY < 225) posY +=1.5;
+    if (up && posY > 245) posY -= 1.5;
+    if (down && posY < 300) posY +=1.5;
     if (right) posX += 1.5;
     if (left) posX -=1.5;
   }
