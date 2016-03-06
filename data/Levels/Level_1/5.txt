@@ -1,0 +1,6 @@
+TODO LIST:
+- Book in clients
+- Marketing meeting
+- Release holo-veristment
+- Employee training
+- Upload data to server

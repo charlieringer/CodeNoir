@@ -186,7 +186,7 @@ class Level
         terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedCam, rotate));
       } else if (!hasConnectedDoor && !hasConnectedCam && hasConnectedData)
       {
-        String dataPath = terminalXML[i].getString("connectedData");
+        String dataPath = terminalXML[i].getString("connectedDataPath");
         terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, dataPath, rotate));
       } else if (hasConnectedDoor && hasConnectedCam && !hasConnectedData)
       {
@@ -202,13 +202,13 @@ class Level
       } else if (!hasConnectedDoor && hasConnectedCam && hasConnectedData)
       {
         SecurityCamera linkedCam = secCams.get(terminalXML[i].getInt("connectedCamID"));
-        String dataPath = terminalXML[i].getString("connectedData");
+        String dataPath = terminalXML[i].getString("connectedDataPath");
         terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedCam, dataPath, rotate));
       } else if (hasConnectedDoor && !hasConnectedCam && !hasConnectedData)
       {
         Door linkedDoor = doors.get(terminalXML[i].getInt("connectedDoorID"));
         SecurityCamera linkedCam = secCams.get(terminalXML[i].getInt("connectedCamID"));
-        String dataPath = terminalXML[i].getString("connectedData");
+        String dataPath = terminalXML[i].getString("connectedDataPath");
         terminals.add(new TerminalObj(tsX, tsY, teX, teY, codeLength, this, linkedDoor, linkedCam, dataPath, rotate));
       }
     }

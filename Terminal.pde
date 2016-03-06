@@ -41,6 +41,7 @@ class Terminal
     this(codeLength, level, null, cam, null);
   }
   Terminal(int codeLength, Level level, String data ) { 
+    
     this(codeLength, level, null, null, data);
   }
 

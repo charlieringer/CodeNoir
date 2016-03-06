@@ -44,12 +44,15 @@
 	<guard sX="360" sY="310" startingOrientation="l" onCollisionTurn="b"></guard>
 	<guard sX="360" sY="400" startingOrientation="l" onCollisionTurn="b"></guard>
 	<guard sX="360" sY="500" startingOrientation="l" onCollisionTurn="b"></guard>
+    
 	<guard sX="840" sY="220" startingOrientation="l" onCollisionTurn="b"></guard>
-	<guard sX="840" sY="340" startingOrientation="l" onCollisionTurn="b"></guard>
+	<guard sX="840" sY="310" startingOrientation="l" onCollisionTurn="b"></guard>
 	<guard sX="840" sY="540" startingOrientation="l" onCollisionTurn="l"></guard>
 
 	<paper sX="120" sY="280" dataPath="Levels/Level_1/0.txt"></paper>
 	<paper sX="120" sY="320" dataPath="Levels/Level_1/0.txt"></paper>
+    <paper sX="360" sY="260" dataPath="Levels/Level_1/2.txt"></paper>
+    <paper sX="970" sY="260" dataPath="Levels/Level_1/4.txt"></paper>
 
 
 	<camera pointOneX="700" pointOneY="20" pointTwoX="500" pointTwoY="160" pointThreeX="900" pointThreeY="160" cameraPointX="700" cameraPointY="20" rotate="0"></camera>
@@ -57,10 +60,10 @@
     <desk sX="740" sY="260" eX="840" eY="280"></desk>
     <desk sX="940" sY="260" eX="1040" eY="280"></desk>
     
-    <desk sX="740" sY="390" eX="870" eY="410"></desk>
-    <desk sX="740" sY="460" eX="870" eY="480"></desk>
+    <desk sX="740" sY="360" eX="840" eY="380"></desk>
+    <desk sX="740" sY="460" eX="840" eY="480"></desk>
     
-    <server sX="870" sY="390" eX="960" eY="480" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+    <server sX="945" sY="370" eX="1035" eY="460" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
     
     <dataAmount needed = "1"></dataAmount>
 
@@ -74,5 +77,7 @@
 
 	<terminal sX="85" sY="120" connectedDoorID="0" codeLength="4" connectedDataPath="Levels/Level_1/1.txt" rotate="2"></terminal>
 	<terminal sX="355" sY="560" connectedCamID="0" codeLength="4" rotate="2"></terminal>
+    <terminal sX="560" sY="360" codeLength="4" connectedDataPath="Levels/Level_1/3.txt" rotate="2"></terminal>
+    <terminal sX="770" sY="360" codeLength="4" connectedDataPath="Levels/Level_1/5.txt" rotate="0"></terminal>
 </level1>
 
