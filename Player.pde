@@ -12,6 +12,7 @@ class Player
   boolean goingDown = false;
   boolean goingLeft = false;
   boolean goingRight = false;
+  char prevRot = 'u';
   int hasData = 0;
   int spriteNumb = 0;
   int storedFrame = 0;
@@ -39,7 +40,39 @@ class Player
   {
     if (goingUp||goingDown||goingLeft||goingRight)
     {
-      image(sprites.get(spriteNumb), posX, posY);
+      if (goingUp)
+      {
+        prevRot = 'u';
+        pushMatrix();
+        translate(posX, posY);
+        rotate(radians(0));
+        image(sprites.get(spriteNumb), 0, 0);
+        popMatrix();
+      } else if (goingDown)
+      {
+        prevRot = 'd';
+        pushMatrix();
+        translate(posX, posY);
+        rotate(radians(180));
+        image(sprites.get(spriteNumb), -30, -30);
+        popMatrix();
+      } else if (goingLeft)
+      {
+        prevRot = 'l';
+        pushMatrix();
+        translate(posX, posY);
+        rotate(radians(270));
+        image(sprites.get(spriteNumb), -30, 0);
+        popMatrix();
+      } else if (goingRight)
+      {
+        prevRot = 'r';
+        pushMatrix();
+        translate(posX, posY);
+        rotate(radians(90));
+        image(sprites.get(spriteNumb), 0, -30);
+        popMatrix();
+      }
       if (frameCount > storedFrame+10)
       {
         storedFrame = frameCount;
@@ -47,7 +80,35 @@ class Player
         if (spriteNumb == sprites.size()) spriteNumb = 0;
       }
     } else {
-      image(sprites.get(0),posX,posY);
+      if (prevRot == 'u')
+      {
+        pushMatrix();
+        translate(posX, posY);
+        rotate(radians(0));
+        image(sprites.get(0), 0, 0);
+        popMatrix();
+      } else if (prevRot == 'd')
+      {
+        pushMatrix();
+        translate(posX, posY);
+        rotate(radians(180));
+        image(sprites.get(0), -30, -30);
+        popMatrix();
+      } else if (prevRot == 'l')
+      {
+        pushMatrix();
+        translate(posX, posY);
+        rotate(radians(270));
+        image(sprites.get(0), -30, 0);
+        popMatrix();
+      } else if (prevRot == 'r')
+      {
+        pushMatrix();
+        translate(posX, posY);
+        rotate(radians(90));
+        image(sprites.get(0), 0, -30);
+        popMatrix();
+      }
     }
   }
 

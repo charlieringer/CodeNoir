@@ -4,7 +4,7 @@ class Terminal
   ArrayList<Subroutine> subroutines;
   //Bachround image (placeholder currently)
   PImage office = loadImage("Art_Assets/In_Game/Terminal/office.jpeg");
-  PImage backgroundImage = loadImage("Art_Assets/In_Game/Terminal/pixelated computer copy5.png");
+  PImage backgroundImage = loadImage("Art_Assets/In_Game/Terminal/computer.png");
   int selected = 0;
   Level parentLevel;
   Door linkedDoor;

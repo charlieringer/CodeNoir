@@ -106,7 +106,35 @@ class Guard
           else if ( turn.equals("r")) turnRight();
         }
       }
-      image(sprites.get(spriteNumb), posX, posY);
+      if (heading.equals("u"))
+      {
+        pushMatrix();
+        translate(posX, posY);
+        rotate(radians(0));
+        image(sprites.get(spriteNumb), 0, 0);
+        popMatrix();
+      } else if (heading.equals("d"))
+      {
+        pushMatrix();
+        translate(posX, posY);
+        rotate(radians(180));
+        image(sprites.get(spriteNumb), -30, -30);
+        popMatrix();
+      } else if (heading.equals("l"))
+      {
+        pushMatrix();
+        translate(posX, posY);
+        rotate(radians(270));
+        image(sprites.get(spriteNumb), -30, 0);
+        popMatrix();
+      } else if (heading.equals("r"))
+      {
+        pushMatrix();
+        translate(posX, posY);
+        rotate(radians(90));
+        image(sprites.get(spriteNumb), 0, -30);
+        popMatrix();
+      }
       if (frameCount > storedFrame+10)
       {
         storedFrame = frameCount;
@@ -151,7 +179,7 @@ class Guard
     if (heading.equals("u"))
     {
 
-      visionSY = visionEY = posY;
+      visionSY = visionEY = posY+15;
       visionSX = posX;
       visionEX = posX+30;
 
@@ -191,7 +219,7 @@ class Guard
       }
     } else if (heading.equals("d")) 
     {
-      visionSY = visionEY = posY+30;
+      visionSY = visionEY = posY+15;
       visionSX = posX;
       visionEX = posX+30;
 
@@ -232,7 +260,7 @@ class Guard
       return false;
     } else if (heading.equals("l"))
     {
-      visionSX = visionEX = posX;
+      visionSX = visionEX = posX+15;
       visionSY = posY;
       visionEY = posY+30;
 
@@ -272,7 +300,7 @@ class Guard
       }
     } else if (heading.equals("r"))
     {
-      visionSX = visionEX = posX+30;
+      visionSX = visionEX = posX+15;
       visionSY = posY;
       visionEY = posY+30;
 

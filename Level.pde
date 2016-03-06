@@ -132,7 +132,8 @@ class Level
     int sY = endXML.getInt("sY");
     int eX = endXML.getInt("eX");
     int eY = endXML.getInt("eY");
-    end = new Endpoint(sX, sY, eX, eY, this);
+    int rotate = endXML.getInt("rotate");
+    end = new Endpoint(sX, sY, eX, eY, this, rotate);
 
     XML[] doorXML = level.getChildren("door");
     for (int i = 0; i < doorXML.length; i++)
@@ -168,7 +169,7 @@ class Level
       int tsY = terminalXML[i].getInt("sY");
       int teX = tsX+20;
       int teY = tsY+20;
-      int rotate = terminalXML[i].getInt("rotate");
+      rotate = terminalXML[i].getInt("rotate");
       int codeLength = terminalXML[i].getInt("codeLength");
 
       if  (terminalXML[i].hasAttribute("connectedDoorID")) hasConnectedDoor = true;
@@ -280,8 +281,9 @@ class Level
     }
     for (Guard guard : guards)
     {
-      guard.moveandDrawGuard(walls, hardObjects);
+      
       if (!gameOver) gameOver = guard.checkForPlayer(player, walls);
+      guard.moveandDrawGuard(walls, hardObjects);
     }
 
     for (Server server : servers)
@@ -691,21 +693,31 @@ class StatusBar
 
 class Endpoint
 {
+  PImage closed;
+  PImage open;
   int sX, sY, eX, eY;
   Level level;
-  Endpoint(int sX, int sY, int eX, int eY, Level level)
+  Endpoint(int sX, int sY, int eX, int eY, Level level, int rotate)
   {
     this.sX = sX;
     this.sY = sY;
     this.eX = eX;
     this.eY = eY;
     this.level = level;
+    closed = loadImage("Art_Assets/In_Game/Levels/Elevator/ElevatorClose" + rotate + ".png");
+    open = loadImage("Art_Assets/In_Game/Levels/Elevator/ElevatorOpen" + rotate + ".png");
   }
 
   void drawEndpoint()
   {
-    fill(255, 0, 0);
-    rect(sX, sY, eX, eY);
+    if(level.player.hasData == level.dataNeeded)
+    {
+      fill(255, 0, 0);
+      image(open,sX,sY);
+      //rect(sX, sY, eX, eY);
+    } else {
+      image(closed,sX,sY);
+    }
   }
 
   boolean levelCompleted(Player player)

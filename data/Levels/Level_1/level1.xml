@@ -64,7 +64,7 @@
     
     <dataAmount needed = "1"></dataAmount>
 
-	<end sX="1100" sY="540" eX="1180" eY="580"></end>
+	<end sX="1100" sY="540" eX="1180" eY="580" rotate="2"></end>
     <player sX="120" sY="520"></player>
 
 	<door sX="240" sY="50" orientation="v" locktype="t"></door>

@@ -45,12 +45,15 @@ class MiscObject extends LargeObject
 
 class Desk extends LargeObject
 {
+  PImage dispImage;
   Desk(int newSX, int newSY, int newEX, int newEY)
   {
     startX = newSX;
     startY = newSY;
     endX = newEX;
     endY = newEY;
+    dispImage = loadImage("Art_Assets/In_Game/Levels/deskCEdit.png");
+    dispImage.resize(abs(startX-endX), abs(startY-endY));
   }
 
   void drawObj()
@@ -58,6 +61,7 @@ class Desk extends LargeObject
     fill(128, 60, 15);
     rectMode(CORNERS);
     rect(startX, startY, endX, endY);
+    //image(dispImage, startX, startY);
   }
 }
 
