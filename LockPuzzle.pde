@@ -2,11 +2,10 @@ class LockPuzzle
 {
   Door linkedDoor;
   Lockpick lockpick;
-  Tumbler tumbler;
   boolean finished;
   int timer;
   int nopins;
-  PImage backgroundImage, office;
+  PImage backgroundImage, office, lock;
   Level parentLevel;
 
   //CDR: Pins should be an array
@@ -18,39 +17,41 @@ class LockPuzzle
   {
     this.parentLevel = parentLevel;
     lockpick = new Lockpick();
-    tumbler= new Tumbler();
     finished = false;
     nopins = pins;
     pin = new Pins[nopins];
     //Pins are made here
     for (int i = 0; i < pin.length; i++)
     {
-      pin[i] = new Pins(565+(i*20), 200);
+      pin[i] = new Pins(489+(i*26), 175);
     }
-    backgroundImage = loadImage("Art_Assets/In_Game/Lockpick/door.jpeg");
-    backgroundImage.resize(400, 400);
+    backgroundImage = loadImage("Art_Assets/In_Game/Lockpick/door.png");
+    backgroundImage.resize(600, 500);
     office = loadImage("Art_Assets/In_Game/Lockpick/office.jpeg");
     office.resize(1200, 620);
+    lock = loadImage("Art_Assets/In_Game/Lockpick/lockpickbg.png");
+    lock.resize(508,333);
     linkedDoor = door;
+    
   }
 
   void drawPuzzle()
   {
 
     background(office);
-    image(backgroundImage, 400, 110); 
+    image(backgroundImage, 300, 70); 
+    image(lock, 345, 160);
     textSize(20);
     fill(255);
     text("Move the lockpick using the arrow keys.", 325, 40);
     text("Push all the tumblers into place and then press space to unlock.", 150, 70);
     //CDR: It is wasteful to initalise new object every frame 
-    tumbler.drawTumbler();
     lockpick.drawLockpick();
     for (int i= 0; i < pin.length; i++)
     {
       pin[i].move();
       pin[i].drawPin();
-      println(i + " : " + pin[i].pushedUp);
+      //println(i + " : " + pin[i].pushedUp);
     }
     lockpick.move();
     lockpick.intersect(pin);
@@ -100,10 +101,11 @@ class Pins
   float pinX;
   float pinY;
   float pinWidth = 12;
-  float pinHeight = 100;
-  boolean pushedUp = false;
+  float pinHeight = 150;
+  boolean pushedUp;
   boolean waiting = false;
   int waitTime;
+  PImage pinImage = loadImage("Art_Assets/In_Game/Lockpick/barrel.png");
 
   //CDR: Added constructor
   Pins(int x, int y)
@@ -118,12 +120,13 @@ class Pins
     fill(60);
     noStroke();
     rectMode(CORNER);
-    rect(pinX, pinY, pinWidth, pinHeight);
+    //rect(pinX, pinY, pinWidth, pinHeight);
+    image(pinImage,pinX,pinY);
   }
 
   void move()
   {
-    if (pinY > 140 && !pushedUp) return;
+    if (pinY > 225 && !pushedUp) return;
     if (waiting)
     {
       if (millis() >= waitTime)
@@ -142,7 +145,7 @@ class Pins
   void up()
   {
     pinY -= 1.5;
-    if (pinY < 170)
+    if (pinY < 110)
     {
       println("test");
       waiting = true;
@@ -153,19 +156,6 @@ class Pins
   void down()
   {
     pinY += 0.05;
-  }
-}
-
-class Tumbler
-{
-  void drawTumbler() 
-  {
-    fill(160);
-    noStroke();
-    rectMode(CORNER);
-    rect(525, 185, 150, 200);
-    fill(200);
-    rect(525, 245, 150, 80);
   }
 }
 
@@ -191,7 +181,7 @@ class Lockpick
   void move()
   {
     if (up && posY > 245) posY -= 1.5;
-    if (down && posY < 300) posY +=1.5;
+    if (down && posY < 360) posY +=1.5;
     if (right) posX += 1.5;
     if (left) posX -=1.5;
   }

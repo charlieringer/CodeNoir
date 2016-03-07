@@ -33,9 +33,6 @@ class Guard
     if (!alive)
     {
       image(knockedOut, posX, posY);
-     // rectMode(CORNER);
-//fill(255, 0, 255);
-//rect(posX, posY, 30, 30);
       return;
     } else {
       if (heading.equals("u")) posY-=2; 

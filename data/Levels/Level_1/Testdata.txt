@@ -1,6 +1,0 @@
-Test data
-
-This is some data
-And is also a test
-This is why it is 
-called 'Test data'

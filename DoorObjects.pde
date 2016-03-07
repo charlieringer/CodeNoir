@@ -7,6 +7,9 @@ class Door extends LargeObject
   int lengthOfTumbler;
   boolean hasFingerPrint = false;
   Level parentLevel;
+  PImage lockedImage;
+  PImage unlockedImage;
+  PImage unlockedShort;
 
   LockPuzzle doorLock;
   Door(int newSX, int newSY, String orient, String type, Level parentLevel, int tumblerLength)
@@ -18,11 +21,32 @@ class Door extends LargeObject
     }
     if ((orientaion = orient).equals("v"))
     {
+      if (tumblerLength != 0)
+      {
+        lockedImage = loadImage("Art_Assets/In_Game/Levels/Doors/WoodenV.png");
+        unlockedImage = loadImage("Art_Assets/In_Game/Levels/Doors/WoodenV.png");
+        unlockedShort = loadImage("Art_Assets/In_Game/Levels/Doors/WoodenOpenV.png");
+      } else {
+        lockedImage = loadImage("Art_Assets/In_Game/Levels/Doors/LockedV.png");
+        unlockedImage = loadImage("Art_Assets/In_Game/Levels/Doors/UnlockedV.png");
+        unlockedShort = loadImage("Art_Assets/In_Game/Levels/Doors/OpenV.png");
+      }
+
       startX = newSX;
       startY = newSY;
       endX = startX+20;
       endY = startY+80;
     } else {
+      if (tumblerLength != 0)
+      {
+        lockedImage = loadImage("Art_Assets/In_Game/Levels/Doors/WoodenH.png");
+        unlockedImage = loadImage("Art_Assets/In_Game/Levels/Doors/WoodenH.png");
+        unlockedShort = loadImage("Art_Assets/In_Game/Levels/Doors/WoodenOpenH.png");
+      } else {
+        lockedImage = loadImage("Art_Assets/In_Game/Levels/Doors/LockedH.png");
+        unlockedImage = loadImage("Art_Assets/In_Game/Levels/Doors/UnlockedH.png");
+        unlockedShort = loadImage("Art_Assets/In_Game/Levels/Doors/OpenH.png");
+      }
       startX = newSX;
       startY = newSY;
       endX = startX+80;
@@ -40,6 +64,12 @@ class Door extends LargeObject
     fill(128, 60, 15);
     rectMode(CORNERS);
     rect(startX, startY, endX, endY);
+    if (locked)
+    {
+      image(lockedImage, startX, startY);
+    } else {
+      image(unlockedShort, startX, startY);
+    }
   }
 
   void open()

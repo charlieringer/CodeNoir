@@ -1,4 +1,4 @@
-class Level
+ class Level
 {
   ArrayList<Wall> walls = new ArrayList<Wall>();
   ArrayList<LargeObject> hardObjects = new ArrayList<LargeObject>();
@@ -472,10 +472,11 @@ class Level
 
   void handleKeyOff()
   {
+    player.handleKey(false);
     switch(levelState)
     {
     case LEVEL:
-      player.handleKey(false);
+      //player.handleKey(false);
       break;
     case TERMINAL:
       break;

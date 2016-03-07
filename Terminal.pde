@@ -57,8 +57,6 @@ class Terminal
 
   void drawTerminal()
   {
-    //Placeholder display code
-    background(0);
     image(office,0, 0);
     image(backgroundImage, 360, 0);
     if (!puzzle.finished)
@@ -242,7 +240,7 @@ class HackPuzzle
     previousGuesses = new GuessList();
     code = new Code(codelength, startRange, endRange);
     //We have not finished yet
-    finished = true;
+    finished = false;
   }
 
   void drawGame()
