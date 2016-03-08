@@ -3,7 +3,9 @@ Level level;
 Menu menu;
 SaveGame save;
 PostGame postGame;
+CutScreens cutScreens;
 int currentLevel;
+boolean paused;
 
 void setup()
 {
@@ -11,8 +13,9 @@ void setup()
   currentLevel = 1;
   save = new SaveGame();
   state = new StateClass();
-  menu = new Menu(state, currentLevel);
-  postGame = new PostGame(state, currentLevel);
+  menu = new Menu(state, currentLevel, paused);
+  cutScreens = new CutScreens(currentLevel, state, paused);
+  postGame = new PostGame(state, currentLevel, paused);
 }
 
 void draw()
@@ -21,6 +24,9 @@ void draw()
   {
   case FRONTEND:
     menu.drawMenu();
+    break;
+  case CUTSCREENS:
+    cutScreens.drawCutScreens();
     break;
   case INGAME:
     level.drawLevel();
@@ -41,6 +47,8 @@ void keyPressed()
   {
   case FRONTEND:
     menu.handleKey();
+    break;
+  case CUTSCREENS:
     break;
   case INGAME:
     level.handleKeyOn();
@@ -76,6 +84,9 @@ void mousePressed()
   {
   case FRONTEND:
     menu.handleMouse();
+    break;
+  case CUTSCREENS:
+    cutScreens.handleMouse();
     break;
   case INGAME:
     level.handleMousePressed();

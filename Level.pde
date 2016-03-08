@@ -32,8 +32,10 @@
 
   boolean gameOver = false;
   StatusBar status = new StatusBar();
+  
+  boolean paused;
 
-  Level(String levelDataPath, StateClass state) { 
+  Level(String levelDataPath, StateClass state, boolean paused) { 
     
     floorTiles.add(loadImage("Art_Assets/In_Game/Levels/Floor/floor1.jpeg"));
     floorTiles.add(loadImage("Art_Assets/In_Game/Levels/Floor/floor2.jpeg"));
@@ -218,7 +220,8 @@
     player = new Player(walls, hardObjects, doors, guards, playerx, playery);
 
     dataNeeded = level.getChild("dataAmount").getInt("needed");
-    pause = new PauseScreen(this, state);
+    this.paused = paused;
+    pause = new PauseScreen(this, state, paused);
   }
 
   void drawLevel()
@@ -439,9 +442,11 @@
       {
         prevState = levelState;
         levelState = LevelState.PAUSE;
+        paused = true;
         return;
       } else {
         levelState = prevState;
+        paused = false;
         return;
       }
     }
@@ -754,11 +759,13 @@ class PauseScreen
   PImage scape;
   PFont cyber;
   ArrayList<Button> pauseButtons = new ArrayList<Button>();
+  boolean paused;
   
-  PauseScreen(Level _parent, StateClass state)
+  PauseScreen(Level _parent, StateClass state, boolean paused)
   {
      parent = _parent;
      this.state = state;
+     this.paused = paused;
      scape = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
      scape.resize(1200, 620);
      cyber = createFont("Fonts/renegado.ttf", 130);
@@ -795,6 +802,7 @@ class PauseScreen
   {
     //continue game is pressed
     if(mouseX > 750 && mouseX < 1050 && mouseY > 100 && mouseY < 150) {
+      paused = false;
       parent.levelState = parent.prevState;
     }
     //controls is pressed
@@ -809,6 +817,7 @@ class PauseScreen
     }
     //return to menu is pressed
     if(mouseX > 750 && mouseX < 1050 && mouseY > 400 && mouseY < 450) {
+      paused = false;
       state.MenuState = menuState.MAIN;
       state.state = State.FRONTEND;
     }

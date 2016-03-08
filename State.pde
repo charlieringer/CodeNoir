@@ -6,8 +6,8 @@ class StateClass
   StateClass()
   {
     state = State.FRONTEND;
+    //state = State.CUTSCREENS;
     MenuState = menuState.INITIAL;
-    
   }
 }
 
@@ -17,9 +17,10 @@ enum State {
     CONTROLS, //1
     LEVELSELECT, //2
     SETTINGS, //3
-    INGAME, //4
-    POSTGAMEWIN, //5
-    POSTGAMELOSE //6
+    CUTSCREENS, //4
+    INGAME, //5
+    POSTGAMEWIN, //6
+    POSTGAMELOSE //7
 }
 
 enum LevelState {

@@ -7,15 +7,17 @@ class Menu {
  Settings settings;
  StateClass state;
  int currentLevel;
+ boolean paused;
  
  
- Menu(StateClass state, int currentLevel) {
+ Menu(StateClass state, int currentLevel, boolean paused) {
    //MenuState = menuState.INITIAL;
+   this.paused = paused;
    this.currentLevel = currentLevel;
    screen = new initialScreen();
    mainScreen = new mainMenu();
    Continue = new continueGame();
-   controls = new Controls();
+   controls = new Controls(paused);
    settings = new Settings();
    this.state = state;
  } 
@@ -57,9 +59,8 @@ class Menu {
       case MAIN:
         //new game is pressed
         if(mouseX > 750 && mouseX < 1050 && mouseY > 100 && mouseY < 150) {
-          level = new Level("Levels/Level_1/level1.xml", state); 
-          state.state = State.INGAME;
           currentLevel = 1;
+          state.state = State.CUTSCREENS;
         }
     
         //continue game is pressed
@@ -89,69 +90,64 @@ class Menu {
         }
         //level 1
         if(mouseX > 250 && mouseX < 350 && mouseY > 380 && mouseY < 480) {
-          level = new Level("Levels/Level_1/level1.xml", state); 
-          state.state = State.INGAME;
           currentLevel = 1;
+          state.state = State.CUTSCREENS;
         }
         //level 2
         if(mouseX > 400 && mouseX < 500 && mouseY > 380 && mouseY < 480) {
-          level = new Level("Levels/Level_2/level2.xml", state); 
-          state.state = State.INGAME;
           currentLevel = 2;
+          state.state = State.CUTSCREENS;
         }
         //level 3
-        if(mouseX > 550 && mouseX < 650 && mouseY > 380 && mouseY < 480) {
-          level = new Level("Levels/Level_3/level3.xml", state); 
-          state.state = State.INGAME;
+        if(mouseX > 550 && mouseX < 650 && mouseY > 380 && mouseY < 480) {          
           currentLevel = 3;
+          state.state = State.CUTSCREENS;
         }
         //level 4
-        if(mouseX > 250 && mouseX < 350 && mouseY > 250 && mouseY < 350) {
-          level = new Level("Levels/Level_4/level4.xml", state); 
-          state.state = State.INGAME;
+        if(mouseX > 250 && mouseX < 350 && mouseY > 250 && mouseY < 350) {          
           currentLevel = 4;
+          state.state = State.CUTSCREENS;
         }
         //level 5
-        if(mouseX > 400 && mouseX < 500 && mouseY > 250 && mouseY < 350) {
-          level = new Level("Levels/Level_5/level5.xml", state); 
-          state.state = State.INGAME;
+        if(mouseX > 400 && mouseX < 500 && mouseY > 250 && mouseY < 350) {         
           currentLevel = 5;
+          state.state = State.CUTSCREENS;
         }
         //level 6
-        if(mouseX > 550 && mouseX < 650 && mouseY > 250 && mouseY < 350) {
-          level = new Level("Levels/Level_6/level6.xml", state); 
-          state.state = State.INGAME;
+        if(mouseX > 550 && mouseX < 650 && mouseY > 250 && mouseY < 350) {          
           currentLevel = 6;
+          state.state = State.CUTSCREENS;
         }
         //level 7
-        if(mouseX > 250 && mouseX < 350 && mouseY > 120 && mouseY < 220) {
-          level = new Level("Levels/Level_7/level7.xml", state); 
-          state.state = State.INGAME;
+        if(mouseX > 250 && mouseX < 350 && mouseY > 120 && mouseY < 220) {          
           currentLevel = 7;
+          state.state = State.CUTSCREENS;
         }
         //level 8
-        if(mouseX > 400 && mouseX < 500 && mouseY > 120 && mouseY < 220) {
-          level = new Level("Levels/Level_8/level8.xml", state); 
-          state.state = State.INGAME;
+        if(mouseX > 400 && mouseX < 500 && mouseY > 120 && mouseY < 220) {         
           currentLevel = 8;
+          state.state = State.CUTSCREENS;
         }
         //level 9
-        if(mouseX > 550 && mouseX < 650 && mouseY > 120 && mouseY < 220) {
-          level = new Level("Levels/Level_9/level9.xml", state); 
-          state.state = State.INGAME;
+        if(mouseX > 550 && mouseX < 650 && mouseY > 120 && mouseY < 220) {          
           currentLevel = 9;
+          state.state = State.CUTSCREENS;
         }
         //level 10
-        if(mouseX > 260 && mouseX < 640 && mouseY > 15 && mouseY < 95) {
-          level = new Level("Levels/Level_10/level10.xml", state); 
-          state.state = State.INGAME;
+        if(mouseX > 260 && mouseX < 640 && mouseY > 15 && mouseY < 95) {          
           currentLevel = 10;
+          state.state = State.CUTSCREENS;
         }
         break;
       case CONTROLS:
-        //home button is pressed
-        if(mouseX > 1095 && mouseX < 1180 && mouseY > 20 && mouseY < 105) {
+        //home button is pressed when not paused
+        if(mouseX > 1095 && mouseX < 1180 && mouseY > 20 && mouseY < 105 && !paused) {
           state.MenuState = menuState.MAIN;
+        }
+        //if controls is accessed from the pause menu and return to game is pressed
+        if(mouseX > 900 && mouseX < 1150 && mouseY > 25 && mouseY < 75 && paused) {
+          level.levelState = level.prevState;
+          state.state = State.INGAME;
         }
         break;
       case SETTINGS:
@@ -294,8 +290,10 @@ class continueGame {
 class Controls {
   PImage city, arrows, space, home;
   PFont cyber;
+  boolean paused;
   
-  Controls() {
+  Controls(boolean paused) {
+    this.paused = paused;
     city = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
     city.resize(1200, 620);
     arrows = loadImage("Art_Assets/Frontend/arrows.png");
@@ -320,10 +318,18 @@ class Controls {
     fill(0);
     rect(120, 195, 310, 210, 20);
     rect(470, 195, 610, 210, 20);
-    rect(1095, 20, 85, 85, 20);
     image(arrows, 125, 200);
     image(space, 475, 200);
-    image(home, 1100, 25);
+    if(paused) {
+      fill(0);
+      rect(900, 25, 250, 50, 20);
+      fill(255);
+      textSize(20);
+      text("Return To Game", 925, 55);
+    } else {
+      rect(1095, 20, 85, 85, 20);
+      image(home, 1100, 25);
+    }
   }
 }
 
