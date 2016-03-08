@@ -49,19 +49,16 @@
 	<camera pointOneX="510" pointOneY="20" pointTwoX="480" pointTwoY="480" pointThreeX="530" pointThreeY="480" cameraPointX="510" cameraPointY="20"></camera>
 	<camera pointOneX="920" pointOneY="20" pointTwoX="880" pointTwoY="480" pointThreeX="960" pointThreeY="480" cameraPointX="920" cameraPointY="20"></camera>
 	
-	
-	<!-- Servers -->
-	<server sX="1160" sY="20" eX="1180" eY="30" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
-	
-	
 	<!-- Terminals -->
-	<terminal sX="180" sY="200" connectedCamID="0" codeLength="4"></terminal>
+	<terminal sX="180" sY="200" connectedDoorID="0" codeLength="4" rotate="1"></terminal>
 	<terminal sX="280" sY="150" connectedCamID="0" codeLength="4"></terminal>
-	<terminal sX="350" sY="490" connectedCamID="0" codeLength="4"></terminal>
-	<terminal sX="800" sY="510" connectedCamID="0" codeLength="4"></terminal>
+	<terminal sX="350" sY="490" connectedCamID="1" codeLength="4"></terminal>
+	<terminal sX="800" sY="510" connectedCamID="2" codeLength="4"></terminal>
 	
-	<!-- End -->-
+	<!-- End -->
 	<end sX="980" sY="20" eX="1180" eY="600"></end>
+	<player sX="120" sY="520"></player>
+	<dataAmount needed = "0"></dataAmount>
 	
 </level6>
 
