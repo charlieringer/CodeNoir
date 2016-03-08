@@ -6,9 +6,12 @@ class Menu {
  Controls controls;
  Settings settings;
  StateClass state;
+ int currentLevel;
  
- Menu(StateClass state) {
+ 
+ Menu(StateClass state, int currentLevel) {
    //MenuState = menuState.INITIAL;
+   this.currentLevel = currentLevel;
    screen = new initialScreen();
    mainScreen = new mainMenu();
    Continue = new continueGame();
@@ -56,6 +59,7 @@ class Menu {
         if(mouseX > 750 && mouseX < 1050 && mouseY > 100 && mouseY < 150) {
           level = new Level("Levels/Level_1/level1.xml", state); 
           state.state = State.INGAME;
+          currentLevel = 1;
         }
     
         //continue game is pressed
@@ -87,51 +91,61 @@ class Menu {
         if(mouseX > 250 && mouseX < 350 && mouseY > 380 && mouseY < 480) {
           level = new Level("Levels/Level_1/level1.xml", state); 
           state.state = State.INGAME;
+          currentLevel = 1;
         }
         //level 2
         if(mouseX > 400 && mouseX < 500 && mouseY > 380 && mouseY < 480) {
           level = new Level("Levels/Level_2/level2.xml", state); 
           state.state = State.INGAME;
+          currentLevel = 2;
         }
         //level 3
         if(mouseX > 550 && mouseX < 650 && mouseY > 380 && mouseY < 480) {
           level = new Level("Levels/Level_3/level3.xml", state); 
           state.state = State.INGAME;
+          currentLevel = 3;
         }
         //level 4
         if(mouseX > 250 && mouseX < 350 && mouseY > 250 && mouseY < 350) {
           level = new Level("Levels/Level_4/level4.xml", state); 
           state.state = State.INGAME;
+          currentLevel = 4;
         }
         //level 5
         if(mouseX > 400 && mouseX < 500 && mouseY > 250 && mouseY < 350) {
           level = new Level("Levels/Level_5/level5.xml", state); 
           state.state = State.INGAME;
+          currentLevel = 5;
         }
         //level 6
         if(mouseX > 550 && mouseX < 650 && mouseY > 250 && mouseY < 350) {
           level = new Level("Levels/Level_6/level6.xml", state); 
           state.state = State.INGAME;
+          currentLevel = 6;
         }
         //level 7
         if(mouseX > 250 && mouseX < 350 && mouseY > 120 && mouseY < 220) {
           level = new Level("Levels/Level_7/level7.xml", state); 
           state.state = State.INGAME;
+          currentLevel = 7;
         }
         //level 8
         if(mouseX > 400 && mouseX < 500 && mouseY > 120 && mouseY < 220) {
           level = new Level("Levels/Level_8/level8.xml", state); 
           state.state = State.INGAME;
+          currentLevel = 8;
         }
         //level 9
         if(mouseX > 550 && mouseX < 650 && mouseY > 120 && mouseY < 220) {
           level = new Level("Levels/Level_9/level9.xml", state); 
           state.state = State.INGAME;
+          currentLevel = 9;
         }
         //level 10
         if(mouseX > 260 && mouseX < 640 && mouseY > 15 && mouseY < 95) {
           level = new Level("Levels/Level_10/level10.xml", state); 
           state.state = State.INGAME;
+          currentLevel = 10;
         }
         break;
       case CONTROLS:

@@ -2,13 +2,17 @@ StateClass state;
 Level level;
 Menu menu;
 SaveGame save;
+PostGame postGame;
+int currentLevel;
 
 void setup()
 {
   size(1200, 620);
+  currentLevel = 1;
   save = new SaveGame();
   state = new StateClass();
-  menu = new Menu(state);
+  menu = new Menu(state, currentLevel);
+  postGame = new PostGame(state, currentLevel);
 }
 
 void draw()
@@ -22,10 +26,10 @@ void draw()
     level.drawLevel();
     break;
   case POSTGAMEWIN:
-    background(255);
+    postGame.drawWin();
     break;
   case POSTGAMELOSE:
-    background(0);
+    postGame.drawLose();
     break;
   }
 }
@@ -77,8 +81,10 @@ void mousePressed()
     level.handleMousePressed();
     break;
   case POSTGAMEWIN:
+    postGame.handleMouseWin();
     break;
   case POSTGAMELOSE:
+    postGame.handleMouseLose();
     break;
   }
 }
