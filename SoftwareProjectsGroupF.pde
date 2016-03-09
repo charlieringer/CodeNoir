@@ -10,7 +10,7 @@ boolean paused;
 void setup()
 {
   size(1200, 620);
-  frame.setTitle("Code Noir");
+  surface.setTitle("Code Noir");
   currentLevel = 1;
   save = new SaveGame();
   state = new StateClass();

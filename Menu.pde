@@ -174,7 +174,7 @@ class initialScreen {
   initialScreen() {
     cyber = createFont("Fonts/renegado.ttf", 130);
     city = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
-    protag = loadImage("Art_Assets/Frontend/prot2.png");
+    protag = loadImage("Art_Assets/Frontend/prot2eye.png");
     city.resize(1200, 620);
   }
   
