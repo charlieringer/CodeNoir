@@ -1,5 +1,6 @@
 class CutScreens {
   StateClass state;
+  PImage background = loadImage("Art_Assets/In_Game/Cutscreens/newcutscreen.png");
   PFont cyber;
   BufferedReader screenText;
   String line;
@@ -26,7 +27,8 @@ class CutScreens {
       text.add(line);
     }
 
-    background(255);        
+    background(background);
+  
     //next level button (temporary placement)
     fill(0);
     rect(1000, 560, 200, 60);
