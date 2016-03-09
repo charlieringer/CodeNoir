@@ -698,6 +698,7 @@ class StatusBar
     fill(0);
     rect(0, 600, width, 620);
     fill(255);
+    textSize(20);
     text(status, 100, 610);
   }
 }
