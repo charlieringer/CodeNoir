@@ -8,6 +8,18 @@
 	<wall sX="0" sY="0" eX="20" eY="600"></wall>
 	<wall sX="1180" sY="0" eX="1200" eY="600"></wall>
 	
+	<!-- Tables -->
+	<desk sX="360" sY="180" eX="380" eY="280"></desk>
+	<desk sX="360" sY="330" eX="380" eY="430"></desk>
+	<desk sX="360" sY="480" eX="380" eY="580"></desk>
+	
+	<desk sX="400" sY="180" eX="500" eY="200"></desk>
+	<desk sX="550" sY="180" eX="650" eY="200"></desk>
+	<desk sX="700" sY="180" eX="800" eY="200"></desk>
+	
+	<desk sX="820" sY="180" eX="840" eY="280"></desk>
+	<desk sX="820" sY="330" eX="840" eY="430"></desk>
+	<desk sX="820" sY="480" eX="840" eY="580"></desk>
 	
 	<!-- Rooms -->
 	<!-- Whole floor -->
@@ -15,23 +27,20 @@
 	
 	<!-- Guards -->
 	<guard sX="200" sY="220" startingOrientation="u" onCollisionTurn="b"></guard>
-	<guard sX="360" sY="200" startingOrientation="u" onCollisionTurn="b"></guard>
+	<guard sX="310" sY="400" startingOrientation="d" onCollisionTurn="b"></guard>
 	<guard sX="420" sY="460" startingOrientation="u" onCollisionTurn="b"></guard>
 	<guard sX="620" sY="50" startingOrientation="d" onCollisionTurn="b"></guard>
-	<guard sX="780" sY="580" startingOrientation="u" onCollisionTurn="b"></guard>
+	<guard sX="700" sY="580" startingOrientation="u" onCollisionTurn="b"></guard>
 	<guard sX="900" sY="300" startingOrientation="d" onCollisionTurn="b"></guard>
-	
-	
-	<!-- Cameras -->
-	<camera pointOneX="380" pointOneY="20" pointTwoX="360" pointTwoY="50" pointThreeX="400" pointThreeY="50" cameraPointX="380" cameraPointY="20"></camera>
-	
-	
-	<!-- Servers -->
-	<server sX="1160" sY="20" eX="1180" eY="30" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+	<guard sX="360" sY="290" startingOrientation="l" onCollisionTurn="b"></guard>
+	<guard sX="780" sY="480" startingOrientation="u" onCollisionTurn="l"></guard>
 	
 	
 	<!-- End -->-
-	<end sX="1100" sY="20" eX="1180" eY="200"></end>
+	<end sX="1100" sY="20" eX="1190" eY="110"></end>
+	
+	<player sX="80" sY="520"></player>
+	<dataAmount needed = "0"></dataAmount>
 	
 </level4>
 

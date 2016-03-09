@@ -8,22 +8,40 @@
 	<wall sX="0" sY="0" eX="20" eY="600"></wall>
 	<wall sX="1180" sY="0" eX="1200" eY="600"></wall>
 	
+	<wall sX="960" sY="0" eX="980" eY="260"></wall>
+	<wall sX="960" sY="340" eX="980" eY="600"></wall>
+	
+	<wall sX="750" sY="0" eX="770" eY="260"></wall>
+	<wall sX="300" sY="0" eX="320" eY="260"></wall>
+	<wall sX="300" sY="260" eX="770" eY="280"></wall>
 	
 	<!-- Rooms -->
 	<!-- Whole floor -->
 	<room sX="0" sY="0" eX="1200" eY="600"></room>
+	<room sX="300" sY="0" eX="770" eY="280"></room>
 	
+	<!-- Tables -->
+	<desk sX="690" sY="310" eX="710" eY="410"></desk>
+	<desk sX="690" sY="450" eX="710" eY="550"></desk>
 	
-	<!-- Cameras -->
-	<camera pointOneX="380" pointOneY="20" pointTwoX="360" pointTwoY="50" pointThreeX="400" pointThreeY="50" cameraPointX="380" cameraPointY="20"></camera>
+	<desk sX="590" sY="310" eX="610" eY="410"></desk>
+	<desk sX="590" sY="450" eX="610" eY="550"></desk>
 	
+	<desk sX="490" sY="310" eX="510" eY="410"></desk>
+	<desk sX="490" sY="450" eX="510" eY="550"></desk>
 	
-	<!-- Servers -->
-	<server sX="1160" sY="20" eX="1180" eY="30" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+	<desk sX="390" sY="310" eX="410" eY="410"></desk>
+	<desk sX="390" sY="450" eX="410" eY="550"></desk>
 	
+	<desk sX="290" sY="310" eX="310" eY="410"></desk>
+	<desk sX="290" sY="450" eX="310" eY="550"></desk>
 	
-	<!-- End -->-
-	<end sX="1100" sY="20" eX="1180" eY="200"></end>
+	<desk sX="60" sY="60" eX="260" eY="260"></desk>
+	
+	<!-- End -->
+	<end sX="40" sY="540" eX="120" eY="580" rotate="2"></end>
+	<player sX="1100" sY="520"></player>
+	<dataAmount needed = "0"></dataAmount>
 	
 </level8>
 

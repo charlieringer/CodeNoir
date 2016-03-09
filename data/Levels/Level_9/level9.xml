@@ -14,9 +14,8 @@
 	
 	
 	<!-- Rooms -->
-	<!-- Whole floor -->
-	<room sX="0" sY="0" eX="1200" eY="600"></room>
-	
+	<room sX="0" sY="0" eX="220" eY="600"></room>
+	<room sX="220" sY="0" eX="1200" eY="600"></room>
 	
 	<!-- Doors -->
 	<!-- terminal door -->
@@ -31,20 +30,27 @@
 	
 	
 	<!-- Terminals -->
-	<terminal sX="180" sY="130" connectedCamID="0" codeLength="4"></terminal>
-	
-	
-	<!-- Cameras -->
-	<camera pointOneX="380" pointOneY="20" pointTwoX="360" pointTwoY="50" pointThreeX="400" pointThreeY="50" cameraPointX="380" cameraPointY="20"></camera>
-	
-	
-	<!-- Servers -->
-	<server sX="1160" sY="20" eX="1180" eY="30" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
-	
-	
+	<terminal sX="180" sY="130" connectedDoorID="0" codeLength="4" rotate="1"></terminal>
+
 	<!-- End -->
 	<!-- supposed to be a fireplace -->
-	<end sX="1160" sY="200" eX="1180" eY="400"></end>
+	<end sX="1140" sY="280" eX="1200" eY="340" rotate="1"></end>
+	<player sX="120" sY="520"></player>
+	<dataAmount needed = "0"></dataAmount>
+	
+	<miscObj sX="430" sY="100" eX="460" eY="130" displayImage="Art_Assets/In_Game/Levels/Misc/seat10.png"></miscObj>
+	<miscObj sX="630" sY="100" eX="660" eY="130" displayImage="Art_Assets/In_Game/Levels/Misc/seat10.png"></miscObj>	
+	<miscObj sX="830" sY="100" eX="860" eY="130" displayImage="Art_Assets/In_Game/Levels/Misc/seat10.png"></miscObj>
+	<miscObj sX="530" sY="50" eX="560" eY="80" displayImage="Art_Assets/In_Game/Levels/Misc/seat10.png"></miscObj>
+	<miscObj sX="730" sY="50" eX="760" eY="80" displayImage="Art_Assets/In_Game/Levels/Misc/seat10.png"></miscObj>	
+	<miscObj sX="930" sY="50" eX="960" eY="80" displayImage="Art_Assets/In_Game/Levels/Misc/seat10.png"></miscObj>
+	
+	<miscObj sX="430" sY="470" eX="460" eY="500" displayImage="Art_Assets/In_Game/Levels/Misc/seat12.png"></miscObj>
+	<miscObj sX="630" sY="470" eX="660" eY="500" displayImage="Art_Assets/In_Game/Levels/Misc/seat12.png"></miscObj>	
+	<miscObj sX="830" sY="470" eX="860" eY="500" displayImage="Art_Assets/In_Game/Levels/Misc/seat12.png"></miscObj>
+	<miscObj sX="530" sY="540" eX="560" eY="510" displayImage="Art_Assets/In_Game/Levels/Misc/seat12.png"></miscObj>
+	<miscObj sX="730" sY="540" eX="760" eY="510" displayImage="Art_Assets/In_Game/Levels/Misc/seat12.png"></miscObj>	
+	<miscObj sX="930" sY="540" eX="960" eY="510" displayImage="Art_Assets/In_Game/Levels/Misc/seat12.png"></miscObj>
 	
 </level9>
 
