@@ -5,8 +5,8 @@ class StateClass
   
   StateClass()
   {
-    state = State.FRONTEND;
-    //state = State.CUTSCREENS;
+    //state = State.FRONTEND;
+    state = State.CUTSCREENS;
     MenuState = menuState.INITIAL;
   }
 }

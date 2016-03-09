@@ -15,7 +15,7 @@ void setup()
   save = new SaveGame();
   state = new StateClass();
   menu = new Menu(state);
-  cutScreens = new CutScreens(state);
+  cutScreens = new CutScreens(state, "Cutscreens/test.txt");
   postGame = new PostGame(state);
 }
 
@@ -50,6 +50,7 @@ void keyPressed()
     menu.handleKey();
     break;
   case CUTSCREENS:
+    cutScreens.handleKeys();
     break;
   case INGAME:
     level.handleKeyOn();
