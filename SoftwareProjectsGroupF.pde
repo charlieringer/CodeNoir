@@ -6,7 +6,7 @@ PostGame postGame;
 CutScreens cutScreens;
 int currentLevel;
 boolean paused;
- 
+
 void setup()
 {
   size(1200, 620);
@@ -44,6 +44,12 @@ void draw()
 
 void keyPressed()
 {
+  if(keyCode==ESC || key == ESC){
+    key = TAB;
+    keyCode = TAB;
+    print(keyCode);
+
+ }
   switch(state.state)
   {
   case FRONTEND:
@@ -64,6 +70,10 @@ void keyPressed()
 
 void keyReleased()
 {
+  if(keyCode==ESC || key == ESC){
+    key = 0;
+    keyCode = TAB;
+ }
   switch(state.state)
   {
   case FRONTEND:
@@ -76,6 +86,14 @@ void keyReleased()
   case POSTGAMELOSE:
     break;
   }
+}
+
+void keyTyped()
+{
+  if(keyCode==ESC || key == ESC){
+    key = 0;
+    keyCode = TAB;
+ }
 }
 
 void mousePressed()

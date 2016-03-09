@@ -290,9 +290,7 @@
     {
       server.drawOnLevel();
     }
-    end.drawEndpoint();
     player.updateAndDraw();
-    player.checkVision(rooms);
     checkPlayerAdjacency();
     if (gameOver) state.state = State.POSTGAMELOSE;
     if (end.levelCompleted(player))
@@ -301,6 +299,8 @@
       save.outputSave();
       state.state = State.POSTGAMEWIN;
     }
+    end.drawEndpoint();
+    player.checkVision(rooms);
   }
   
   void drawFloor()

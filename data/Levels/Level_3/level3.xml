@@ -89,7 +89,7 @@
 	<server sX="1100" sY="20" eX="1180" eY="100" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
 	
 	<!-- End -->
-	<end sX="260" sY="540" eX="500" eY="580" rotate="0"></end>
+	<end sX="1090" sY="540" eX="1170" eY="580" rotate="2"></end>
 	
 	<!-- Doors -->
 	<door sX="240" sY="400" orientation="v" locktype="f"></door>
@@ -104,8 +104,8 @@
 	<terminal sX="80" sY="500" connectedCamID="1" codeLength="4" rotate="1"></terminal>
     
 	<terminal sX="550" sY="390" connectedDataPath="Levels/Level_3/0.txt" codeLength="3" rotate="2"></terminal>
-	<terminal sX="680" sY="390" connectedDataPath="Levels/Level_1/0.txt" codeLength="3" rotate="2"></terminal>
-	<terminal sX="810" sY="390" connectedDataPath="Levels/Level_1/0.txt" codeLength="3" rotate="2"></terminal>
+	<terminal sX="680" sY="390" connectedDataPath="Levels/Level_3/2.txt" codeLength="3" rotate="2"></terminal>
+	<terminal sX="810" sY="390" connectedDataPath="Levels/Level_3/3.txt" codeLength="3" rotate="2"></terminal>
 	<terminal sX="650" sY="430" connectedCamID="0" codeLength="4" rotate="0"></terminal>
 	<terminal sX="780" sY="430" connectedCamID="2" codeLength="4" rotate="0"></terminal>
 	<terminal sX="910" sY="430" connectedDataPath="Levels/Level_3/1.txt" codeLength="3" rotate="0"></terminal>
