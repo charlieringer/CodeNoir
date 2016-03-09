@@ -34,6 +34,6 @@ class SaveGame
   
   void updateLevel(int newLevel)
   {
-    if (level < newLevel) level = newLevel;
+    if (level < newLevel) level = (byte)newLevel;
   }
 }
