@@ -89,10 +89,10 @@ class CutScreens {
     //display conversation text in correct position based on who is speaking
     if(text.get(convoPos).substring(0, 2).equals("P:")) {
       fill(0);
-      text(text.get(convoPos), 110, 150);
+      text(text.get(convoPos).substring(2, text.get(convoPos).length()), 110, 150);
     } else if (text.get(convoPos).substring(0, 2).equals("H:")) {
       fill(0);
-      text(text.get(convoPos), 610, 150);
+      text(text.get(convoPos).substring(2, text.get(convoPos).length()), 610, 150);
     }
   }
   
