@@ -75,6 +75,7 @@ class Terminal
       fill(0, 255, 0);
       text("Welcome USER, please select function: ", 420, 60);
       drawSubroutines();
+      text("TAB to quit terminal.", 422,264);
     }
   }
 
@@ -262,6 +263,7 @@ class HackPuzzle
     text("Range: "+startRange+"-"+endRange, 425, 70);
     text("Employee reminder: Type using the keyboard.", 422, 240);
     text("Backspace to delete.", 422, 252);
+    text("TAB to quit terminal.", 422,264);
   }
 
   void drawGuess()
