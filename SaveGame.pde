@@ -31,4 +31,9 @@ class SaveGame
     output[2] = sfx;
     saveBytes("save.dat", output);
   }
+  
+  void updateLevel(int newLevel)
+  {
+    if (level < newLevel) level = newLevel;
+  }
 }

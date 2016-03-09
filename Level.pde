@@ -298,7 +298,12 @@
     player.checkVision(rooms);
     checkPlayerAdjacency();
     if (gameOver) state.state = State.POSTGAMELOSE;
-    if (end.levelCompleted(player)) state.state = State.POSTGAMEWIN;
+    if (end.levelCompleted(player))
+    {
+      save.updateLevel(currentLevel);
+      save.outputSave();
+      state.state = State.POSTGAMEWIN;
+    }
   }
   
   void drawFloor()
