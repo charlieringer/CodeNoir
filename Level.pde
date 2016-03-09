@@ -285,8 +285,8 @@
     for (Guard guard : guards)
     {
       
-      if (!gameOver) gameOver = guard.checkForPlayer(player, walls);
-      guard.moveandDrawGuard(walls, hardObjects);
+      if (!gameOver) gameOver = guard.checkForPlayer(player, walls, doors);
+      guard.moveandDrawGuard(walls, hardObjects, doors);
     }
 
     for (Server server : servers)

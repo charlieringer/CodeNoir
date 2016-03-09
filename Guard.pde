@@ -1,4 +1,4 @@
-//Class for a guard object //<>// //<>// //<>// //<>//
+//Class for a guard object //<>// //<>// //<>// //<>// //<>//
 //Constructor: takes a starting X and Y (top left corner) and a char (u,d,l,r) for the heading and a turn char (b = backwards, l = left, r = right)
 //drawGuard: takes no params and draws the guard to the screen
 //moveGuard: takes the array of walls and hard objects and moves the guard based on these
@@ -26,14 +26,13 @@ class Guard
     sprites.add(loadImage("Art_Assets/In_Game/Guard/spriteguardforward.png"));
     sprites.add(loadImage("Art_Assets/In_Game/Guard/spriteguardforward2.png"));
     knockedOut = loadImage("Art_Assets/In_Game/Guard/guardout.png");
-    knockedOut.resize(60,60);
   }
 
-  public void moveandDrawGuard(ArrayList<Wall> wallObjs, ArrayList<LargeObject> desks)
+  public void moveandDrawGuard(ArrayList<Wall> wallObjs, ArrayList<LargeObject> desks, ArrayList<Door> doors)
   {
     if (!alive)
     {
-      image(knockedOut, posX-15, posY-15);
+      image(knockedOut, posX, posY-15);
       return;
     } else {
       if (heading.equals("u")) posY-=2; 
@@ -107,6 +106,40 @@ class Guard
           else if ( turn.equals("r")) turnRight();
         }
       }
+      
+      for (int i = 0; i < doors.size (); i++)
+      {
+        int doorSX = doors.get(i).startX;
+        int doorSY = doors.get(i).startY;
+        int doorEX = doors.get(i).endX;
+        int doorEY = doors.get(i).endY;
+
+        if (posX < doorEX && posX+30 > doorSX && posY <= doorEY && posY+2 > doorEY && heading.equals("u"))
+
+        {
+          if (turn.equals("b")) turnAround();
+          else if ( turn.equals("l")) turnLeft();
+          else if ( turn.equals("r")) turnRight();
+        }      
+        if (posX < doorEX && posX+30 > doorSX && posY+30 >= doorSY && posY+28 < doorSY && heading.equals("d"))
+        {
+          if (turn.equals("b")) turnAround();
+          else if ( turn.equals("l")) turnLeft();
+          else if ( turn.equals("r")) turnRight();
+        }
+        if (posY < doorEY && posY+30 > doorSY && posX <= doorEX && posX+2 > doorEX  && heading.equals("l"))
+        {
+          if (turn.equals("b")) turnAround();
+          else if ( turn.equals("l")) turnLeft();
+          else if ( turn.equals("r")) turnRight();
+        }
+        if (posY < doorEY && posY+30 > doorSY && posX+30 >= doorSX && posX+28 < doorSX && heading.equals("r"))
+        {
+          if (turn.equals("b")) turnAround();
+          else if ( turn.equals("l")) turnLeft();
+          else if ( turn.equals("r")) turnRight();
+        }
+      }
       if (heading.equals("u"))
       {
         pushMatrix();
@@ -170,7 +203,7 @@ class Guard
     else if (heading.equals("r")) heading = "d";
   }
 
-  public boolean checkForPlayer(Player player, ArrayList<Wall> wallObjs)
+  public boolean checkForPlayer(Player player, ArrayList<Wall> wallObjs, ArrayList<Door> doors)
   {
     if (!alive) return false;
     int visionSX;
@@ -185,10 +218,8 @@ class Guard
       visionEX = posX+30;
 
       boolean finished = false;  
-      int testCount = 0;
       while (!finished)
       {
-        testCount++;
         if (visionEY <= player.posY+30 && visionSY > player.posY+30 && 
           ((player.posX+30) > visionSX) && ((player.posX) < visionEX) ) 
         {
@@ -211,8 +242,18 @@ class Guard
             rect(visionSX, visionSY, visionEX, visionEY);
             return false;
           }
-          if (testCount > 1000)
+        }
+        for (int i = 0; i < doors.size (); i++)
+        {
+          int doorSX = doors.get(i).startX;
+          int doorEY = doors.get(i).endY;
+          int doorEX = doors.get(i).endX;
+          if (visionEX < doorEX && visionEX > doorSX && visionSY > doorEY && visionEY <= doorEY)
           {
+            fill(255, 255, 0, 75);
+            rectMode(CORNERS);
+            noStroke();
+            rect(visionSX, visionSY, visionEX, visionEY);
             return false;
           }
         }
@@ -225,10 +266,8 @@ class Guard
       visionEX = posX+30;
 
       boolean finished = false;  
-      int testCount = 0;
       while (!finished)
       {
-        testCount++;
         if (visionEY >= player.posY && visionSY < player.posY && 
           ((player.posX+30) > visionSX) && ((player.posX) < visionEX) ) 
         {
@@ -251,8 +290,18 @@ class Guard
             rect(visionSX, visionSY, visionEX, visionEY);
             return false;
           }
-          if (testCount > 1000)
+        }
+        for (int i = 0; i < doors.size (); i++)
+        {
+          int doorSY = doors.get(i).startY;
+          int doorSX = doors.get(i).startX;
+          int doorEX = doors.get(i).endX;
+          if (visionEX < doorEX && visionEX > doorSX && visionSY < doorSY && visionEY >= doorSY)
           {
+            fill(255, 255, 0, 75);
+            rectMode(CORNERS);
+            noStroke();
+            rect(visionSX, visionSY, visionEX, visionEY);
             return false;
           }
         }
@@ -266,10 +315,8 @@ class Guard
       visionEY = posY+30;
 
       boolean finished = false;  
-      int testCount = 0;
       while (!finished)
       {
-        testCount++;
         if (visionEX <= player.posX+30 && visionSX > player.posX+30 && 
           ((player.posY+30) > visionSY) && ((player.posY) < visionEY) ) 
         {
@@ -292,8 +339,18 @@ class Guard
             rect(visionSX, visionSY, visionEX, visionEY);
             return false;
           }
-          if (testCount > 1000)
+        }
+        for (int i = 0; i < doors.size (); i++)
+        {
+          int doorSY = doors.get(i).startY;
+          int doorEX = doors.get(i).endX;
+          int doorEY = doors.get(i).endY;
+          if (visionEY < doorEY && visionEY > doorSY && visionSX > doorEX && visionEX <= doorEX)
           {
+            fill(255, 255, 0, 75);
+            rectMode(CORNERS);
+            noStroke();
+            rect(visionSX, visionSY, visionEX, visionEY);
             return false;
           }
         }
@@ -306,10 +363,8 @@ class Guard
       visionEY = posY+30;
 
       boolean finished = false;  
-      int testCount = 0;
       while (!finished)
       {
-        testCount++;
         if (visionEX >= player.posX && visionSX < player.posX && 
           ((player.posY+30) > visionSY) && ((player.posY) < visionEY) ) 
         {
@@ -325,6 +380,20 @@ class Guard
           int wallSY = wallObjs.get(i).startY;
           int wallEY = wallObjs.get(i).endY;
           if (visionEY < wallEY && visionEY > wallSY && visionSX < wallSX && visionEX >= wallSX)
+          {
+            fill(255, 255, 0, 75);
+            rectMode(CORNERS);
+            noStroke();
+            rect(visionSX, visionSY, visionEX, visionEY);
+            return false;
+          }
+        }
+        for (int i = 0; i < doors.size (); i++)
+        {
+          int doorSX = doors.get(i).startX;
+          int doorSY = doors.get(i).startY;
+          int doorEY = doors.get(i).endY;
+          if (visionEY < doorEY && visionEY > doorSY && visionSX < doorSX && visionEX >= doorSX)
           {
             fill(255, 255, 0, 75);
             rectMode(CORNERS);
