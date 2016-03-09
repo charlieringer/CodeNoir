@@ -6,14 +6,12 @@ class Menu {
  Controls controls;
  Settings settings;
  StateClass state;
- int currentLevel;
  boolean paused;
  
  
- Menu(StateClass state, int currentLevel, boolean paused) {
+ Menu(StateClass state, boolean paused) {
    //MenuState = menuState.INITIAL;
    this.paused = paused;
-   this.currentLevel = currentLevel;
    screen = new initialScreen();
    mainScreen = new mainMenu();
    Continue = new continueGame();
@@ -171,16 +169,19 @@ class Menu {
 class initialScreen {
   PFont cyber;
   PImage city;
+  PImage protag;
   
   initialScreen() {
     cyber = createFont("Fonts/renegado.ttf", 130);
     city = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
+    protag = loadImage("Art_Assets/Frontend/prot2.png");
     city.resize(1200, 620);
   }
   
   void drawInitial() {
    //background
    background(city);
+   image( protag, 50, 100);
    
    //game title and banner
    //fill(0);
@@ -202,10 +203,13 @@ class mainMenu {
   PFont cyber;
   PImage scape;
   ArrayList<Button> buttons = new ArrayList<Button>();
+  PImage protag;
+  
   
   mainMenu() {
     cyber = createFont("Fonts/renegado.ttf", 30);
     scape = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
+    protag = loadImage("Art_Assets/Frontend/prot2.png");
     scape.resize(1200, 620);
     
     //add buttons to arraylist
@@ -219,6 +223,7 @@ class mainMenu {
   void drawMain() {
     //draws background
     background(scape);
+    image( protag, 50, 100);
     
     //draws button banner
     fill(0);

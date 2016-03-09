@@ -26,13 +26,14 @@ class Guard
     sprites.add(loadImage("Art_Assets/In_Game/Guard/spriteguardforward.png"));
     sprites.add(loadImage("Art_Assets/In_Game/Guard/spriteguardforward2.png"));
     knockedOut = loadImage("Art_Assets/In_Game/Guard/guardout.png");
+    knockedOut.resize(60,60);
   }
 
   public void moveandDrawGuard(ArrayList<Wall> wallObjs, ArrayList<LargeObject> desks)
   {
     if (!alive)
     {
-      image(knockedOut, posX, posY);
+      image(knockedOut, posX-15, posY-15);
       return;
     } else {
       if (heading.equals("u")) posY-=2; 

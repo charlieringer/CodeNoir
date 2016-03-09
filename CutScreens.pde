@@ -1,11 +1,11 @@
 class CutScreens {
-  int currentLevel;
+  //int currentLevel;
   StateClass state;
   PFont cyber;
   boolean paused;
   
-  CutScreens(int currentLevel, StateClass state, boolean paused) {
-    this.currentLevel = currentLevel;
+  CutScreens(StateClass state, boolean paused) {
+    //this.currentLevel = currentLevel;
     this.state = state;
     cyber = createFont("Fonts/renegado.ttf", 40); 
   }

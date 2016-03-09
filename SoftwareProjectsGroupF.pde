@@ -10,12 +10,13 @@ boolean paused;
 void setup()
 {
   size(1200, 620);
+  frame.setTitle("Code Noir");
   currentLevel = 1;
   save = new SaveGame();
   state = new StateClass();
-  menu = new Menu(state, currentLevel, paused);
-  cutScreens = new CutScreens(currentLevel, state, paused);
-  postGame = new PostGame(state, currentLevel, paused);
+  menu = new Menu(state, paused);
+  cutScreens = new CutScreens(state, paused);
+  postGame = new PostGame(state, paused);
 }
 
 void draw()
@@ -102,8 +103,6 @@ void mousePressed()
 
 void mouseReleased()
 {
-  println(mouseX, mouseY);
-
   switch(state.state)
   {
   case FRONTEND:

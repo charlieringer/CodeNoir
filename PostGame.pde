@@ -4,12 +4,10 @@ class PostGame {
  ArrayList<Button> lose = new ArrayList<Button>();
  ArrayList<Button> win = new ArrayList<Button>();
  StateClass state;
- int currentLevel;
  boolean paused;
   
- PostGame(StateClass state, int currentLevel, boolean paused) {
+ PostGame(StateClass state, boolean paused) {
    this.state = state;
-   this.currentLevel = currentLevel;
    this.paused = paused;
    scape = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
    scape.resize(1200, 620);
