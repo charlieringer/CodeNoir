@@ -69,12 +69,14 @@ class Terminal
       {
         text(dataStrings.get(i), 460, (20*i)+80);
       }
+      text("TAB to return.", 422,264);
     } else 
     {
       textSize(10);
       fill(0, 255, 0);
       text("Welcome USER, please select function: ", 420, 60);
       drawSubroutines();
+      fill(0,255,0);
       text("TAB to quit terminal.", 422,264);
     }
   }
