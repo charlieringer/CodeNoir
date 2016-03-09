@@ -12,7 +12,7 @@ void setup()
   size(1200, 620);
   surface.setTitle("Code Noir");
   currentLevel = 1;
-  save = new SaveGame();
+  save = new SaveGame(); 
   state = new StateClass();
   menu = new Menu(state);
   cutScreens = new CutScreens(state, "Cutscreens/test.txt");

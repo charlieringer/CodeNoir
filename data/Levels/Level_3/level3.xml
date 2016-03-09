@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<level3> <!-- Canteeen -->
+<level2> <!-- Office floor -->
 
 	<!-- Walls -->
 	<!-- outter walls -->
@@ -7,80 +7,116 @@
 	<wall sX="0" sY="580" eX="1200" eY="600"></wall>
 	<wall sX="0" sY="0" eX="20" eY="600"></wall>
 	<wall sX="1180" sY="0" eX="1200" eY="600"></wall>
+
+	<!-- small office and room with large table -->
+	<wall sX="240" sY="0" eX="260" eY="140"></wall>
+	<wall sX="240" sY="240" eX="260" eY="400"></wall>
+    <wall sX="240" sY="480" eX="260" eY="600"></wall>
+    
+	<wall sX="0" sY="350" eX="240" eY="370"></wall>
+
+	<!-- large office -->
+	<wall sX="460" sY="250" eX="480" eY="620"></wall>
+	<wall sX="460" sY="250" eX="780" eY="270"></wall>
+	<wall sX="880" sY="250" eX="1000" eY="270"></wall>
+    <wall sX="1000" sY="250" eX="1020" eY="600"></wall>
 	
-	<!-- big room -->
-	<wall sX="300" sY="140" eX="320" eY="350"></wall>
-	<wall sX="300" sY="430" eX="320" eY="600"></wall>
-	<wall sX="0" sY="140" eX="300" eY="160"></wall>
-	
-	<!-- left small room -->
-	<wall sX="500" sY="260" eX="750" eY="280"></wall>
-	<wall sX="750" sY="220" eX="770" eY="280"></wall>
-	<wall sX="750" sY="0" eX="770" eY="140"></wall>
-	<wall sX="500" sY="0" eX="520" eY="260"></wall>
-	<!-- right small room -->
-	<wall sX="950" sY="260" eX="1200" eY="280"></wall>
-	<wall sX="950" sY="220" eX="970" eY="280"></wall>
-	<wall sX="950" sY="0" eX="970" eY="140"></wall>
-	
-	
+	<wall sX="540" sY="320" eX="550" eY="540"></wall>
+	<wall sX="670" sY="320" eX="680" eY="540"></wall>
+	<wall sX="800" sY="320" eX="810" eY="540"></wall>
+	<wall sX="930" sY="320" eX="940" eY="540"></wall>
+	<wall sX="540" sY="410" eX="940" eY="430"></wall>
+    
+    <!-- server office -->
+    <wall sX="990" sY="180" eX="1200" eY="200"></wall>
+    <wall sX="990" sY="0" eX="1010" eY="60"></wall>
+    <wall sX="990" sY="140" eX="1010" eY="180"></wall>
+    
+    <wall sX="460" sY="180" eX="660" eY="200"></wall>
+    <wall sX="460" sY="0" eX="480" eY="180"></wall>
+    <wall sX="640" sY="0" eX="660" eY="60"></wall>
+    <wall sX="640" sY="140" eX="660" eY="180"></wall>
+    
+    <wall sX="1000" sY="250" eX="1070" eY="270"></wall>
+    <wall sX="1150" sY="250" eX="1200" eY="270"></wall>
+		
 	<!-- Rooms -->
-	<room sX="0" sY="0" eX="1200" eY="600"></room>
-	<room sX="0" sY="140" eX="320" eY="600"></room>
-	<room sX="500" sY="0" eX="770" eY="280"></room>
-	<room sX="950" sY="0" eX="1200" eY="280"></room>
-	
+	<!-- room with large table -->
+	<room sX="0" sY="0" eX="255" eY="350"></room>
+	<!-- small office -->
+	<room sX="0" sY="370" eX="255" eY="600"></room>
+	<!-- large office -->
+	<room sX="475" sY="265" eX="1010" eY="600"></room>
+    
+    <room sX="255" sY="0" eX="475" eY="600"></room>
+    <room sX="475" sY="200" eX="1200" eY="265"></room>
+    <room sX="1000" sY="250" eX="1200" eY="600"></room>
+    
+    <room sX="470" sY="0" eX="650" eY="200"></room>
+    <room sX="650" sY="0" eX="1000" eY="200"></room>
+    <room sX="1000" sY="0" eX="1200" eY="200"></room>
 	
 	<!-- Tables -->
-	<desk sX="75" sY="250" eX="225" eY="500"></desk>
-	
-	<desk sX="1000" sY="510" eX="1100" eY="530"></desk>
-	<desk sX="1000" sY="410" eX="1100" eY="430"></desk>
-	<desk sX="1000" sY="310" eX="1100" eY="330"></desk>
-	
-	<desk sX="800" sY="510" eX="900" eY="530"></desk>
-	<desk sX="800" sY="410" eX="900" eY="430"></desk>
-	<desk sX="800" sY="310" eX="900" eY="330"></desk>
-	
-	<desk sX="600" sY="510" eX="700" eY="530"></desk>
-	<desk sX="600" sY="410" eX="700" eY="430"></desk>
-	<desk sX="600" sY="310" eX="700" eY="330"></desk>
-	
-	<desk sX="520" sY="100" eX="540" eY="200"></desk>
-	<desk sX="1000" sY="20" eX="1100" eY="40"></desk>
-	
-	<guard sX="965" sY="400" startingOrientation="u" onCollisionTurn="b"></guard>
-	<guard sX="730" sY="400" startingOrientation="d" onCollisionTurn="b"></guard>
-	<guard sX="540" sY="400" startingOrientation="u" onCollisionTurn="b"></guard>
-	<guard sX="740" sY="360" startingOrientation="l" onCollisionTurn="b"></guard>
-	
-	<!-- Doors -->
-	<door sX="300" sY="350" orientation="v" locktype="l" pins="4"></door>
-	<door sX="950" sY="140" orientation="v" locktype="t"></door>
-	<door sX="750" sY="140" orientation="v" locktype="l" pins="4"></door>
+	<!-- room with large table -->
+	<desk sX="70" sY="60" eX="190" eY="300"></desk>
+
+    <miscObj sX="115" sY="20" eX="145" eY="60" displayImage="Art_Assets/In_Game/Levels/Misc/chair1.png"></miscObj>
+    <miscObj sX="115" sY="300" eX="145" eY="320" displayImage="Art_Assets/In_Game/Levels/Misc/chair2.png"></miscObj>
+    
+    <miscObj sX="40" sY="115" eX="70" eY="145" displayImage="Art_Assets/In_Game/Levels/Misc/chair3.png"></miscObj>
+    <miscObj sX="40" sY="225" eX="70" eY="255" displayImage="Art_Assets/In_Game/Levels/Misc/chair3.png"></miscObj>
+    
+    <miscObj sX="190" sY="115" eX="220" eY="145" displayImage="Art_Assets/In_Game/Levels/Misc/chair0.png"></miscObj>
+    <miscObj sX="190" sY="225" eX="220" eY="255" displayImage="Art_Assets/In_Game/Levels/Misc/chair0.png"></miscObj>
+	<!-- small office -->
+	<desk sX="80" sY="450" eX="100" eY="550"></desk>
+	<!-- large office -->
+	<desk sX="550" sY="390" eX="670" eY="410"></desk>
+	<desk sX="680" sY="390" eX="800" eY="410"></desk>
+	<desk sX="810" sY="390" eX="930" eY="410"></desk>
+	<desk sX="550" sY="430" eX="670" eY="450"></desk>
+	<desk sX="680" sY="430" eX="800" eY="450"></desk>
+	<desk sX="810" sY="430" eX="930" eY="450"></desk>
+    <desk sX="560" sY="50" eX="580" eY="150"></desk>
 	
 	<!-- Cameras -->
-	<camera pointOneX="857" pointOneY="20" pointTwoX="770" pointTwoY="280" pointThreeX="950" pointThreeY="280" cameraPointX="857" cameraPointY="20"></camera>
-	<camera pointOneX="320" pointOneY="300" pointTwoX="500" pointTwoY="195" pointThreeX="500" pointThreeY="405" cameraPointX="325" cameraPointY="295" rotate="1"></camera>
-	<camera pointOneX="320" pointOneY="480" pointTwoX="500" pointTwoY="375" pointThreeX="500" pointThreeY="580" cameraPointX="325" cameraPointY="475" rotate="1"></camera>
-	
-	<terminal sX="520" sY="120" connectedDoorID="1" codeLength="4" rotate="3"></terminal>
-	<terminal sX="1020" sY="410" connectedCamID="0" codeLength="4" rotate="0"></terminal>
-	<terminal sX="630" sY="510" connectedCamID="2" codeLength="4" rotate="0"></terminal>
+	<camera pointOneX="360" pointOneY="20" pointTwoX="260" pointTwoY="400" pointThreeX="460" pointThreeY="400" cameraPointX="360" cameraPointY="20" rotate="0"></camera>
+    
+    <camera pointOneX="760" pointOneY="20" pointTwoX="660" pointTwoY="200" pointThreeX="860" pointThreeY="200" cameraPointX="760" cameraPointY="20" rotate="0"></camera>
+    <camera pointOneX="890" pointOneY="20" pointTwoX="790" pointTwoY="200" pointThreeX="990" pointThreeY="200" cameraPointX="890" cameraPointY="20" rotate="0"></camera>
 	
 	<!-- Servers -->
-	<server sX="1092" sY="172" eX="1092" eY="172" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
-	
+	<server sX="1100" sY="20" eX="1180" eY="100" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
 	
 	<!-- End -->
-	<end sX="20" sY="40" eX="1180" eY="200" rotate="3"></end>
+	<end sX="260" sY="540" eX="500" eY="580" rotate="0"></end>
 	
-	<player sX="1100" sY="520"></player>
-	<dataAmount needed = "1"></dataAmount>
-	<miscObj sX="190" sY="250" eX="205" eY="255" displayImage="Art_Assets/In_Game/Levels/Mug/0.png"></miscObj>
-	<paper sX="1000" sY="510" dataPath="Levels/Level_1/0.txt"></paper>
-	<paper sX="600" sY="310" dataPath="Levels/Level_1/0.txt"></paper>
-	<paper sX="1030" sY="20" dataPath="Levels/Level_1/0.txt"></paper>
+	<!-- Doors -->
+	<door sX="240" sY="400" orientation="v" locktype="f"></door>
+    <door sX="640" sY="60" orientation="v" locktype="l" pins="4"></door>
+    <door sX="990" sY="60" orientation="v" locktype="t"></door>
+    
+    <guard sX="700" sY="210" startingOrientation="l" onCollisionTurn="b"></guard>
+    <guard sX="280" sY="500" startingOrientation="l" onCollisionTurn="l"></guard>
+    <guard sX="510" sY="280" startingOrientation="l" onCollisionTurn="b"></guard>
 	
-</level3>
+	<!-- Terminals -->
+	<terminal sX="80" sY="500" connectedCamID="1" codeLength="4" rotate="1"></terminal>
+    
+	<terminal sX="550" sY="390" connectedDataPath="Levels/Level_3/0.txt" codeLength="3" rotate="2"></terminal>
+	<terminal sX="680" sY="390" connectedDataPath="Levels/Level_1/0.txt" codeLength="3" rotate="2"></terminal>
+	<terminal sX="810" sY="390" connectedDataPath="Levels/Level_1/0.txt" codeLength="3" rotate="2"></terminal>
+	<terminal sX="650" sY="430" connectedCamID="0" codeLength="4" rotate="0"></terminal>
+	<terminal sX="780" sY="430" connectedCamID="2" codeLength="4" rotate="0"></terminal>
+	<terminal sX="910" sY="430" connectedDataPath="Levels/Level_3/1.txt" codeLength="3" rotate="0"></terminal>
+    <terminal sX="560" sY="70" connectedDoorID="2" codeLength="4" rotate="1"></terminal>
+    
+    <dataAmount needed = "1"></dataAmount>
+    <player sX="1120" sY="500"></player>
+    <mug sX="170" sY="160" connectedDoorID = "0"></mug>
+    
+    <miscObj sX="200" sY="540" eX="240" eY="580" displayImage="Art_Assets/In_Game/Levels/Misc/plant2.png"></miscObj>
+
+
+</level2>
 

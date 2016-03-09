@@ -210,7 +210,7 @@ class mainMenu {
   mainMenu() {
     cyber = createFont("Fonts/renegado.ttf", 30);
     scape = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
-    protag = loadImage("Art_Assets/Frontend/prot2.png");
+    protag = loadImage("Art_Assets/Frontend/prot2eye.png");
     scape.resize(1200, 620);
     
     //add buttons to arraylist
