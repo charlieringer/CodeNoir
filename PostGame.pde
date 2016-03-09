@@ -4,11 +4,9 @@ class PostGame {
  ArrayList<Button> lose = new ArrayList<Button>();
  ArrayList<Button> win = new ArrayList<Button>();
  StateClass state;
- boolean paused;
   
- PostGame(StateClass state, boolean paused) {
+ PostGame(StateClass state) {
    this.state = state;
-   this.paused = paused;
    scape = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
    scape.resize(1200, 620);
    cyber = createFont("Fonts/renegado.ttf", 80);
@@ -69,43 +67,43 @@ class PostGame {
    if(mouseX > 50 && mouseX < 350 && mouseY > 525 && mouseY < 575) {
      switch(currentLevel) {
        case 1:
-         level = new Level("Levels/Level_1/level1.xml", state, paused); 
+         level = new Level("Levels/Level_1/level1.xml", state); 
          state.state = State.INGAME;
          break;
        case 2:
-         level = new Level("Levels/Level_2/level2.xml", state, paused); 
+         level = new Level("Levels/Level_2/level2.xml", state); 
          state.state = State.INGAME;
          break;
        case 3:
-         level = new Level("Levels/Level_3/level3.xml", state, paused); 
+         level = new Level("Levels/Level_3/level3.xml", state); 
          state.state = State.INGAME;
          break;
        case 4:
-         level = new Level("Levels/Level_4/level4.xml", state, paused); 
+         level = new Level("Levels/Level_4/level4.xml", state); 
          state.state = State.INGAME;
          break;
        case 5:
-         level = new Level("Levels/Level_5/level5.xml", state, paused); 
+         level = new Level("Levels/Level_5/level5.xml", state); 
          state.state = State.INGAME;
          break;
        case 6:
-         level = new Level("Levels/Level_6/level6.xml", state, paused); 
+         level = new Level("Levels/Level_6/level6.xml", state); 
          state.state = State.INGAME;
          break;
        case 7:
-         level = new Level("Levels/Level_7/level7.xml", state, paused); 
+         level = new Level("Levels/Level_7/level7.xml", state); 
          state.state = State.INGAME;
          break;
        case 8:
-         level = new Level("Levels/Level_8/level8.xml", state, paused); 
+         level = new Level("Levels/Level_8/level8.xml", state); 
          state.state = State.INGAME;
          break;
        case 9:
-         level = new Level("Levels/Level_9/level9.xml", state, paused); 
+         level = new Level("Levels/Level_9/level9.xml", state); 
          state.state = State.INGAME;
          break;
        case 10:
-         level = new Level("Levels/Level_10/level10.xml", state, paused); 
+         level = new Level("Levels/Level_10/level10.xml", state); 
          state.state = State.INGAME;
          break;
      }
@@ -127,47 +125,47 @@ class PostGame {
      switch(currentLevel) {
        case 1:
          currentLevel = 2;
-         level = new Level("Levels/Level_2/level2.xml", state, paused); 
+         level = new Level("Levels/Level_2/level2.xml", state); 
          state.state = State.INGAME;
          break;
        case 2:
          currentLevel = 3;
-         level = new Level("Levels/Level_3/level3.xml", state, paused); 
+         level = new Level("Levels/Level_3/level3.xml", state); 
          state.state = State.INGAME;
          break;
        case 3:
          currentLevel = 4;
-         level = new Level("Levels/Level_4/level4.xml", state, paused); 
+         level = new Level("Levels/Level_4/level4.xml", state); 
          state.state = State.INGAME;
          break;
        case 4:
          currentLevel = 5;
-         level = new Level("Levels/Level_5/level5.xml", state, paused); 
+         level = new Level("Levels/Level_5/level5.xml", state); 
          state.state = State.INGAME;
          break;
        case 5:
          currentLevel = 6;
-         level = new Level("Levels/Level_6/level6.xml", state, paused); 
+         level = new Level("Levels/Level_6/level6.xml", state); 
          state.state = State.INGAME;
          break;
        case 6:
          currentLevel = 7;
-         level = new Level("Levels/Level_7/level7.xml", state, paused); 
+         level = new Level("Levels/Level_7/level7.xml", state); 
          state.state = State.INGAME;
          break;
        case 7:
          currentLevel = 8;
-         level = new Level("Levels/Level_8/level8.xml", state, paused); 
+         level = new Level("Levels/Level_8/level8.xml", state); 
          state.state = State.INGAME;
          break;
        case 8:
          currentLevel = 9;
-         level = new Level("Levels/Level_9/level9.xml", state, paused); 
+         level = new Level("Levels/Level_9/level9.xml", state); 
          state.state = State.INGAME;
          break;
        case 9:
          currentLevel = 10;
-         level = new Level("Levels/Level_10/level10.xml", state, paused); 
+         level = new Level("Levels/Level_10/level10.xml", state); 
          state.state = State.INGAME;
          break;
        case 10:

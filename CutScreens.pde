@@ -2,10 +2,8 @@ class CutScreens {
   //int currentLevel;
   StateClass state;
   PFont cyber;
-  boolean paused;
   
-  CutScreens(StateClass state, boolean paused) {
-    //this.currentLevel = currentLevel;
+  CutScreens(StateClass state) {
     this.state = state;
     cyber = createFont("Fonts/renegado.ttf", 40); 
   }
@@ -139,43 +137,43 @@ class CutScreens {
     if(mouseX > 1000 && mouseX < 1200 && mouseY > 560 && mouseY < 620) {
       switch(currentLevel) {
         case 1:
-          level = new Level("Levels/Level_1/level1.xml", state, paused); 
+          level = new Level("Levels/Level_1/level1.xml", state); 
           state.state = State.INGAME;
           break;
         case 2:
-          level = new Level("Levels/Level_2/level2.xml", state, paused); 
+          level = new Level("Levels/Level_2/level2.xml", state); 
           state.state = State.INGAME;
           break;
         case 3:
-          level = new Level("Levels/Level_3/level3.xml", state, paused); 
+          level = new Level("Levels/Level_3/level3.xml", state); 
           state.state = State.INGAME;
           break;
         case 4:
-          level = new Level("Levels/Level_4/level4.xml", state, paused); 
+          level = new Level("Levels/Level_4/level4.xml", state); 
           state.state = State.INGAME;
           break;
         case 5:
-          level = new Level("Levels/Level_5/level5.xml", state, paused); 
+          level = new Level("Levels/Level_5/level5.xml", state); 
           state.state = State.INGAME;
           break;
         case 6:
-          level = new Level("Levels/Level_6/level6.xml", state, paused); 
+          level = new Level("Levels/Level_6/level6.xml", state); 
           state.state = State.INGAME;
           break;
         case 7:
-          level = new Level("Levels/Level_7/level7.xml", state, paused); 
+          level = new Level("Levels/Level_7/level7.xml", state); 
           state.state = State.INGAME;
           break;
         case 8:
-          level = new Level("Levels/Level_8/level8.xml", state, paused); 
+          level = new Level("Levels/Level_8/level8.xml", state); 
           state.state = State.INGAME;
           break;
         case 9:
-          level = new Level("Levels/Level_9/level9.xml", state, paused); 
+          level = new Level("Levels/Level_9/level9.xml", state); 
           state.state = State.INGAME;
           break;
         case 10:
-          level = new Level("Levels/Level_10/level10.xml", state, paused); 
+          level = new Level("Levels/Level_10/level10.xml", state); 
           state.state = State.INGAME;
           break;
       }

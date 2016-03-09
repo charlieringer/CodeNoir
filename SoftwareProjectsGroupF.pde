@@ -14,9 +14,9 @@ void setup()
   currentLevel = 1;
   save = new SaveGame();
   state = new StateClass();
-  menu = new Menu(state, paused);
-  cutScreens = new CutScreens(state, paused);
-  postGame = new PostGame(state, paused);
+  menu = new Menu(state);
+  cutScreens = new CutScreens(state);
+  postGame = new PostGame(state);
 }
 
 void draw()

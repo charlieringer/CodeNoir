@@ -32,10 +32,8 @@
 
   boolean gameOver = false;
   StatusBar status = new StatusBar();
-  
-  boolean paused;
 
-  Level(String levelDataPath, StateClass state, boolean paused) { 
+  Level(String levelDataPath, StateClass state) { 
     
     floorTiles.add(loadImage("Art_Assets/In_Game/Levels/Floor/floor1.jpeg"));
     floorTiles.add(loadImage("Art_Assets/In_Game/Levels/Floor/floor2.jpeg"));
@@ -220,8 +218,7 @@
     player = new Player(walls, hardObjects, doors, guards, playerx, playery);
 
     dataNeeded = level.getChild("dataAmount").getInt("needed");
-    this.paused = paused;
-    pause = new PauseScreen(this, state, paused);
+    pause = new PauseScreen(this, state);
   }
 
   void drawLevel()
@@ -765,13 +762,11 @@ class PauseScreen
   PImage scape;
   PFont cyber;
   ArrayList<Button> pauseButtons = new ArrayList<Button>();
-  boolean paused;
-  
-  PauseScreen(Level _parent, StateClass state, boolean paused)
+
+  PauseScreen(Level _parent, StateClass state)
   {
      parent = _parent;
      this.state = state;
-     this.paused = paused;
      scape = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
      scape.resize(1200, 620);
      cyber = createFont("Fonts/renegado.ttf", 130);

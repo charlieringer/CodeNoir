@@ -6,16 +6,12 @@ class Menu {
  Controls controls;
  Settings settings;
  StateClass state;
- boolean paused;
- 
- 
- Menu(StateClass state, boolean paused) {
-   //MenuState = menuState.INITIAL;
-   this.paused = paused;
+
+ Menu(StateClass state) {
    screen = new initialScreen();
    mainScreen = new mainMenu();
    Continue = new continueGame();
-   controls = new Controls(paused);
+   controls = new Controls();
    settings = new Settings();
    this.state = state;
  } 
@@ -157,9 +153,14 @@ class Menu {
         if(mouseX > 695 && mouseX < 870 && mouseY > 195 && mouseY < 355) {
           println("no SFX");
         }
-        //home button is pressed
-        if(mouseX > 1095 && mouseX < 1180 && mouseY > 20 && mouseY < 105) {
+        //home button is pressed when not paused
+        if(mouseX > 1095 && mouseX < 1180 && mouseY > 20 && mouseY < 105 && !paused) {
           state.MenuState = menuState.MAIN;
+        }
+        //if controls is accessed from the pause menu and return to game is pressed
+        if(mouseX > 900 && mouseX < 1150 && mouseY > 25 && mouseY < 75 && paused) {
+          level.levelState = level.prevState;
+          state.state = State.INGAME;
         }
         break;
     }
@@ -295,10 +296,8 @@ class continueGame {
 class Controls {
   PImage city, arrows, space, home;
   PFont cyber;
-  boolean paused;
   
-  Controls(boolean paused) {
-    this.paused = paused;
+  Controls() {
     city = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
     city.resize(1200, 620);
     arrows = loadImage("Art_Assets/Frontend/arrows.png");
@@ -362,12 +361,20 @@ class Settings {
    fill(0);
    rect(345, 195, 160, 160, 20);
    rect(695, 195, 175, 160, 20);
-   rect(1095, 20, 85, 85, 20);
    rect(320, 390, 200, 50, 20);
    rect(625, 390, 320, 50, 20);
    image(music, 350, 200);
    image(sound, 700, 200);
-   image(home, 1100, 25);
+   if(paused) {
+      fill(0);
+      rect(900, 25, 250, 50, 20);
+      fill(255);
+      textSize(20);
+      text("Return To Game", 925, 55);
+   } else {
+      rect(1095, 20, 85, 85, 20);
+      image(home, 1100, 25);
+   }
     
    //draw various text
    fill(255);
