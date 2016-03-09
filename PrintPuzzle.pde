@@ -10,7 +10,7 @@ class PrintPuzzle
   IntList partial = new IntList();
   int pos;
   boolean UL, UR, ML, MR, DL, DR = false;
-  PImage office;
+  PImage office, printWin;
 
   PrintPuzzle()
   {
@@ -41,6 +41,7 @@ class PrintPuzzle
       else partialChoice.add(new PartialPiece(((i-9)*100)+100, 500, partial.get(i) + ".jpeg"));
     }
     office = loadImage("Art_Assets/In_Game/Fingerprint/office.jpeg");
+    printWin = loadImage("Art_Assets/In_Game/Fingerprint/fingerprintWin.png");
   }
 
   void drawPuzzle()
@@ -120,11 +121,7 @@ class PrintPuzzle
   }
   
   void win() {
-    fill(0);
-    rect(0, 0, 1200, 620);
-    fill(255);
-    text("Fingerprint successfully copied!", 200, 300);
-    text("Press tab to return.", 325, 400);
+    image(printWin, 300, 160);
   }
   
   void checkCorrect(int i) {

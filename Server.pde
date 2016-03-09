@@ -51,7 +51,7 @@ class Server
 
 class ServerPuzzle {
   PFont pixel;
-  PImage lock, Key, office;
+  PImage lock, Key, office, winScreen;
   PVector lockVect, keyVect;
   BufferedReader reader;
   String line;
@@ -74,6 +74,7 @@ class ServerPuzzle {
     lock = loadImage("Art_Assets/In_Game/Server/lock.png");
     Key = loadImage("Art_Assets/In_Game/Server/key.png");
     office = loadImage("Art_Assets/In_Game/Server/office.jpeg");
+    winScreen = loadImage("Art_Assets/In_Game/Server/serverWin.png");
 
     lock.resize(50, 50);
     Key.resize(100, 100);
@@ -217,14 +218,7 @@ class ServerPuzzle {
   }
 
   void win() {
-    fill(0);
-    rect(0, 0, 1200, 620);
-    stroke(60, 228, 34);
-    fill(60, 228, 34);
-    textFont(pixel);
-    text("DATA DOWNLOADED", 500, 250);
-    text("Press tab to exit.", 500, 300);
-    noStroke();
+    image(winScreen, 300, 160);
   }
 
   void move()
@@ -358,44 +352,4 @@ class Wire {
     rect(startX, startY, w, h);
     fill(255);
   }
-  
-  void powered() {
-    
-     if(forward == true) {
-      if (w > 10) {
-          rect(startX, startY+2, hor_power, 4);
-          hor_power+=2;
-          
-          if (hor_power >= w)
-          {
-              hor_power = w;
-          }
-      } else {
-          rect(startX+2, startY, 4, vert_power);
-          vert_power+=2;
-          
-          if (vert_power >= h)
-          {
-              vert_power = h;
-          }
-      }  
-    } else {
-            if (w > 10) {
-      rect(startX+w, startY+2, hor_power, 4);
-      hor_power-=2;
-      if (hor_power <= -(w))
-      {
-        hor_power = -(w);
-      }
-    } else {
-      rect(startX+2, startY+h, 4, vert_power);
-      vert_power-=2;
-      if (vert_power <= -(h))
-      {
-        vert_power = -(h);
-      }
-    }
-   }
-   
-  }
- }
+}
