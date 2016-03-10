@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<level3> <!-- Canteeen -->
+<level2> <!-- Canteeen -->
 
 	<!-- Walls -->
 	<!-- outter walls -->
@@ -55,8 +55,8 @@
 	<guard sX="740" sY="360" startingOrientation="l" onCollisionTurn="b"></guard>
 	
 	<!-- Doors -->
+    <door sX="950" sY="140" orientation="v" locktype="f"></door>
 	<door sX="300" sY="350" orientation="v" locktype="l" pins="4"></door>
-	<door sX="950" sY="140" orientation="v" locktype="t"></door>
 	<door sX="750" sY="140" orientation="v" locktype="l" pins="4"></door>
 	
 	<!-- Cameras -->
@@ -64,23 +64,23 @@
 	<camera pointOneX="320" pointOneY="300" pointTwoX="500" pointTwoY="195" pointThreeX="500" pointThreeY="405" cameraPointX="325" cameraPointY="295" rotate="1"></camera>
 	<camera pointOneX="320" pointOneY="480" pointTwoX="500" pointTwoY="375" pointThreeX="500" pointThreeY="580" cameraPointX="325" cameraPointY="475" rotate="1"></camera>
 	
-	<terminal sX="520" sY="120" connectedDoorID="1" codeLength="4" rotate="3"></terminal>
+	<terminal sX="520" sY="120" connectedCamID="1" codeLength="4" rotate="3"></terminal>
 	<terminal sX="1020" sY="410" connectedCamID="0" codeLength="4" rotate="0"></terminal>
 	<terminal sX="630" sY="510" connectedCamID="2" codeLength="4" rotate="0"></terminal>
 	
 	<!-- Servers -->
-	<server sX="1092" sY="172" eX="1092" eY="172" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
-	
-	
+	<server sX="1100" sY="170" eX="1180" eY="250" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+    <wall sX= "1100" sY="170" eX="1180" eY="250"></wall>
+
 	<!-- End -->
-	<end sX="20" sY="40" eX="1180" eY="200" rotate="3"></end>
+	<end sX="20" sY="40" eX="120" eY="120" rotate="3"></end>
 	
 	<player sX="1100" sY="520"></player>
 	<dataAmount needed = "1"></dataAmount>
-	<miscObj sX="190" sY="250" eX="205" eY="255" displayImage="Art_Assets/In_Game/Levels/Mug/0.png"></miscObj>
+    <mug sX="190" sY="250" connectedDoorID="0"></mug>
 	<paper sX="1000" sY="510" dataPath="Levels/Level_1/0.txt"></paper>
 	<paper sX="600" sY="310" dataPath="Levels/Level_1/0.txt"></paper>
 	<paper sX="1030" sY="20" dataPath="Levels/Level_1/0.txt"></paper>
 	
-</level3>
+</level2>
 
