@@ -1,13 +1,9 @@
-H: Good Work Agent Goldsmith
-
-P: Thanks, all in a days work
-
-H: It gets harder from here
-H: Reports suggest some locks are
-H: Proteted by fingerprint readers
+H: Good Job Agent Goldsmith.
+P: Thanks, all in a days work.
+H: It gets harder from here.
+H: Reports suggest some of the door locks are
+H: Protected by fingerprint readers.
 H: Find a mug or something and copy
-H: The prints to gain access
-
+H: The prints to gain access.
 P: Thanks for the heads up!
-
 H: Good luck!

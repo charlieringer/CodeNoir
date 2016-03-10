@@ -54,6 +54,7 @@ class Menu {
         //new game is pressed
         if(mouseX > 750 && mouseX < 1050 && mouseY > 100 && mouseY < 150) {
           currentLevel = 1;
+          cutScreens = new CutScreens(state, "Levels/Level_1/Level 1 PreText.txt");
           state.state = State.CUTSCREENS;
         }
     
@@ -85,51 +86,62 @@ class Menu {
         //level 1
         if(mouseX > 250 && mouseX < 350 && mouseY > 380 && mouseY < 480) {
           currentLevel = 1;
+          cutScreens = new CutScreens(state, "Levels/Level_1/Level 1 PreText.txt");
           state.state = State.CUTSCREENS;
         }
         //level 2
         if(mouseX > 400 && mouseX < 500 && mouseY > 380 && mouseY < 480) {
           currentLevel = 2;
+          cutScreens = new CutScreens(state, "Levels/Level_2/Level 2 PreText.txt");
           state.state = State.CUTSCREENS;
         }
         //level 3
         if(mouseX > 550 && mouseX < 650 && mouseY > 380 && mouseY < 480) {          
           currentLevel = 3;
+          cutScreens = new CutScreens(state, "Levels/Level_3/Level 3 PreText.txt");
           state.state = State.CUTSCREENS;
         }
         //level 4
         if(mouseX > 250 && mouseX < 350 && mouseY > 250 && mouseY < 350) {          
           currentLevel = 4;
+          cutScreens = new CutScreens(state, "Levels/Level_4/Level 4 PreText.txt");
           state.state = State.CUTSCREENS;
         }
         //level 5
         if(mouseX > 400 && mouseX < 500 && mouseY > 250 && mouseY < 350) {         
           currentLevel = 5;
+          cutScreens = new CutScreens(state, "Levels/Level_5/Level 5 PreText.txt");
           state.state = State.CUTSCREENS;
         }
         //level 6
         if(mouseX > 550 && mouseX < 650 && mouseY > 250 && mouseY < 350) {          
           currentLevel = 6;
+          cutScreens = new CutScreens(state, "Levels/Level_6/Level 6 PreText.txt");
           state.state = State.CUTSCREENS;
         }
         //level 7
         if(mouseX > 250 && mouseX < 350 && mouseY > 120 && mouseY < 220) {          
           currentLevel = 7;
+          cutScreens = new CutScreens(state, "Levels/Level_7/Level 7 PreText.txt");
           state.state = State.CUTSCREENS;
         }
         //level 8
         if(mouseX > 400 && mouseX < 500 && mouseY > 120 && mouseY < 220) {         
           currentLevel = 8;
+          cutScreens = new CutScreens(state, "Levels/Level_8/Level 8 PreText.txt");
           state.state = State.CUTSCREENS;
         }
         //level 9
         if(mouseX > 550 && mouseX < 650 && mouseY > 120 && mouseY < 220) {          
           currentLevel = 9;
+          cutScreens = new CutScreens(state, "Levels/Level_9/Level 9 PreText.txt");
           state.state = State.CUTSCREENS;
         }
         //level 10
         if(mouseX > 260 && mouseX < 640 && mouseY > 15 && mouseY < 95) {          
           currentLevel = 10;
+          //potentially not needed?
+          cutScreens = new CutScreens(state, "Levels/Level_10/Level 10 PreText.txt");
           state.state = State.CUTSCREENS;
         }
         break;

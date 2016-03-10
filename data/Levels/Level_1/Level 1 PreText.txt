@@ -1,17 +1,12 @@
-H: Agent Goldsmith we have a urgent mission for you!
-
-P: On it, what is the brief
- 
-H: Your are to break into to the Wellness Corp HQ and collect evidence
-
-P: Wellness Corp? Those Human Enhancemnet guys?
-
-H: Yeah, reports are they are a little shady
-H: We need you to download as much data as possible from their servers
-H: Don't getting spotted by the roboguards or cameras
+H: Agent Goldsmith we have an urgent mission for you!
+P: On it, what is the brief?
+H: Your are to break into to the Wellness Corp HQ 
+H: and collect evidence.
+P: Wellness Corp? Those Human Enhancement guys?
+H: Yeah, reports are they are a little shady.
+H: We need you to download as much data as possible 
+H: from their servers.
+H: Don't get spotted by the roboguards or cameras.
 H: Can you handle it? 
-
 P: Of course I can, let's go!
-
-H: Best of Luck Agent Goldsmith
-
+H: Best of Luck Agent Goldsmith.

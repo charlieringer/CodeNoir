@@ -29,16 +29,12 @@ class CutScreens {
 
     background(background);
   
-    //next level button (temporary placement)
+    //next level button
     fill(0);
     rect(1000, 560, 200, 60);
     fill(255);
     textFont(cyber);
     text("Skip", 1050, 600);
-    
-    //conversation boxes (test)
-    rect(100, 100, 300, 100);
-    rect(600, 100, 300, 100);
     
     //prevent out of bounds exception
     if(convoPos > text.size()-1) {
@@ -90,11 +86,19 @@ class CutScreens {
     
     //display conversation text in correct position based on who is speaking
     if(text.get(convoPos).substring(0, 2).equals("P:")) {
-      fill(0);
-      text(text.get(convoPos).substring(2, text.get(convoPos).length()), 110, 150);
+      fill(59, 59, 59);
+      strokeWeight(6);
+      rect(275, 50, 300, 100, 20);
+      fill(255);
+      textSize(20);
+      text(text.get(convoPos).substring(2, text.get(convoPos).length()), 300, 65, 280, 90);
     } else if (text.get(convoPos).substring(0, 2).equals("H:")) {
-      fill(0);
-      text(text.get(convoPos).substring(2, text.get(convoPos).length()), 610, 150);
+      fill(59, 59, 59);
+      strokeWeight(6);
+      rect(675, 50, 320, 100, 20);
+      fill(255);
+      textSize(20);
+      text(text.get(convoPos).substring(2, text.get(convoPos).length()), 695, 65, 280, 90);
     }
   }
   

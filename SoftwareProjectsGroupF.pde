@@ -15,7 +15,6 @@ void setup()
   save = new SaveGame(); 
   state = new StateClass();
   menu = new Menu(state);
-  cutScreens = new CutScreens(state, "Cutscreens/test.txt");
   postGame = new PostGame(state);
 }
 
