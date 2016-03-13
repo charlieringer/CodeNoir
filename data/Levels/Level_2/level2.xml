@@ -25,7 +25,10 @@
 	
 	
 	<!-- Rooms -->
-	<room sX="0" sY="0" eX="1200" eY="600"></room>
+	<room sX="500" sY="280" eX="1180" eY="580"></room>
+	<room sX="320" sY="140" eX="500" eY="580"></room>
+	<room sX="20" sY="20" eX="500" eY="140"></room>
+	<room sX="770" sY="20" eX="950" eY="280"></room>
 	<room sX="0" sY="140" eX="320" eY="600"></room>
 	<room sX="500" sY="0" eX="770" eY="280"></room>
 	<room sX="950" sY="0" eX="1200" eY="280"></room>
@@ -49,10 +52,10 @@
 	<desk sX="520" sY="100" eX="540" eY="200"></desk>
 	<desk sX="1000" sY="20" eX="1100" eY="40"></desk>
 	
-	<guard sX="965" sY="400" startingOrientation="u" onCollisionTurn="b"></guard>
+	<!--<guard sX="965" sY="400" startingOrientation="u" onCollisionTurn="b"></guard>
 	<guard sX="730" sY="400" startingOrientation="d" onCollisionTurn="b"></guard>
 	<guard sX="540" sY="400" startingOrientation="u" onCollisionTurn="b"></guard>
-	<guard sX="740" sY="360" startingOrientation="l" onCollisionTurn="b"></guard>
+	<guard sX="740" sY="360" startingOrientation="l" onCollisionTurn="b"></guard>-->
 	
 	<!-- Doors -->
     <door sX="950" sY="140" orientation="v" locktype="f"></door>
@@ -73,7 +76,7 @@
     <wall sX= "1100" sY="170" eX="1180" eY="250"></wall>
 
 	<!-- End -->
-	<end sX="20" sY="40" eX="120" eY="120" rotate="3"></end>
+	<end sX="20" sY="40" eX="110" eY="130" rotate="3"></end>
 	
 	<player sX="1100" sY="520"></player>
 	<dataAmount needed = "1"></dataAmount>
@@ -81,6 +84,30 @@
 	<paper sX="1000" sY="510" dataPath="Levels/Level_1/0.txt"></paper>
 	<paper sX="600" sY="310" dataPath="Levels/Level_1/0.txt"></paper>
 	<paper sX="1030" sY="20" dataPath="Levels/Level_1/0.txt"></paper>
+	
+	<miscObj sX="460" sY="20" eX="500" eY="60" displayImage="Art_Assets/In_Game/Levels/Misc/plant2.png"></miscObj>
+	<miscObj sX="320" sY="540" eX="360" eY="580" displayImage="Art_Assets/In_Game/Levels/Misc/plant.png"></miscObj>
+	<miscObj sX="910" sY="20" eX="950" eY="60" displayImage="Art_Assets/In_Game/Levels/Misc/plant2.png"></miscObj>
+	<miscObj sX="1140" sY="280" eX="1180" eY="320" displayImage="Art_Assets/In_Game/Levels/Misc/plant.png"></miscObj>
+	<miscObj sX="20" sY="160" eX="60" eY="200" displayImage="Art_Assets/In_Game/Levels/Misc/plant2.png"></miscObj>
+	<miscObj sX="20" sY="540" eX="60" eY="580" displayImage="Art_Assets/In_Game/Levels/Misc/plant.png"></miscObj>
+	
+	<miscObj sX="110" sY="160" eX="140" eY="190" displayImage="Art_Assets/In_Game/Levels/Misc/seat00.png"></miscObj>
+    <miscObj sX="140" sY="160" eX="170" eY="190" displayImage="Art_Assets/In_Game/Levels/Misc/seat10.png"></miscObj>
+    <miscObj sX="170" sY="160" eX="200" eY="190" displayImage="Art_Assets/In_Game/Levels/Misc/seat01.png"></miscObj>
+    
+    <miscObj sX="110" sY="550" eX="140" eY="580" displayImage="Art_Assets/In_Game/Levels/Misc/seat22.png"></miscObj>
+    <miscObj sX="140" sY="550" eX="170" eY="580" displayImage="Art_Assets/In_Game/Levels/Misc/seat12.png"></miscObj>
+    <miscObj sX="170" sY="550" eX="200" eY="580" displayImage="Art_Assets/In_Game/Levels/Misc/seat21.png"></miscObj>
+	
+	<miscObj sX="600" sY="20" eX="630" eY="50" displayImage="Art_Assets/In_Game/Levels/Misc/seat00.png"></miscObj>
+	<miscObj sX="630" sY="20" eX="660" eY="50" displayImage="Art_Assets/In_Game/Levels/Misc/seat01.png"></miscObj>
+	
+	<miscObj sX="1150" sY="60" eX="1180" eY="90" displayImage="Art_Assets/In_Game/Levels/Misc/seat20.png"></miscObj>
+	<miscObj sX="1150" sY="90" eX="1180" eY="110" displayImage="Art_Assets/In_Game/Levels/Misc/seat02.png"></miscObj>
+	
+	<miscObj sX="570" sY="120" eX="600" eY="150" displayImage="Art_Assets/In_Game/Levels/Misc/chair0.png"></miscObj>
+	<miscObj sX="1030" sY="70" eX="1060" eY="100" displayImage="Art_Assets/In_Game/Levels/Misc/chair2.png"></miscObj>
 	
 </level2>
 
