@@ -52,10 +52,10 @@
 	<desk sX="520" sY="100" eX="540" eY="200"></desk>
 	<desk sX="1000" sY="20" eX="1100" eY="40"></desk>
 	
-	<!--<guard sX="965" sY="400" startingOrientation="u" onCollisionTurn="b"></guard>
+	<guard sX="965" sY="400" startingOrientation="u" onCollisionTurn="b"></guard>
 	<guard sX="730" sY="400" startingOrientation="d" onCollisionTurn="b"></guard>
 	<guard sX="540" sY="400" startingOrientation="u" onCollisionTurn="b"></guard>
-	<guard sX="740" sY="360" startingOrientation="l" onCollisionTurn="b"></guard>-->
+	<guard sX="740" sY="360" startingOrientation="l" onCollisionTurn="b"></guard>
 	
 	<!-- Doors -->
     <door sX="950" sY="140" orientation="v" locktype="f"></door>
