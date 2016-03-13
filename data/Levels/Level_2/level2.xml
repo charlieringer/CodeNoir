@@ -52,10 +52,10 @@
 	<desk sX="520" sY="100" eX="540" eY="200"></desk>
 	<desk sX="1000" sY="20" eX="1100" eY="40"></desk>
 	
-	<guard sX="965" sY="400" startingOrientation="u" onCollisionTurn="b"></guard>
+	<!--<guard sX="965" sY="400" startingOrientation="u" onCollisionTurn="b"></guard>
 	<guard sX="730" sY="400" startingOrientation="d" onCollisionTurn="b"></guard>
 	<guard sX="540" sY="400" startingOrientation="u" onCollisionTurn="b"></guard>
-	<guard sX="740" sY="360" startingOrientation="l" onCollisionTurn="b"></guard>
+	<guard sX="740" sY="360" startingOrientation="l" onCollisionTurn="b"></guard>-->
 	
 	<!-- Doors -->
     <door sX="950" sY="140" orientation="v" locktype="f"></door>
@@ -81,9 +81,9 @@
 	<player sX="1100" sY="520"></player>
 	<dataAmount needed = "1"></dataAmount>
     <mug sX="190" sY="250" connectedDoorID="0"></mug>
-	<paper sX="1000" sY="510" dataPath="Levels/Level_1/0.txt"></paper>
-	<paper sX="600" sY="310" dataPath="Levels/Level_1/0.txt"></paper>
-	<paper sX="1030" sY="20" dataPath="Levels/Level_1/0.txt"></paper>
+	<paper sX="1000" sY="510" dataPath="Levels/Level_2/0.txt"></paper>
+	<paper sX="600" sY="310" dataPath="Levels/Level_2/1.txt"></paper>
+	<paper sX="1030" sY="20" dataPath="Levels/Level_2/2.txt"></paper>
 	
 	<miscObj sX="460" sY="20" eX="500" eY="60" displayImage="Art_Assets/In_Game/Levels/Misc/plant2.png"></miscObj>
 	<miscObj sX="320" sY="540" eX="360" eY="580" displayImage="Art_Assets/In_Game/Levels/Misc/plant.png"></miscObj>
