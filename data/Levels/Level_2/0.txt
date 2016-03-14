@@ -1,10 +1,10 @@
-Employee profile -
+Lab Notes:
 
-Name: 	Alan Mathison Turing
-Date of Birth: 23 June 1912
-Date of Death: 7 June 1954
+Currently working on my ‘Turin’ test. This is
+the culminated of my work on android AI and 
+general intelligences. Consider this the bench 
+mark for Human like responses from Androids. 
+Advise rolling out the results in the next 
+firmware update.
 
-Inventor of the Turing Machines. Turing machines 
-provide a general or formal model of computation
-and can be used to determine whether or not a task 
-is computable. 
+Aaron Turin

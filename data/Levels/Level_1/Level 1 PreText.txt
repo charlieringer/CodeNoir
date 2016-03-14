@@ -10,3 +10,7 @@ H: Don't get spotted by the roboguards or cameras.
 H: Can you handle it? 
 P: Of course I can, let's go!
 H: Best of Luck Agent Goldsmith.
+H: Oh and Agent Goldsmith.
+P: Yes?
+H: This is classified as Code Noir…
+P: Rodger that, out!

@@ -1,1 +1,7 @@
-test
+P: There is something not right here
+P: Too many guards on duty
+H: Yeah I get that feeling too
+P: What are they protecting?
+H: That is for you to findout Agent Goldsmith
+H: More of the same up ahead I am afrid
+H: Get the data and get out!
