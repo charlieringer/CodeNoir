@@ -1,6 +1,6 @@
 MEMO:
 Employee reminder!
-You must, under contract copy
+You must, under contract, copy
 all sensitive data to the server
 on your floor at the end of the 
 day.

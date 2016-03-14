@@ -690,12 +690,15 @@
 
 class StatusBar
 {
+  PFont cyber = createFont("Fonts/renegado.ttf", 20);
   void drawStatusBar(String status)
   {
     fill(0);
     rect(0, 600, width, 620);
     fill(255);
     textSize(20);
+    textAlign(LEFT);
+    textFont(cyber);
     text(status, 100, 610);
   }
 }

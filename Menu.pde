@@ -377,6 +377,7 @@ class Settings {
    rect(625, 390, 320, 50, 20);
    image(music, 350, 200);
    image(sound, 700, 200);
+   
    if(paused) {
       fill(0);
       rect(900, 25, 250, 50, 20);
@@ -384,6 +385,7 @@ class Settings {
       textSize(20);
       text("Return To Game", 925, 55);
    } else {
+      fill(0);
       rect(1095, 20, 85, 85, 20);
       image(home, 1100, 25);
    }
@@ -394,6 +396,10 @@ class Settings {
    text("Settings", 30, 50); 
    text("Music", 335, 430);
    text("Sound FX", 635, 430);
+   
+   //draw cross if 'off' is pressed
+   
+   
   }  
 }
 

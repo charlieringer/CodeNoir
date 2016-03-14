@@ -147,6 +147,8 @@ class TerminalObj extends SmallObject
 class PapersObject extends SmallObject
 {
   PImage dispImage = loadImage("Art_Assets/In_Game/Levels/Papers/0.png");
+  PImage template = loadImage("Art_Assets/In_Game/Levels/paperTemplate.png");
+  PFont monaco = createFont("Fonts/Monaco.ttf", 20);
   StringList dataList = new StringList();
   int x, y;
   Level level;
@@ -176,12 +178,14 @@ class PapersObject extends SmallObject
   void displayOnOwn()
   {
     fill(255);
-    rect(100, 50, width-100, height-50);
-    textSize(20);
+    //rect(100, 50, width-100, height-50);
+    image(template, 100, 50);
+    textAlign(CENTER);
+    textFont(monaco);
     fill(0);
     for (int i = 0; i < dataList.size(); i++)
     {
-      text(dataList.get(i), 150, 50*i+100);
+      text(dataList.get(i), 600, 50 + (i*50));
     }
   }
 
