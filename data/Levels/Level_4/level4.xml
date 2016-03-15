@@ -8,39 +8,93 @@
 	<wall sX="0" sY="0" eX="20" eY="600"></wall>
 	<wall sX="1180" sY="0" eX="1200" eY="600"></wall>
 	
-	<!-- Tables -->
-	<desk sX="360" sY="180" eX="380" eY="280"></desk>
-	<desk sX="360" sY="330" eX="380" eY="430"></desk>
-	<desk sX="360" sY="480" eX="380" eY="580"></desk>
+	<wall sX="130" sY="0" eX="150" eY="60"></wall>
+	<wall sX="130" sY="160" eX="150" eY="600"></wall>
 	
-	<desk sX="400" sY="180" eX="500" eY="200"></desk>
-	<desk sX="550" sY="180" eX="650" eY="200"></desk>
-	<desk sX="700" sY="180" eX="800" eY="200"></desk>
+	<wall sX="130" sY="200" eX="200" eY="220"></wall>
+	<wall sX="300" sY="200" eX="890" eY="220"></wall>
+	<wall sX="990" sY="200" eX="1070" eY="220"></wall>
+	<wall sX="1050" sY="0" eX="1070" eY="220"></wall>
 	
-	<desk sX="820" sY="180" eX="840" eY="280"></desk>
-	<desk sX="820" sY="330" eX="840" eY="430"></desk>
-	<desk sX="820" sY="480" eX="840" eY="580"></desk>
-	
+	<wall sX="150" sY="460" eX="160" eY="480"></wall>
+	<wall sX="260" sY="460" eX="700" eY="480"></wall>
+	<wall sX="800" sY="460" eX="1050" eY="480"></wall>
+	<wall sX="1050" sY="460" eX="1070" eY="490"></wall>
+	<wall sX="1050" sY="530" eX="1070" eY="600"></wall>
+	<wall sX="660" sY="460" eX="680" eY="580"></wall>
+	<wall sX="810" sY="220" eX="830" eY="460"></wall>
+	<wall sX="1050" sY="220" eX="1070" eY="460"></wall>
+
 	<!-- Rooms -->
-	<!-- Whole floor -->
-	<room sX="0" sY="0" eX="1200" eY="600"></room>
+	<room sX="0" sY="0" eX="130" eY="600"></room>
+	<room sX="130" sY="0" eX="1070" eY="220"></room>
+	<room sX="130" sY="460" eX="660" eY="600"></room>
+	<room sX="150" sY="220" eX="810" eY="460"></room>
+	<room sX="680" sY="460" eX="1070" eY="600"></room>
+	<room sX="830" sY="220" eX="1070" eY="460"></room>
+	<room sX="1070" sY="20" eX="1180" eY="580"></room>
 	
 	<!-- Guards -->
-	<guard sX="200" sY="220" startingOrientation="u" onCollisionTurn="b"></guard>
-	<guard sX="310" sY="400" startingOrientation="d" onCollisionTurn="b"></guard>
-	<guard sX="420" sY="460" startingOrientation="u" onCollisionTurn="b"></guard>
-	<guard sX="620" sY="50" startingOrientation="d" onCollisionTurn="b"></guard>
-	<guard sX="700" sY="580" startingOrientation="u" onCollisionTurn="b"></guard>
-	<guard sX="900" sY="300" startingOrientation="d" onCollisionTurn="b"></guard>
-	<guard sX="360" sY="290" startingOrientation="l" onCollisionTurn="b"></guard>
-	<guard sX="780" sY="480" startingOrientation="u" onCollisionTurn="l"></guard>
+	<guard sX="150" sY="20" startingOrientation="d" onCollisionTurn="l"></guard>
+	<guard sX="1020" sY="180" startingOrientation="u" onCollisionTurn="l"></guard>
+	<guard sX="460" sY="20" startingOrientation="d" onCollisionTurn="b"></guard>
+	<guard sX="700" sY="160" startingOrientation="d" onCollisionTurn="b"></guard>
 	
 	
-	<!-- End -->-
-	<end sX="1100" sY="20" eX="1190" eY="110"></end>
+	<guard sX="830" sY="260" startingOrientation="d" onCollisionTurn="l"></guard>
+	<guard sX="980" sY="420" startingOrientation="u" onCollisionTurn="l"></guard>
 	
-	<player sX="80" sY="520"></player>
+	<guard sX="800" sY="480" startingOrientation="d" onCollisionTurn="b"></guard>
+	<guard sX="900" sY="580" startingOrientation="u" onCollisionTurn="b"></guard>
+	
+	<guard sX="300" sY="480" startingOrientation="d" onCollisionTurn="b"></guard>
+	<guard sX="500" sY="580" startingOrientation="u" onCollisionTurn="b"></guard>
+	
+	<guard sX="560" sY="220" startingOrientation="d" onCollisionTurn="r"></guard>
+	<guard sX="360" sY="220" startingOrientation="d" onCollisionTurn="b"></guard>
+	<guard sX="610" sY="460" startingOrientation="u" onCollisionTurn="b"></guard>
+	<guard sX="150" sY="260" startingOrientation="r" onCollisionTurn="b"></guard>
+	<guard sX="610" sY="260" startingOrientation="r" onCollisionTurn="b"></guard>
+	<guard sX="150" sY="400" startingOrientation="r" onCollisionTurn="b"></guard>
+	<guard sX="610" sY="400" startingOrientation="r" onCollisionTurn="b"></guard>
+
+	
+	<!-- Tables -->
+	<desk sX="340" sY="60" eX="360" eY="160"></desk>
+	<desk sX="800" sY="60" eX="820" eY="160"></desk>
+	
+	<desk sX="390" sY="220" eX="410" eY="320"></desk>
+	<desk sX="390" sY="360" eX="410" eY="460"></desk>
+	<desk sX="590" sY="220" eX="610" eY="320"></desk>
+	<desk sX="590" sY="360" eX="610" eY="460"></desk>
+	
+	<desk sX="920" sY="290" eX="940" eY="390"></desk>
+	
+	<desk sX="640" sY="480" eX="660" eY="580"></desk>
+	
+	
+	
+	<miscObj sX="20" sY="20" eX="60" eY="60" displayImage="Art_Assets/In_Game/Levels/Misc/plant2.png"></miscObj>
+	<miscObj sX="1140" sY="540" eX="1180" eY="580" displayImage="Art_Assets/In_Game/Levels/Misc/plant2.png"></miscObj>
+
+	<miscObj sX="830" sY="220" eX="870" eY="260" displayImage="Art_Assets/In_Game/Levels/Misc/plant2.png"></miscObj>
+	<miscObj sX="830" sY="420" eX="870" eY="460" displayImage="Art_Assets/In_Game/Levels/Misc/plant.png"></miscObj>
+	<miscObj sX="1010" sY="220" eX="1050" eY="260" displayImage="Art_Assets/In_Game/Levels/Misc/plant.png"></miscObj>
+	<miscObj sX="1010" sY="420" eX="1050" eY="460" displayImage="Art_Assets/In_Game/Levels/Misc/plant2.png"></miscObj>
+	
+	
+	<miscObj sX="580" sY="70" eX="620" eY="110" displayImage="Art_Assets/In_Game/Levels/Misc/plant2.png"></miscObj>
+	<miscObj sX="580" sY="110" eX="620" eY="150" displayImage="Art_Assets/In_Game/Levels/Misc/plant2.png"></miscObj>
+	
+	
+	<miscObj sX="770" sY="220" eX="810" eY="260" displayImage="Art_Assets/In_Game/Levels/Misc/plant.png"></miscObj>
+	
+	<!-- End -->
+	<end sX="1085" sY="20" eX="1165" eY="60" rotate="0"></end>
+	
+	<player sX="60" sY="520"></player>
 	<dataAmount needed = "0"></dataAmount>
+	<paper sX="920" sY="320" dataPath="Levels/Level_2/2.txt"></paper>
+	<paper sX="640" sY="500" dataPath="Levels/Level_2/2.txt"></paper>
 	
 </level4>
-
