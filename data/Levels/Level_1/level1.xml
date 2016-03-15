@@ -13,11 +13,11 @@
 	<wall sX="1170" sY="160" eX="1200" eY="180"></wall>
 	<wall sX="240" sY="0" eX="260" eY="50"></wall>
 
-	<room sX="0" sY="0" eX="250" eY="600"></room>
+	<room sX="0" sY="0" eX="250" eY="590"></room>
 	<room sX="249" sY="0" eX="1200" eY="171"></room>
-	<room sX="250" sY="170" eX="670" eY="600"></room>
-	<room sX="670" sY="170" eX="1100" eY="600"></room>
-	<room sX="1100" sY="170" eX="1200" eY="600"></room>
+	<room sX="250" sY="170" eX="670" eY="590"></room>
+	<room sX="670" sY="170" eX="1100" eY="590"></room>
+	<room sX="1100" sY="170" eX="1200" eY="590"></room>
 
 	<desk sX="60" sY="120" eX="160" eY="140"></desk>
 	<desk sX="320" sY="260" eX="420" eY="280"></desk>

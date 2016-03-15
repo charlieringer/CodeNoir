@@ -328,7 +328,7 @@ class HackPuzzle
     //get the code size as well
     int codeSize = code.getCode().length;
     //if these are different we cannot have a match
-    if (guessSize != codeSize)
+    if (guessSize < codeSize)
     {
       //so return false
       return false;
