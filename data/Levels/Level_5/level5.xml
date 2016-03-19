@@ -117,8 +117,7 @@
 	
 	<!-- End -->
 	<end sX="1040" sY="20" eX="1120" eY="60"></end>
-	<!--<player sX="100" sY="520"></player>-->
-	<player sX="490" sY="140"></player>
+	<player sX="100" sY="520"></player>
 	<dataAmount needed = "6"></dataAmount>
 	<mug sX="60" sY="180" connectedDoorID = "0"></mug>
 	<paper sX="80" sY="180" dataPath="Levels/Level_1/0.txt"></paper>
