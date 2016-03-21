@@ -1,6 +1,6 @@
 H: Agent Goldsmith we have an urgent mission for you!
 P: On it, what is the brief?
-H: Your are to break into to the Wellness Corp HQ 
+H: You are to break into to the Wellness Corp HQ 
 H: and collect evidence.
 P: Wellness Corp? Those Human Enhancement guys?
 H: Yeah, reports are they are a little shady.
