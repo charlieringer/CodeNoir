@@ -1,3 +1,43 @@
+class BrokenWall extends Wall
+{
+  CameraPuzzle puzzle;
+  Level level;
+  
+  BrokenWall(int newSX, int newSY, int newEX, int newEY, Level parentLevel)
+  {
+    super(newSX, newSY, newEX, newEY);
+    puzzle = new CameraPuzzle();
+    level = parentLevel;
+  }
+  
+  void drawOnOwn()
+  {
+    if(!puzzle.gameWon)
+    {
+      puzzle.runGame();
+    }
+     else
+     {
+       //Draw cutscreen thing
+       background(0);
+     }
+  }
+  
+   void handleKey()
+  {
+    if (key == TAB)
+    {
+      level.levelState = LevelState.LEVEL;
+    }
+    else if(!puzzle.gameWon)
+    {
+      puzzle.handleKey();
+    }
+  }
+  
+  
+}
+
 class CameraPuzzle
 {
   Camera camera;

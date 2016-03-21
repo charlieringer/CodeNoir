@@ -7,7 +7,10 @@
 	<wall sX="0" sY="580" eX="1200" eY="600"></wall>
 	<wall sX="0" sY="0" eX="20" eY="600"></wall>
 	<wall sX="1180" sY="0" eX="1200" eY="600"></wall>
-	
+    
+    <wall sX="395" sY="20" eX="790" eY="300"></wall>
+    
+    <brokenWall sX="789" sY="20" eX="790" eY="40"></brokenWall>
 	
 	<!-- Rooms -->
 	<!-- Whole floor -->
@@ -24,6 +27,8 @@
 	
 	<!-- End -->-
 	<end sX="1100" sY="20" eX="1180" eY="200"></end>
+    <player sX="120" sY="520"></player>
+    <dataAmount needed = "1"></dataAmount>
 	
 </level7>
 
