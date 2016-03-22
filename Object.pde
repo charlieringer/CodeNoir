@@ -191,7 +191,7 @@ class PapersObject extends SmallObject
 
   void pressed()
   {
-    if (key == TAB)
+    if (key == TAB|| key == ' ')
     {
       level.levelState = LevelState.LEVEL;
     }

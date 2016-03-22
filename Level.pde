@@ -225,8 +225,7 @@ class Level
       sY = brokenWallXML.getInt("sY");
       eX = brokenWallXML.getInt("eX");
       eY = brokenWallXML.getInt("eY");
-      brokenWall = new BrokenWall(sX, sY, eX, eY, this);
-      print("found wall");
+      brokenWall = new BrokenWall(sX, sY, eX, eY, this); 
     }
 
 
@@ -798,7 +797,7 @@ class Room
   }
   void blackout()
   {
-    fill(0, 200);
+    fill(0, 190);
     rectMode(CORNERS);
     noStroke();
     rect(startX, startY, endX, endY);
