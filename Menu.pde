@@ -257,7 +257,7 @@ class mainMenu {
 
 class continueGame {
  PFont cyber;
- PImage scape, home;
+ PImage scape, home, skyscraper;
  ArrayList<Button> buttons = new ArrayList<Button>();
   
  continueGame() {
@@ -266,21 +266,22 @@ class continueGame {
    scape.resize(1200, 620);
    home = loadImage("Art_Assets/Frontend/home.png");
    home.resize(75, 75);
+   skyscraper = loadImage("Art_Assets/Frontend/continuegame.png");
    //add buttons to arraylist
-   buttons.add(new Button("1", 250, 380, 290, 440, 100, 100));
-   buttons.add(new Button("2", 400, 380, 440, 440, 100, 100));
-   buttons.add(new Button("3", 550, 380, 590, 440, 100, 100));
-   buttons.add(new Button("4", 250, 250, 285, 310, 100, 100));
-   buttons.add(new Button("5", 400, 250, 440, 310, 100, 100));
-   buttons.add(new Button("6", 550, 250, 585, 310, 100, 100));
-   buttons.add(new Button("7", 250, 120, 285, 180, 100, 100));
-   buttons.add(new Button("8", 400, 120, 440, 180, 100, 100));
-   buttons.add(new Button("9", 550, 120, 585, 180, 100, 100));
-   buttons.add(new Button("10", 260, 15, 435, 65, 380, 80));
+   //buttons.add(new Button("Reception", 400, 527, 405, 560, 190, 50, 25));
+   buttons.add(new Button("Accounting", 610, 427, 615, 460, 190, 50, 25));
+   buttons.add(new Button("Sales", 400, 427, 450, 460, 190, 50, 25));
+   buttons.add(new Button("Roboguard HQ", 610, 327, 615, 358, 190, 50, 19));
+   buttons.add(new Button("Server Farm", 400, 327, 415, 358, 190, 50, 19));
+   buttons.add(new Button("Archives", 610, 227, 640, 260, 190, 50, 25));
+   buttons.add(new Button("R+D", 400, 227, 470, 260, 190, 50, 25));
+   buttons.add(new Button("HR", 610, 127, 685, 160, 190, 50, 22));
+   buttons.add(new Button("Board Room", 400, 127, 405, 160, 190, 50, 22));
+   buttons.add(new Button("CEO", 550, 27, 570, 60, 150, 50, 25));
  }
  
  void drawContinue() {
-   //draws background- temporary 
+   //draws background
    background(scape);
    
    //draws home button
@@ -288,20 +289,14 @@ class continueGame {
    rect(1095, 20, 85, 85, 20);
    image(home, 1100, 25);
    
-   //temporary placeholder for skyscraper
-   rect(200, 0, 500, 620);
+   //draws skyscraper image
+   image(skyscraper, 300, 0);
    
-   //temporary windows
+   //draws buttons
    for(int i = 0; i < buttons.size(); i++) {
      buttons.get(i).drawContinue();
      buttons.get(i).checkContinueHover();
    }
-     
-   //temporary door
-   fill(255);
-   rect(375, 510, 150, 220);
-   fill(0);
-   line(450, 510, 450, 730);  
  }
 }
 
@@ -395,18 +390,14 @@ class Settings {
    textFont(cyber);
    text("Settings", 30, 50); 
    text("Music", 335, 430);
-   text("Sound FX", 635, 430);
-   
-   //draw cross if 'off' is pressed
-   
-   
+   text("Sound FX", 635, 430);   
   }  
 }
 
 class Button {
   PFont cyber;
   PImage lock_yellow, lock_white;
-  int rectX, rectY, textX, textY, wide, leng;
+  int rectX, rectY, textX, textY, wide, leng, fontSize;
   String title;
   Boolean hover = false;
   Boolean completed = true;
@@ -431,7 +422,7 @@ class Button {
     cyber = createFont("Fonts/renegado.ttf", fontSize);
   }
   
-  Button(String title, int rectX, int rectY, int textX, int textY, int wide, int leng) {
+  Button(String title, int rectX, int rectY, int textX, int textY, int wide, int leng, int fontSize) {
     this.rectX = rectX;
     this.rectY = rectY;
     this.textX = textX;
@@ -439,8 +430,9 @@ class Button {
     this.title = title;
     this.wide = wide;
     this.leng = leng;
+    this.fontSize = fontSize;
     
-    cyber = createFont("Fonts/renegado.ttf", 30);
+    cyber = createFont("Fonts/renegado.ttf", fontSize);
     lock_white = loadImage("Art_Assets/Frontend/lock_white.png");
     lock_white.resize(150, 150);
     lock_yellow = loadImage("Art_Assets/Frontend/lock_yellow.png");
@@ -473,17 +465,17 @@ class Button {
    if(completed == true) {
      if(hover == false) {
        //button outline
-       fill(255);
+       noStroke();
+       fill(48, 48, 48);
        rect(rectX, rectY, wide, leng);
        //button text
        textFont(cyber);
-       fill(0);
+       textSize(fontSize);
+       fill(255);
        text(title, textX, textY);
      } else {
-       //button outline
-       fill(249, 255, 50);
-       rect(rectX, rectY, wide, leng);
        //button text
+       textSize(fontSize);
        fill(0);
        text(title, textX, textY);
      }
