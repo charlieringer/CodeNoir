@@ -7,6 +7,7 @@
 	<wall sX="0" sY="580" eX="1200" eY="600"></wall>
 	<wall sX="0" sY="0" eX="20" eY="600"></wall>
 	<wall sX="1180" sY="0" eX="1200" eY="600"></wall>
+
 	
 	<wall sX="960" sY="0" eX="980" eY="260"></wall>
 	<wall sX="960" sY="340" eX="980" eY="600"></wall>
@@ -14,11 +15,15 @@
 	<wall sX="750" sY="0" eX="770" eY="260"></wall>
 	<wall sX="300" sY="0" eX="320" eY="260"></wall>
 	<wall sX="300" sY="260" eX="770" eY="280"></wall>
-	
+
+
+    <wall sX="300" sY="20" eX="770" eY="280"></wall>
+    <brokenWall sX="789" sY="20" eX="790" eY="40"></brokenWall>
+
 	<!-- Rooms -->
 	<!-- Whole floor -->
 	<room sX="0" sY="0" eX="1200" eY="600"></room>
-	<room sX="300" sY="0" eX="770" eY="280"></room>
+
 	
 	<!-- Tables -->
 	<desk sX="690" sY="310" eX="710" eY="410"></desk>
@@ -42,5 +47,6 @@
 	<end sX="40" sY="540" eX="120" eY="580" rotate="2"></end>
 	<player sX="1100" sY="520"></player>
 	<dataAmount needed = "0"></dataAmount>
+
 	
 </level7>

@@ -1,4 +1,4 @@
- class Level
+class Level
 {
   ArrayList<Wall> walls = new ArrayList<Wall>();
   ArrayList<LargeObject> hardObjects = new ArrayList<LargeObject>();
@@ -14,12 +14,12 @@
   Endpoint end;
   int dataNeeded = 0;
   ArrayList<PImage> floorTiles = new ArrayList<PImage>();
-  
+
   StateClass state;
-  
+
   LevelState levelState;
   LevelState prevState;
-  
+
   PauseScreen pause;
 
   Terminal currTerminal;
@@ -27,19 +27,20 @@
   PapersObject currPapers;
   Server currServer;
   MugObject currMug;
-  //Current Camera Puzzle
+  //Level 5 only
+  BrokenWall brokenWall = null;
 
 
   boolean gameOver = false;
   StatusBar status = new StatusBar();
 
   Level(String levelDataPath, StateClass state) { 
-    
+
     floorTiles.add(loadImage("Art_Assets/In_Game/Levels/Floor/floor1.jpeg"));
     floorTiles.add(loadImage("Art_Assets/In_Game/Levels/Floor/floor2.jpeg"));
     floorTiles.add(loadImage("Art_Assets/In_Game/Levels/Floor/floor3.jpeg"));
     floorTiles.add(loadImage("Art_Assets/In_Game/Levels/Floor/floor4.jpeg"));
-    
+
     levelState = LevelState.LEVEL;
     this.state = state;
 
@@ -217,6 +218,18 @@
     int playery = playerXML.getInt("sY");
     player = new Player(walls, hardObjects, doors, guards, playerx, playery);
 
+    XML brokenWallXML = level.getChild("brokenWall");
+    if (brokenWallXML != null)
+    {
+      sX = brokenWallXML.getInt("sX");
+      sY = brokenWallXML.getInt("sY");
+      eX = brokenWallXML.getInt("eX");
+      eY = brokenWallXML.getInt("eY");
+      brokenWall = new BrokenWall(sX, sY, eX, eY, this);
+      print("found wall");
+    }
+
+
     dataNeeded = level.getChild("dataAmount").getInt("needed");
     pause = new PauseScreen(this, state);
   }
@@ -226,26 +239,27 @@
     switch(levelState)
     {
     case LEVEL:
-     drawOuterLevel();
-     break;
+      drawOuterLevel();
+      break;
     case TERMINAL:
-     assert(currTerminal != null);
-     currTerminal.drawTerminal();
-     break;
+      assert(currTerminal != null);
+      currTerminal.drawTerminal();
+      break;
     case FINGERPRINT:
-     currMug.displayOnOwn();
-     break;
+      currMug.displayOnOwn();
+      break;
     case LOCKPICK:
-     currLock.drawPuzzle();
-     break;
+      currLock.drawPuzzle();
+      break;
     case CAMERA:
-     break;
+      brokenWall.drawOnOwn();
+      break;
     case SERVER:
-     currServer.drawOnOwn();
-     break;
+      currServer.drawOnOwn();
+      break;
     case PAPERS:
-     currPapers.displayOnOwn();
-     break;
+      currPapers.displayOnOwn();
+      break;
     case PAUSE:
       pause.display();
       break;
@@ -281,7 +295,7 @@
     }
     for (Guard guard : guards)
     {
-      
+
       if (!gameOver) gameOver = guard.checkForPlayer(player, walls, doors);
       guard.moveandDrawGuard(walls, hardObjects, doors);
     }
@@ -302,7 +316,7 @@
     end.drawEndpoint();
     player.checkVision(rooms);
   }
-  
+
   void drawFloor()
   {
     background(200);
@@ -310,11 +324,11 @@
     {
       return;
     }
-    
+
     int count = 0;
-    for(int i = 0 ; i < width; i+=99)
+    for (int i = 0; i < width; i+=99)
     {
-      for(int j = 0; j < height; j +=99)
+      for (int j = 0; j < height; j +=99)
       {
         count++;
         image(floorTiles.get(count%floorTiles.size()), i, j);
@@ -432,6 +446,22 @@
         return;
       }
     }
+    if (brokenWall != null)
+    {
+      int wallSX = brokenWall.startX;
+      int wallSY = brokenWall.startY;
+      int wallEX = brokenWall.endX;
+      int wallEY = brokenWall.endY;
+
+      if ((playerSX == wallEX && playerSY < wallEY && playerEY > wallSY) || 
+        (playerSY == wallEY && playerSX < wallEX && playerEX > wallSX) || 
+        (playerEX == wallSX && playerSY < wallEY && playerEY > wallSY) || 
+        (playerEY == wallSY && playerSX < wallEX && playerEX > wallSX))
+      {
+        status.drawStatusBar("Cracked wall - press SPACE to feed camera through hole");
+        return;
+      }
+    }
     status.drawStatusBar("");
   }
 
@@ -467,13 +497,14 @@
       currLock.pressed();
       break;
     case CAMERA:
+      brokenWall.handleKey();
       break;
     case SERVER:
       break;
     case PAPERS:
       currPapers.pressed();
       break;
-     case PAUSE:
+    case PAUSE:
     }
   }
 
@@ -613,6 +644,22 @@
           return;
         }
       }
+      if (brokenWall != null)
+      {
+        int wallSX = brokenWall.startX;
+        int wallSY = brokenWall.startY;
+        int wallEX = brokenWall.endX;
+        int wallEY = brokenWall.endY;
+
+        if ((playerSX == wallEX && playerSY < wallEY && playerEY > wallSY) || 
+          (playerSY == wallEY && playerSX < wallEX && playerEX > wallSX) || 
+          (playerEX == wallSX && playerSY < wallEY && playerEY > wallSY) || 
+          (playerEY == wallSY && playerSX < wallEX && playerEX > wallSX))
+        {
+          levelState = LevelState.CAMERA;
+          return;
+        }
+      }
     }
     player.handleKey(true);
   }
@@ -637,7 +684,7 @@
       break;
     case PAPERS:
       break;
-     case PAUSE:
+    case PAUSE:
       pause.handleClick();
       break;
     }
@@ -722,13 +769,13 @@ class Endpoint
 
   void drawEndpoint()
   {
-    if(level.player.hasData == level.dataNeeded)
+    if (level.player.hasData == level.dataNeeded)
     {
       fill(255, 0, 0);
-      image(open,sX,sY);
+      image(open, sX, sY);
       //rect(sX, sY, eX, eY);
     } else {
-      image(closed,sX,sY);
+      image(closed, sX, sY);
     }
   }
 
@@ -768,66 +815,66 @@ class PauseScreen
 
   PauseScreen(Level _parent, StateClass state)
   {
-     parent = _parent;
-     this.state = state;
-     scape = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
-     scape.resize(1200, 620);
-     cyber = createFont("Fonts/renegado.ttf", 130);
-     pauseButtons.add(new Button("Continue Game", 750, 100, 755, 135, 30));
-     pauseButtons.add(new Button("Controls", 750, 200, 810, 235, 30));
-     pauseButtons.add(new Button("Settings", 750, 300, 822, 335, 30));
-     pauseButtons.add(new Button("Return To Menu", 750, 400, 755, 435, 28));
-     //note: add an option to save data?
-     pauseButtons.add(new Button("Quit Game", 750, 500, 805, 535, 30));
+    parent = _parent;
+    this.state = state;
+    scape = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
+    scape.resize(1200, 620);
+    cyber = createFont("Fonts/renegado.ttf", 130);
+    pauseButtons.add(new Button("Continue Game", 750, 100, 755, 135, 30));
+    pauseButtons.add(new Button("Controls", 750, 200, 810, 235, 30));
+    pauseButtons.add(new Button("Settings", 750, 300, 822, 335, 30));
+    pauseButtons.add(new Button("Return To Menu", 750, 400, 755, 435, 28));
+    //note: add an option to save data?
+    pauseButtons.add(new Button("Quit Game", 750, 500, 805, 535, 30));
   }
   void display()
   {
     //draws background
     background(scape);
-    
+
     //draws button banner
     rectMode(CORNER);
     fill(0);
     rect(750, 0, 300, 620);
-    
+
     //draw game title
     fill(255);
     textSize(100);
     text("Code Noir", 30, 100);
-    
+
     //draw buttons
-    for(int i = 0; i < pauseButtons.size(); i++) {
+    for (int i = 0; i < pauseButtons.size(); i++) {
       pauseButtons.get(i).drawButton();
       pauseButtons.get(i).checkHover();
     }
   }
-  
+
   void handleClick()
   {
     //continue game is pressed
-    if(mouseX > 750 && mouseX < 1050 && mouseY > 100 && mouseY < 150) {
+    if (mouseX > 750 && mouseX < 1050 && mouseY > 100 && mouseY < 150) {
       paused = false;
       parent.levelState = parent.prevState;
     }
     //controls is pressed
-    if(mouseX > 750 && mouseX < 1050 && mouseY > 200 && mouseY < 250) {
+    if (mouseX > 750 && mouseX < 1050 && mouseY > 200 && mouseY < 250) {
       state.MenuState = menuState.CONTROLS;
       state.state = State.FRONTEND;
     }
     //settings is pressed
-    if(mouseX > 750 && mouseX < 1050 && mouseY > 300 && mouseY < 350) {
+    if (mouseX > 750 && mouseX < 1050 && mouseY > 300 && mouseY < 350) {
       state.MenuState = menuState.SETTINGS;
       state.state = State.FRONTEND;
     }
     //return to menu is pressed
-    if(mouseX > 750 && mouseX < 1050 && mouseY > 400 && mouseY < 450) {
+    if (mouseX > 750 && mouseX < 1050 && mouseY > 400 && mouseY < 450) {
       paused = false;
       state.MenuState = menuState.MAIN;
       state.state = State.FRONTEND;
     }
     //quit game is pressed
-    if(mouseX > 750 && mouseX < 1050 && mouseY > 500 && mouseY < 550) {
-      exit();  
+    if (mouseX > 750 && mouseX < 1050 && mouseY > 500 && mouseY < 550) {
+      exit();
     }
   }
 }
