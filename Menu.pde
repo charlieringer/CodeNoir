@@ -301,7 +301,7 @@ class continueGame {
 }
 
 class Controls {
-  PImage city, arrows, space, home;
+  PImage city, arrows, space, home, pause;
   PFont cyber;
   
   Controls() {
@@ -311,6 +311,8 @@ class Controls {
     arrows.resize(300, 200);
     space = loadImage("Art_Assets/Frontend/space_tab.png");
     space.resize(600, 200);
+    pause = loadImage("Art_Assets/Frontend/pause.png");
+    pause.resize(600, 40);
     home = loadImage("Art_Assets/Frontend/home.png");
     home.resize(75, 75);
     cyber = createFont("Fonts/renegado.ttf", 50);
@@ -329,8 +331,12 @@ class Controls {
     fill(0);
     rect(120, 195, 310, 210, 20);
     rect(470, 195, 610, 210, 20);
+    rect(295, 495, 600, 50, 20); 
     image(arrows, 125, 200);
     image(space, 475, 200);
+    image(pause, 300, 500);
+    
+    //home button drawn if this menu is accessed from front end, 'return to game' displayed if accessed from in-game
     if(paused) {
       fill(0);
       rect(900, 25, 250, 50, 20);
