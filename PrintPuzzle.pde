@@ -82,10 +82,9 @@ class PrintPuzzle
         checkCorrect(i);
       }
     }
-
-    //if all pieces are in the correct place display win screen
-    if ((UL && UR && ML && MR && DL && DR) == true) {
-      completed = true;
+    
+    //display pop up if print is correct
+    if(completed == true) {
       win();
     }
   }
@@ -117,6 +116,11 @@ class PrintPuzzle
       {
         blankPiece.get(x).checkSnap(partialChoice.get(i));
       }
+    }
+    
+    //if all pieces are in the correct place switch completed to true
+    if ((UL && UR && ML && MR && DL && DR) == true) {
+      completed = true;
     }
   }
   
