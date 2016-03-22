@@ -40,7 +40,13 @@ class CameraPuzzle
   ArrayList<CPWall> walls = new ArrayList<CPWall>();
   boolean gameOver;
   boolean gameWon = false;
-  PImage border = loadImage("Art_Assets/In_Game/Camera/cameraPuzzBorder.png");
+  //top of tablet
+  PImage tablet1 = loadImage("Art_Assets/In_Game/Camera/tablet1.png");
+  //middle of tablet
+  PImage tablet2 = loadImage("Art_Assets/In_Game/Camera/tablet2.png");
+  //bottom of tablet
+  PImage tablet3 = loadImage("Art_Assets/In_Game/Camera/tablet3.png");
+  PImage lose = loadImage("Art_Assets/In_Game/Camera/cameraGameOver.png");
 
   CameraPuzzle()
   {
@@ -70,33 +76,36 @@ class CameraPuzzle
   }
 
   void runGame() {
+    //image for middle section of tablet, behind camera puzzle game
+    image(tablet2, 0, 190);
     stroke(0);
-    background(40);
     camera.drawCamera();
+    
     for (int i = 0; i < walls.size(); i++)
     {
-      walls.get(i).drawWall();
+    walls.get(i).drawWall();
     }
 
+    //top section of tablet, in front of camera puzzle to block some walls
+    image(tablet1, 0, 0);
+    //bottom section of tablet, in front of camera puzzle to block some walls
+    image(tablet3, 0, 430);
 
-    fill(0);
-    rect(0, 0, width, 180);
-    rect(0, height-180, width, height);
-    image(border, 0, 0);
     textAlign (CENTER);
     fill(255);
-    text("Wall scan complete", width/2, 120, 40);
-    text("Feed camera through wall. Use U/D/L/R arrows to condtrol", width/2, 160, 40);
+    text("Wall scan complete", width/2, 130, 40);
+    text("Feed camera through wall. Use U/D/L/R arrows to control", width/2, 170, 40);
 
     if (!gameOver) {
       camera.moveCamera();
       gameOver = camera.checkEnd(walls);
       gameWon = camera.checkWin();
     } else {
-      String modelString = "Game Over, Press 'r' to restart";
-      textAlign (CENTER);
-      fill(0);
-      text(modelString, 200, 200, 40);
+      //String modelString = "Game Over, Press 'r' to restart";
+      //textAlign (CENTER);
+      //fill(0);
+      //text(modelString, 200, 200, 40);
+      image(lose, 300, 200);
     }
   }
 
