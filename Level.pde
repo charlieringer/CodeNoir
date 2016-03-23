@@ -33,7 +33,8 @@ class Level
 
   boolean gameOver = false;
   StatusBar status = new StatusBar();
-
+  
+  Level(){}
   Level(String levelDataPath, StateClass state) { 
 
     floorTiles.add(loadImage("Art_Assets/In_Game/Levels/Floor/floor1.jpeg"));

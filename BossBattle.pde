@@ -1,4 +1,4 @@
-class BossGame
+class BossGame extends Level
 {
   ArrayList<MemoryLocation> gameGrid;
   String currentInput = "";
@@ -14,7 +14,7 @@ class BossGame
   {
     gameGrid = new ArrayList<MemoryLocation>();
     int count = 0;
-    String lines[] = loadStrings("BossData.txt");
+    String lines[] = loadStrings("Levels/Level_10/BossData.txt");
     for (int i = 0; i < 5; i ++)
     {
       if (i % 2 == 0)
@@ -90,7 +90,7 @@ class BossGame
     return true;
   }
 
-  void draw()
+  void drawLevel()
   {
     if (!gameCompleted && !playerDestroyed)
     {
@@ -176,7 +176,7 @@ class BossGame
     }
   }
 
-  void handleKey()
+  void handleKeyOn()
   {
     if (key == ENTER || key == RETURN)
     {
@@ -190,6 +190,11 @@ class BossGame
       currentInput +=(char)key;
     }
   }
+  void handleKeyOff(){}
+  
+  void handleMousePressed(){}
+  void handleMouseReleased(){}
+  void handleMouseDragged(){}
 }
 
 class MemoryLocation
@@ -217,32 +222,32 @@ class MemoryLocation
     {
     case EMPTY:
       {
-        dispImage = loadImage("hexagon.png");
+        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon.png");
         break;
       }
     case DATA:
       {
-        dispImage = loadImage("hexagon5.png");
+        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon5.png");
         break;
       }
     case UPLOADED:
       {
-        dispImage = loadImage("hexagon6.png");
+        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon6.png");
         break;
       }
     case DESTROYED:
       {
-        dispImage = loadImage("hexagon2.png");
+        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon2.png");
         break;
       }
     case PLAYER:
       {
-        dispImage = loadImage("hexagon3.png");
+        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon3.png");
         break;
       }
     case BOSS:
       {
-        dispImage = loadImage("hexagon4.png");
+        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon4.png");
       }
     }
   }
@@ -276,7 +281,7 @@ class MemoryLocation
     if (state == LocationState.PLAYER) game.playerDestroyed = true;
       state = LocationState.DESTROYED;
     prevState = LocationState.DESTROYED;
-    dispImage = loadImage("hexagon2.png");
+    dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon2.png");
   }
 
   void reset()
@@ -287,32 +292,32 @@ class MemoryLocation
     {
     case EMPTY:
       {
-        dispImage = loadImage("hexagon.png");
+        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon.png");
         break;
       }
     case DATA:
       {
-        dispImage = loadImage("hexagon5.png");
+        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon5.png");
         break;
       }
     case UPLOADED:
       {
-        dispImage = loadImage("hexagon6.png");
+        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon6.png");
         break;
       }
     case DESTROYED:
       {
-        dispImage = loadImage("hexagon2.png");
+        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon2.png");
         break;
       }
     case PLAYER:
       {
-        dispImage = loadImage("hexagon3.png");
+        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon3.png");
         break;
       }
     case BOSS:
       {
-        dispImage = loadImage("hexagon4.png");
+        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon4.png");
       }
     }
   }
