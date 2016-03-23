@@ -83,7 +83,7 @@
 	<door sX="260" sY="340" orientation="h" locktype="l" pins="4"></door>
 	<door sX="800" sY="340" orientation="h" locktype="l" pins="4"></door>
 	
-	<terminal sX="250" sY="560" connectedDoorID="3" codeLength="4" rotate="2"></terminal>
+	<terminal sX="250" sY="560" connectedDoorID="3" codeLength="4" connectedDataPath="Levels/Placeholder/placeholderdata.txt" rotate="2"></terminal>
 	
 	<miscObj sX="20" sY="20" eX="60" eY="60" displayImage="Art_Assets/In_Game/Levels/Misc/plant.png"></miscObj>
 	<miscObj sX="160" sY="20" eX="200" eY="60" displayImage="Art_Assets/In_Game/Levels/Misc/plant2.png"></miscObj>
@@ -120,10 +120,10 @@
 	<player sX="100" sY="520"></player>
 	<dataAmount needed = "6"></dataAmount>
 	<mug sX="60" sY="180" connectedDoorID = "0"></mug>
-	<paper sX="80" sY="180" dataPath="Levels/Level_1/0.txt"></paper>
-	<paper sX="360" sY="85" dataPath="Levels/Level_2/0.txt"></paper>
-	<paper sX="560" sY="45" dataPath="Levels/Level_2/1.txt"></paper>
-	<paper sX="880" sY="560" dataPath="Levels/Level_2/1.txt"></paper>
+	<paper sX="80" sY="180" dataPath="Levels/Placeholder/placeholdertext.txt"></paper>
+	<paper sX="360" sY="85" dataPath="Levels/Placeholder/placeholdertext.txt"></paper>
+	<paper sX="560" sY="45" dataPath="Levels/Placeholder/placeholdertext.txt"></paper>
+	<paper sX="880" sY="560" dataPath="Levels/Placeholder/placeholdertext.txt"></paper>
 	
 </level5>
 

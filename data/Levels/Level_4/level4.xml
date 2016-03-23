@@ -20,7 +20,7 @@
 	<wall sX="260" sY="460" eX="700" eY="480"></wall>
 	<wall sX="800" sY="460" eX="1050" eY="480"></wall>
 	<wall sX="1050" sY="460" eX="1070" eY="490"></wall>
-	<wall sX="1050" sY="530" eX="1070" eY="600"></wall>
+	<wall sX="1050" sY="570" eX="1070" eY="600"></wall>
 	<wall sX="660" sY="460" eX="680" eY="580"></wall>
 	<wall sX="810" sY="220" eX="830" eY="460"></wall>
 	<wall sX="1050" sY="220" eX="1070" eY="460"></wall>
@@ -44,7 +44,6 @@
 	<guard sX="830" sY="260" startingOrientation="d" onCollisionTurn="l"></guard>
 	<guard sX="980" sY="420" startingOrientation="u" onCollisionTurn="l"></guard>
 	
-	<guard sX="800" sY="480" startingOrientation="d" onCollisionTurn="b"></guard>
 	<guard sX="900" sY="580" startingOrientation="u" onCollisionTurn="b"></guard>
 	
 	<guard sX="300" sY="480" startingOrientation="d" onCollisionTurn="b"></guard>
@@ -53,20 +52,17 @@
 	<guard sX="560" sY="220" startingOrientation="d" onCollisionTurn="r"></guard>
 	<guard sX="360" sY="220" startingOrientation="d" onCollisionTurn="b"></guard>
 	<guard sX="610" sY="460" startingOrientation="u" onCollisionTurn="b"></guard>
-	<guard sX="150" sY="260" startingOrientation="r" onCollisionTurn="b"></guard>
-	<guard sX="610" sY="260" startingOrientation="r" onCollisionTurn="b"></guard>
-	<guard sX="150" sY="400" startingOrientation="r" onCollisionTurn="b"></guard>
-	<guard sX="610" sY="400" startingOrientation="r" onCollisionTurn="b"></guard>
+	<guard sX="490" sY="330" startingOrientation="r" onCollisionTurn="b"></guard>
 
 	
 	<!-- Tables -->
 	<desk sX="340" sY="60" eX="360" eY="160"></desk>
 	<desk sX="800" sY="60" eX="820" eY="160"></desk>
 	
-	<desk sX="390" sY="220" eX="410" eY="320"></desk>
-	<desk sX="390" sY="360" eX="410" eY="460"></desk>
-	<desk sX="590" sY="220" eX="610" eY="320"></desk>
-	<desk sX="590" sY="360" eX="610" eY="460"></desk>
+	<desk sX="390" sY="220" eX="410" eY="300"></desk>
+	<desk sX="390" sY="380" eX="410" eY="460"></desk>
+	<desk sX="590" sY="220" eX="610" eY="300"></desk>
+	<desk sX="590" sY="380" eX="610" eY="460"></desk>
 	
 	<desk sX="920" sY="290" eX="940" eY="390"></desk>
 	
@@ -94,7 +90,7 @@
 	
 	<player sX="60" sY="520"></player>
 	<dataAmount needed = "0"></dataAmount>
-	<paper sX="920" sY="320" dataPath="Levels/Level_2/2.txt"></paper>
-	<paper sX="640" sY="500" dataPath="Levels/Level_2/2.txt"></paper>
+	<paper sX="920" sY="320" dataPath="Levels/Placeholder/placeholdertext.txt"></paper>
+	<paper sX="640" sY="500" dataPath="Levels/Placeholder/placeholdertext.txt"></paper>
 	
 </level4>
