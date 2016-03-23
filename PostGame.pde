@@ -103,7 +103,7 @@ class PostGame {
          state.state = State.INGAME;
          break;
        case 10:
-         level = new Level("Levels/Level_10/level10.xml", state); 
+         level = new BossGame(); 
          state.state = State.INGAME;
          break;
      }
@@ -165,7 +165,7 @@ class PostGame {
          break;
        case 9:
          currentLevel = 10;
-         level = new Level("Levels/Level_10/level10.xml", state); 
+         level = new BossGame(); 
          state.state = State.INGAME;
          break;
        case 10:

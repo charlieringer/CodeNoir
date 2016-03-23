@@ -1,1 +1,8 @@
-test
+H: We received your camera feed 
+H: These guys are monsters
+P: It is not a pretty sight is it
+H: No, it is not. This floor is the HR department
+H: We now know they treat Humans as a resource
+P: We need to take them down
+H: Agreed, find incriminated evidence here
+P: Understood
