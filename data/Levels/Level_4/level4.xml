@@ -90,7 +90,7 @@
 	
 	<player sX="60" sY="520"></player>
 	<dataAmount needed = "0"></dataAmount>
-	<paper sX="920" sY="320" dataPath="Levels/Placeholder/placeholdertext.txt"></paper>
-	<paper sX="640" sY="500" dataPath="Levels/Placeholder/placeholdertext.txt"></paper>
+	<paper sX="920" sY="320" dataPath="Levels/Level_4/0.txt"></paper>
+	<paper sX="640" sY="500" dataPath="Levels/Level_4/1.txt"></paper>
 	
 </level4>
