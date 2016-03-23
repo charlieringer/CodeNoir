@@ -197,24 +197,12 @@ class Camera
 
   boolean checkEnd(ArrayList<CPWall> walls)
   {
-    return (checkCollSelf()||checkCollWalls(walls));
+    return (checkCollWalls(walls));
   }
 
   boolean checkWin()
   {
     return (head.x > width-20);
-  }
-
-  boolean checkCollSelf()
-  {
-    CameraPart current = head.next;
-
-    while (current!=null)
-    {
-      if (head.x==current.x && head.y == current.y) return true;
-      current = current.next;
-    }
-    return false;
   }
 
   boolean checkCollWalls(ArrayList<CPWall> walls)

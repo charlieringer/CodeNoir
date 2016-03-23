@@ -35,14 +35,14 @@ class BossGame extends Level
               stateIdent = lines[count].charAt(k);
             }
           }
-          if ( stateIdent == 'E') gameGrid.add(new MemoryLocation(j*100+200, i*90, memAdress, LocationState.EMPTY, new PVector(j, i), this));
-          else if ( stateIdent == 'D') gameGrid.add(new MemoryLocation(j*100+200, i*90, memAdress, LocationState.DATA, new PVector(j, i), this));
+          if ( stateIdent == 'E') gameGrid.add(new MemoryLocation(j*100+400, i*90+50, memAdress, LocationState.EMPTY, new PVector(j, i), this));
+          else if ( stateIdent == 'D') gameGrid.add(new MemoryLocation(j*100+400, i*90+50, memAdress, LocationState.DATA, new PVector(j, i), this));
           else if ( stateIdent == 'P')
           {
-            gameGrid.add(new MemoryLocation(j*100+200, i*90, memAdress, LocationState.PLAYER, new PVector(j, i), this));
+            gameGrid.add(new MemoryLocation(j*100+400, i*90+50, memAdress, LocationState.PLAYER, new PVector(j, i), this));
             currMemoryAddress = memAdress;
             playerPos = new PVector(j, i);
-          } else if ( stateIdent == 'B') gameGrid.add(new MemoryLocation(j*100+200, i*90, memAdress, LocationState.BOSS, new PVector(j, i), this));
+          }
           count++;
         }
       } else
@@ -63,20 +63,21 @@ class BossGame extends Level
               stateIdent = lines[count].charAt(k);
             }
           }
-          if ( stateIdent == 'E') gameGrid.add(new MemoryLocation(j*100+250, i*90, memAdress, LocationState.EMPTY, new PVector(j, i), this));
-          else if ( stateIdent == 'D') gameGrid.add(new MemoryLocation(j*100+250, i*90, memAdress, LocationState.DATA, new PVector(j, i), this));
+          if ( stateIdent == 'E') gameGrid.add(new MemoryLocation(j*100+450, i*90+50, memAdress, LocationState.EMPTY, new PVector(j, i), this));
+          else if ( stateIdent == 'D') gameGrid.add(new MemoryLocation(j*100+450, i*90+50, memAdress, LocationState.DATA, new PVector(j, i), this));
           else if ( stateIdent == 'P')
           {
-            gameGrid.add(new MemoryLocation(j*100+200, i*90, memAdress, LocationState.PLAYER, new PVector(j, i), this));
+            gameGrid.add(new MemoryLocation(j*100+450, i*90+50, memAdress, LocationState.PLAYER, new PVector(j, i), this));
             currMemoryAddress = memAdress;
             playerPos = new PVector(j, i);
-          } else if ( stateIdent == 'B') gameGrid.add(new MemoryLocation(j*100+250, i*90, memAdress, LocationState.BOSS, new PVector(j, i), this));
+          }
           count++;
         }
       }
     }
     boss = new BossGameAI(gameGrid);
     commands = new StringList();
+    textSize(10);
   }
 
   boolean checkEnd()
@@ -97,10 +98,20 @@ class BossGame extends Level
       background(255);
       for (MemoryLocation loc : gameGrid) loc.draw();
       text(currentInput, 100, 600);
+      text("Output log: ", 50, 220);
+      if (commands.size() > 17)
+      {
+        commands.remove(0);
+      }
       for (int i = 0; i < commands.size(); i++)
       {
-        text(commands.get(i), 100, 20*i+100);
+        text(commands.get(i), 50, 20*i+240);
       }
+      text("Available Commands: ", 50, 100);
+      text("goto MEMADDRESS ", 50, 120);
+      text("Goes an adjacent memory adress", 70, 140);
+      text("upload", 50,160);
+      text("Uploads the memory you are currently accessing.", 70, 180);
       boss.run();
       boss.draw();
       gameCompleted = checkEnd();
@@ -108,10 +119,10 @@ class BossGame extends Level
     {
       background(0);
       fill(255);
-      text("Your memory adress was deleted. You lose", 100, 100);
+      text("SYSTEM ERR: Bad Mem Adress. Program terminated with code -1. Please reboot.", 100, 100);
     } else {
       background(255);
-      text("Score: " + score, 100, 100);
+      text("Data points uploaded: " + score, 100, 100);
     }
   }
 
@@ -212,7 +223,7 @@ class MemoryLocation
   {
     this.x = x;
     this.y = y;
-    dispImage = loadImage("hexagon.png");
+    dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon.png");
     this.address = address;
     this.state = state;
     this.gridRef = gridRef;
@@ -263,7 +274,7 @@ class MemoryLocation
   {
     prevState = state;
     state = LocationState.PLAYER;
-    dispImage = loadImage("hexagon3.png");
+    dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon3.png");
   }
 
   void upload()
@@ -272,7 +283,7 @@ class MemoryLocation
     {
       state = LocationState.UPLOADED;
       prevState = LocationState.UPLOADED;
-      dispImage = loadImage("hexagon6.png");
+      dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon6.png");
     }
   }
 
@@ -381,7 +392,8 @@ class BossGameAI
 
   void draw()
   {
-    text(command, 1000, 500);
+    text("Incoming remote command: ", 50, 50);
+    text(command, 50, 70);
   }
 
   void findTarget()
