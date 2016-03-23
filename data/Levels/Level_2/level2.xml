@@ -76,7 +76,7 @@
     <wall sX= "1100" sY="170" eX="1180" eY="250"></wall>
 
 	<!-- End -->
-	<end sX="20" sY="40" eX="110" eY="80" rotate="3"></end>
+	<end sX="20" sY="40" eX="60" eY="120" rotate="3"></end>
 	
 	<player sX="1100" sY="520"></player>
 	<dataAmount needed = "1"></dataAmount>
