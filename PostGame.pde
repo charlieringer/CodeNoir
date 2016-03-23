@@ -67,40 +67,49 @@ class PostGame {
    if(mouseX > 50 && mouseX < 350 && mouseY > 525 && mouseY < 575) {
      switch(currentLevel) {
        case 1:
-         level = new Level("Levels/Level_1/level1.xml", state); 
-         state.state = State.INGAME;
+          currentLevel = 1;
+          cutScreens = new CutScreens(state, "Levels/Level_1/Level 1 PreText.txt");
+          state.state = State.CUTSCREENS;
          break;
        case 2:
-         level = new Level("Levels/Level_2/level2.xml", state); 
-         state.state = State.INGAME;
+          currentLevel = 2;
+          cutScreens = new CutScreens(state, "Levels/Level_2/Level 2 PreText.txt");
+          state.state = State.CUTSCREENS;
          break;
        case 3:
-         level = new Level("Levels/Level_3/level3.xml", state); 
-         state.state = State.INGAME;
+          currentLevel = 3;
+          cutScreens = new CutScreens(state, "Levels/Level_3/Level 3 PreText.txt");
+          state.state = State.CUTSCREENS;
          break;
        case 4:
-         level = new Level("Levels/Level_4/level4.xml", state); 
-         state.state = State.INGAME;
+         currentLevel = 4;
+          cutScreens = new CutScreens(state, "Levels/Level_4/Level 4 PreText.txt");
+          state.state = State.CUTSCREENS;
          break;
        case 5:
-         level = new Level("Levels/Level_5/level5.xml", state); 
-         state.state = State.INGAME;
+          currentLevel = 5;
+          cutScreens = new CutScreens(state, "Levels/Level_5/Level 5 PreText.txt");
+          state.state = State.CUTSCREENS;
          break;
        case 6:
-         level = new Level("Levels/Level_6/level6.xml", state); 
-         state.state = State.INGAME;
+          currentLevel = 6;
+          cutScreens = new CutScreens(state, "Levels/Level_6/Level 6 PreText.txt");
+          state.state = State.CUTSCREENS;
          break;
        case 7:
-         level = new Level("Levels/Level_7/level7.xml", state); 
-         state.state = State.INGAME;
+          currentLevel = 7;
+          cutScreens = new CutScreens(state, "Levels/Level_7/Level 7 PreText.txt");
+          state.state = State.CUTSCREENS;
          break;
        case 8:
-         level = new Level("Levels/Level_8/level8.xml", state); 
-         state.state = State.INGAME;
+          currentLevel = 8;
+          cutScreens = new CutScreens(state, "Levels/Level_8/Level 8 PreText.txt");
+          state.state = State.CUTSCREENS;
          break;
        case 9:
-         level = new Level("Levels/Level_9/level9.xml", state); 
-         state.state = State.INGAME;
+          currentLevel = 9;
+          cutScreens = new CutScreens(state, "Levels/Level_9/Level 9 PreText.txt");
+          state.state = State.CUTSCREENS;
          break;
        case 10:
          level = new BossGame(); 
@@ -125,43 +134,43 @@ class PostGame {
      switch(currentLevel) {
        case 1:
          currentLevel = 2;
-         level = new Level("Levels/Level_2/level2.xml", state); 
-         state.state = State.INGAME;
+         cutScreens = new CutScreens(state, "Levels/Level_2/Level 2 PreText.txt");
+         state.state = State.CUTSCREENS;
          break;
        case 2:
          currentLevel = 3;
-         level = new Level("Levels/Level_3/level3.xml", state); 
-         state.state = State.INGAME;
+         cutScreens = new CutScreens(state, "Levels/Level_3/Level 3 PreText.txt");
+         state.state = State.CUTSCREENS;
          break;
        case 3:
          currentLevel = 4;
-         level = new Level("Levels/Level_4/level4.xml", state); 
-         state.state = State.INGAME;
+         cutScreens = new CutScreens(state, "Levels/Level_4/Level 4 PreText.txt");
+         state.state = State.CUTSCREENS;
          break;
        case 4:
          currentLevel = 5;
-         level = new Level("Levels/Level_5/level5.xml", state); 
-         state.state = State.INGAME;
+         cutScreens = new CutScreens(state, "Levels/Level_5/Level 5 PreText.txt");
+         state.state = State.CUTSCREENS;
          break;
        case 5:
          currentLevel = 6;
-         level = new Level("Levels/Level_6/level6.xml", state); 
-         state.state = State.INGAME;
+         cutScreens = new CutScreens(state, "Levels/Level_6/Level 6 PreText.txt");
+         state.state = State.CUTSCREENS;
          break;
        case 6:
          currentLevel = 7;
-         level = new Level("Levels/Level_7/level7.xml", state); 
-         state.state = State.INGAME;
+         cutScreens = new CutScreens(state, "Levels/Level_7/Level 7 PreText.txt");
+         state.state = State.CUTSCREENS;
          break;
        case 7:
          currentLevel = 8;
-         level = new Level("Levels/Level_8/level8.xml", state); 
-         state.state = State.INGAME;
+         cutScreens = new CutScreens(state, "Levels/Level_8/Level 8 PreText.txt");
+         state.state = State.CUTSCREENS;
          break;
        case 8:
          currentLevel = 9;
-         level = new Level("Levels/Level_9/level9.xml", state); 
-         state.state = State.INGAME;
+         cutScreens = new CutScreens(state, "Levels/Level_9/Level 9 PreText.txt");
+         state.state = State.CUTSCREENS;
          break;
        case 9:
          currentLevel = 10;
