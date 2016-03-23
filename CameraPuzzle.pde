@@ -2,6 +2,7 @@ class BrokenWall extends Wall
 {
   CameraPuzzle puzzle;
   Level level;
+  Boolean dataDone = false;
 
   BrokenWall(int newSX, int newSY, int newEX, int newEY, Level parentLevel)
   {
@@ -17,6 +18,11 @@ class BrokenWall extends Wall
       puzzle.runGame();
     } else
     {
+      if (!dataDone)
+      {
+        level.player.hasData+=1;
+        dataDone = true;
+      }
       //Draw cutscreen thing
       background(0);
     }

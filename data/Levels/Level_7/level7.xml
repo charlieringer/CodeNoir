@@ -18,7 +18,7 @@
 
 
     <wall sX="300" sY="20" eX="770" eY="280"></wall>
-    <brokenWall sX="789" sY="20" eX="790" eY="40"></brokenWall>
+    <brokenWall sX="769" sY="20" eX="770" eY="40"></brokenWall>
 
 	<!-- Rooms -->
 	<!-- Whole floor -->
@@ -46,7 +46,7 @@
 	<!-- End -->
 	<end sX="40" sY="540" eX="120" eY="580" rotate="2"></end>
 	<player sX="1100" sY="520"></player>
-	<dataAmount needed = "0"></dataAmount>
+	<dataAmount needed = "1"></dataAmount>
 
 	
 </level7>
