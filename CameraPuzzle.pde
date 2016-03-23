@@ -46,6 +46,7 @@ class CameraPuzzle
   PImage tablet2 = loadImage("Art_Assets/In_Game/Camera/tablet2.png");
   //bottom of tablet
   PImage tablet3 = loadImage("Art_Assets/In_Game/Camera/tablet3.png");
+  PImage tablet4 = loadImage("Art_Assets/In_Game/Camera/tablet4.png");
   PImage lose = loadImage("Art_Assets/In_Game/Camera/cameraGameOver.png");
 
   CameraPuzzle()
@@ -61,8 +62,8 @@ class CameraPuzzle
     for (int i = 120; i < width-40; i+=40)
     {
       int move = (int)random(0, 3);
-      if (move == 0 && gap < height-200) gap+=20;
-      else if ( move == 1 && gap > 200 ) gap-=20;
+      if (move == 0 && gap < height-220) gap+=20;
+      else if ( move == 1 && gap > 220 ) gap-=20;
 
       walls.add(new CPWall(i, 0, i+40, gap));
       walls.add(new CPWall(i, gap+40, i+40, height));
@@ -80,16 +81,17 @@ class CameraPuzzle
     image(tablet2, 0, 190);
     stroke(0);
     camera.drawCamera();
-    
+
     for (int i = 0; i < walls.size(); i++)
     {
-    walls.get(i).drawWall();
+      walls.get(i).drawWall();
     }
-
     //top section of tablet, in front of camera puzzle to block some walls
     image(tablet1, 0, 0);
     //bottom section of tablet, in front of camera puzzle to block some walls
     image(tablet3, 0, 430);
+    //image for edges section of tablet
+    image(tablet4, 0, 190);
 
     textAlign (CENTER);
     fill(255);
@@ -101,10 +103,6 @@ class CameraPuzzle
       gameOver = camera.checkEnd(walls);
       gameWon = camera.checkWin();
     } else {
-      //String modelString = "Game Over, Press 'r' to restart";
-      //textAlign (CENTER);
-      //fill(0);
-      //text(modelString, 200, 200, 40);
       image(lose, 300, 200);
     }
   }
@@ -220,9 +218,30 @@ class Camera
     for (int i = 0; i < walls.size(); i++)
     {
       CPWall wall = walls.get(i);
-      if (x < wall.endX && x > wall.startX && y < wall.endY && y > wall.startY) 
+      if (dir == 'u')
       {
-        return true;
+        if (x-5 < wall.endX && x+5 > wall.startX && y-5 < wall.endY && y-5 > wall.startY) 
+        {
+          return true;
+        }
+      } else if (dir =='d')
+      {
+        if (x-5 < wall.endX && x+5 > wall.startX && y+5 < wall.endY && y+5 > wall.startY) 
+        {
+          return true;
+        }
+      } else if (dir == 'l')
+      {
+        if (x-5 < wall.endX && x-5 > wall.startX && y-5 < wall.endY && y+5 > wall.startY) 
+        {
+          return true;
+        }
+      } else if (dir == 'r')
+      {
+        if (x+5 < wall.endX && x+5 > wall.startX && y-5 < wall.endY && y+5 > wall.startY) 
+        {
+          return true;
+        }
       }
     }
     return false;
