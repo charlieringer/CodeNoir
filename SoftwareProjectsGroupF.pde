@@ -1,3 +1,4 @@
+
 StateClass state;
 Level level;
 Menu menu;
@@ -11,6 +12,8 @@ void setup()
 {
   size(1200, 620);
   surface.setTitle("Code Noir");
+  //PImage titlebaricon = loadImage("icon-raw.png");
+  //surface.setIcon(titlebaricon);
   currentLevel = 1;
   save = new SaveGame(); 
   state = new StateClass();
@@ -39,8 +42,6 @@ void draw()
     break;
   }
 }
-
-
 void keyPressed()
 {
   if(keyCode==ESC || key == ESC){
