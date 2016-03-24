@@ -17,8 +17,8 @@
 	<wall sX="300" sY="260" eX="770" eY="280"></wall>
 
 
-    <wall sX="300" sY="20" eX="770" eY="280"></wall>
-    <brokenWall sX="769" sY="20" eX="770" eY="40"></brokenWall>
+	<wall sX="300" sY="20" eX="770" eY="280"></wall>
+	<brokenWall sX="769" sY="20" eX="770" eY="40"></brokenWall>
 
 	<!-- Rooms -->
 	<!-- Whole floor -->
@@ -40,8 +40,16 @@
 	
 	<desk sX="290" sY="310" eX="310" eY="410"></desk>
 	<desk sX="290" sY="450" eX="310" eY="550"></desk>
-	
-	<desk sX="60" sY="60" eX="260" eY="260"></desk>
+
+
+	<miscObj sX="20" sY="60" eX="50" eY="90" displayImage="Art_Assets/In_Game/Levels/Misc/seat00.png"></miscObj>
+	<miscObj sX="20" sY="90" eX="50" eY="120" displayImage="Art_Assets/In_Game/Levels/Misc/seat13.png"></miscObj>
+	<miscObj sX="20" sY="120" eX="50" eY="150" displayImage="Art_Assets/In_Game/Levels/Misc/seat13.png"></miscObj>
+	<miscObj sX="20" sY="150" eX="50" eY="180" displayImage="Art_Assets/In_Game/Levels/Misc/seat13.png"></miscObj>
+	<miscObj sX="20" sY="180" eX="50" eY="210" displayImage="Art_Assets/In_Game/Levels/Misc/seat22.png"></miscObj>
+
+
+	<miscObj sX="20" sY="20" eX="60" eY="60" displayImage="Art_Assets/In_Game/Levels/Misc/plant.png"></miscObj>
 	
 	<!-- End -->
 	<end sX="40" sY="540" eX="120" eY="580" rotate="2"></end>

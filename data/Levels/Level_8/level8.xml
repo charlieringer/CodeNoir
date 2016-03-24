@@ -57,6 +57,13 @@
 	<guard sX="960" sY="200" startingOrientation="r" onCollisionTurn="b"></guard>
 	<guard sX="1140" sY="260" startingOrientation="l" onCollisionTurn="b"></guard>
 	
+	<guard sX="870" sY="20" startingOrientation="l" onCollisionTurn="l"></guard>
+	<guard sX="190" sY="210" startingOrientation="r" onCollisionTurn="l"></guard>
+	<guard sX="300" sY="160" startingOrientation="d" onCollisionTurn="b"></guard>
+	<guard sX="500" sY="20" startingOrientation="d" onCollisionTurn="b"></guard>
+	<guard sX="700" sY="160" startingOrientation="d" onCollisionTurn="b"></guard>
+	
+	
 	<miscObj sX="1030" sY="20" eX="1060" eY="50" displayImage="Art_Assets/In_Game/Levels/Misc/seat23.png"></miscObj>
 	<miscObj sX="1060" sY="20" eX="1090" eY="50" displayImage="Art_Assets/In_Game/Levels/Misc/seat10.png"></miscObj>
 	<miscObj sX="1090" sY="20" eX="1120" eY="50" displayImage="Art_Assets/In_Game/Levels/Misc/seat10.png"></miscObj>
@@ -76,10 +83,9 @@
 	
 	<!-- End <player sX="70" sY="500"></player> -->
 	<end sX="40" sY="540" eX="120" eY="580" rotate="2"></end>
-	<player sX="750" sY="100"></player>
+	<player sX="70" sY="500"></player>
 	<dataAmount needed = "1"></dataAmount>
 	<server sX="1090" sY="490" eX="1180" eY="580" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
 	<mug sX="1040" sY="80" connectedDoorID = "0"></mug>
 	
 </level8>
-

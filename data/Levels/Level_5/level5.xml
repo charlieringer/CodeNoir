@@ -42,8 +42,13 @@
 	
 	<!-- Rooms -->
 	<room sX="0" sY="0" eX="210" eY="580"></room>
-	<room sX="210" sY="260" eX="970" eY="350"></room>
-	<room sX="650" sY="20" eX="750" eY="580"></room>
+
+	<room sX="210" sY="260" eX="660" eY="350"></room>
+	<room sX="740" sY="260" eX="970" eY="350"></room>
+	<room sX="660" sY="260" eX="740" eY="340"></room>
+	<room sX="650" sY="20" eX="750" eY="260"></room>
+	<room sX="650" sY="340" eX="750" eY="580"></room>
+
 	<room sX="220" sY="20" eX="650" eY="240"></room>
 	<room sX="750" sY="20" eX="970" eY="240"></room>
 	<room sX="220" sY="350" eX="640" eY="580"></room>

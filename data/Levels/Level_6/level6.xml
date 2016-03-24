@@ -145,7 +145,7 @@
 	<miscObj sX="735" sY="455" eX="775" eY="495" displayImage="Art_Assets/In_Game/Levels/Misc/plant.png"></miscObj>
 	
 	<!-- End -->
-	<end sX="1040" sY="20" eX="1180" eY="60" rotate="0"></end>
+	<end sX="20" sY="240" eX="60" eY="320" rotate="3"></end>
 	<player sX="1080" sY="540"></player>
 	<dataAmount needed = "1"></dataAmount>
 	<mug sX="980" sY="450" connectedDoorID = "0"></mug>
