@@ -12,8 +12,8 @@ void setup()
 {
   size(1200, 620);
   surface.setTitle("Code Noir");
-  //PImage titlebaricon = loadImage("icon-raw.png");
-  //surface.setIcon(titlebaricon);
+  PImage titlebaricon = loadImage("icon-raw.png");
+  surface.setIcon(titlebaricon);
   currentLevel = 1;
   save = new SaveGame(); 
   state = new StateClass();
