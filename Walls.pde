@@ -16,6 +16,7 @@ class Wall
   void drawWall()
   {
     fill(0);
+    noStroke();
     rectMode(CORNERS);
     rect(startX, startY, endX, endY);
   }

@@ -47,8 +47,6 @@ void keyPressed()
   if(keyCode==ESC || key == ESC){
     key = TAB;
     keyCode = TAB;
-    print(keyCode);
-
  }
   switch(state.state)
   {

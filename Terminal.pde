@@ -5,7 +5,9 @@ class Terminal
   //Bachround image (placeholder currently)
   PImage office = loadImage("Art_Assets/In_Game/Terminal/office.jpeg");
   PImage backgroundImage = loadImage("Art_Assets/In_Game/Terminal/computer.png");
+  PFont compFont = createFont("Fonts/Chava-Regular.ttf", 10);
   int selected = 0;
+
   Level parentLevel;
   Door linkedDoor;
   SecurityCamera linkedCamera;
@@ -64,20 +66,24 @@ class Terminal
       puzzle.drawGame();
     } else if (drawingData)
     {
+      textFont(compFont);
       fill(0,255,0);
       for (int i = 0; i < dataStrings.size(); i++)
       {
-        text(dataStrings.get(i), 460, (20*i)+80);
+        
+        text(dataStrings.get(i), 450, (20*i)+80);
       }
-      text("TAB to return.", 422,264);
+      text("TAB to return.", 450, 269);
     } else 
     {
+      textFont(compFont);
       textSize(10);
+      noStroke();
       fill(0, 255, 0);
-      text("Welcome USER, please select function: ", 420, 60);
+      text("Welcome USER, please select function: ", 450, 70);
       drawSubroutines();
       fill(0,255,0);
-      text("TAB to quit terminal.", 422,264);
+      text("TAB to quit terminal.", 450, 269);
     }
   }
 
@@ -126,8 +132,8 @@ class Terminal
     for (int i = 0; i < subroutines.size (); i++)
     {
       // background(0);
-      int x = 430;
-      int y = 80 +(i*12);
+      int x = 470;
+      int y = 90 +(i*12);
       if (i==selected)
       {
         rect(x, y-10, 100, 12);
@@ -224,6 +230,7 @@ class HackPuzzle
   Guess guess;
   GuessList previousGuesses;
   Code code;
+  PFont compFont = createFont("Fonts/Chava-Regular.ttf", 10);
 
   //This tell us is the code is cracked or not
   boolean finished;
@@ -248,6 +255,7 @@ class HackPuzzle
 
   void drawGame()
   {
+    textFont(compFont);
     //Placeholder code to just show the game
     //Will need rewriting
     drawInfomation();
@@ -261,11 +269,11 @@ class HackPuzzle
     //Placeholder info
     textSize(10);
     fill(0, 255, 0);
-    text("Enter "+ codeLength + " digit Employee Code:", 425, 60);
-    text("Range: "+startRange+"-"+endRange, 425, 70);
-    text("Employee reminder: Type using the keyboard.", 422, 240);
-    text("Backspace to delete.", 422, 252);
-    text("TAB to quit terminal.", 422,264);
+    text("Enter "+ codeLength + " digit Employee Code:", 450, 70);
+    text("Range: "+startRange+"-"+endRange, 450, 80);
+    text("Employee reminder: Type using the keyboard.", 450, 245);
+    text("Backspace to delete.", 450, 257);
+    text("TAB to quit terminal.", 450,269);
   }
 
   void drawGuess()
@@ -427,7 +435,7 @@ class HackPuzzle
         for (int j = 0; j < codeLength; j++) 
         {
           int currGuess = prevGuesses.get(prevGuesses.size()-1-i).get(j);
-          lastIntX = 678+(j*5);
+          lastIntX = 678+(j*7);
           text(currGuess, lastIntX, i*15+80);
           if (currGuess == currentCode[j])
           {

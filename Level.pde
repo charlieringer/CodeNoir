@@ -802,6 +802,7 @@ class Room
     rectMode(CORNERS);
     noStroke();
     rect(startX, startY, endX, endY);
+    stroke(0);
   }
 }
 

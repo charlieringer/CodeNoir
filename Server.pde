@@ -119,7 +119,6 @@ class ServerPuzzle {
     for (int i = 0; i < 6; i++) {
       rect(50, 75+(i*100), 1100, 1);
     }
-    noStroke();
   }
 
   void readLevel() {
@@ -214,7 +213,6 @@ class ServerPuzzle {
     if ((win[0] && win[1] && win[2] && win[3] && win[4]) == true) {
       gameWin = true;
     }
-    println(gameWin);
   }
 
   void win() {

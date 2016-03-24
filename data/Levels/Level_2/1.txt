@@ -1,11 +1,12 @@
-
-
 D. Morgans Diary, Day 12:
+
 Currently investigating the company employees as a whistleblower is in our 
 midst. This sly individual has been supplying an outsider with information 
 with regards to Wellness Corp’s modus operandi and must be caught at once.
 When searching for incriminating evidence use the following rule:
+
 A- talk of company policy, B- suspicious individual
+
 “not (A and B) is the same as (not A) or (not B)”
 AND
 “not (A or B) is the same as (not A) or (not B)”

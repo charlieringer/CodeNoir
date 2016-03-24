@@ -247,11 +247,14 @@ class mainMenu {
     textSize(100);
     text("Code Noir", 30, 100);
     
+    
     //draw all buttons
     for(int i = 0; i < buttons.size(); i++) {
       buttons.get(i).drawButton();
       buttons.get(i).checkHover();
     }
+    textSize(20);
+    text("Please play with brightness turned up.", 10, 600);
   }
 }
 
@@ -479,6 +482,7 @@ class Button {
        textSize(fontSize);
        fill(255);
        text(title, textX, textY);
+       stroke(0);
      } else {
        //button text
        textSize(fontSize);

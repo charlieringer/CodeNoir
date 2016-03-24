@@ -226,9 +226,7 @@ class BlankPiece
   void checkProx(PartialPiece piece) {
     if(piece.x+50 > x && piece.x+50 < x+100 && piece.y+50 > y && piece.y+50 < y+100) {
       contains = true;
-      //println("contains true");
     } else {
-      //println("contains false");
       contains = false;
     }
   }   
@@ -288,9 +286,6 @@ class PartialPiece {
     if(hover) {
       clicked = true;
       return true;
-      //println("test");
-      //x = pos_x;
-      //y = pos_y;
     } else {
        clicked = false;
        return false;

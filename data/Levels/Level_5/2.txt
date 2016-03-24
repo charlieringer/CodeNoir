@@ -1,9 +1,7 @@
-
-
-PLACEHOLDER TEXT
-PLACEHOLDER TEXT
-PLACEHOLDER TEXT
-PLACEHOLDER TEXT
-PLACEHOLDER TEXT
-PLACEHOLDER TEXT
-PLACEHOLDER TEXT
+Maintainience Report:
+Server 4 was taken offline for 4 hours yesterday.
+The cause appears to be a fly which got caught 
+in one of the circuits and fried it. The problem
+was debugged and the server brought back online.
+No loss of data occurred as a result as the other
+servers managed to handle the additional load.

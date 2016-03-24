@@ -37,7 +37,6 @@ class LockPuzzle
 
   void drawPuzzle()
   {
-
     background(office);
     image(backgroundImage, 300, 70); 
     image(lock, 345, 160);
@@ -51,7 +50,6 @@ class LockPuzzle
     {
       pin[i].move();
       pin[i].drawPin();
-      //println(i + " : " + pin[i].pushedUp);
     }
     lockpick.move();
     lockpick.intersect(pin);
@@ -122,6 +120,7 @@ class Pins
     rectMode(CORNER);
     //rect(pinX, pinY, pinWidth, pinHeight);
     image(pinImage,pinX,pinY);
+    stroke(0);
   }
 
   void move()
@@ -147,7 +146,6 @@ class Pins
     pinY -= 1.5;
     if (pinY < 110)
     {
-      println("test");
       waiting = true;
       waitTime = ((int)random(8000, 10000))+millis();
     }

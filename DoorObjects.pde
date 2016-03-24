@@ -61,9 +61,6 @@ class Door extends LargeObject
   }
   void drawObj()
   {
-    fill(128, 60, 15);
-    rectMode(CORNERS);
-    rect(startX, startY, endX, endY);
     if (locked)
     {
       image(lockedImage, startX, startY);

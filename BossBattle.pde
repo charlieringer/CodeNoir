@@ -9,6 +9,7 @@ class BossGame extends Level
   boolean playerDestroyed = false;
   BossGameAI boss;
   int score = 0;
+  PFont compFont = createFont("Fonts/Chava-Regular.ttf", 12);
 
   BossGame()
   {
@@ -93,6 +94,7 @@ class BossGame extends Level
 
   void drawLevel()
   {
+    textFont(compFont);
     if (!gameCompleted && !playerDestroyed)
     {
       background(255);

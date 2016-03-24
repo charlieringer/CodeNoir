@@ -1,9 +1,8 @@
+Server Farm daily data load log:
 
-
-PLACEHOLDER TEXT
-PLACEHOLDER TEXT
-PLACEHOLDER TEXT
-PLACEHOLDER TEXT
-PLACEHOLDER TEXT
-PLACEHOLDER TEXT
-PLACEHOLDER TEXT
+Reception data load: 2 gb p/d
+Accounting data load: 2.3 gb p/d
+Sales data load: 4 gb p/d
+Archives data load: 0.5 gb p/d
+R&D data load: Unknown, data private
+HR data load: 3.7 gb p/d

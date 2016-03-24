@@ -1,9 +1,11 @@
-
-
-PLACEHOLDER TEXT
-PLACEHOLDER TEXT
-PLACEHOLDER TEXT
-PLACEHOLDER TEXT
-PLACEHOLDER TEXT
-PLACEHOLDER TEXT
-PLACEHOLDER TEXT
+Server Room todo list:
+Defragment hard-drives
+	- 1-2 days
+Upload backups to the SSC
+	- 4 days
+Investigate usefulness of ICE
+	- 2 weeks
+Look at Liquid N cooling methods
+	- 2 weeks
+Install terraflow data cables
+	- 4 months

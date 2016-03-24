@@ -28,8 +28,10 @@ class SecurityCamera
   {
     if (on)
     {
+      noStroke();
       fill(255, 255, 0, 75);
       triangle(pointA.x, pointA.y, pointB.x, pointB.y, pointC.x, pointC.y);
+      stroke(0);
       image(onImage, camLocX-10, camLocY-5);
     } else {
       image(offImage, camLocX-10, camLocY-5);

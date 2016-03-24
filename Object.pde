@@ -58,10 +58,11 @@ class Desk extends LargeObject
 
   void drawObj()
   {
+    noStroke();
     fill(128, 60, 15);
     rectMode(CORNERS);
     rect(startX, startY, endX, endY);
-    //image(dispImage, startX, startY);
+    stroke(0);
   }
 }
 
@@ -178,15 +179,15 @@ class PapersObject extends SmallObject
   void displayOnOwn()
   {
     fill(255);
-    //rect(100, 50, width-100, height-50);
-    image(template, 100, 50);
+    image(template, 100, 40);
     textAlign(CENTER);
     textFont(monaco);
     fill(0);
     for (int i = 0; i < dataList.size(); i++)
     {
-      text(dataList.get(i), 600, 50 + (i*50));
+      text(dataList.get(i), 600, 100 + (i*40));
     }
+    textAlign(LEFT);
   }
 
   void pressed()

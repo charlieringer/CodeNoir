@@ -111,6 +111,7 @@ class CameraPuzzle
     } else {
       image(lose, 300, 200);
     }
+    textAlign(LEFT);
   }
 
   void handleKey()
