@@ -1,8 +1,8 @@
 Server Farm daily data load log:
 
-Reception data load: 2 gb p/d
-Accounting data load: 2.3 gb p/d
-Sales data load: 4 gb p/d
-Archives data load: 0.5 gb p/d
+Reception data load: 2 tb p/d
+Accounting data load: 2.3 tb p/d
+Sales data load: 4 tb p/d
+Archives data load: 0.5 tb p/d
 R&D data load: Unknown, data private
-HR data load: 3.7 gb p/d
+HR data load: 3.7 tb p/d

@@ -830,6 +830,7 @@ class PauseScreen
   }
   void display()
   {
+    noStroke();
     //draws background
     background(scape);
 

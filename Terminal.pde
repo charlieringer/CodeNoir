@@ -136,7 +136,7 @@ class Terminal
       int y = 90 +(i*12);
       if (i==selected)
       {
-        rect(x, y-10, 100, 12);
+        rect(x, y-10, 102, 12);
         fill(0);
       } else {
         fill(0, 255, 0);

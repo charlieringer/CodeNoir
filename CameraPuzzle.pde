@@ -85,7 +85,8 @@ class CameraPuzzle
   void runGame() {
     //image for middle section of tablet, behind camera puzzle game
     image(tablet2, 0, 190);
-    stroke(0);
+    //stroke(0);
+    noStroke();
     camera.drawCamera();
 
     for (int i = 0; i < walls.size(); i++)
