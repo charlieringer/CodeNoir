@@ -141,7 +141,7 @@ class Menu {
         if(mouseX > 550 && mouseX < 700 && mouseY > 27 && mouseY < 77) {          
           currentLevel = 10;
           //potentially not needed?
-          cutScreens = new CutScreens(state, "Levels/Level_10/Level 10 PreText.txt");
+          cutScreens = new CutScreens(state, "Art_Assets/In_Game/Cutscreens/finalcs.png", "Levels/Level_10/Level 10 PreText.txt");
           state.state = State.CUTSCREENS;
         }
         break;

@@ -16,7 +16,8 @@ class Player
   int hasData = 0;
   int spriteNumb = 0;
   int storedFrame = 0;
-
+  float speed = 5.0;
+  
   Player(ArrayList<Wall> walls, ArrayList<LargeObject> desks, ArrayList<Door> doors, ArrayList<Guard> guards, int x, int y)
   {
     this.walls = walls;
@@ -177,10 +178,10 @@ class Player
     }
 
 
-    if (goingUp && canUp) posY-=5;
-    if (goingDown&& canDown) posY+=5;
-    if (goingLeft && canLeft) posX-=5;
-    if (goingRight && canRight) posX+=5;
+    if (goingUp && canUp) posY-=speed;
+    if (goingDown&& canDown) posY+=speed;
+    if (goingLeft && canLeft) posX-=speed;
+    if (goingRight && canRight) posX+=speed;
   }
 
   void handleKey(boolean state)
@@ -238,14 +239,14 @@ class Player
   boolean nextTo(Guard guard)
   {
     //From right
-    if ((posX-2) <= (guard.posX+30) && posX-(guard.posX+30) >= 0 && posX-(guard.posX+30) <=2 && posY < guard.posY+30 && posY+30 > guard.posY) return true;
+    if ((posX-5) <= (guard.posX+30) && posX-(guard.posX+30) >= 0 && posX-(guard.posX+30) <=5 && posY < guard.posY+30 && posY+30 > guard.posY) return true;
     //From left 
-    else if ((posX+32) >= guard.posX && (posX+32)-guard.posX >= 0 && (posX+34)-guard.posX <=7 && posY < (guard.posY+30) && (posY+30) > guard.posY) return true;
+    else if ((posX+35) >= guard.posX && (posX+32)-guard.posX >= 0 && (posX+35)-guard.posX <=5 && posY < (guard.posY+30) && (posY+30) > guard.posY) return true;
 
     //From bottom
-    else if ((posY-2) <= (guard.posY+30) && posY-(guard.posY+30) >= 0 && posY-(guard.posY+30) <= 2 && posX < (guard.posX+30) && (posX+30) > guard.posX) return true;
+    else if ((posY-5) <= (guard.posY+30) && posY-(guard.posY+30) >= 0 && posY-(guard.posY+30) <= 2 && posX < (guard.posX+30) && (posX+30) > guard.posX) return true;
     //from top
-    else if (posY+32 >= guard.posY && (posY+32)-guard.posY >= 0 && (posY+32)-guard.posY <= 2 && posX < (guard.posX+30) && (posX+30) > guard.posX) return true;
+    else if (posY+35 >= guard.posY && (posY+35)-guard.posY >= 0 && (posY+35)-guard.posY <= 5 && posX < (guard.posX+30) && (posX+30) > guard.posX) return true;
     return false;
   }
 }

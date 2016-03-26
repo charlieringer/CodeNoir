@@ -1,4 +1,4 @@
-//Class for a guard object //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+//Class for a guard object //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 //Constructor: takes a starting X and Y (top left corner) and a char (u,d,l,r) for the heading and a turn char (b = backwards, l = left, r = right)
 //drawGuard: takes no params and draws the guard to the screen
 //moveGuard: takes the array of walls and hard objects and moves the guard based on these
@@ -15,6 +15,10 @@ class Guard
   PImage knockedOut;
   int spriteNumb = 0;
   int storedFrame = 0;
+  float speed = 2.0;
+  boolean turning = false;
+  int turnStart;
+  int turnTime= 15;
 
   Guard(int posX, int posY, String heading, String turn)
   {
@@ -35,10 +39,13 @@ class Guard
       image(knockedOut, posX, posY-15);
       return;
     } else {
-      if (heading.equals("u")) posY-=2; 
-      else if (heading.equals("d")) posY+=2;
-      else if (heading.equals("l")) posX-=2;
-      else if (heading.equals("r")) posX+=2;
+      if (!turning)
+      {
+        if (heading.equals("u")) posY-=speed; 
+        else if (heading.equals("d")) posY+=speed;
+        else if (heading.equals("l")) posX-=speed;
+        else if (heading.equals("r")) posX+=speed;
+      }
 
       for (int i = 0; i < wallObjs.size (); i++)
       {
@@ -106,7 +113,7 @@ class Guard
           else if ( turn.equals("r")) turnRight();
         }
       }
-      
+
       for (int i = 0; i < doors.size (); i++)
       {
         int doorSX = doors.get(i).startX;
@@ -181,26 +188,53 @@ class Guard
 
   private void turnAround()
   {
-    if (heading.equals("u")) heading = "d"; 
-    else if (heading.equals("d")) heading = "u"; 
-    else if (heading.equals("l")) heading = "r"; 
-    else if (heading.equals("r")) heading = "l";
+    if (!turning)
+    {
+      turnStart = frameCount;
+      turning = true;
+      return;
+    } else if (frameCount > turnStart+turnTime)
+    {
+      turning = false;
+      if (heading.equals("u")) heading = "d"; 
+      else if (heading.equals("d")) heading = "u"; 
+      else if (heading.equals("l")) heading = "r"; 
+      else if (heading.equals("r")) heading = "l";
+    }
   }
 
   private void turnLeft()
   {
-    if (heading.equals("u")) heading = "l"; 
-    else if (heading.equals("d")) heading = "r"; 
-    else if (heading.equals("l")) heading = "d"; 
-    else if (heading.equals("r")) heading = "u";
+    if (!turning)
+    {
+      turnStart = frameCount;
+      turning = true;
+      return;
+    } else if (frameCount > turnStart+turnTime)
+    {
+      turning = false;
+      if (heading.equals("u")) heading = "l"; 
+      else if (heading.equals("d")) heading = "r"; 
+      else if (heading.equals("l")) heading = "d"; 
+      else if (heading.equals("r")) heading = "u";
+    }
   }
 
   private void turnRight()
   {
-    if (heading.equals("u")) heading = "r"; 
-    else if (heading.equals("d")) heading = "l"; 
-    else if (heading.equals("l")) heading = "u"; 
-    else if (heading.equals("r")) heading = "d";
+    if (!turning)
+    {
+      turnStart = frameCount;
+      turning = true;
+      return;
+    } else if (frameCount > turnStart+turnTime)
+    {
+      turning = false;
+      if (heading.equals("u")) heading = "r"; 
+      else if (heading.equals("d")) heading = "l"; 
+      else if (heading.equals("l")) heading = "u"; 
+      else if (heading.equals("r")) heading = "d";
+    }
   }
 
   public boolean checkForPlayer(Player player, ArrayList<Wall> wallObjs, ArrayList<Door> doors)

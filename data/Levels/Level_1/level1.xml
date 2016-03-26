@@ -40,13 +40,13 @@
     <miscObj sX="210" sY="300" eX="240" eY="330" displayImage="Art_Assets/In_Game/Levels/Misc/seat11.png"></miscObj>
     <miscObj sX="210" sY="330" eX="240" eY="360" displayImage="Art_Assets/In_Game/Levels/Misc/seat21.png"></miscObj>
 
-	<guard sX="360" sY="220" startingOrientation="l" onCollisionTurn="b"></guard>
-	<guard sX="360" sY="310" startingOrientation="l" onCollisionTurn="b"></guard>
-	<guard sX="360" sY="400" startingOrientation="l" onCollisionTurn="b"></guard>
-	<guard sX="360" sY="500" startingOrientation="l" onCollisionTurn="b"></guard>
+	<guard sX="300" sY="220" startingOrientation="l" onCollisionTurn="b"></guard>
+	<guard sX="340" sY="310" startingOrientation="r" onCollisionTurn="b"></guard>
+	<guard sX="380" sY="400" startingOrientation="l" onCollisionTurn="b"></guard>
+	<guard sX="420" sY="500" startingOrientation="r" onCollisionTurn="b"></guard>
     
-	<guard sX="840" sY="220" startingOrientation="l" onCollisionTurn="b"></guard>
-	<guard sX="840" sY="310" startingOrientation="l" onCollisionTurn="b"></guard>
+	<guard sX="820" sY="220" startingOrientation="l" onCollisionTurn="b"></guard>
+	<guard sX="860" sY="310" startingOrientation="r" onCollisionTurn="b"></guard>
 	<guard sX="840" sY="540" startingOrientation="l" onCollisionTurn="l"></guard>
 
 	<paper sX="120" sY="280" dataPath="Levels/Level_1/0.txt"></paper>
