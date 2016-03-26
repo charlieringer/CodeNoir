@@ -54,7 +54,7 @@ class Menu {
         //new game is pressed
         if(mouseX > 750 && mouseX < 1050 && mouseY > 100 && mouseY < 150) {
           currentLevel = 1;
-          cutScreens = new CutScreens(state, "Levels/Level_1/Level 1 PreText.txt");
+          cutScreens = new CutScreens(state,"Art_Assets/In_Game/Cutscreens/level1cutscreen.png", "Levels/Level_1/Level 1 PreText.txt");
           state.state = State.CUTSCREENS;
         }
     
