@@ -83,6 +83,7 @@ class Terminal
       text("Welcome USER, please select function: ", 450, 70);
       drawSubroutines();
       fill(0,255,0);
+      text("ENTER to execute function.", 450, 257);
       text("TAB to quit terminal.", 450, 269);
     }
   }
@@ -167,9 +168,9 @@ class Terminal
       assert(linkedDoor != null);
       if (linkedDoor.locked)
       {
-        text("Unlock door", x, y);
+        text("Unlock Door", x, y);
       } else {
-        text("Lock door", x, y);
+        text("Lock Door", x, y);
       }
     }
     void execute()
@@ -193,9 +194,9 @@ class Terminal
       assert(linkedCam != null);
       if (linkedCam.on)
       {
-        text("Turn off camera", x, y);
+        text("Turn Camera off", x, y);
       } else {
-        text("Turn on camera", x, y);
+        text("Turn Camera on", x, y);
       }
     }
     void execute()

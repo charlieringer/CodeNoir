@@ -42,6 +42,7 @@ class PostGame {
  }
  
  void drawLose() {
+   noStroke();
    background(scape);
    
    //draw 'you lose' text and box

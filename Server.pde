@@ -1,7 +1,7 @@
 class Server
 {
   int sX, sY, eX, eY;
-  PImage dispImage = loadImage("Art_Assets/In_Game/Levels/server.png");
+  PImage dispImage = loadImage("Art_Assets/In_Game/Levels/Server/server.png");
   ServerPuzzle puzzle;
   Level parentLevel;
   boolean complete = false;

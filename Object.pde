@@ -45,15 +45,12 @@ class MiscObject extends LargeObject
 
 class Desk extends LargeObject
 {
-  PImage dispImage;
   Desk(int newSX, int newSY, int newEX, int newEY)
   {
     startX = newSX;
     startY = newSY;
     endX = newEX;
     endY = newEY;
-    dispImage = loadImage("Art_Assets/In_Game/Levels/deskCEdit.png");
-    dispImage.resize(abs(startX-endX), abs(startY-endY));
   }
 
   void drawObj()
@@ -148,7 +145,7 @@ class TerminalObj extends SmallObject
 class PapersObject extends SmallObject
 {
   PImage dispImage = loadImage("Art_Assets/In_Game/Levels/Papers/0.png");
-  PImage template = loadImage("Art_Assets/In_Game/Levels/paperTemplate.png");
+  PImage template = loadImage("Art_Assets/In_Game/Levels/Papers/paperTemplate.png");
   PFont monaco = createFont("Fonts/Monaco.ttf", 20);
   StringList dataList = new StringList();
   int x, y;

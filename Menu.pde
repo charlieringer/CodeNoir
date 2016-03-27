@@ -442,9 +442,9 @@ class Button {
     this.fontSize = fontSize;
     
     cyber = createFont("Fonts/renegado.ttf", fontSize);
-    lock_white = loadImage("Art_Assets/Frontend/lock_white.png");
+    lock_white = loadImage("Art_Assets/Frontend/Menu/lock_white.png");
     lock_white.resize(150, 150);
-    lock_yellow = loadImage("Art_Assets/Frontend/lock_yellow.png");
+    lock_yellow = loadImage("Art_Assets/Frontend/Menu/lock_yellow.png");
     lock_yellow.resize(150, 150);
   }
   

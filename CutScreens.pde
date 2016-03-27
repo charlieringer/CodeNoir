@@ -48,6 +48,7 @@ class CutScreens {
     }
     //next level button
     fill(0);
+    
     rect(1000, 560, 200, 60);
     fill(255);
     textFont(cyber);
@@ -106,6 +107,7 @@ class CutScreens {
     if (text.get(convoPos).substring(0, 2).equals("P:")) {
       fill(59, 59, 59);
       strokeWeight(6);
+      stroke(0);
       rect(275, 50, 300, 90, 20);
       fill(255);
       textSize(20);
@@ -113,6 +115,7 @@ class CutScreens {
     } else if (text.get(convoPos).substring(0, 2).equals("H:")) {
       fill(59, 59, 59);
       strokeWeight(6);
+      stroke(0);
       rect(635, 50, 320, 90, 20);
       fill(255);
       textSize(20);
