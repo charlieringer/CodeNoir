@@ -212,7 +212,7 @@ class BlankPiece
   {
     stroke(0);
     strokeWeight(1);
-    fill(189, 184, 184);
+    fill(11, 30, 50);
     rect(x,y,100,100);
   }
   
