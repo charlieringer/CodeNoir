@@ -818,7 +818,7 @@ class PauseScreen
   {
     parent = _parent;
     this.state = state;
-    scape = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
+    scape = loadImage("Art_Assets/Frontend/febg.jpeg");
     scape.resize(1200, 620);
     cyber = createFont("Fonts/renegado.ttf", 130);
     pauseButtons.add(new Button("Continue Game", 750, 100, 755, 135, 30));

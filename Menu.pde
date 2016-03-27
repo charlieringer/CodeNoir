@@ -186,8 +186,8 @@ class initialScreen {
   
   initialScreen() {
     cyber = createFont("Fonts/renegado.ttf", 130);
-    city = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
-    protag = loadImage("Art_Assets/Frontend/prot2eye.png");
+    city = loadImage("Art_Assets/Frontend/febg.jpeg");
+    protag = loadImage("Art_Assets/Frontend/Menu/prot2eye.png");
     city.resize(1200, 620);
   }
   
@@ -221,8 +221,8 @@ class mainMenu {
   
   mainMenu() {
     cyber = createFont("Fonts/renegado.ttf", 30);
-    scape = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
-    protag = loadImage("Art_Assets/Frontend/prot2eye.png");
+    scape = loadImage("Art_Assets/Frontend/febg.jpeg");
+    protag = loadImage("Art_Assets/Frontend/Menu/prot2eye.png");
     scape.resize(1200, 620);
     
     //add buttons to arraylist
@@ -265,11 +265,11 @@ class continueGame {
   
  continueGame() {
    cyber = createFont("Fonts/renegado.ttf", 50);
-   scape = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
+   scape = loadImage("Art_Assets/Frontend/febg.jpeg");
    scape.resize(1200, 620);
    home = loadImage("Art_Assets/Frontend/home.png");
    home.resize(75, 75);
-   skyscraper = loadImage("Art_Assets/Frontend/continuegame.png");
+   skyscraper = loadImage("Art_Assets/Frontend/Menu/continuegame.png");
    //add buttons to arraylist
    //buttons.add(new Button("Reception", 400, 527, 405, 560, 190, 50, 25));
    buttons.add(new Button("Accounting", 610, 427, 615, 460, 190, 50, 25));
@@ -308,13 +308,13 @@ class Controls {
   PFont cyber;
   
   Controls() {
-    city = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
+    city = loadImage("Art_Assets/Frontend/febg.jpeg");
     city.resize(1200, 620);
-    arrows = loadImage("Art_Assets/Frontend/arrows.png");
+    arrows = loadImage("Art_Assets/Frontend/Controls/arrows.png");
     arrows.resize(300, 200);
-    space = loadImage("Art_Assets/Frontend/space_tab.png");
+    space = loadImage("Art_Assets/Frontend/Controls/space_tab.png");
     space.resize(600, 200);
-    pause = loadImage("Art_Assets/Frontend/pause.png");
+    pause = loadImage("Art_Assets/Frontend/Controls/pause.png");
     pause.resize(600, 40);
     home = loadImage("Art_Assets/Frontend/home.png");
     home.resize(75, 75);
@@ -359,7 +359,7 @@ class Settings {
   
   Settings() {
     cyber = createFont("Fonts/renegado.ttf", 50);
-    city = loadImage("Art_Assets/Frontend/pixels-3.jpeg");
+    city = loadImage("Art_Assets/Frontend/febg.jpeg");
     city.resize(1200, 620);
     music = loadImage("Art_Assets/Frontend/music.png");
     music.resize(150, 150);
