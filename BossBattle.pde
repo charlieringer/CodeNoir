@@ -226,7 +226,7 @@ class BossGame extends Level
       {
         cutScreens = new CutScreens(state, "Art_Assets/In_Game/Cutscreens/finalcs.png", "Levels/Level_10/Level 10 PostText3.txt");
         state.state = State.CUTSCREENS;
-        level = new GameFinished("Art_Assets/In_Game/Cutscreens/gameend1.png", state);
+        level = new GameFinished("Art_Assets/In_Game/Cutscreens/ending2.png", state);
         currentLevel++;
       }
       return;
@@ -235,7 +235,7 @@ class BossGame extends Level
     {
       cutScreens = new CutScreens(state, "Art_Assets/In_Game/Cutscreens/finalcs.png", "Levels/Level_10/Level 10 PostText1.txt");
       state.state = State.CUTSCREENS;
-      level = new GameFinished("Art_Assets/In_Game/Cutscreens/gameend1.png", state);
+      level = new GameFinished("Art_Assets/In_Game/Cutscreens/ending3.png", state);
       currentLevel++;
       return;
     }

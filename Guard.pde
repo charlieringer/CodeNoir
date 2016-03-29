@@ -1,4 +1,4 @@
-//Class for a guard object //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+//Class for a guard object  //<>//
 //Constructor: takes a starting X and Y (top left corner) and a char (u,d,l,r) for the heading and a turn char (b = backwards, l = left, r = right)
 //drawGuard: takes no params and draws the guard to the screen
 //moveGuard: takes the array of walls and hard objects and moves the guard based on these
