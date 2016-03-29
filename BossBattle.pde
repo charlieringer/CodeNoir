@@ -41,11 +41,11 @@ class BossGame extends Level
               stateIdent = lines[count].charAt(k);
             }
           }
-          if ( stateIdent == 'E') gameGrid.add(new MemoryLocation(j*100+410, i*90+50, memAdress, LocationState.EMPTY, new PVector(j, i), this));
-          else if ( stateIdent == 'D') gameGrid.add(new MemoryLocation(j*100+410, i*90+50, memAdress, LocationState.DATA, new PVector(j, i), this));
+          if ( stateIdent == 'E') gameGrid.add(new MemoryLocation(j*100+420, i*90+30, memAdress, LocationState.EMPTY, new PVector(j, i), this));
+          else if ( stateIdent == 'D') gameGrid.add(new MemoryLocation(j*100+420, i*90+30, memAdress, LocationState.DATA, new PVector(j, i), this));
           else if ( stateIdent == 'P')
           {
-            gameGrid.add(new MemoryLocation(j*100+410, i*90+50, memAdress, LocationState.PLAYER, new PVector(j, i), this));
+            gameGrid.add(new MemoryLocation(j*100+420, i*90+30, memAdress, LocationState.PLAYER, new PVector(j, i), this));
             currMemoryAddress = memAdress;
             playerPos = new PVector(j, i);
           }
@@ -69,11 +69,11 @@ class BossGame extends Level
               stateIdent = lines[count].charAt(k);
             }
           }
-          if ( stateIdent == 'E') gameGrid.add(new MemoryLocation(j*100+470, i*90+50, memAdress, LocationState.EMPTY, new PVector(j, i), this));
-          else if ( stateIdent == 'D') gameGrid.add(new MemoryLocation(j*100+470, i*90+50, memAdress, LocationState.DATA, new PVector(j, i), this));
+          if ( stateIdent == 'E') gameGrid.add(new MemoryLocation(j*100+470, i*90+30, memAdress, LocationState.EMPTY, new PVector(j, i), this));
+          else if ( stateIdent == 'D') gameGrid.add(new MemoryLocation(j*100+470, i*90+30, memAdress, LocationState.DATA, new PVector(j, i), this));
           else if ( stateIdent == 'P')
           {
-            gameGrid.add(new MemoryLocation(j*100+470, i*90+50, memAdress, LocationState.PLAYER, new PVector(j, i), this));
+            gameGrid.add(new MemoryLocation(j*100+470, i*90+30, memAdress, LocationState.PLAYER, new PVector(j, i), this));
             currMemoryAddress = memAdress;
             playerPos = new PVector(j, i);
           }
@@ -109,29 +109,30 @@ class BossGame extends Level
       text(currentInput, 100, 590);
 
 
-      text("Output log: ", 50, 280);
+      text("Output log: ", 50, 320);
       if (commands.size() > 10)
       {
         commands.remove(0);
       }
       for (int i = 0; i < commands.size(); i++)
       {
-        text(commands.get(i), 70, 20*i+300);
+        text(commands.get(i), 70, 20*i+340);
       }
       fill(0, 255, 255);
-      text("Connection Status: Jacked In", 50, 30);
-      text("Available Commands: ", 50, 100);
-      text("goto MEMADDRESS ", 50, 120);
-      text("Goes an adjacent memory adress", 70, 140);
-      text("upload", 50, 160);
-      text("Uploads the memory you are currently accessing.", 70, 180);
-      text("Memory Colours:", 50, 200);
+      text("Connection Status: Jacked In", 50, 60);
+      text("Available Commands: ", 50, 120);
+      text("goto MEMADDRESS ", 50, 140);
+      text("Goes an adjacent memory adress", 70, 160);
+      text("upload", 50, 180);
+      text("Uploads the memory you are currently", 70, 200);
+      text("accessing.", 70, 220);
+      text("Memory Colours:", 50, 240);
       fill(255, 0, 0);
-      text("Memory marked for upload", 50, 220);
+      text("Memory marked for upload", 50, 260);
       fill(0, 255, 0);
-      text("Uploaded Memory", 50, 240);
+      text("Uploaded Memory", 50, 280);
       fill(255, 255, 0);
-      text("Current Memory", 50, 260);
+      text("Current Memory", 50, 300);
       fill(0, 255, 255);
       text("CMD: ", 50, 590);
 
@@ -436,8 +437,8 @@ enum LocationState
   void draw()
   {
     fill(0, 255, 255);
-    text("Incoming remote command: ", 50, 50);
-    text(command, 50, 70);
+    text("Incoming remote command: ", 50, 80);
+    text(command, 50, 100);
   }
 
   void findTarget()
