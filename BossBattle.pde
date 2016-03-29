@@ -41,11 +41,11 @@ class BossGame extends Level
               stateIdent = lines[count].charAt(k);
             }
           }
-          if ( stateIdent == 'E') gameGrid.add(new MemoryLocation(j*100+400, i*90+50, memAdress, LocationState.EMPTY, new PVector(j, i), this));
-          else if ( stateIdent == 'D') gameGrid.add(new MemoryLocation(j*100+400, i*90+50, memAdress, LocationState.DATA, new PVector(j, i), this));
+          if ( stateIdent == 'E') gameGrid.add(new MemoryLocation(j*100+410, i*90+50, memAdress, LocationState.EMPTY, new PVector(j, i), this));
+          else if ( stateIdent == 'D') gameGrid.add(new MemoryLocation(j*100+410, i*90+50, memAdress, LocationState.DATA, new PVector(j, i), this));
           else if ( stateIdent == 'P')
           {
-            gameGrid.add(new MemoryLocation(j*100+400, i*90+50, memAdress, LocationState.PLAYER, new PVector(j, i), this));
+            gameGrid.add(new MemoryLocation(j*100+410, i*90+50, memAdress, LocationState.PLAYER, new PVector(j, i), this));
             currMemoryAddress = memAdress;
             playerPos = new PVector(j, i);
           }
@@ -69,11 +69,11 @@ class BossGame extends Level
               stateIdent = lines[count].charAt(k);
             }
           }
-          if ( stateIdent == 'E') gameGrid.add(new MemoryLocation(j*100+450, i*90+50, memAdress, LocationState.EMPTY, new PVector(j, i), this));
-          else if ( stateIdent == 'D') gameGrid.add(new MemoryLocation(j*100+450, i*90+50, memAdress, LocationState.DATA, new PVector(j, i), this));
+          if ( stateIdent == 'E') gameGrid.add(new MemoryLocation(j*100+470, i*90+50, memAdress, LocationState.EMPTY, new PVector(j, i), this));
+          else if ( stateIdent == 'D') gameGrid.add(new MemoryLocation(j*100+470, i*90+50, memAdress, LocationState.DATA, new PVector(j, i), this));
           else if ( stateIdent == 'P')
           {
-            gameGrid.add(new MemoryLocation(j*100+450, i*90+50, memAdress, LocationState.PLAYER, new PVector(j, i), this));
+            gameGrid.add(new MemoryLocation(j*100+470, i*90+50, memAdress, LocationState.PLAYER, new PVector(j, i), this));
             currMemoryAddress = memAdress;
             playerPos = new PVector(j, i);
           }
