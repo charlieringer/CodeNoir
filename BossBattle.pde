@@ -9,10 +9,12 @@ class BossGame extends Level
   boolean playerDestroyed = false;
   BossGameAI boss;
   int score = 0;
+  StateClass state;
   PFont compFont = createFont("Fonts/Chava-Regular.ttf", 12);
 
-  BossGame()
+  BossGame(StateClass state)
   {
+    this.state = state;
     gameGrid = new ArrayList<MemoryLocation>();
     int count = 0;
     String lines[] = loadStrings("Levels/Level_10/BossData.txt");
@@ -97,34 +99,51 @@ class BossGame extends Level
     textFont(compFont);
     if (!gameCompleted && !playerDestroyed)
     {
-      background(255);
+      background(0);
+      fill(0, 255, 255);
       for (MemoryLocation loc : gameGrid) loc.draw();
-      text(currentInput, 100, 600);
-      text("Output log: ", 50, 220);
-      if (commands.size() > 17)
+      textAlign(LEFT);
+      text(currentInput, 100, 590);
+
+
+      text("Output log: ", 50, 280);
+      if (commands.size() > 10)
       {
         commands.remove(0);
       }
       for (int i = 0; i < commands.size(); i++)
       {
-        text(commands.get(i), 50, 20*i+240);
+        text(commands.get(i), 70, 20*i+300);
       }
+      fill(0, 255, 255);
+      text("Connection Status: Jacked In", 50, 30);
       text("Available Commands: ", 50, 100);
       text("goto MEMADDRESS ", 50, 120);
       text("Goes an adjacent memory adress", 70, 140);
-      text("upload", 50,160);
+      text("upload", 50, 160);
       text("Uploads the memory you are currently accessing.", 70, 180);
+      text("Memory Colours:", 50, 200);
+      fill(255, 0, 0);
+      text("Memory marked for upload", 50, 220);
+      fill(0, 255, 0);
+      text("Uploaded Memory", 50, 240);
+      fill(255, 255, 0);
+      text("Current Memory", 50, 260);
+      fill(0, 255, 255);
+      text("CMD: ", 50, 590);
+
       boss.run();
       boss.draw();
       gameCompleted = checkEnd();
     } else if (playerDestroyed)
     {
       background(0);
-      fill(255);
-      text("SYSTEM ERR: Bad Mem Adress. Program terminated with code -1. Please reboot.", 100, 100);
+      fill(0, 255, 255);
+      textAlign(CENTER);
+      text("SYSTEM ERR: Bad Mem Adress. Connection terminated with code -1. Press any key to release.", width/2, height/2);
     } else {
       background(255);
-      text("Data points uploaded: " + score, 100, 100);
+      text("Data points uploaded: " + score + ". Press any key to exit connection", 100, 100);
     }
   }
 
@@ -191,6 +210,26 @@ class BossGame extends Level
 
   void handleKeyOn()
   {
+    if (gameCompleted)
+    {
+      if (score < 4)
+      {
+        cutScreens = new CutScreens(state, "Art_Assets/In_Game/Cutscreens/finalcs.png", "Levels/Level_10/Level 10 PostText2.txt");
+        state.state = State.CUTSCREENS;
+      } else
+      {
+        cutScreens = new CutScreens(state, "Art_Assets/In_Game/Cutscreens/finalcs.png", "Levels/Level_10/Level 10 PostText3.txt");
+        state.state = State.CUTSCREENS;
+      }
+      return;
+    }
+    if (playerDestroyed)
+    {
+      cutScreens = new CutScreens(state, "Art_Assets/In_Game/Cutscreens/finalcs.png", "Levels/Level_10/Level 10 PostText1.txt");
+      state.state = State.CUTSCREENS;
+      return;
+    }
+
     if (key == ENTER || key == RETURN)
     {
       executeCommand(currentInput);
@@ -203,11 +242,15 @@ class BossGame extends Level
       currentInput +=(char)key;
     }
   }
-  void handleKeyOff(){}
-  
-  void handleMousePressed(){}
-  void handleMouseReleased(){}
-  void handleMouseDragged(){}
+  void handleKeyOff() {
+  }
+
+  void handleMousePressed() {
+  }
+  void handleMouseReleased() {
+  }
+  void handleMouseDragged() {
+  }
 }
 
 class MemoryLocation
@@ -248,28 +291,22 @@ class MemoryLocation
         dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon6.png");
         break;
       }
-    case DESTROYED:
-      {
-        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon2.png");
-        break;
-      }
     case PLAYER:
       {
         dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon3.png");
         break;
-      }
-    case BOSS:
-      {
-        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon4.png");
       }
     }
   }
 
   void draw()
   {
-    image(dispImage, x, y);
-    fill(0);
-    text(address, x+5, y+65);
+    if (state != LocationState.DESTROYED)
+    {
+      image(dispImage, x, y);
+      textAlign(CENTER);
+      text(address, x+59, y+59);
+    }
   }
 
   void changeToPlayer()
@@ -292,7 +329,7 @@ class MemoryLocation
   void destroy()
   {
     if (state == LocationState.PLAYER) game.playerDestroyed = true;
-      state = LocationState.DESTROYED;
+    state = LocationState.DESTROYED;
     prevState = LocationState.DESTROYED;
     dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon2.png");
   }
@@ -318,19 +355,10 @@ class MemoryLocation
         dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon6.png");
         break;
       }
-    case DESTROYED:
-      {
-        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon2.png");
-        break;
-      }
     case PLAYER:
       {
         dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon3.png");
         break;
-      }
-    case BOSS:
-      {
-        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon4.png");
       }
     }
   }
@@ -346,7 +374,7 @@ enum LocationState
     BOSS
 }
 
-class BossGameAI
+  class BossGameAI
 {
   boolean targetChosen = false;
   String command;
@@ -369,7 +397,7 @@ class BossGameAI
     {
       findTarget();
     } else {
-      if (millis()-timer >500)
+      if (millis()-timer >700)
       {
         timer = millis();
         MemoryLocation target = game.get(targetLocation);
@@ -394,6 +422,7 @@ class BossGameAI
 
   void draw()
   {
+    fill(0, 255, 255);
     text("Incoming remote command: ", 50, 50);
     text(command, 50, 70);
   }

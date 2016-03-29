@@ -96,7 +96,7 @@ class CutScreens {
         break;
       case 10:
         //level = new Level("Levels/Level_10/level10.xml", state); 
-        level = new BossGame();
+        level = new BossGame(state);
         state.state = State.INGAME;
         break;
       }
@@ -164,7 +164,7 @@ void handleMouse() {
       state.state = State.INGAME;
       break;
     case 10:
-      level = new BossGame(); 
+      level = new BossGame(state); 
       state.state = State.INGAME;
       break;
     }

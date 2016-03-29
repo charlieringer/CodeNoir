@@ -113,7 +113,7 @@ class PostGame {
           state.state = State.CUTSCREENS;
          break;
        case 10:
-         level = new BossGame(); 
+         level = new BossGame(state); 
          state.state = State.INGAME;
          break;
      }
@@ -175,7 +175,7 @@ class PostGame {
          break;
        case 9:
          currentLevel = 10;
-         level = new BossGame(); 
+         level = new BossGame(state); 
          state.state = State.INGAME;
          break;
        case 10:
