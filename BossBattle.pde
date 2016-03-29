@@ -8,6 +8,7 @@ class BossGame extends Level
   boolean gameCompleted = false;
   boolean playerDestroyed = false;
   BossGameAI boss;
+  PImage bg;
   int score = 0;
   StateClass state;
   PFont compFont = createFont("Fonts/Chava-Regular.ttf", 12);
@@ -15,6 +16,8 @@ class BossGame extends Level
   BossGame(StateClass state)
   {
     this.state = state;
+    bg = loadImage("Art_Assets/In_Game/BossFight/backgroundfinallevl.png");
+    bg.resize(1200,620);
     gameGrid = new ArrayList<MemoryLocation>();
     int count = 0;
     String lines[] = loadStrings("Levels/Level_10/BossData.txt");
@@ -99,7 +102,7 @@ class BossGame extends Level
     textFont(compFont);
     if (!gameCompleted && !playerDestroyed)
     {
-      background(0);
+      background(bg);
       fill(0, 255, 255);
       for (MemoryLocation loc : gameGrid) loc.draw();
       textAlign(LEFT);
