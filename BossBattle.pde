@@ -407,7 +407,7 @@ enum LocationState
     {
       findTarget();
     } else {
-      if (millis()-timer >1)
+      if (millis()-timer > 700)
       {
         timer = millis();
         MemoryLocation target = game.get(targetLocation);
