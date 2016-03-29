@@ -141,9 +141,12 @@ class BossGame extends Level
       fill(0, 255, 255);
       textAlign(CENTER);
       text("SYSTEM ERR: Bad Mem Adress. Connection terminated with code -1. Press any key to release.", width/2, height/2);
+      textAlign(LEFT);
     } else {
-      background(255);
-      text("Data points uploaded: " + score + ". Press any key to exit connection", 100, 100);
+      background(0);
+      textAlign(CENTER);
+      text("Data points uploaded: " + score + ". Press any key to exit connection", width/2, height/2);
+      textAlign(LEFT);
     }
   }
 
@@ -216,10 +219,15 @@ class BossGame extends Level
       {
         cutScreens = new CutScreens(state, "Art_Assets/In_Game/Cutscreens/finalcs.png", "Levels/Level_10/Level 10 PostText2.txt");
         state.state = State.CUTSCREENS;
+        level = new GameFinished("Art_Assets/In_Game/Cutscreens/gameend1.png", state);
+        currentLevel++;
       } else
+    
       {
         cutScreens = new CutScreens(state, "Art_Assets/In_Game/Cutscreens/finalcs.png", "Levels/Level_10/Level 10 PostText3.txt");
         state.state = State.CUTSCREENS;
+        level = new GameFinished("Art_Assets/In_Game/Cutscreens/gameend1.png", state);
+        currentLevel++;
       }
       return;
     }
@@ -227,6 +235,8 @@ class BossGame extends Level
     {
       cutScreens = new CutScreens(state, "Art_Assets/In_Game/Cutscreens/finalcs.png", "Levels/Level_10/Level 10 PostText1.txt");
       state.state = State.CUTSCREENS;
+      level = new GameFinished("Art_Assets/In_Game/Cutscreens/gameend1.png", state);
+      currentLevel++;
       return;
     }
 
@@ -397,7 +407,7 @@ enum LocationState
     {
       findTarget();
     } else {
-      if (millis()-timer >700)
+      if (millis()-timer >1)
       {
         timer = millis();
         MemoryLocation target = game.get(targetLocation);

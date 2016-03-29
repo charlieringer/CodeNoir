@@ -94,9 +94,11 @@ class CutScreens {
         level = new Level("Levels/Level_9/level9.xml", state); 
         state.state = State.INGAME;
         break;
-      case 10:
-        //level = new Level("Levels/Level_10/level10.xml", state); 
+      case 10: 
         level = new BossGame(state);
+        state.state = State.INGAME;
+        break;
+     case 11:
         state.state = State.INGAME;
         break;
       }
@@ -167,6 +169,8 @@ void handleMouse() {
       level = new BossGame(state); 
       state.state = State.INGAME;
       break;
+   case 11:
+      state.state = State.INGAME;
     }
   }
   //if screen is clicked anywhere above the skip button
