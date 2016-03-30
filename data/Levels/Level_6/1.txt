@@ -1,7 +1,5 @@
-PLACEHOLDER DATA
-PLACEHOLDER DATA
-PLACEHOLDER DATA
-PLACEHOLDER DATA
-PLACEHOLDER DATA
-PLACEHOLDER DATA
-PLACEHOLDER DATA
+Daily Digitisation Report:
+Digitisation completed today: 0.1%
+Lines copied: 144502 lines
+Total digitisation complete: 12.7%
+Schedule status: 5 years behind schedule

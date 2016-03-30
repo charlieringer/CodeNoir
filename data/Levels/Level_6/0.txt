@@ -1,7 +1,9 @@
-PLACEHOLDER DATA
-PLACEHOLDER DATA
-PLACEHOLDER DATA
-PLACEHOLDER DATA
-PLACEHOLDER DATA
-PLACEHOLDER DATA
-PLACEHOLDER DATA
+Email:
+From: ServerTeam@WellCorp.uni
+Archives,
+
+We are contacting you becuase your data 
+usage is very low. Are you having problems 
+with your connection to the central hub?
+
+The Server Team
