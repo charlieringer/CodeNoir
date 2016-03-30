@@ -44,6 +44,11 @@
 	<door sX="700" sY="330" orientation="h" locktype="l" pins="4"></door>
 	<door sX="620" sY="70" orientation="v" locktype="l" pins="4"></door>
 	
+    <!-- Guards -->
+    <guard sX="550" sY="30" startingOrientation="d" onCollisionTurn="b"></guard>
+    <guard sX="150" sY="20" startingOrientation="l" onCollisionTurn="l"></guard>
+    <guard sX="600" sY="350" startingOrientation="l" onCollisionTurn="l"></guard>
+    
 	<!-- Tables -->
 	<desk sX="100" sY="60" eX="200" eY="80"></desk>
 	<desk sX="100" sY="280" eX="200" eY="300"></desk>

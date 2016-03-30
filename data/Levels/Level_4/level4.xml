@@ -12,12 +12,12 @@
 	<wall sX="130" sY="160" eX="150" eY="600"></wall>
 	
 	<wall sX="130" sY="200" eX="200" eY="220"></wall>
-	<wall sX="300" sY="200" eX="890" eY="220"></wall>
-	<wall sX="990" sY="200" eX="1070" eY="220"></wall>
+	<wall sX="300" sY="200" eX="900" eY="220"></wall>
+	<wall sX="980" sY="200" eX="1070" eY="220"></wall>
 	<wall sX="1050" sY="0" eX="1070" eY="220"></wall>
 	
-	<wall sX="150" sY="460" eX="160" eY="480"></wall>
-	<wall sX="260" sY="460" eX="700" eY="480"></wall>
+	<wall sX="150" sY="460" eX="170" eY="480"></wall>
+	<wall sX="250" sY="460" eX="700" eY="480"></wall>
 	<wall sX="800" sY="460" eX="1050" eY="480"></wall>
 	<wall sX="1050" sY="460" eX="1070" eY="490"></wall>
 	<wall sX="1050" sY="570" eX="1070" eY="600"></wall>
@@ -54,6 +54,11 @@
 	<guard sX="610" sY="460" startingOrientation="u" onCollisionTurn="b"></guard>
 	<guard sX="490" sY="330" startingOrientation="r" onCollisionTurn="b"></guard>
 
+
+    <door sX="170" sY="460" orientation="h" locktype="f"></door>
+    <door sX="1050" sY="490" orientation="v" locktype="t"></door>
+    
+    <terminal sX="640" sY="540" connectedDoorID="1" codeLength="4" rotate="1"></terminal>
 	
 	<!-- Tables -->
 	<desk sX="340" sY="60" eX="360" eY="160"></desk>
@@ -86,11 +91,12 @@
 	<miscObj sX="770" sY="220" eX="810" eY="260" displayImage="Art_Assets/In_Game/Levels/Misc/plant.png"></miscObj>
 	
 	<!-- End -->
-	<end sX="1085" sY="20" eX="1165" eY="60" rotate="0"></end>
+	<end sX="1090" sY="30" eX="1170" eY="70" rotate="0"></end>
 	
 	<player sX="60" sY="520"></player>
 	<dataAmount needed = "0"></dataAmount>
 	<paper sX="920" sY="320" dataPath="Levels/Level_4/0.txt"></paper>
 	<paper sX="640" sY="500" dataPath="Levels/Level_4/1.txt"></paper>
+    <mug sX="920" sY="350" connectedDoorID = "0"></mug>
 	
 </level4>
