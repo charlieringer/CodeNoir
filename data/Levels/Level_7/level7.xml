@@ -21,8 +21,8 @@
     <brokenWall sX="769" sY="20" eX="770" eY="40"></brokenWall>
     
     <!-- Rooms -->
-    <!-- Whole floor -->
-    <room sX="0" sY="0" eX="1200" eY="600"></room>
+    <room sX="970" sY="20" eX="1200" eY="580"></room>
+    <room sX="20" sY="20" eX="970" eY="580"></room>
     
     
     <!-- Tables -->
