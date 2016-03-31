@@ -1,10 +1,12 @@
-
+import ddf.minim.*;// import minim audio library
 StateClass state;
 Level level;
 Menu menu;
 SaveGame save;
 PostGame postGame;
 CutScreens cutScreens;
+Minim minim;
+CNAudio audioPlayer;
 int currentLevel;
 boolean paused;
 
@@ -19,10 +21,13 @@ void setup()
   state = new StateClass();
   menu = new Menu(state);
   postGame = new PostGame(state);
+    minim = new Minim(this);// starts minim
+  audioPlayer = new CNAudio(minim);
 }
 
 void draw()
 {
+  audioPlayer.playAudio();
   switch(state.state)
   {
   case FRONTEND:
