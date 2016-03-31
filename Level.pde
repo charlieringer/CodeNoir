@@ -3,7 +3,7 @@ class Level
   ArrayList<Wall> walls = new ArrayList<Wall>();
   ArrayList<LargeObject> hardObjects = new ArrayList<LargeObject>();
   ArrayList<Door> doors = new ArrayList<Door>();
-  ArrayList<SmallObject> terminals = new ArrayList<SmallObject>();
+  ArrayList<TerminalObj> terminals = new ArrayList<TerminalObj>();
   ArrayList<Room> rooms = new ArrayList<Room>();
   ArrayList<SecurityCamera> secCams = new ArrayList<SecurityCamera>();
   ArrayList<Guard> guards = new ArrayList<Guard>();

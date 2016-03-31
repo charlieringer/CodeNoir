@@ -1,9 +1,7 @@
 Name : Victor Rock
 
 Age : 18
-
 Gender : Male
-
 Subject : 0052
 
 Has an athletic body, perfect for the operation. His Strong

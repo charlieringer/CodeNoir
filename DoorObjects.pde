@@ -10,6 +10,7 @@ class Door extends LargeObject
   PImage lockedImage;
   PImage unlockedImage;
   PImage unlockedShort;
+    boolean locked;
 
   LockPuzzle doorLock;
   Door(int newSX, int newSY, String orient, String type, Level parentLevel, int tumblerLength)

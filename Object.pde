@@ -1,24 +1,22 @@
-private class Object
+private class CNObject
 {
   PImage displayImage;
-  boolean locked;
   int startX;
   int startY;
   int endX;
   int endY;
 
-  Object() {
+  CNObject() {
   }
   void drawObj() {
   }
 }
 
-class LargeObject extends Object { 
+class LargeObject extends CNObject { 
   LargeObject() {
   }
 }
-class SmallObject extends Object { 
-  Terminal linkedTerm; 
+class SmallObject extends CNObject { 
   SmallObject() {
   }
 }
@@ -33,7 +31,7 @@ class MiscObject extends LargeObject
     endY = newEY;
     displayImage = loadImage(displayPath);
   }
-  
+
   void drawObj()
   {
     fill(0, 60, 15);
@@ -66,6 +64,7 @@ class Desk extends LargeObject
 class TerminalObj extends SmallObject
 {
   PImage dispImage;
+  Terminal linkedTerm; 
   TerminalObj(int newSX, int newSY, int newEX, int newEY, int codeLength, Level level, Door linkedDoor, int rotate)
   {
     startX = newSX;
@@ -138,7 +137,7 @@ class TerminalObj extends SmallObject
   }
   void drawObj()
   {
-    image(dispImage,startX,startY);
+    image(dispImage, startX, startY);
   }
 }
 
@@ -201,8 +200,8 @@ class MugObject extends SmallObject
   Door linkedDoor;
   PrintPuzzle linkedPuzzle;
   PImage dispImage;
-  
-  MugObject(int sX, int sY, Door door,Level parentLevel)
+
+  MugObject(int sX, int sY, Door door, Level parentLevel)
   {
     linkedDoor = door;
     level = parentLevel;
@@ -211,7 +210,7 @@ class MugObject extends SmallObject
     linkedPuzzle = new PrintPuzzle();
     dispImage = loadImage("Art_Assets/In_Game/Levels/Mug/0.png");
   }
-  
+
   void displayInGame()
   {
     image(dispImage, startX+4, startY+4);
@@ -221,7 +220,7 @@ class MugObject extends SmallObject
   {
     linkedPuzzle.drawPuzzle();
   }
-  
+
   void pressed()
   {
     if (key == TAB)
@@ -230,17 +229,17 @@ class MugObject extends SmallObject
       level.levelState = LevelState.LEVEL;
     }
   }
-  
+
   void handleMousePressed()
   {
     linkedPuzzle.move();
   }
-  
+
   void handleMouseReleased()
   {
     linkedPuzzle.snapPiece();
   }
-  
+
   void handleMouseDragged()
   {
     linkedPuzzle.draggedPiece();
