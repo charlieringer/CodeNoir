@@ -157,7 +157,8 @@ class Level
     for (int i = 0; i < mugXML.length; i++) {
       sX = mugXML[i].getInt("sX");
       sY = mugXML[i].getInt("sY");
-      mugs.add(new MugObject(sX, sY, doors.get(0), this));
+      int id = mugXML[i].getInt("connectedDoorID");
+      mugs.add(new MugObject(sX, sY, doors.get(id), this));
     }
 
 

@@ -1,4 +1,4 @@
-//Class for a guard object  //<>//
+//Class for a guard object  //<>// //<>//
 //Constructor: takes a starting X and Y (top left corner) and a char (u,d,l,r) for the heading and a turn char (b = backwards, l = left, r = right)
 //drawGuard: takes no params and draws the guard to the screen
 //moveGuard: takes the array of walls and hard objects and moves the guard based on these
@@ -316,7 +316,7 @@ class Guard
           int wallSY = wallObjs.get(i).startY;
           int wallSX = wallObjs.get(i).startX;
           int wallEX = wallObjs.get(i).endX;
-          if (visionEX < wallEX && visionEX > wallSX && visionSY < wallSY && visionEY >= wallSY)
+          if (visionEX <= wallEX && visionEX >= wallSX && visionSY <= wallSY && visionEY >= wallSY)
           {
             fill(255, 255, 0, 75);
             rectMode(CORNERS);
@@ -330,7 +330,7 @@ class Guard
           int doorSY = doors.get(i).startY;
           int doorSX = doors.get(i).startX;
           int doorEX = doors.get(i).endX;
-          if (visionEX < doorEX && visionEX > doorSX && visionSY < doorSY && visionEY >= doorSY)
+          if (visionEX <= doorEX && visionEX >= doorSX && visionSY <= doorSY && visionEY >= doorSY)
           {
             fill(255, 255, 0, 75);
             rectMode(CORNERS);
@@ -365,7 +365,7 @@ class Guard
           int wallSY = wallObjs.get(i).startY;
           int wallEX = wallObjs.get(i).endX;
           int wallEY = wallObjs.get(i).endY;
-          if (visionEY < wallEY && visionEY > wallSY && visionSX > wallEX && visionEX <= wallEX)
+          if (visionEY <= wallEY && visionEY >= wallSY && visionSX >= wallEX && visionEX <= wallEX)
           {
             fill(255, 255, 0, 75);
             rectMode(CORNERS);
@@ -379,7 +379,7 @@ class Guard
           int doorSY = doors.get(i).startY;
           int doorEX = doors.get(i).endX;
           int doorEY = doors.get(i).endY;
-          if (visionEY < doorEY && visionEY > doorSY && visionSX > doorEX && visionEX <= doorEX)
+          if (visionEY <= doorEY && visionEY >= doorSY && visionSX >= doorEX && visionEX <= doorEX)
           {
             fill(255, 255, 0, 75);
             rectMode(CORNERS);
