@@ -46,7 +46,7 @@
 	<guard sX="420" sY="500" startingOrientation="r" onCollisionTurn="b"></guard>
     
 	<guard sX="820" sY="220" startingOrientation="l" onCollisionTurn="b"></guard>
-	<guard sX="860" sY="310" startingOrientation="r" onCollisionTurn="b"></guard>
+	<guard sX="860" sY="300" startingOrientation="r" onCollisionTurn="b"></guard>
 	<guard sX="840" sY="540" startingOrientation="l" onCollisionTurn="l"></guard>
 
 	<paper sX="120" sY="280" dataPath="Levels/Level_1/0.txt"></paper>
