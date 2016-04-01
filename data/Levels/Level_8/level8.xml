@@ -45,9 +45,10 @@
     <desk sX="540" sY="400" eX="560" eY="500"></desk>
 	
 	<!-- Terminals -->
-	<terminal sX="540" sY="450" connectedDoorID="1" codeLength="4" rotate="1"></terminal>
+	<terminal sX="540" sY="450" connectedDoorID="2" codeLength="4" rotate="1"></terminal>
     <terminal sX="300" sY="450" connectedDataPath="Levels/Level_8/0.txt" codeLength="3" rotate="3"></terminal>
-   
+    
+    <terminal sX="140" sY="220" connectedDoorID="1" codeLength="4" rotate="1"></terminal>
     <terminal sX="180" sY="340" connectedCamID="0" codeLength="4" rotate="3"></terminal>
     <terminal sX="980" sY="560" connectedDataPath="Levels/Level_8/1.txt" codeLength="3" rotate="2"></terminal>
    
@@ -108,7 +109,7 @@
     <miscObj sX="920" sY="396" eX="956" eY="432" displayImage="Art_Assets/In_Game/Levels/Misc/filingcab1.png"></miscObj>
     <miscObj sX="920" sY="432" eX="956" eY="468" displayImage="Art_Assets/In_Game/Levels/Misc/filingcab1.png"></miscObj>
     
-    <miscObj sX="592" sY="544" eX="956" eY="628" displayImage="Art_Assets/In_Game/Levels/Misc/filingcab.png"></miscObj>
+    <miscObj sX="592" sY="544" eX="628" eY="580" displayImage="Art_Assets/In_Game/Levels/Misc/filingcab.png"></miscObj>
     <miscObj sX="628" sY="544" eX="664" eY="580" displayImage="Art_Assets/In_Game/Levels/Misc/filingcab.png"></miscObj>
     <miscObj sX="664" sY="544" eX="700" eY="580" displayImage="Art_Assets/In_Game/Levels/Misc/filingcab.png"></miscObj>
     
