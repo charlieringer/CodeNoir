@@ -26,12 +26,12 @@
 	
 	<!-- Rooms -->
 	<room sX="500" sY="280" eX="1180" eY="580"></room>
-	<room sX="320" sY="140" eX="500" eY="580"></room>
+	<room sX="310" sY="140" eX="500" eY="580"></room>
 	<room sX="20" sY="20" eX="500" eY="140"></room>
-	<room sX="770" sY="20" eX="950" eY="280"></room>
-	<room sX="0" sY="140" eX="320" eY="600"></room>
+	<room sX="770" sY="20" eX="960" eY="280"></room>
+	<room sX="0" sY="140" eX="310" eY="600"></room>
 	<room sX="500" sY="0" eX="770" eY="280"></room>
-	<room sX="950" sY="0" eX="1200" eY="280"></room>
+	<room sX="960" sY="0" eX="1200" eY="280"></room>
 	
 	
 	<!-- Tables -->

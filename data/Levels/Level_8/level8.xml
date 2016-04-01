@@ -83,15 +83,7 @@
 	<miscObj sX="1150" sY="80" eX="1180" eY="110" displayImage="Art_Assets/In_Game/Levels/Misc/seat11.png"></miscObj>	
 	<miscObj sX="1150" sY="110" eX="1180" eY="140" displayImage="Art_Assets/In_Game/Levels/Misc/seat11.png"></miscObj>	
 	<miscObj sX="1150" sY="140" eX="1180" eY="170" displayImage="Art_Assets/In_Game/Levels/Misc/seat21.png"></miscObj>
-    
-    <miscObj sX="380" sY="70" eX="420" eY="110" displayImage="Art_Assets/In_Game/Levels/Misc/plant2.png"></miscObj>
-    <miscObj sX="380" sY="110" eX="420" eY="150" displayImage="Art_Assets/In_Game/Levels/Misc/plant.png"></miscObj>
-    <miscObj sX="380" sY="150" eX="420" eY="190" displayImage="Art_Assets/In_Game/Levels/Misc/plant2.png"></miscObj>
-    
-    <miscObj sX="600" sY="70" eX="640" eY="110" displayImage="Art_Assets/In_Game/Levels/Misc/plant.png"></miscObj>
-    <miscObj sX="600" sY="110" eX="640" eY="150" displayImage="Art_Assets/In_Game/Levels/Misc/plant2.png"></miscObj>
-    <miscObj sX="600" sY="150" eX="640" eY="190" displayImage="Art_Assets/In_Game/Levels/Misc/plant.png"></miscObj>
-    
+        
 	<miscObj sX="680" sY="260" eX="720" eY="300" displayImage="Art_Assets/In_Game/Levels/Misc/plant2.png"></miscObj>
 	<miscObj sX="680" sY="340" eX="720" eY="380" displayImage="Art_Assets/In_Game/Levels/Misc/plant.png"></miscObj>
     

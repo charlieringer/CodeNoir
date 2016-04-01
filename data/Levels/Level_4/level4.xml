@@ -26,13 +26,13 @@
 	<wall sX="1050" sY="220" eX="1070" eY="460"></wall>
 
 	<!-- Rooms -->
-	<room sX="0" sY="0" eX="130" eY="600"></room>
-	<room sX="130" sY="0" eX="1070" eY="220"></room>
-	<room sX="130" sY="460" eX="660" eY="600"></room>
-	<room sX="150" sY="220" eX="810" eY="460"></room>
-	<room sX="680" sY="460" eX="1070" eY="600"></room>
-	<room sX="830" sY="220" eX="1070" eY="460"></room>
-	<room sX="1070" sY="20" eX="1180" eY="580"></room>
+	<room sX="0" sY="0" eX="140" eY="600"></room>
+	<room sX="140" sY="0" eX="1070" eY="210"></room>
+	<room sX="130" sY="470" eX="660" eY="600"></room>
+	<room sX="150" sY="210" eX="810" eY="470"></room>
+	<room sX="680" sY="470" eX="1060" eY="600"></room>
+	<room sX="830" sY="210" eX="1060" eY="460"></room>
+	<room sX="1060" sY="20" eX="1180" eY="580"></room>
 	
 	<!-- Guards -->
 	<guard sX="150" sY="20" startingOrientation="d" onCollisionTurn="l"></guard>
