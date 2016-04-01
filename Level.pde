@@ -353,7 +353,7 @@ class Level
         int doorEX = doors.get(i).endX;
         int doorEY = doors.get(i).endY;
         if ((playerSX == doorEX  && playerSY < doorEY && playerEY > doorSY) || 
-          (playerSY == doorEY+1  && playerSX < doorEX && playerEX > doorSX) || 
+          (playerSY == doorEY  && playerSX < doorEX && playerEX > doorSX) || 
           (playerEX == doorSX  && playerSY < doorEY && playerEY > doorSY) || 
           (playerEY == doorSY && playerSX < doorEX && playerEX > doorSX))
         {
