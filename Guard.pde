@@ -365,7 +365,7 @@ class Guard
           int wallSY = wallObjs.get(i).startY;
           int wallEX = wallObjs.get(i).endX;
           int wallEY = wallObjs.get(i).endY;
-          if (visionEY <= wallEY && visionEY >= wallSY && visionSX >= wallEX && visionEX <= wallEX)
+          if (visionEY < wallEY && visionEY > wallSY && visionSX >= wallEX && visionEX <= wallEX)
           {
             fill(255, 255, 0, 75);
             rectMode(CORNERS);
