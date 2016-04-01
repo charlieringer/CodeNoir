@@ -23,6 +23,7 @@ class Server
   
   void drawOnOwn()
   { 
+    noStroke();
     if(puzzle.gameWin == false) {
       puzzle.drawMaze();
     } else {  

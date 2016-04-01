@@ -310,7 +310,7 @@ class Level
     if (gameOver) state.state = State.POSTGAMELOSE;
     if (end.levelCompleted(player))
     {
-      save.updateLevel(currentLevel);
+      save.updateLevel(currentLevel+1);
       save.outputSave();
       state.state = State.POSTGAMEWIN;
     }

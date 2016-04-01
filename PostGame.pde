@@ -22,6 +22,7 @@ class PostGame {
 
   void drawWin() {
     background(scape);
+    noStroke();
 
     //draw 'level complete' and box
     fill(0);
