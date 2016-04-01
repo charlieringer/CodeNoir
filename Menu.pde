@@ -91,63 +91,63 @@ class Menu {
         //  state.state = State.CUTSCREENS;
         //}
         //level 2
-        if(mouseX > 610 && mouseX < 800 && mouseY > 427 && mouseY < 477) {
+        if(mouseX > 610 && mouseX < 800 && mouseY > 427 && mouseY < 477 && save.level >= 1) {
           currentLevel = 2;
           cutScreens = new CutScreens(state, "Levels/Level_2/Level 2 PreText.txt");
           state.state = State.CUTSCREENS;
           state.MenuState = menuState.MAIN;
         }
         //level 3
-        if(mouseX > 400 && mouseX < 590 && mouseY > 427 && mouseY < 477) {          
+        if(mouseX > 400 && mouseX < 590 && mouseY > 427 && mouseY < 477 && save.level >= 2) {  
           currentLevel = 3;
           cutScreens = new CutScreens(state, "Levels/Level_3/Level 3 PreText.txt");
           state.state = State.CUTSCREENS;
           state.MenuState = menuState.MAIN;
         }
         //level 4
-        if(mouseX > 610 && mouseX < 800 && mouseY > 327 && mouseY < 377) {          
+        if(mouseX > 610 && mouseX < 800 && mouseY > 327 && mouseY < 377 && save.level >= 3) {          
           currentLevel = 4;
           cutScreens = new CutScreens(state, "Levels/Level_4/Level 4 PreText.txt");
           state.state = State.CUTSCREENS;
           state.MenuState = menuState.MAIN;
         }
         //level 5
-        if(mouseX > 400 && mouseX < 590 && mouseY > 327 && mouseY < 377) {         
+        if(mouseX > 400 && mouseX < 590 && mouseY > 327 && mouseY < 377 && save.level >= 4) {         
           currentLevel = 5;
           cutScreens = new CutScreens(state, "Levels/Level_5/Level 5 PreText.txt");
           state.state = State.CUTSCREENS;
           state.MenuState = menuState.MAIN;
         }
         //level 6
-        if(mouseX > 610 && mouseX < 800 && mouseY > 227 && mouseY < 277) {          
+        if(mouseX > 610 && mouseX < 800 && mouseY > 227 && mouseY < 277 && save.level >= 5) {          
           currentLevel = 6;
           cutScreens = new CutScreens(state, "Levels/Level_6/Level 6 PreText.txt");
           state.state = State.CUTSCREENS;
           state.MenuState = menuState.MAIN;
         }
         //level 7
-        if(mouseX > 400 && mouseX < 590 && mouseY > 227 && mouseY < 277) {          
+        if(mouseX > 400 && mouseX < 590 && mouseY > 227 && mouseY < 277 && save.level >= 6) {          
           currentLevel = 7;
           cutScreens = new CutScreens(state, "Levels/Level_7/Level 7 PreText.txt");
           state.state = State.CUTSCREENS;
           state.MenuState = menuState.MAIN;
         }
         //level 8
-        if(mouseX > 610 && mouseX < 800 && mouseY > 127 && mouseY < 177) {         
+        if(mouseX > 610 && mouseX < 800 && mouseY > 127 && mouseY < 177 && save.level >= 7) {         
           currentLevel = 8;
           cutScreens = new CutScreens(state, "Levels/Level_8/Level 8 PreText.txt");
           state.state = State.CUTSCREENS;
           state.MenuState = menuState.MAIN;
         }
         //level 9
-        if(mouseX > 400 && mouseX < 590 && mouseY > 127 && mouseY < 177) {          
+        if(mouseX > 400 && mouseX < 590 && mouseY > 127 && mouseY < 177 && save.level >= 8) {          
           currentLevel = 9;
           cutScreens = new CutScreens(state, "Levels/Level_9/Level 9 PreText.txt");
           state.state = State.CUTSCREENS;
           state.MenuState = menuState.MAIN;
         }
         //level 10
-        if(mouseX > 550 && mouseX < 700 && mouseY > 27 && mouseY < 77) {          
+        if(mouseX > 550 && mouseX < 700 && mouseY > 27 && mouseY < 77 && save.level >= 9) {          
           currentLevel = 10;
           //potentially not needed?
           cutScreens = new CutScreens(state, "Art_Assets/In_Game/Cutscreens/finalcs.png", "Levels/Level_10/Level 10 PreText.txt");
