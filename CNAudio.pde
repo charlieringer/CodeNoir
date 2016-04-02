@@ -1,7 +1,7 @@
 class CNAudio
 {
   AudioPlayer [] sound = new AudioPlayer[3];// audioplayer array
-  int count = 0;// counter for array files
+  int count = int(random(0,3));// counter for array files
 
 
   CNAudio(Minim minim)
@@ -14,6 +14,12 @@ class CNAudio
 
   void playAudio()
   {
+    //return early if sound is off.
+    if (save.bgMusic == 0)
+    {
+      sound[count].pause();
+      return;
+    }
     if (!sound[count].isPlaying())// if it isnt playing
     {
       sound[count].rewind();
