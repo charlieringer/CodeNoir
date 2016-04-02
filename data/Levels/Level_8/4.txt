@@ -1,7 +1,11 @@
-PLACEHOLDER TEST
-PLACEHOLDER TEST
-PLACEHOLDER TEST
-PLACEHOLDER TEST
-PLACEHOLDER TEST
-PLACEHOLDER TEST
-PLACEHOLDER TEST
+Memo:
+Subject: SQOID - Superconducting Quantum Optical Device
+
+Test Subjects:
+Tock - 3343
+Nero - 3324
+Mace - 4114
+
+All subjects have had successful cerebral cortex implants.  
+Subjects are now ready to be shipped to the Bonaventure buyers.
+Date of transfer: REDACTED

@@ -1,7 +1,12 @@
-PLACEHOLDER TEST
-PLACEHOLDER TEST
-PLACEHOLDER TEST
-PLACEHOLDER TEST
-PLACEHOLDER TEST
-PLACEHOLDER TEST
-PLACEHOLDER TEST
+Personnel File:
+
+Name: Will Iam Gibson
+Current Position: Demoted and sent to R&D-Level 7
+Previous Position: Head of Neuromancer programme
+History: REDACTED
+
+Neuromancer Programme is experimenting with the use of mycotoxins 
+and mnemonic placements on subjects.  Funded by REDACTED and 
+the REDACTED Government.
+
+Please see Archives for full documentation.
