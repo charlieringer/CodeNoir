@@ -9,6 +9,7 @@ class CutScreens {
   int convoPos;
   boolean next;
   boolean custom = false;
+  boolean img = false;
 
   CutScreens(StateClass state, String file) {
     this.state = state;
@@ -24,6 +25,7 @@ class CutScreens {
     cutscreen = loadImage(image);
     screenText = createReader(file);
     convoPos = 0;
+    img = true;
   }
 
   void drawCutScreens() {
@@ -39,7 +41,7 @@ class CutScreens {
       text.add(line);
     }
 
-    if (custom == true) {
+    if (img == true) {
       background(0);
       image(cutscreen, 0, 0);
     } else {

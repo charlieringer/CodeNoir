@@ -1,5 +1,6 @@
 H: You have reached the top of the building
-H: Not sure what you can learn from the boardroom
+H: Not sure what you can 
+H: learn from the boardroom
 P: I will take a look around
 P: Maybe there are more secrets here
 H: Good thinking Agent Goldsmith

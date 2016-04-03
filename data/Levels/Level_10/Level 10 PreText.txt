@@ -1,5 +1,6 @@
 H: Ah, Agent Goldsmith, welcome…
-P: Who are you? And how do you know me?
+P: Who are you? And how do 
+P: you know me?
 H: I am the CEO here at Wellness Corp.
 H: We have been following you closely.
 H: Do you think you are the first agent
@@ -9,20 +10,21 @@ P: I will see you behind bars!
 H: Ha, you think? Tell me, what have you been
 H: doing with the data you have collected?
 P: It's already uploaded to World Sec.
-H: Perhaps, or perhaps we hacked your connection
-H: And have blocked any automatic uploads.
+H: Perhaps, or perhaps we hacked your 
+H: connection and have blocked 
+H: any automatic uploads.
 P: Really? Well I can get around that, I will
 P: use my Brain Jack, connect to the data 
 P: and upload. Just try and stop that!
 H: Good luck, but fair warning we have your 
-H: device hacked and will be deleting your memory
-H: We would not want you to get, ahem, deleted
-H: now would we.
+H: device hacked and will be deleting your 
+H: memory. We would not want you to get, 
+H: ahem, deleted now would we.
 P: One question. If you know what I am doing
 P: why not use more forceful methods 
 P: to silence me?
-H: We scanned you when you came in. You have 
-H: LifeTags. Think we are stupid enough to
-H: harm you here? No, we prefer to just
-H: discredit your findings. 
+H: We scanned you when you came in. 
+H: You have LifeTags. Think we are stupid 
+H: enough to harm you here? No, we prefer 
+H: to just discredit your findings. 
 P: You will not stop me, you will pay for this!
