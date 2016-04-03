@@ -48,11 +48,14 @@ class CutScreens {
     }
     //next level button
     fill(0);
-    
+    rect(0, 560, 620, 60);
     rect(1000, 560, 200, 60);
     fill(255);
     textFont(cyber);
     text("Skip", 1050, 600);
+    text("Click/Space to continue", 50, 600);
+    
+    
 
     //prevent out of bounds exception, allows users to automatically go to next level after conversation is over
     if (convoPos > text.size()-1) {
