@@ -234,7 +234,7 @@ class Player
       {
         goingRight = state;
       }
-    } else if (key == ' ')
+    } else if (key == ' ' && state == true)
     {
       interacting = true;
       interactFrameCount = frameCount;
