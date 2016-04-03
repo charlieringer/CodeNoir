@@ -24,7 +24,6 @@ class CutScreens {
     cutscreen = loadImage(image);
     screenText = createReader(file);
     convoPos = 0;
-    custom = true;
   }
 
   void drawCutScreens() {

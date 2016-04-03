@@ -26,6 +26,7 @@ class BrokenWall extends Wall
       }
       //Draw cutscreen once end is reached
       cutScreens = new CutScreens(state, "Art_Assets/In_Game/Cutscreens/cutscreen.png", "Levels/Level_7/cutscreen.txt");
+      cutScreens.custom = true;
       state.state = State.CUTSCREENS;
     }
   }
