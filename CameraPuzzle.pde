@@ -2,6 +2,7 @@ class BrokenWall extends Wall
 {
   CameraPuzzle puzzle;
   Level level;
+  CutScreens cutScreen;
   Boolean dataDone = false;
 
   BrokenWall(int newSX, int newSY, int newEX, int newEY, Level parentLevel)
@@ -23,8 +24,9 @@ class BrokenWall extends Wall
         level.player.hasData+=1;
         dataDone = true;
       }
-      //Draw cutscreen thing
-      background(0);
+      //Draw cutscreen once end is reached
+      cutScreens = new CutScreens(state, "Art_Assets/In_Game/Cutscreens/cutscreen.png", "Levels/Level_7/cutscreen.txt");
+      state.state = State.CUTSCREENS;
     }
   }
 

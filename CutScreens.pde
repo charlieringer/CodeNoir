@@ -47,13 +47,14 @@ class CutScreens {
       background(background);
     }
     //next level button
+    rectMode(CORNER);
     fill(0);
-    rect(0, 560, 620, 60);
+    if(!custom) rect(0, 560, 680, 60);
     rect(1000, 560, 200, 60);
     fill(255);
     textFont(cyber);
     text("Skip", 1050, 600);
-    text("Click/Space to continue", 50, 600);
+    if(!custom) text("Click/Space to continue", 50, 600);
     
     
 
@@ -109,23 +110,35 @@ class CutScreens {
     }
 
     //display conversation text in correct position based on who is speaking
-    if (text.get(convoPos).substring(0, 2).equals("P:")) {
-      fill(59, 59, 59);
-      strokeWeight(6);
-      stroke(0);
-      rect(275, 50, 300, 90, 20);
-      fill(255);
-      textSize(20);
-      text(text.get(convoPos).substring(3, text.get(convoPos).length()), 285, 65, 290, 85);
-    } else if (text.get(convoPos).substring(0, 2).equals("H:")) {
-      fill(59, 59, 59);
-      strokeWeight(6);
-      stroke(0);
-      rect(635, 50, 320, 90, 20);
-      fill(255);
-      textSize(20);
-      text(text.get(convoPos).substring(3, text.get(convoPos).length()), 645, 65, 310, 85);
-    }
+    if(custom == true) {
+      if (text.get(convoPos).substring(0, 2).equals("H:")) {
+        fill(59, 59, 59);
+        strokeWeight(6);
+        stroke(0);
+        rect(150, 400, 320, 90, 20);
+        fill(255);
+        textSize(20);
+        text(text.get(convoPos).substring(3, text.get(convoPos).length()), 160, 415, 310, 85);
+      }
+    } else {
+      if (text.get(convoPos).substring(0, 2).equals("P:")) {
+        fill(59, 59, 59);
+        strokeWeight(6);
+        stroke(0);
+        rect(275, 50, 300, 90, 20);
+        fill(255);
+        textSize(20);
+        text(text.get(convoPos).substring(3, text.get(convoPos).length()), 285, 65, 290, 85);
+      } else if (text.get(convoPos).substring(0, 2).equals("H:")) {
+        fill(59, 59, 59);
+        strokeWeight(6);
+        stroke(0);
+        rect(635, 50, 320, 90, 20);
+        fill(255);
+        textSize(20);
+        text(text.get(convoPos).substring(3, text.get(convoPos).length()), 645, 65, 310, 85);
+      }
+   }
 }
 
 void handleMouse() {
