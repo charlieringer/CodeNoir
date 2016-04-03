@@ -71,7 +71,13 @@ class Menu {
       //music on/off is pressed
       if (mouseX > 750 && mouseX < 1050 && mouseY > 400 && mouseY < 450) {
         //state.MenuState = menuState.SETTINGS;
-        mainScreen.music = !mainScreen.music;
+        if (save.bgMusic == 1) {
+          save.bgMusic = 0;
+          save.outputSave();
+        } else {
+          save.bgMusic = 1;
+          save.outputSave();
+        }
       }
 
       //quit is pressed
@@ -264,12 +270,6 @@ class mainMenu {
     }
     textSize(20);
     text("Please play with brightness turned up.", 10, 600);
-    
-    if(!music) {
-      save.bgMusic = 0;
-    } else {
-      save.bgMusic = 1;
-    }
   }
 }
 
@@ -317,15 +317,15 @@ class continueGame {
       buttons.get(i).checkContinueHover();
     }
 
-    if(save.level < 2) image(lockImg, 700, 417);
-    if(save.level < 3) image(lockImg, 450, 417);
-    if(save.level < 4) image(lockImg, 700, 317);
-    if(save.level < 5) image(lockImg, 450, 317);
-    if(save.level < 6) image(lockImg, 700, 217);
-    if(save.level < 7) image(lockImg, 450, 217);
-    if(save.level < 8) image(lockImg, 700, 117);
-    if(save.level < 9) image(lockImg, 450, 117);
-    if(save.level < 10) image(lockImg, 600, 17);
+    if (save.level < 2) image(lockImg, 700, 417);
+    if (save.level < 3) image(lockImg, 450, 417);
+    if (save.level < 4) image(lockImg, 700, 317);
+    if (save.level < 5) image(lockImg, 450, 317);
+    if (save.level < 6) image(lockImg, 700, 217);
+    if (save.level < 7) image(lockImg, 450, 217);
+    if (save.level < 8) image(lockImg, 700, 117);
+    if (save.level < 9) image(lockImg, 450, 117);
+    if (save.level < 10) image(lockImg, 600, 17);
   }
 }
 

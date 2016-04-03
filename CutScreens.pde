@@ -20,7 +20,7 @@ class CutScreens {
 
   CutScreens(StateClass state, String image, String file) {
     this.state = state;
-    cyber = createFont("Fonts/neuropol.ttf", 40);
+    cyber = createFont("Fonts/neuropol.ttf", 35);
     cutscreen = loadImage(image);
     screenText = createReader(file);
     convoPos = 0;
