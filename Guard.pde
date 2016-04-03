@@ -1,4 +1,4 @@
-//Class for a guard object  //<>// //<>// //<>//
+//Class for a guard object  //<>// //<>// //<>// //<>//
 //Constructor: takes a starting X and Y (top left corner) and a char (u,d,l,r) for the heading and a turn char (b = backwards, l = left, r = right)
 //drawGuard: takes no params and draws the guard to the screen
 //moveGuard: takes the array of walls and hard objects and moves the guard based on these
@@ -68,6 +68,10 @@ class Guard
           visionSX+=speed;
         }
       }
+      fill(255, 255, 0, 75);
+      rectMode(CORNERS);
+      noStroke();
+      rect(visionSX, visionSY, visionEX, visionEY);
       for (int i = 0; i < walls.size (); i++)
       {
         int wallSX = walls.get(i).startX;
@@ -201,10 +205,6 @@ class Guard
         spriteNumb++;
         if (spriteNumb == sprites.size()) spriteNumb = 0;
       }
-      fill(255, 255, 0, 75);
-      rectMode(CORNERS);
-      noStroke();
-      rect(visionSX, visionSY, visionEX, visionEY);
     }
   }
 
@@ -264,6 +264,7 @@ class Guard
   }
 
   public boolean checkForPlayer(Player player) {
+    if (!alive)return false;
     //Using temp variables because for this function SY/SX MUST be smaller than EY/EX (not the case when calc'ing vision
     int tempSY = visionSY;
     int tempEY = visionEY;

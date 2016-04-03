@@ -168,11 +168,9 @@ class Menu {
     case SETTINGS:
       //music note is pressed
       if (mouseX > 345 && mouseX < 505 && mouseY > 195 && mouseY < 355) {
-        println("no music");
       }
       //speaker is pressed
       if (mouseX > 695 && mouseX < 870 && mouseY > 195 && mouseY < 355) {
-        println("no SFX");
       }
       //home button is pressed when not paused
       if (mouseX > 1095 && mouseX < 1180 && mouseY > 20 && mouseY < 105 && !paused) {

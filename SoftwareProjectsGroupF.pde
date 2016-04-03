@@ -23,6 +23,7 @@ void setup()
   postGame = new PostGame(state);
     minim = new Minim(this);// starts minim
   audioPlayer = new CNAudio(minim);
+  frameRate(60);
 }
 
 void draw()
@@ -101,8 +102,6 @@ void keyTyped()
 
 void mousePressed()
 {
-  println(mouseX, mouseY);
-
   switch(state.state)
   {
   case FRONTEND:
