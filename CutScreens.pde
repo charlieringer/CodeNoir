@@ -12,7 +12,7 @@ class CutScreens {
 
   CutScreens(StateClass state, String file) {
     this.state = state;
-    cyber = createFont("Fonts/Monaco.ttf", 40);
+    cyber = createFont("Fonts/neuropol.ttf", 40);
     screenText = createReader(file);
     convoPos = 0;
     custom = false;
@@ -20,7 +20,7 @@ class CutScreens {
 
   CutScreens(StateClass state, String image, String file) {
     this.state = state;
-    cyber = createFont("Fonts/Monaco.ttf", 40);
+    cyber = createFont("Fonts/neuropol.ttf", 40);
     cutscreen = loadImage(image);
     screenText = createReader(file);
     convoPos = 0;
