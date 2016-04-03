@@ -83,6 +83,23 @@ class Level
       String imgPath = miscXML[i].getString("displayImage");
       hardObjects.add(new MiscObject(sX, sY, eX, eY, imgPath));
     }
+    
+    XML[] doorXML = level.getChildren("door");
+    for (int i = 0; i < doorXML.length; i++)
+    {
+      int x = doorXML[i].getInt("sX");
+      int y = doorXML[i].getInt("sY");
+      String orientation = doorXML[i].getString("orientation");
+      String lockType = doorXML[i].getString("locktype");
+      if (doorXML[i].hasAttribute("pins"))
+      {
+        int pins = doorXML[i].getInt("pins");
+        doors.add(new Door( x, y, orientation, lockType, this, pins));
+      } else {
+        doors.add(new Door( x, y, orientation, lockType, this));
+      }
+    }
+
 
     XML[] guardXML = level.getChildren("guard");
     for (int i = 0; i < guardXML.length; i++) {
@@ -90,7 +107,7 @@ class Level
       int sY = guardXML[i].getInt("sY");
       String facing = guardXML[i].getString("startingOrientation");
       String turning = guardXML[i].getString("onCollisionTurn");
-      guards.add(new Guard(sX, sY, facing, turning));
+      guards.add(new Guard(sX, sY, facing, turning, walls, doors));
     }
 
     XML[] papersXML = level.getChildren("paper");
@@ -136,22 +153,6 @@ class Level
     int eY = endXML.getInt("eY");
     int rotate = endXML.getInt("rotate");
     end = new Endpoint(sX, sY, eX, eY, this, rotate);
-
-    XML[] doorXML = level.getChildren("door");
-    for (int i = 0; i < doorXML.length; i++)
-    {
-      int x = doorXML[i].getInt("sX");
-      int y = doorXML[i].getInt("sY");
-      String orientation = doorXML[i].getString("orientation");
-      String lockType = doorXML[i].getString("locktype");
-      if (doorXML[i].hasAttribute("pins"))
-      {
-        int pins = doorXML[i].getInt("pins");
-        doors.add(new Door( x, y, orientation, lockType, this, pins));
-      } else {
-        doors.add(new Door( x, y, orientation, lockType, this));
-      }
-    }
 
     XML[] mugXML = level.getChildren("mug");
     for (int i = 0; i < mugXML.length; i++) {
@@ -296,9 +297,10 @@ class Level
     }
     for (Guard guard : guards)
     {
-
-      if (!gameOver) gameOver = guard.checkForPlayer(player, walls, doors);
-      guard.moveandDrawGuard(walls, hardObjects, doors);
+      if (!gameOver){
+        if (gameOver = guard.checkForPlayer(player)) return;
+      }
+      guard.moveandDrawGuard(hardObjects);
     }
 
     for (Server server : servers)
