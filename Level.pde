@@ -33,8 +33,9 @@ class Level
 
   boolean gameOver = false;
   StatusBar status = new StatusBar();
-  
-  Level(){}
+
+  Level() {
+  }
   Level(String levelDataPath, StateClass state) { 
 
     floorTiles.add(loadImage("Art_Assets/In_Game/Levels/Floor/floor1.jpeg"));
@@ -83,7 +84,7 @@ class Level
       String imgPath = miscXML[i].getString("displayImage");
       hardObjects.add(new MiscObject(sX, sY, eX, eY, imgPath));
     }
-    
+
     XML[] doorXML = level.getChildren("door");
     for (int i = 0; i < doorXML.length; i++)
     {
@@ -228,10 +229,8 @@ class Level
       sY = brokenWallXML.getInt("sY");
       eX = brokenWallXML.getInt("eX");
       eY = brokenWallXML.getInt("eY");
-      brokenWall = new BrokenWall(sX, sY, eX, eY, this); 
+      brokenWall = new BrokenWall(sX, sY, eX, eY, this);
     }
-
-
     dataNeeded = level.getChild("dataAmount").getInt("needed");
     pause = new PauseScreen(this, state);
   }
@@ -272,7 +271,6 @@ class Level
   {
     drawFloor();
     for (Wall wall : walls) { 
-
       wall.drawWall();
     }
     for (LargeObject obj : hardObjects) { 
@@ -297,7 +295,7 @@ class Level
     }
     for (Guard guard : guards)
     {
-      if (!gameOver){
+      if (!gameOver) {
         if (gameOver = guard.checkForPlayer(player)) return;
       }
       guard.moveandDrawGuard(hardObjects);

@@ -1,4 +1,4 @@
-//Class for a guard object  //<>// //<>// //<>// //<>//
+//Class for a guard object  //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 //Constructor: takes a starting X and Y (top left corner) and a char (u,d,l,r) for the heading and a turn char (b = backwards, l = left, r = right)
 //drawGuard: takes no params and draws the guard to the screen
 //moveGuard: takes the array of walls and hard objects and moves the guard based on these
@@ -283,10 +283,10 @@ class Guard
       tempEX = holder;
     }
 
-    return ((tempEY >= player.posY)
-      && (tempSY <= player.posY+30)
-      && (tempEX >= player.posX)
-      && (tempSX <= player.posX+30) 
+    return ((tempEY >= player.posY+8)
+      && (tempSY <= player.posY+22)
+      && (tempEX >= player.posX+8)
+      && (tempSX <= player.posX+22) 
       );
   }
 

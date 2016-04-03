@@ -7,17 +7,20 @@ class Player
   ArrayList<Door> doors;
   ArrayList<Guard> guards;
   ArrayList<PImage> sprites;
+  PImage interactSprite;
+  int interactFrameCount;
 
   boolean goingUp = false;
   boolean goingDown = false;
   boolean goingLeft = false;
   boolean goingRight = false;
+  boolean interacting = false;
   char prevRot = 'u';
   int hasData = 0;
   int spriteNumb = 0;
   int storedFrame = 0;
   float speed = 5.0;
-  
+
   Player(ArrayList<Wall> walls, ArrayList<LargeObject> desks, ArrayList<Door> doors, ArrayList<Guard> guards, int x, int y)
   {
     this.walls = walls;
@@ -30,6 +33,7 @@ class Player
     sprites.add(loadImage("Art_Assets/In_Game/Player/protagstill.png"));
     sprites.add(loadImage("Art_Assets/In_Game/Player/protagforward.png"));
     sprites.add(loadImage("Art_Assets/In_Game/Player/protagforward2.png"));
+    interactSprite = loadImage("Art_Assets/In_Game/Player/protagattack.png");
   }
 
   void updateAndDraw()
@@ -47,7 +51,8 @@ class Player
         pushMatrix();
         translate(posX, posY);
         rotate(radians(0));
-        image(sprites.get(spriteNumb), 0, 0);
+        if (interacting)image(interactSprite, 0, 0);
+        else image(sprites.get(spriteNumb), 0, 0);
         popMatrix();
       } else if (goingDown)
       {
@@ -55,7 +60,8 @@ class Player
         pushMatrix();
         translate(posX, posY);
         rotate(radians(180));
-        image(sprites.get(spriteNumb), -30, -30);
+        if (interacting)image(interactSprite, -30, -30);
+        else image(sprites.get(spriteNumb), -30, -30);
         popMatrix();
       } else if (goingLeft)
       {
@@ -63,7 +69,8 @@ class Player
         pushMatrix();
         translate(posX, posY);
         rotate(radians(270));
-        image(sprites.get(spriteNumb), -30, 0);
+        if (interacting)image(interactSprite, -30, 0);
+        else image(sprites.get(spriteNumb), -30, 0);
         popMatrix();
       } else if (goingRight)
       {
@@ -71,7 +78,8 @@ class Player
         pushMatrix();
         translate(posX, posY);
         rotate(radians(90));
-        image(sprites.get(spriteNumb), 0, -30);
+        if (interacting)image(interactSprite, 0, -30);
+        else image(sprites.get(spriteNumb), 0, -30);
         popMatrix();
       }
       if (frameCount > storedFrame+10)
@@ -86,28 +94,32 @@ class Player
         pushMatrix();
         translate(posX, posY);
         rotate(radians(0));
-        image(sprites.get(0), 0, 0);
+        if (interacting)image(interactSprite, 0, 0);
+        else image(sprites.get(spriteNumb), 0, 0);
         popMatrix();
       } else if (prevRot == 'd')
       {
         pushMatrix();
         translate(posX, posY);
         rotate(radians(180));
-        image(sprites.get(0), -30, -30);
+        if (interacting)image(interactSprite, -30, -30);
+        else image(sprites.get(spriteNumb), -30, -30);
         popMatrix();
       } else if (prevRot == 'l')
       {
         pushMatrix();
         translate(posX, posY);
         rotate(radians(270));
-        image(sprites.get(0), -30, 0);
+        if (interacting)image(interactSprite, -30, 0);
+        else image(sprites.get(spriteNumb), -30, 0);
         popMatrix();
       } else if (prevRot == 'r')
       {
         pushMatrix();
         translate(posX, posY);
         rotate(radians(90));
-        image(sprites.get(0), 0, -30);
+        if (interacting)image(interactSprite, 0, -30);
+        else image(sprites.get(spriteNumb), 0, -30);
         popMatrix();
       }
     }
@@ -115,6 +127,11 @@ class Player
 
   void updatePosition(ArrayList<Wall> wallObjs, ArrayList<LargeObject> desks)
   {
+    if (interacting)
+    {
+      if (frameCount - interactFrameCount < 5) interact();
+      interacting = frameCount - interactFrameCount < 10;
+    }
     assert(wallObjs != null);
     boolean canUp = true;
     boolean canDown = true;
@@ -171,10 +188,26 @@ class Player
       int guardEX = guardSX+30;
       int guardEY = guardSY+30;
 
-      if (posX < guardEX && posX+30 > guardSX && posY-5 < guardEY && posY+25  > guardSY) canUp = false;
-      if (posX < guardEX && posX+30 > guardSX && posY+5 < guardEY && posY+35  > guardSY) canDown = false;
-      if (posX-2 < guardEX && posX-2 > guardSX && posY < guardEY && posY +30  > guardSY) canLeft = false;
-      if (posX+28 < guardEX && posX+28 > guardSX && posY < guardEY && posY +30  > guardSY) canRight = false;
+      if (goingUp && canUp && posX < guardEX && posX+30 > guardSX && posY-5 < guardEY && posY+25  > guardSY)
+      {
+       
+        return;
+      }
+      if (goingDown&& canDown && posX < guardEX && posX+30 > guardSX && posY+5 < guardEY && posY+35  > guardSY)
+      {
+        
+        return;
+      }
+      if (goingLeft && canLeft && posX-5 < guardEX && posX-5 > guardSX && posY < guardEY && posY +30  > guardSY)
+      {
+        
+        return;
+      }
+      if (goingRight && canRight && posX+25 < guardEX && posX+25 > guardSX && posY < guardEY && posY +30  > guardSY)
+      {
+        
+        return;
+      }
     }
 
 
@@ -203,7 +236,8 @@ class Player
       }
     } else if (key == ' ')
     {
-      interact();
+      interacting = true;
+      interactFrameCount = frameCount;
     }
   }
   void checkVision(ArrayList<Room> visionRooms)
@@ -239,14 +273,32 @@ class Player
   boolean nextTo(Guard guard)
   {
     //From right
-    if ((posX-5) <= (guard.posX+30) && posX-(guard.posX+30) >= 0 && posX-(guard.posX+30) <=5 && posY < guard.posY+30 && posY+30 > guard.posY) return true;
+    if ((goingLeft||prevRot=='l')
+      && (posX-8) <= (guard.posX+30) 
+      && posX-(guard.posX+30) >= 0 
+      && posX-(guard.posX+30) <= 8
+      && posY < guard.posY+30 
+      && posY+30 > guard.posY) return true;
     //From left 
-    else if ((posX+35) >= guard.posX && (posX+32)-guard.posX >= 0 && (posX+35)-guard.posX <=5 && posY < (guard.posY+30) && (posY+30) > guard.posY) return true;
-
+    else if ((goingRight||prevRot=='r') 
+      && (posX+38) >= guard.posX 
+      && (posX+30)-guard.posX >= 0 
+      && (posX+30)-guard.posX <=8 
+      && posY < (guard.posY+30)
+      && (posY+30) > guard.posY) return true;
     //From bottom
-    else if ((posY-5) <= (guard.posY+30) && posY-(guard.posY+30) >= 0 && posY-(guard.posY+30) <= 2 && posX < (guard.posX+30) && (posX+30) > guard.posX) return true;
+    else if ((goingUp||prevRot=='u') 
+      &&(posY-8) <= (guard.posY+30) 
+      && posY-(guard.posY+30) >= 0 
+      && posY-(guard.posY+30) <= 8
+      && posX < (guard.posX+30) && (posX+30) > guard.posX) return true;
     //from top
-    else if (posY+35 >= guard.posY && (posY+35)-guard.posY >= 0 && (posY+35)-guard.posY <= 5 && posX < (guard.posX+30) && (posX+30) > guard.posX) return true;
+    else if ((goingDown||prevRot=='d') 
+      && (posY+38) >= guard.posY 
+      && (posY+30)-guard.posY >= 0 
+      && (posY+30)-guard.posY <= 8 
+      && posX < (guard.posX+30) 
+      && (posX+30) > guard.posX) return true;
     return false;
   }
 }

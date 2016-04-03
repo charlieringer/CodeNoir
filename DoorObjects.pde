@@ -1,5 +1,3 @@
-//This is for the in game doors. Probably needs more work when there are more elements in 
-
 class Door extends LargeObject
 {
   String orientaion; 
