@@ -824,7 +824,7 @@ class PauseScreen
     cyber = createFont("Fonts/renegado.ttf", 130);
     pauseButtons.add(new Button("Continue Game", 750, 100, 755, 135, 30));
     pauseButtons.add(new Button("Controls", 750, 200, 810, 235, 30));
-    pauseButtons.add(new Button("Settings", 750, 300, 822, 335, 30));
+    pauseButtons.add(new Button("Music On/Off", 750, 300, 770, 335, 30));
     pauseButtons.add(new Button("Return To Menu", 750, 400, 755, 435, 28));
     //note: add an option to save data?
     pauseButtons.add(new Button("Quit Game", 750, 500, 805, 535, 30));
@@ -866,8 +866,13 @@ class PauseScreen
     }
     //settings is pressed
     if (mouseX > 750 && mouseX < 1050 && mouseY > 300 && mouseY < 350) {
-      state.MenuState = menuState.SETTINGS;
-      state.state = State.FRONTEND;
+      if (save.bgMusic == 1) {
+          save.bgMusic = 0;
+          save.outputSave();
+        } else {
+          save.bgMusic = 1;
+          save.outputSave();
+        }
     }
     //return to menu is pressed
     if (mouseX > 750 && mouseX < 1050 && mouseY > 400 && mouseY < 450) {

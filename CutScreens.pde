@@ -49,7 +49,7 @@ class CutScreens {
     //next level button
     rectMode(CORNER);
     fill(0);
-    if(!custom) rect(0, 560, 680, 60);
+    if(!custom) rect(0, 560, 700, 60);
     rect(1000, 560, 200, 60);
     fill(255);
     textFont(cyber);
