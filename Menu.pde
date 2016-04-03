@@ -68,9 +68,10 @@ class Menu {
         state.MenuState = menuState.CONTROLS;
       }
 
-      //settings is pressed
+      //music on/off is pressed
       if (mouseX > 750 && mouseX < 1050 && mouseY > 400 && mouseY < 450) {
-        state.MenuState = menuState.SETTINGS;
+        //state.MenuState = menuState.SETTINGS;
+        mainScreen.music = !mainScreen.music;
       }
 
       //quit is pressed
@@ -224,6 +225,7 @@ class mainMenu {
   PImage scape;
   ArrayList<Button> buttons = new ArrayList<Button>();
   PImage protag;
+  boolean music = true;
 
 
   mainMenu() {
@@ -236,7 +238,7 @@ class mainMenu {
     buttons.add(new Button("New Game", 750, 100, 810, 135));
     buttons.add(new Button("Continue Game", 750, 200, 755, 235));
     buttons.add(new Button("Controls", 750, 300, 810, 335));
-    buttons.add(new Button("Settings", 750, 400, 822, 435));
+    buttons.add(new Button("Music On/Off", 750, 400, 770, 435));
     buttons.add(new Button("Quit", 750, 500, 865, 535));
   }
 
@@ -262,6 +264,12 @@ class mainMenu {
     }
     textSize(20);
     text("Please play with brightness turned up.", 10, 600);
+    
+    if(!music) {
+      save.bgMusic = 0;
+    } else {
+      save.bgMusic = 1;
+    }
   }
 }
 
