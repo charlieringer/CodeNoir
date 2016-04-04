@@ -287,7 +287,7 @@ class continueGame {
     lockImg = loadImage("Art_Assets/Frontend/Menu/lock_white.png");
     skyscraper = loadImage("Art_Assets/Frontend/Menu/continuegame.png");
     //add buttons to arraylist
-    //buttons.add(new Button("Reception", 400, 527, 405, 560, 190, 50, 25));
+    buttons.add(new Button("Reception", 350, 527, 360, 560, 190, 55, 25));
     buttons.add(new Button("Accounting", 610, 427, 615, 460, 190, 50, 25));
     buttons.add(new Button("Sales", 400, 427, 450, 460, 190, 50, 25));
     buttons.add(new Button("Roboguard HQ", 610, 327, 615, 358, 190, 50, 19));
@@ -317,15 +317,37 @@ class continueGame {
       buttons.get(i).checkContinueHover();
     }
 
-    if (save.level < 2) image(lockImg, 700, 417);
-    if (save.level < 3) image(lockImg, 450, 417);
-    if (save.level < 4) image(lockImg, 700, 317);
-    if (save.level < 5) image(lockImg, 450, 317);
-    if (save.level < 6) image(lockImg, 700, 217);
-    if (save.level < 7) image(lockImg, 450, 217);
-    if (save.level < 8) image(lockImg, 700, 117);
-    if (save.level < 9) image(lockImg, 450, 117);
-    if (save.level < 10) image(lockImg, 600, 17);
+    //checks save.level and locks non-completed levels
+    buttons.get(0).completed = true;
+    switch(save.level) {
+      case 2: 
+        buttons.get(1).completed = true;
+        break;
+      case 3:
+        buttons.get(2).completed = true;
+        break;
+      case 4:
+        buttons.get(3).completed = true;
+        break;
+      case 5:
+        buttons.get(4).completed = true;
+        break;
+      case 6:
+        buttons.get(5).completed = true;
+        break;
+      case 7:
+        buttons.get(6).completed = true;
+        break;
+      case 8:
+        buttons.get(7).completed = true;
+        break;
+      case 9:
+        buttons.get(8).completed = true;
+        break;
+      case 10:
+        buttons.get(9).completed = true;
+        break;
+    }
   }
 }
 
@@ -431,11 +453,11 @@ class Settings {
 
 class Button {
   PFont cyber;
-  PImage lock_yellow, lock_white;
+  PImage lock;
   int rectX, rectY, textX, textY, wide, leng, fontSize;
   String title;
   Boolean hover = false;
-  Boolean completed = true;
+  Boolean completed;
 
   Button(String title, int rectX, int rectY, int textX, int textY) {
     this.rectX = rectX;
@@ -466,12 +488,10 @@ class Button {
     this.wide = wide;
     this.leng = leng;
     this.fontSize = fontSize;
+    completed = false;
 
     cyber = createFont("Fonts/renegado.ttf", fontSize);
-    lock_white = loadImage("Art_Assets/Frontend/Menu/lock_white.png");
-    lock_white.resize(150, 150);
-    lock_yellow = loadImage("Art_Assets/Frontend/Menu/lock_yellow.png");
-    lock_yellow.resize(150, 150);
+    lock = loadImage("Art_Assets/Frontend/Menu/lock.png");  
   }
 
   void drawButton() {
@@ -515,21 +535,21 @@ class Button {
         fill(0);
         text(title, textX, textY);
       }
+    } else if(title.equals("CEO") && !completed) {
+        //button outline
+        stroke(48, 48, 48);
+        fill(48, 48, 48);
+        rect(rectX, rectY, wide, leng);
+        //button locked
+        image(lock, rectX+38, rectY);
     } else {
-      if (hover == false) {
         //button outline
-        fill(255);
+        stroke(48, 48, 48);
+        fill(48, 48, 48);
         rect(rectX, rectY, wide, leng);
         //button locked
-        image(lock_white, textX-35, textY-60);
-      } else {
-        //button outline
-        fill(249, 255, 50);
-        rect(rectX, rectY, wide, leng);
-        //button locked
-        image(lock_yellow, textX-35, textY-60);
+        image(lock, rectX+75, rectY);
       }
-    }
   }
 
   void checkHover() {
