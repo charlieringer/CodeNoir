@@ -123,7 +123,7 @@
 	<end sX="40" sY="540" eX="120" eY="580" rotate="2"></end>
 	<player sX="70" sY="500"></player>
 	<dataAmount needed = "1"></dataAmount>
-	<server sX="1090" sY="490" eX="1180" eY="580" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+	<server sX="1090" sY="490" eX="1180" eY="580" level="Levels/Level_8/Server/level.txt" solution="Levels/Level_8//Server/solution.txt"></server>
 	<mug sX="1040" sY="80" connectedDoorID = "0"></mug>
     
     <paper sX="920" sY="560" dataPath="Levels/Level_8/2.txt"></paper>

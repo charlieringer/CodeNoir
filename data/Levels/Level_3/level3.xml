@@ -86,7 +86,7 @@
     <camera pointOneX="890" pointOneY="20" pointTwoX="790" pointTwoY="200" pointThreeX="990" pointThreeY="200" cameraPointX="890" cameraPointY="20" rotate="0"></camera>
 	
 	<!-- Servers -->
-	<server sX="1100" sY="20" eX="1180" eY="100" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+	<server sX="1100" sY="20" eX="1180" eY="100" level="Levels/Level_3/Server/level.txt" solution="Levels/Level_3//Server/solution.txt"></server>
 	
 	<!-- End -->
 	<end sX="1090" sY="540" eX="1170" eY="580" rotate="2"></end>

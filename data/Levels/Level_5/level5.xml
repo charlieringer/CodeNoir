@@ -65,14 +65,14 @@
 	<desk sX="860" sY="560" eX="960" eY="580"></desk>
 	
 	<!-- Servers -->
-	<server sX="550" sY="490" eX="640" eY="580" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
-	<server sX="460" sY="490" eX="550" eY="580" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>	
+	<server sX="550" sY="490" eX="640" eY="580" level="Levels/Level_5/Server1/level.txt" solution="Levels/Level_5//Server1/solution.txt"></server>
+	<server sX="460" sY="490" eX="550" eY="580" level="Levels/Level_5/Server2/level.txt" solution="Levels/Level_5//Server2/solution.txt"></server>	
 
-	<server sX="220" sY="20" eX="310" eY="110" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
-	<server sX="220" sY="110" eX="310" eY="200" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+	<server sX="220" sY="20" eX="310" eY="110" level="Levels/Level_5/Server3/level.txt" solution="Levels/Level_5//Server3/solution.txt"></server>
+	<server sX="220" sY="110" eX="310" eY="200" level="Levels/Level_5/Server4/level.txt" solution="Levels/Level_5//Server4/solution.txt"></server>
 	
-	<server sX="870" sY="20" eX="960" eY="110" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
-	<server sX="1090" sY="490" eX="1180" eY="580" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+	<server sX="870" sY="20" eX="960" eY="110" level="Levels/Level_5/Server5/level.txt" solution="Levels/Level_5//Server5/solution.txt"></server>
+	<server sX="1090" sY="490" eX="1180" eY="580" level="Levels/Level_5/Server6/level.txt" solution="Levels/Level_5//Server6/solution.txt"></server>
 	
 	
 	<!-- Doors -->

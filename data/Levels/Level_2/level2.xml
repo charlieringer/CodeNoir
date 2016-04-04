@@ -72,7 +72,7 @@
 	<terminal sX="630" sY="510" connectedCamID="2" codeLength="4" rotate="0"></terminal>
 	
 	<!-- Servers -->
-	<server sX="1100" sY="170" eX="1180" eY="250" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+	<server sX="1100" sY="170" eX="1180" eY="250" level="Levels/Level_2/Server/level.txt" solution="Levels/Level_2//Server/solution.txt"></server>
 	<wall sX= "1100" sY="170" eX="1180" eY="250"></wall>
 
 	<!-- End -->

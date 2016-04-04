@@ -154,7 +154,7 @@
 	<player sX="1080" sY="540"></player>
 	<dataAmount needed = "1"></dataAmount>
 	<mug sX="980" sY="450" connectedDoorID = "0"></mug>
-	<server sX="470" sY="490" eX="560" eY="580" level="Levels/Level_1/Server/level.txt" solution="Levels/Level_1//Server/solution.txt"></server>
+	<server sX="470" sY="490" eX="560" eY="580" level="Levels/Level_6/Server/level.txt" solution="Levels/Level_6//Server/solution.txt"></server>
 	<paper sX="880" sY="540" dataPath="Levels/Level_6/2.txt"></paper>
 	<paper sX="700" sY="20" dataPath="Levels/Level_6/3.txt"></paper>
 	<paper sX="110" sY="60" dataPath="Levels/Level_6/4.txt"></paper>

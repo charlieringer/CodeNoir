@@ -62,7 +62,7 @@ class ServerPuzzle {
   int ypos = 0;
   Boolean gameWin = false;
   int correctCount = 0;
-  Boolean[] win = new Boolean[5];
+  Boolean[] win;
 
   ArrayList<Wire> wires = new ArrayList<Wire>();
   ArrayList<Connections> connection = new ArrayList<Connections>();
@@ -193,6 +193,7 @@ class ServerPuzzle {
       if (ypos > 4) {
         ypos = 0;
       }
+      win = new Boolean[connection.size()];
     }
   }
 
@@ -211,8 +212,23 @@ class ServerPuzzle {
         win[i] = false;
       }
     }
-    if ((win[0] && win[1] && win[2] && win[3] && win[4]) == true) {
-      gameWin = true;
+    
+    switch(connection.size()) {
+      case 4:
+        if ((win[0] && win[1] && win[2] && win[3]) == true) {
+          gameWin = true;
+        }
+        break;
+      case 5:
+        if ((win[0] && win[1] && win[2] && win[3] && win[4]) == true) {
+          gameWin = true;
+        }
+        break;
+      case 6:
+        if ((win[0] && win[1] && win[2] && win[3] && win[4] && win[5]) == true) {
+          gameWin = true;
+        }
+        break;
     }
   }
 
