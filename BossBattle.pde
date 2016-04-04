@@ -221,14 +221,14 @@ class BossGame extends Level
     {
       if (score < 4)
       {
-        cutScreens = new CutScreens(state, "Art_Assets/In_Game/Cutscreens/finalcs.png", "Levels/Level_10/Level 10 PostText2.txt");
+        cutScreens = new CutScreens(state, "Art_Assets/In_Game/Cutscreens/finalcs.png", "Levels/Level_10/Level 10 PostText3.txt");
         state.state = State.CUTSCREENS;
         level = new GameFinished("Art_Assets/In_Game/Cutscreens/gameend1.png", state);
         currentLevel++;
       } else
     
       {
-        cutScreens = new CutScreens(state, "Art_Assets/In_Game/Cutscreens/finalcs.png", "Levels/Level_10/Level 10 PostText3.txt");
+        cutScreens = new CutScreens(state, "Art_Assets/In_Game/Cutscreens/finalcs.png", "Levels/Level_10/Level 10 PostText2.txt");
         state.state = State.CUTSCREENS;
         level = new GameFinished("Art_Assets/In_Game/Cutscreens/ending2.png", state);
         currentLevel++;
