@@ -95,7 +95,7 @@ class Player
         translate(posX, posY);
         rotate(radians(0));
         if (interacting)image(interactSprite, 0, 0);
-        else image(sprites.get(spriteNumb), 0, 0);
+        else image(sprites.get(0), 0, 0);
         popMatrix();
       } else if (prevRot == 'd')
       {
@@ -103,7 +103,7 @@ class Player
         translate(posX, posY);
         rotate(radians(180));
         if (interacting)image(interactSprite, -30, -30);
-        else image(sprites.get(spriteNumb), -30, -30);
+        else image(sprites.get(0), -30, -30);
         popMatrix();
       } else if (prevRot == 'l')
       {
@@ -111,7 +111,7 @@ class Player
         translate(posX, posY);
         rotate(radians(270));
         if (interacting)image(interactSprite, -30, 0);
-        else image(sprites.get(spriteNumb), -30, 0);
+        else image(sprites.get(0), -30, 0);
         popMatrix();
       } else if (prevRot == 'r')
       {
@@ -119,7 +119,7 @@ class Player
         translate(posX, posY);
         rotate(radians(90));
         if (interacting)image(interactSprite, 0, -30);
-        else image(sprites.get(spriteNumb), 0, -30);
+        else image(sprites.get(0), 0, -30);
         popMatrix();
       }
     }

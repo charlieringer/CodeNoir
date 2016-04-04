@@ -50,12 +50,12 @@ class CutScreens {
     //next level button
     rectMode(CORNER);
     fill(0);
-    if(!custom) rect(0, 560, 700, 60);
+    if (!custom) rect(0, 560, 700, 60);
     rect(1000, 560, 200, 60);
     fill(255);
     textFont(cyber);
     text("Skip", 1050, 600);
-    if(!custom) text("Click/Space to continue", 50, 600);
+    if (!custom) text("Click/Space to continue", 50, 600);
 
     //prevent out of bounds exception, allows users to automatically go to next level after conversation is over
     if (convoPos > text.size()-1 && !custom) {
@@ -101,29 +101,26 @@ class CutScreens {
         level = new BossGame(state);
         state.state = State.INGAME;
         break;
-     case 11:
+      case 11:
         state.state = State.INGAME;
         break;
       }
       return;
-    } else if(convoPos > text.size()-1 && custom) {
+    } else if (convoPos > text.size()-1 && custom) {
       state.state = State.INGAME;
       level.levelState = LevelState.LEVEL;
+      return;
     }
-      
+
     //display conversation text in correct position based on who is speaking
-    if(custom == true) {
-      if(convoPos == 0) {
-        if (text.get(convoPos).substring(0, 2).equals("H:")) {
-          fill(59, 59, 59);
-          strokeWeight(6);
-          stroke(0);
-          rect(150, 400, 320, 90, 20);
-          fill(255);
-          textSize(20);
-          text(text.get(convoPos).substring(3, text.get(convoPos).length()), 160, 415, 310, 85);
-        }
-      }
+    if (custom == true) {
+      fill(59, 59, 59);
+      strokeWeight(6);
+      stroke(0);
+      rect(150, 400, 320, 90, 20);
+      fill(255);
+      textSize(20);
+      text(text.get(convoPos).substring(3, text.get(convoPos).length()), 160, 415, 310, 85);
     } else {
       if (text.get(convoPos).substring(0, 2).equals("P:")) {
         fill(59, 59, 59);
@@ -142,66 +139,66 @@ class CutScreens {
         textSize(20);
         text(text.get(convoPos).substring(3, text.get(convoPos).length()), 645, 65, 310, 85);
       }
-   }
-}
-
-void handleMouse() {
-  //if skip is pressed, switch to level based on currentLevel
-  if (mouseX > 1000 && mouseX < 1200 && mouseY > 560 && mouseY < 620) {
-    switch(currentLevel) {
-    case 1:
-      level = new Level("Levels/Level_1/level1.xml", state); 
-      state.state = State.INGAME;
-      break;
-    case 2:
-      level = new Level("Levels/Level_2/level2.xml", state); 
-      state.state = State.INGAME;
-      break;
-    case 3:
-      level = new Level("Levels/Level_3/level3.xml", state); 
-      state.state = State.INGAME;
-      break;
-    case 4:
-      level = new Level("Levels/Level_4/level4.xml", state); 
-      state.state = State.INGAME;
-      break;
-    case 5:
-      level = new Level("Levels/Level_5/level5.xml", state); 
-      state.state = State.INGAME;
-      break;
-    case 6:
-      level = new Level("Levels/Level_6/level6.xml", state); 
-      state.state = State.INGAME;
-      break;
-    case 7:
-      level = new Level("Levels/Level_7/level7.xml", state); 
-      state.state = State.INGAME;
-      break;
-    case 8:
-      level = new Level("Levels/Level_8/level8.xml", state); 
-      state.state = State.INGAME;
-      break;
-    case 9:
-      level = new Level("Levels/Level_9/level9.xml", state); 
-      state.state = State.INGAME;
-      break;
-    case 10:
-      level = new BossGame(state); 
-      state.state = State.INGAME;
-      break;
-   case 11:
-      state.state = State.INGAME;
     }
   }
-  //if screen is clicked anywhere above the skip button
-  if (mouseX > 0 && mouseX < 1200 && mouseY > 0 && mouseY < 560) {
-    convoPos++;
-  }
-}
 
-void handleKeys() {
-  if (key == ' ') {
-    convoPos++;
+  void handleMouse() {
+    //if skip is pressed, switch to level based on currentLevel
+    if (mouseX > 1000 && mouseX < 1200 && mouseY > 560 && mouseY < 620) {
+      switch(currentLevel) {
+      case 1:
+        level = new Level("Levels/Level_1/level1.xml", state); 
+        state.state = State.INGAME;
+        break;
+      case 2:
+        level = new Level("Levels/Level_2/level2.xml", state); 
+        state.state = State.INGAME;
+        break;
+      case 3:
+        level = new Level("Levels/Level_3/level3.xml", state); 
+        state.state = State.INGAME;
+        break;
+      case 4:
+        level = new Level("Levels/Level_4/level4.xml", state); 
+        state.state = State.INGAME;
+        break;
+      case 5:
+        level = new Level("Levels/Level_5/level5.xml", state); 
+        state.state = State.INGAME;
+        break;
+      case 6:
+        level = new Level("Levels/Level_6/level6.xml", state); 
+        state.state = State.INGAME;
+        break;
+      case 7:
+        level = new Level("Levels/Level_7/level7.xml", state); 
+        state.state = State.INGAME;
+        break;
+      case 8:
+        level = new Level("Levels/Level_8/level8.xml", state); 
+        state.state = State.INGAME;
+        break;
+      case 9:
+        level = new Level("Levels/Level_9/level9.xml", state); 
+        state.state = State.INGAME;
+        break;
+      case 10:
+        level = new BossGame(state); 
+        state.state = State.INGAME;
+        break;
+      case 11:
+        state.state = State.INGAME;
+      }
+    }
+    //if screen is clicked anywhere above the skip button
+    if (mouseX > 0 && mouseX < 1200 && mouseY > 0 && mouseY < 560) {
+      convoPos++;
+    }
   }
-}
+
+  void handleKeys() {
+    if (key == ' ') {
+      convoPos++;
+    }
+  }
 }
