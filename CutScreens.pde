@@ -56,11 +56,9 @@ class CutScreens {
     textFont(cyber);
     text("Skip", 1050, 600);
     if(!custom) text("Click/Space to continue", 50, 600);
-    
-    
 
     //prevent out of bounds exception, allows users to automatically go to next level after conversation is over
-    if (convoPos > text.size()-1) {
+    if (convoPos > text.size()-1 && !custom) {
       next = true;
       switch(currentLevel) {
       case 1:
@@ -108,18 +106,23 @@ class CutScreens {
         break;
       }
       return;
+    } else if(convoPos > text.size()-1 && custom) {
+      state.state = State.INGAME;
+      level.levelState = LevelState.LEVEL;
     }
-
+      
     //display conversation text in correct position based on who is speaking
     if(custom == true) {
-      if (text.get(convoPos).substring(0, 2).equals("H:")) {
-        fill(59, 59, 59);
-        strokeWeight(6);
-        stroke(0);
-        rect(150, 400, 320, 90, 20);
-        fill(255);
-        textSize(20);
-        text(text.get(convoPos).substring(3, text.get(convoPos).length()), 160, 415, 310, 85);
+      if(convoPos == 0) {
+        if (text.get(convoPos).substring(0, 2).equals("H:")) {
+          fill(59, 59, 59);
+          strokeWeight(6);
+          stroke(0);
+          rect(150, 400, 320, 90, 20);
+          fill(255);
+          textSize(20);
+          text(text.get(convoPos).substring(3, text.get(convoPos).length()), 160, 415, 310, 85);
+        }
       }
     } else {
       if (text.get(convoPos).substring(0, 2).equals("P:")) {
