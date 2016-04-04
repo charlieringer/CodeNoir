@@ -91,11 +91,11 @@ class Menu {
         state.MenuState = menuState.MAIN;
       }
       //level 1
-      //if(mouseX > 250 && mouseX < 350 && mouseY > 380 && mouseY < 480) {
-      //  currentLevel = 1;
-      //  cutScreens = new CutScreens(state, "Levels/Level_1/Level 1 PreText.txt");
-      //  state.state = State.CUTSCREENS;
-      //}
+      if(mouseX > 350 && mouseX < 540 && mouseY > 527 && mouseY < 582) {
+       currentLevel = 1;
+       cutScreens = new CutScreens(state, "Levels/Level_1/Level 1 PreText.txt");
+       state.state = State.CUTSCREENS;
+      }
       //level 2
       if (mouseX > 610 && mouseX < 800 && mouseY > 427 && mouseY < 477 && save.level > 1) {
         currentLevel = 2;
@@ -324,27 +324,63 @@ class continueGame {
         buttons.get(1).completed = true;
         break;
       case 3:
+        buttons.get(1).completed = true;
         buttons.get(2).completed = true;
         break;
       case 4:
+        buttons.get(1).completed = true;
+        buttons.get(2).completed = true;
         buttons.get(3).completed = true;
         break;
       case 5:
+        buttons.get(1).completed = true;
+        buttons.get(2).completed = true;
+        buttons.get(3).completed = true;
         buttons.get(4).completed = true;
         break;
       case 6:
+        buttons.get(1).completed = true;
+        buttons.get(2).completed = true;
+        buttons.get(3).completed = true;
+        buttons.get(4).completed = true;
         buttons.get(5).completed = true;
         break;
       case 7:
+        buttons.get(1).completed = true;
+        buttons.get(2).completed = true;
+        buttons.get(3).completed = true;
+        buttons.get(4).completed = true;
+        buttons.get(5).completed = true;
         buttons.get(6).completed = true;
         break;
       case 8:
+        buttons.get(1).completed = true;
+        buttons.get(2).completed = true;
+        buttons.get(3).completed = true;
+        buttons.get(4).completed = true;
+        buttons.get(5).completed = true;
+        buttons.get(6).completed = true;
         buttons.get(7).completed = true;
         break;
       case 9:
+        buttons.get(1).completed = true;
+        buttons.get(2).completed = true;
+        buttons.get(3).completed = true;
+        buttons.get(4).completed = true;
+        buttons.get(5).completed = true;
+        buttons.get(6).completed = true;
+        buttons.get(7).completed = true;
         buttons.get(8).completed = true;
         break;
       case 10:
+        buttons.get(1).completed = true;
+        buttons.get(2).completed = true;
+        buttons.get(3).completed = true;
+        buttons.get(4).completed = true;
+        buttons.get(5).completed = true;
+        buttons.get(6).completed = true;
+        buttons.get(7).completed = true;
+        buttons.get(8).completed = true;
         buttons.get(9).completed = true;
         break;
     }
