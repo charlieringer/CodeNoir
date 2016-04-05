@@ -73,10 +73,10 @@
 	<door sX="240" sY="50" orientation="v" locktype="t"></door>
 	<door sX="830" sY="160" orientation="h" locktype="l" pins="4"></door>
 
-	<terminal sX="85" sY="120" connectedDoorID="0" codeLength="4" connectedDataPath="Levels/Level_1/1.txt" rotate="2"></terminal>
-	<terminal sX="355" sY="560" connectedCamID="0" codeLength="4" rotate="2"></terminal>
-    <terminal sX="560" sY="360" codeLength="4" connectedDataPath="Levels/Level_1/3.txt" rotate="2"></terminal>
-    <terminal sX="770" sY="360" codeLength="4" connectedDataPath="Levels/Level_1/5.txt" rotate="0"></terminal>
+	<terminal sX="85" sY="120" connectedDoorID="0" codeLength="3" connectedDataPath="Levels/Level_1/1.txt" rotate="2"></terminal>
+	<terminal sX="355" sY="560" connectedCamID="0" codeLength="3" rotate="2"></terminal>
+    <terminal sX="560" sY="360" codeLength="0" connectedDataPath="Levels/Level_1/3.txt" rotate="2"></terminal>
+    <terminal sX="770" sY="360" codeLength="0" connectedDataPath="Levels/Level_1/5.txt" rotate="0"></terminal>
     
 </level1>
 

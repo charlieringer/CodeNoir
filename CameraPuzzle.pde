@@ -62,10 +62,10 @@ class CameraPuzzle
   {
 
     int gap = height/2-30;
-    camera = new Camera(0, gap+20, 'r', 2);
+    camera = new Camera(0, gap+20, 'r', 1.25);
     walls.add(new CPWall(40, 0, 80, gap-20));
     walls.add(new CPWall(80, 0, 120, gap));
-    walls.add(new CPWall(40, gap+60, 80, height));
+    walls.add(new CPWall(40, gap+80, 80, height));
     walls.add(new CPWall(80, gap+40, 120, height));
 
     for (int i = 120; i < width-40; i+=40)
@@ -81,7 +81,7 @@ class CameraPuzzle
 
   void reset() {
     int gap = height/2-25;
-    camera = new Camera(10, gap+20, 'r', 2);
+    camera = new Camera(10, gap+20, 'r', 1.25);
     gameOver = false;
   }
 
@@ -134,13 +134,13 @@ class Camera
 {
   CameraPart head;
   char dir;
-  int speed;
+  float speed;
   PImage cameraU = loadImage("Art_Assets/In_Game/Camera/cameraU.png");
   PImage cameraD = loadImage("Art_Assets/In_Game/Camera/cameraD.png");
   PImage cameraL = loadImage("Art_Assets/In_Game/Camera/cameraL.png");
   PImage cameraR = loadImage("Art_Assets/In_Game/Camera/cameraR.png");
 
-  Camera(int x, int y, char dir, int speed)
+  Camera(int x, int y, char dir, float speed)
   {
     head = new CameraPart(x, y);
     this.dir = dir;
@@ -212,8 +212,8 @@ class Camera
 
   boolean checkCollWalls(ArrayList<CPWall> walls)
   {
-    int x = head.x;
-    int y = head.y;
+    float x = head.x;
+    float y = head.y;
     for (int i = 0; i < walls.size(); i++)
     {
       CPWall wall = walls.get(i);
@@ -249,17 +249,17 @@ class Camera
 
 class CameraPart
 {
-  int x, y;
+  float x, y;
   CameraPart next;
 
-  CameraPart(int x, int y)
+  CameraPart(float x, float y)
   {
     this.x = x;
     this.y = y;
     next = null;
   }
 
-  CameraPart(int x, int y, CameraPart  next)
+  CameraPart(float x, float y, CameraPart  next)
   {
     this.x = x;
     this.y = y;

@@ -3,8 +3,8 @@ import java.util.*;
 
 class SaveGame
 {
-  byte level;
-  byte bgMusic;
+  byte level = 10;
+  byte bgMusic = 1;
 
   SaveGame()
   {
@@ -12,10 +12,10 @@ class SaveGame
     if (file.exists())
     {
       byte[] data = loadBytes("save.dat");
-      level = data[0];
+    //  level = data[0];
       bgMusic = data[1];
     } else {
-      level = 1;
+     // level = 1;
       bgMusic = 1;
     }
   }

@@ -103,13 +103,13 @@
 	<!-- Terminals -->
 	<terminal sX="80" sY="500" connectedCamID="1" codeLength="4" rotate="1"></terminal>
     
-	<terminal sX="550" sY="390" connectedDataPath="Levels/Level_3/0.txt" codeLength="3" rotate="2"></terminal>
-	<terminal sX="680" sY="390" connectedDataPath="Levels/Level_3/2.txt" codeLength="3" rotate="2"></terminal>
-	<terminal sX="810" sY="390" connectedDataPath="Levels/Level_3/3.txt" codeLength="3" rotate="2"></terminal>
-	<terminal sX="650" sY="430" connectedCamID="0" codeLength="4" rotate="0"></terminal>
-	<terminal sX="780" sY="430" connectedCamID="2" codeLength="4" rotate="0"></terminal>
-	<terminal sX="910" sY="430" connectedDataPath="Levels/Level_3/1.txt" codeLength="3" rotate="0"></terminal>
-    <terminal sX="560" sY="70" connectedDoorID="2" codeLength="4" rotate="1"></terminal>
+	<terminal sX="550" sY="390" connectedDataPath="Levels/Level_3/0.txt" codeLength="0" rotate="2"></terminal>
+	<terminal sX="680" sY="390" connectedDataPath="Levels/Level_3/2.txt" codeLength="0" rotate="2"></terminal>
+	<terminal sX="810" sY="390" connectedDataPath="Levels/Level_3/3.txt" codeLength="0" rotate="2"></terminal>
+	<terminal sX="650" sY="430" connectedCamID="0" codeLength="3" rotate="0"></terminal>
+	<terminal sX="780" sY="430" connectedCamID="2" codeLength="3" rotate="0"></terminal>
+	<terminal sX="910" sY="430" connectedDataPath="Levels/Level_3/1.txt" codeLength="0" rotate="0"></terminal>
+    <terminal sX="560" sY="70" connectedDoorID="2" codeLength="3" rotate="1"></terminal>
     
     <dataAmount needed = "1"></dataAmount>
     <player sX="1120" sY="500"></player>

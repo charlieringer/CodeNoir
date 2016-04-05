@@ -46,11 +46,11 @@
 	
 	<!-- Terminals -->
 	<terminal sX="540" sY="450" connectedDoorID="2" codeLength="4" rotate="1"></terminal>
-    <terminal sX="300" sY="450" connectedDataPath="Levels/Level_8/0.txt" codeLength="3" rotate="3"></terminal>
+    <terminal sX="300" sY="450" connectedDataPath="Levels/Level_8/0.txt" codeLength="0" rotate="3"></terminal>
     
-    <terminal sX="140" sY="220" connectedDoorID="1" codeLength="4" rotate="1"></terminal>
-    <terminal sX="180" sY="340" connectedCamID="0" codeLength="4" rotate="3"></terminal>
-    <terminal sX="980" sY="560" connectedDataPath="Levels/Level_8/1.txt" codeLength="3" rotate="2"></terminal>
+    <terminal sX="140" sY="220" connectedDoorID="1" codeLength="5" rotate="1"></terminal>
+    <terminal sX="180" sY="340" connectedCamID="0" codeLength="3" rotate="3"></terminal>
+    <terminal sX="980" sY="560" connectedDataPath="Levels/Level_8/1.txt" codeLength="0" rotate="2"></terminal>
    
 	<!-- Doors -->
 	<door sX="1020" sY="340" orientation="h" locktype="f"></door>

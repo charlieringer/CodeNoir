@@ -44,7 +44,7 @@
 	
 	
 	<!-- Terminals -->
-	<terminal sX="180" sY="130" connectedDoorID="3" codeLength="4" rotate="1"></terminal>
+	<terminal sX="180" sY="130" connectedDoorID="3" codeLength="5" rotate="1"></terminal>
 
 	<!-- End -->
 	<!-- supposed to be a fireplace -->

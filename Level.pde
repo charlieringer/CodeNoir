@@ -353,10 +353,10 @@ class Level
         int doorSY = doors.get(i).startY;
         int doorEX = doors.get(i).endX;
         int doorEY = doors.get(i).endY;
-        if ((playerSX == doorEX  && playerSY < doorEY && playerEY > doorSY) || 
-          (playerSY == doorEY  && playerSX < doorEX && playerEX > doorSX) || 
-          (playerEX == doorSX  && playerSY < doorEY && playerEY > doorSY) || 
-          (playerEY == doorSY && playerSX < doorEX && playerEX > doorSX))
+        if ((playerSX == doorEX+1  && playerSY < doorEY && playerEY > doorSY) || 
+          (playerSY == doorEY+1  && playerSX < doorEX && playerEX > doorSX) || 
+          (playerEX == doorSX-1  && playerSY < doorEY && playerEY > doorSY) || 
+          (playerEY == doorSY-1 && playerSX < doorEX && playerEX > doorSX))
         {
           if (doors.get(i).doorType.equals("t"))
           {
@@ -386,10 +386,10 @@ class Level
       int termEX = terminals.get(i).endX;
       int termEY = terminals.get(i).endY;
 
-      if ((playerSX == termEX && playerSY < termEY && playerEY > termSY) || 
-        (playerSY == termEY && playerSX < termEX && playerEX > termSX) || 
-        (playerEX == termSX && playerSY < termEY && playerEY > termSY) || 
-        (playerEY == termSY && playerSX < termEX && playerEX > termSX))
+      if ((playerSX == termEX+1 && playerSY < termEY && playerEY > termSY) || 
+        (playerSY == termEY+1 && playerSX < termEX && playerEX > termSX) || 
+        (playerEX == termSX-1 && playerSY < termEY && playerEY > termSY) || 
+        (playerEY == termSY-1 && playerSX < termEX && playerEX > termSX))
       {
         status.drawStatusBar("Terminal - press SPACE to use");
         return;
@@ -404,10 +404,10 @@ class Level
       int papersEX = papersSX+20;
       int papersEY = papersSY+20;
 
-      if ((playerSX == papersEX && playerSY < papersEY && playerEY > papersSY) || 
-        (playerSY == papersEY && playerSX < papersEX && playerEX > papersSX) || 
-        (playerEX == papersSX && playerSY < papersEY && playerEY > papersSY) || 
-        (playerEY == papersSY && playerSX < papersEX && playerEX > papersSX))
+      if ((playerSX == papersEX+1 && playerSY < papersEY && playerEY > papersSY) || 
+        (playerSY == papersEY+1 && playerSX < papersEX && playerEX > papersSX) || 
+        (playerEX == papersSX-1 && playerSY < papersEY && playerEY > papersSY) || 
+        (playerEY == papersSY-1 && playerSX < papersEX && playerEX > papersSX))
       {
         status.drawStatusBar("Papers - press SPACE to read");
         return;
@@ -421,10 +421,10 @@ class Level
       int serverEX = servers.get(i).eX;
       int serverEY = servers.get(i).eY;
 
-      if ((playerSX == serverEX && playerSY < serverEY && playerEY > serverSY) || 
-        (playerSY == serverEY && playerSX < serverEX && playerEX > serverSX) || 
-        (playerEX == serverSX && playerSY < serverEY && playerEY > serverSY) || 
-        (playerEY == serverSY && playerSX < serverEX && playerEX > serverSX))
+      if ((playerSX == serverEX+1 && playerSY < serverEY && playerEY > serverSY) || 
+        (playerSY == serverEY+1 && playerSX < serverEX && playerEX > serverSX) || 
+        (playerEX == serverSX-1 && playerSY < serverEY && playerEY > serverSY) || 
+        (playerEY == serverSY-1 && playerSX < serverEX && playerEX > serverSX))
       {
         status.drawStatusBar("Server - press SPACE to download data");
         return;
@@ -438,10 +438,10 @@ class Level
       int mugsEX = mugsSX+20;
       int mugsEY = mugsSY+20;
 
-      if ((playerSX == mugsEX && playerSY < mugsEY && playerEY > mugsSY) || 
-        (playerSY == mugsEY && playerSX < mugsEX && playerEX > mugsSX) || 
-        (playerEX == mugsSX && playerSY < mugsEY && playerEY > mugsSY) || 
-        (playerEY == mugsSY && playerSX < mugsEX && playerEX > mugsSX))
+      if ((playerSX == mugsEX+1 && playerSY < mugsEY && playerEY > mugsSY) || 
+        (playerSY == mugsEY+1 && playerSX < mugsEX && playerEX > mugsSX) || 
+        (playerEX == mugsSX-1 && playerSY < mugsEY && playerEY > mugsSY) || 
+        (playerEY == mugsSY-1 && playerSX < mugsEX && playerEX > mugsSX))
       {
         status.drawStatusBar("Mug - press SPACE to copy fingerprint");
         return;
@@ -454,10 +454,10 @@ class Level
       int wallEX = brokenWall.endX;
       int wallEY = brokenWall.endY;
 
-      if ((playerSX == wallEX && playerSY < wallEY && playerEY > wallSY) || 
-        (playerSY == wallEY && playerSX < wallEX && playerEX > wallSX) || 
-        (playerEX == wallSX && playerSY < wallEY && playerEY > wallSY) || 
-        (playerEY == wallSY && playerSX < wallEX && playerEX > wallSX))
+      if ((playerSX == wallEX+1 && playerSY < wallEY && playerEY > wallSY) || 
+        (playerSY == wallEY+1 && playerSX < wallEX && playerEX > wallSX) || 
+        (playerEX == wallSX-1 && playerSY < wallEY && playerEY > wallSY) || 
+        (playerEY == wallSY-1 && playerSX < wallEX && playerEX > wallSX))
       {
         status.drawStatusBar("Cracked wall - press SPACE to feed camera through hole");
         return;
@@ -552,10 +552,10 @@ class Level
           int doorSY = doors.get(i).startY;
           int doorEX = doors.get(i).endX;
           int doorEY = doors.get(i).endY;
-          if ((playerSX == doorEX  && playerSY < doorEY && playerEY > doorSY) || 
+          if ((playerSX == doorEX+1  && playerSY < doorEY && playerEY > doorSY) || 
             (playerSY == doorEY+1  && playerSX < doorEX && playerEX > doorSX) || 
-            (playerEX == doorSX  && playerSY < doorEY && playerEY > doorSY) || 
-            (playerEY == doorSY && playerSX < doorEX && playerEX > doorSX))
+            (playerEX == doorSX-1  && playerSY < doorEY && playerEY > doorSY) || 
+            (playerEY == doorSY-1 && playerSX < doorEX && playerEX > doorSX))
           {
             if (doors.get(i).doorType.equals("l"))
             {
@@ -578,10 +578,10 @@ class Level
         int termEX = terminals.get(i).endX;
         int termEY = terminals.get(i).endY;
 
-        if ((playerSX == termEX && playerSY < termEY && playerEY > termSY) || 
-          (playerSY == termEY && playerSX < termEX && playerEX > termSX) || 
-          (playerEX == termSX && playerSY < termEY && playerEY > termSY) || 
-          (playerEY == termSY && playerSX < termEX && playerEX > termSX))
+        if ((playerSX == termEX+1 && playerSY < termEY && playerEY > termSY) || 
+          (playerSY == termEY+1 && playerSX < termEX && playerEX > termSX) || 
+          (playerEX == termSX-1 && playerSY < termEY && playerEY > termSY) || 
+          (playerEY == termSY-1 && playerSX < termEX && playerEX > termSX))
         {
           assert(terminals.get(i).linkedTerm != null);
           currTerminal = terminals.get(i).linkedTerm;
@@ -598,10 +598,10 @@ class Level
         int papersEX = papersSX+20;
         int papersEY = papersSY+20;
 
-        if ((playerSX == papersEX && playerSY < papersEY && playerEY > papersSY) || 
-          (playerSY == papersEY && playerSX < papersEX && playerEX > papersSX) || 
-          (playerEX == papersSX && playerSY < papersEY && playerEY > papersSY) || 
-          (playerEY == papersSY && playerSX < papersEX && playerEX > papersSX))
+        if ((playerSX == papersEX+1 && playerSY < papersEY && playerEY > papersSY) || 
+          (playerSY == papersEY+1 && playerSX < papersEX && playerEX > papersSX) || 
+          (playerEX == papersSX-1 && playerSY < papersEY && playerEY > papersSY) || 
+          (playerEY == papersSY-1 && playerSX < papersEX && playerEX > papersSX))
         {
           levelState = LevelState.PAPERS;
           currPapers = papers.get(i);
@@ -617,10 +617,10 @@ class Level
         int serverEX = servers.get(i).eX;
         int serverEY = servers.get(i).eY;
 
-        if ((playerSX == serverEX && playerSY < serverEY && playerEY > serverSY) || 
-          (playerSY == serverEY && playerSX < serverEX && playerEX > serverSX) || 
-          (playerEX == serverSX && playerSY < serverEY && playerEY > serverSY) || 
-          (playerEY == serverSY && playerSX < serverEX && playerEX > serverSX))
+        if ((playerSX == serverEX+1 && playerSY < serverEY && playerEY > serverSY) || 
+          (playerSY == serverEY+1 && playerSX < serverEX && playerEX > serverSX) || 
+          (playerEX == serverSX-1 && playerSY < serverEY && playerEY > serverSY) || 
+          (playerEY == serverSY-1 && playerSX < serverEX && playerEX > serverSX))
         {
           levelState = LevelState.SERVER;
           currServer = servers.get(i);
@@ -635,10 +635,10 @@ class Level
         int mugEX = mugSX+20;
         int mugEY = mugSY+20;
 
-        if ((playerSX == mugEX && playerSY < mugEY && playerEY > mugSY) || 
-          (playerSY == mugEY && playerSX < mugEX && playerEX > mugSX) || 
-          (playerEX == mugSX && playerSY < mugEY && playerEY > mugSY) || 
-          (playerEY == mugSY && playerSX < mugEX && playerEX > mugSX))
+        if ((playerSX == mugEX+1 && playerSY < mugEY && playerEY > mugSY) || 
+          (playerSY == mugEY+1 && playerSX < mugEX && playerEX > mugSX) || 
+          (playerEX == mugSX-1 && playerSY < mugEY && playerEY > mugSY) || 
+          (playerEY == mugSY-1 && playerSX < mugEX && playerEX > mugSX))
         {
           levelState = LevelState.FINGERPRINT;
           currMug = mugs.get(i);
@@ -652,10 +652,10 @@ class Level
         int wallEX = brokenWall.endX;
         int wallEY = brokenWall.endY;
 
-        if ((playerSX == wallEX && playerSY < wallEY && playerEY > wallSY) || 
-          (playerSY == wallEY && playerSX < wallEX && playerEX > wallSX) || 
-          (playerEX == wallSX && playerSY < wallEY && playerEY > wallSY) || 
-          (playerEY == wallSY && playerSX < wallEX && playerEX > wallSX))
+        if ((playerSX == wallEX+1 && playerSY < wallEY && playerEY > wallSY) || 
+          (playerSY == wallEY+1 && playerSX < wallEX && playerEX > wallSX) || 
+          (playerEX == wallSX-1 && playerSY < wallEY && playerEY > wallSY) || 
+          (playerEY == wallSY-1 && playerSX < wallEX && playerEX > wallSX))
         {
           levelState = LevelState.CAMERA;
           return;

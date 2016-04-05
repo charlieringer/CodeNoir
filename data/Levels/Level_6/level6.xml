@@ -69,9 +69,9 @@
 	<desk sX="780" sY="20" eX="800" eY="100"></desk>
 	<desk sX="780" sY="140" eX="800" eY="220"></desk>	
 	
-	<terminal sX="300" sY="130" connectedDoorID="1" codeLength="4" connectedDataPath="Levels/Level_6/0.txt" rotate="3"></terminal>
+	<terminal sX="300" sY="130" connectedDoorID="1" codeLength="3" connectedDataPath="Levels/Level_6/0.txt" rotate="3"></terminal>
 	
-	<terminal sX="360" sY="350" connectedCamID="0" codeLength="4" connectedDataPath="Levels/Level_6/1.txt" rotate="0"></terminal>
+	<terminal sX="360" sY="350" connectedCamID="0" codeLength="3" connectedDataPath="Levels/Level_6/1.txt" rotate="0"></terminal>
 	
 	<camera pointOneX="360" pointOneY="320" pointTwoX="320" pointTwoY="240" pointThreeX="400" pointThreeY="240" cameraPointX="360" cameraPointY="320" rotate="2"></camera>
 	

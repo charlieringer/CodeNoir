@@ -143,7 +143,7 @@ class Pins
 
   void up()
   {
-    pinY -= 1.5;
+    pinY -= 2.5;
     if (pinY < 110)
     {
       waiting = true;
@@ -164,7 +164,7 @@ class Lockpick
   // lockpick position variables
   float posX = 325;
   float posY = 280;
-  float pointOffSetX = 200;
+  float pointOffSetX = 195;
   float pointOffSetY = 62;
   boolean up, down, left, right = false;
 
@@ -173,15 +173,14 @@ class Lockpick
   void drawLockpick() 
   {
     image(lockpickimage, posX, posY);
-    lockpickimage.resize(200, 30);
   }
 
   void move()
   {
-    if (up && posY > 245) posY -= 1.5;
-    if (down && posY < 360) posY +=1.5;
-    if (right) posX += 1.5;
-    if (left) posX -=1.5;
+    if (up && posY > 245) posY -= 2.5;
+    if (down && posY < 360) posY +=2.5;
+    if (right) posX += 1.7;
+    if (left) posX -=1.7;
   }
 
   void pressed()
@@ -218,7 +217,7 @@ class Lockpick
 
       float pinHeight = (pinArray[i].pinY+pinArray[i].pinHeight)+50;
 
-      if (pointX > pinX && pointX < pinWidth && pointY > pinHeight-10 && pointY < pinHeight)
+      if (pointX+5 > pinX && pointX < pinWidth && pointY > pinHeight-5 && pointY < pinHeight)
       {
         pinArray[i].pushedUp = true;
       } else pinArray[i].pushedUp = false;

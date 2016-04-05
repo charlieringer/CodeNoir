@@ -132,12 +132,11 @@ class Player
       if (frameCount - interactFrameCount < 5) interact();
       interacting = frameCount - interactFrameCount < 10;
     }
-    assert(wallObjs != null);
-    boolean canUp = true;
-    boolean canDown = true;
-    boolean canLeft = true;
-    boolean canRight = true;
 
+    boolean hasGoneUp = false;
+    boolean hasGoneDown = false;
+    boolean hasGoneLeft = false;
+    boolean hasGoneRight = false;
     for (int i = 0; i < wallObjs.size (); i++)
     {
       int wallSX = wallObjs.get(i).startX;
@@ -145,10 +144,26 @@ class Player
       int wallEX = wallObjs.get(i).endX;
       int wallEY = wallObjs.get(i).endY;
 
-      if (posX < wallEX && posX+30 > wallSX && posY-5 < wallEY && posY +25  > wallSY) canUp = false;
-      if (posX < wallEX && posX+30 > wallSX && posY+5 < wallEY && posY +35  > wallSY) canDown = false;
-      if (posX-5 < wallEX && posX+25 > wallSX && posY < wallEY && posY +30  > wallSY) canLeft = false;
-      if (posX+5 < wallEX && posX+33 > wallSX && posY < wallEY && posY +30  > wallSY) canRight = false;
+      if (goingUp && !hasGoneUp && posX < wallEX && posX+30 > wallSX && posY-speed <= wallEY && posY > wallEY)
+      {
+        hasGoneUp = true;
+        posY = wallEY+1;
+      } 
+      if (goingDown && !hasGoneDown && posX < wallEX && posX+30 > wallSX && posY+30+speed >= wallSY && posY+30 < wallSY)
+      {
+        hasGoneDown = true;
+        posY = wallSY-31;
+      }
+      if (goingLeft && !hasGoneLeft && posX-speed <= wallEX && posX > wallEX && posY < wallEY && posY+30  > wallSY)
+      {
+        hasGoneLeft = true;
+        posX = wallEX+1;
+      }
+      if (goingRight && !hasGoneRight && posX+30+speed >= wallSX && posX+30 < wallSX && posY < wallEY && posY +30  > wallSY)
+      {
+        hasGoneRight = true;
+        posX = wallSX-31;
+      }
     }
 
     for (int i = 0; i < desks.size (); i++)
@@ -158,10 +173,26 @@ class Player
       int deskEX = desks.get(i).endX;
       int deskEY = desks.get(i).endY;
 
-      if (posX < deskEX && posX+30 > deskSX && posY-5 < deskEY && posY +25  > deskSY) canUp = false;
-      if (posX < deskEX && posX+30 > deskSX && posY+5 < deskEY && posY +35  > deskSY) canDown = false;
-      if (posX-5 < deskEX && posX+25 > deskSX && posY < deskEY && posY +30  > deskSY) canLeft = false;
-      if (posX+5 < deskEX && posX+33 > deskSX && posY < deskEY && posY +30  > deskSY) canRight = false;
+      if (goingUp && !hasGoneUp && posX < deskEX && posX+30 > deskSX && posY-speed <= deskEY && posY > deskEY)
+      {
+        hasGoneUp = true;
+        posY = deskEY+1;
+      } 
+      if (goingDown && !hasGoneDown && posX < deskEX && posX+30 > deskSX && posY+30+speed >= deskSY && posY+30 < deskSY)
+      {
+        hasGoneDown = true;
+        posY = deskSY-31;
+      }
+      if (goingLeft && !hasGoneLeft &&posX-speed <= deskEX && posX > deskEX && posY < deskEY && posY+30 > deskSY)
+      {
+        hasGoneLeft = true;
+        posX = deskEX+1;
+      }
+      if (goingRight && !hasGoneRight && posX+30+speed >= deskSX && posX+30 < deskSX && posY < deskEY && posY +30  > deskSY)
+      {
+        hasGoneRight = true;
+        posX = deskSX-31;
+      }
     }
 
     for (int i = 0; i < doors.size (); i++)
@@ -171,10 +202,29 @@ class Player
       int doorEX = doors.get(i).endX;
       int doorEY = doors.get(i).endY;
 
-      if (posX < doorEX && posX+30 > doorSX && posY-5 < doorEY && posY +25  > doorSY) canUp = false;
-      if (posX < doorEX && posX+30 > doorSX && posY+5 < doorEY && posY +35  > doorSY) canDown = false;
-      if (posX-5 < doorEX && posX+25 > doorSX && posY < doorEY && posY +30  > doorSY) canLeft = false;
-      if (posX+5 < doorEX && posX+33 > doorSX && posY < doorEY && posY +30  > doorSY) canRight = false;
+      if (goingUp && !hasGoneUp && posX < doorEX && posX+30 > doorSX && posY-speed <= doorEX && posY > doorEY)
+      {
+        hasGoneUp = true;
+        posY = doorEX+1;
+      } 
+      if (goingDown && !hasGoneDown && posX < doorEX && posX+30 > doorSX && posY+30+speed >= doorSY && posY+30 < doorSY)
+      {
+        hasGoneDown = true;
+        posY = doorSY-31;
+      }
+      if (goingLeft && !hasGoneLeft &&posX-speed <= doorEX && posX > doorEX && posY < doorEX && posY+30  > doorSY)
+      {
+        hasGoneLeft = true;
+        posX = doorEX+1;
+      }
+      if (goingRight && !hasGoneRight && posX+30+speed >= doorSX && posX+30 < doorSX && posY < doorEY&& posY +30  > doorSY)
+      {
+        println("coll"); 
+        println(doorSX + " " + doorEX);
+        println(doorSY + " " + doorEY);
+        hasGoneRight = true;
+        posX = doorSX-31;
+      }
     }
 
     for (int i = 0; i < guards.size(); i++)
@@ -188,33 +238,31 @@ class Player
       int guardEX = guardSX+30;
       int guardEY = guardSY+30;
 
-      if (goingUp && canUp && posX < guardEX && posX+30 > guardSX && posY-5 < guardEY && posY+25  > guardSY)
+      if (goingUp && !hasGoneUp && posX <= guardEX && posX+30 >= guardSX && posY-5 <= guardEY && posY > guardEY)
       {
-       
+        posY=guardEY+1;
         return;
       }
-      if (goingDown&& canDown && posX < guardEX && posX+30 > guardSX && posY+5 < guardEY && posY+35  > guardSY)
+      if (goingDown && !hasGoneDown && posX <= guardEX && posX+30 >= guardSX && posY+35 >= guardSY && posY+30  < guardSY)
       {
-        
+        posY=guardSY-31;
         return;
       }
-      if (goingLeft && canLeft && posX-5 < guardEX && posX-5 > guardSX && posY < guardEY && posY +30  > guardSY)
+      if (goingLeft && !hasGoneLeft &&posX-5 <= guardEX && posX > guardEX && posY <= guardEY && posY+30  >= guardSY)
       {
-        
+        posX=guardEX+1;
         return;
       }
-      if (goingRight && canRight && posX+25 < guardEX && posX+25 > guardSX && posY < guardEY && posY +30  > guardSY)
+      if (goingRight && !hasGoneRight && posX+35 >= guardSX && posX+30 < guardSX && posY <= guardEY && posY+30  >= guardSY)
       {
-        
+        posX=guardSX-31;
         return;
       }
     }
-
-
-    if (goingUp && canUp) posY-=speed;
-    if (goingDown&& canDown) posY+=speed;
-    if (goingLeft && canLeft) posX-=speed;
-    if (goingRight && canRight) posX+=speed;
+    if (goingUp && !hasGoneUp) posY-=speed;
+    if (goingDown && !hasGoneDown) posY+=speed;
+    if (goingLeft && !hasGoneLeft) posX-=speed;
+    if (goingRight && !hasGoneRight) posX+=speed;
   }
 
   void handleKey(boolean state)
@@ -272,33 +320,27 @@ class Player
 
   boolean nextTo(Guard guard)
   {
-    //From right
-    if ((goingLeft||prevRot=='l')
-      && (posX-8) <= (guard.posX+30) 
-      && posX-(guard.posX+30) >= 0 
-      && posX-(guard.posX+30) <= 8
-      && posY < guard.posY+30 
-      && posY+30 > guard.posY) return true;
-    //From left 
-    else if ((goingRight||prevRot=='r') 
-      && (posX+38) >= guard.posX 
-      && (posX+30)-guard.posX >= 0 
-      && (posX+30)-guard.posX <=8 
-      && posY < (guard.posY+30)
-      && (posY+30) > guard.posY) return true;
-    //From bottom
-    else if ((goingUp||prevRot=='u') 
-      &&(posY-8) <= (guard.posY+30) 
-      && posY-(guard.posY+30) >= 0 
-      && posY-(guard.posY+30) <= 8
-      && posX < (guard.posX+30) && (posX+30) > guard.posX) return true;
-    //from top
-    else if ((goingDown||prevRot=='d') 
-      && (posY+38) >= guard.posY 
-      && (posY+30)-guard.posY >= 0 
-      && (posY+30)-guard.posY <= 8 
-      && posX < (guard.posX+30) 
-      && (posX+30) > guard.posX) return true;
+    int guardSX = guard.posX;
+    int guardSY = guard.posY;
+    int guardEX = guardSX+30;
+    int guardEY = guardSY+30;
+
+    if ((goingUp||prevRot=='u') && posX < guardEX && posX+30 > guardSX && posY-5 < guardEY && posY > guardEY)
+    {
+      return true;
+    }
+    if ((goingDown||prevRot=='d')  && posX < guardEX && posX+30 > guardSX && posY+35 > guardSY && posY+30  < guardSY)
+    {
+      return true;
+    }
+    if ((goingLeft||prevRot=='l') && posX-5 < guardEX && posX > guardEX && posY < guardEY && posY+30  > guardSY)
+    {
+      return true;
+    }
+    if ((goingRight||prevRot=='r') && posX+35 > guardSX && posX+30 < guardSX && posY < guardEY && posY+30  > guardSY)
+    {
+      return true;
+    }
     return false;
   }
 }
