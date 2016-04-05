@@ -91,7 +91,7 @@
 	<miscObj sX="164" sY="406" eX="200" eY="442" displayImage="Art_Assets/In_Game/Levels/Misc/filingcab2.png"></miscObj>
 	
 	<miscObj sX="464" sY="20" eX="500" eY="56" displayImage="Art_Assets/In_Game/Levels/Misc/filingcab2.png"></miscObj>
-	<miscObj sX="428" sY="20" eX="464" eY="56" displayImage="Art_Assets/In_Game/Levels/Misc/filingcab2.png"></miscObj>
+	<miscObj sX="425" sY="20" eX="464" eY="56" displayImage="Art_Assets/In_Game/Levels/Misc/filingcab2.png"></miscObj>
 	
 	<miscObj sX="960" sY="20" eX="996" eY="56" displayImage="Art_Assets/In_Game/Levels/Misc/filingcab2.png"></miscObj>
 	<miscObj sX="996" sY="20" eX="1032" eY="56" displayImage="Art_Assets/In_Game/Levels/Misc/filingcab2.png"></miscObj>
