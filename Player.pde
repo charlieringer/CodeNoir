@@ -19,7 +19,7 @@ class Player
   int hasData = 0;
   int spriteNumb = 0;
   int storedFrame = 0;
-  float speed = 5.0;
+  float speed = 4.0;
 
   Player(ArrayList<Wall> walls, ArrayList<LargeObject> desks, ArrayList<Door> doors, ArrayList<Guard> guards, int x, int y)
   {
@@ -183,7 +183,7 @@ class Player
         hasGoneDown = true;
         posY = deskSY-31;
       }
-      if (goingLeft && !hasGoneLeft &&posX-speed <= deskEX && posX > deskEX && posY < deskEY && posY+30 > deskSY)
+      if (goingLeft && !hasGoneLeft && posX-speed <= deskEX && posX > deskEX && posY < deskEY && posY+30 > deskSY)
       {
         hasGoneLeft = true;
         posX = deskEX+1;
@@ -202,26 +202,23 @@ class Player
       int doorEX = doors.get(i).endX;
       int doorEY = doors.get(i).endY;
 
-      if (goingUp && !hasGoneUp && posX < doorEX && posX+30 > doorSX && posY-speed <= doorEX && posY > doorEY)
+      if (goingUp && !hasGoneUp && posX < doorEX && posX+30 > doorSX && posY-speed <= doorEY && posY > doorEY)
       {
         hasGoneUp = true;
-        posY = doorEX+1;
+        posY = doorEY+1;
       } 
       if (goingDown && !hasGoneDown && posX < doorEX && posX+30 > doorSX && posY+30+speed >= doorSY && posY+30 < doorSY)
       {
         hasGoneDown = true;
         posY = doorSY-31;
       }
-      if (goingLeft && !hasGoneLeft &&posX-speed <= doorEX && posX > doorEX && posY < doorEX && posY+30  > doorSY)
+      if (goingLeft && !hasGoneLeft &&posX-speed <= doorEX && posX > doorEX && posY < doorEY && posY+30  > doorSY)
       {
         hasGoneLeft = true;
         posX = doorEX+1;
       }
       if (goingRight && !hasGoneRight && posX+30+speed >= doorSX && posX+30 < doorSX && posY < doorEY&& posY +30  > doorSY)
       {
-        println("coll"); 
-        println(doorSX + " " + doorEX);
-        println(doorSY + " " + doorEY);
         hasGoneRight = true;
         posX = doorSX-31;
       }
