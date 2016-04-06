@@ -250,8 +250,7 @@ class BossGame extends Level
     {
       showTut = false; 
       return;
-    }
-    if (gameCompleted)
+    } else if (gameCompleted)
     {
       if (score > 4)
       {
@@ -267,8 +266,7 @@ class BossGame extends Level
         currentLevel++;
       }
       return;
-    }
-    if (playerDestroyed)
+    } else if (playerDestroyed)
     {
       if (score < 4)
       {
@@ -285,203 +283,204 @@ class BossGame extends Level
         currentLevel++;
         return;
       }
-
-      if (key == ENTER || key == RETURN)
-      {
-        executeCommand(currentInput);
-        currentInput = "";
-      } else if (key == BACKSPACE)
-      {
-        if (currentInput.length() > 0) currentInput = currentInput.substring(0, currentInput.length()-1);
-      } else if (key != CODED)
-      {
-        currentInput +=(char)key;
-      }
-    }
-    void handleKeyOff() {
     }
 
-    void handleMousePressed() {
-    }
-    void handleMouseReleased() {
-    }
-    void handleMouseDragged() {
+    if (key == ENTER || key == RETURN)
+    {
+      executeCommand(currentInput);
+      currentInput = "";
+    } else if (key == BACKSPACE)
+    {
+      if (currentInput.length() > 0) currentInput = currentInput.substring(0, currentInput.length()-1);
+    } else if (key != CODED)
+    {
+      currentInput +=(char)key;
     }
   }
+  void handleKeyOff() {
+  }
 
-  class MemoryLocation
+  void handleMousePressed() {
+  }
+  void handleMouseReleased() {
+  }
+  void handleMouseDragged() {
+  }
+}
+
+class MemoryLocation
+{
+  int x;
+  int y;
+  String address;
+  PImage dispImage;
+  LocationState state;
+  PVector gridRef;
+  BossGame game;
+
+  MemoryLocation(int x, int y, String address, LocationState state, PVector gridRef, BossGame game)
   {
-    int x;
-    int y;
-    String address;
-    PImage dispImage;
-    LocationState state;
-    PVector gridRef;
-    BossGame game;
+    this.x = x;
+    this.y = y;
+    dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon.png");
+    this.address = address;
+    this.state = state;
+    this.gridRef = gridRef;
+    this.game = game;
 
-    MemoryLocation(int x, int y, String address, LocationState state, PVector gridRef, BossGame game)
+    switch(state)
     {
-      this.x = x;
-      this.y = y;
-      dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon.png");
-      this.address = address;
-      this.state = state;
-      this.gridRef = gridRef;
-      this.game = game;
-
-      switch(state)
+    case EMPTY:
       {
-      case EMPTY:
-        {
-          dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon.png");
-          break;
-        }
-      case DATA:
-        {
-          dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon5.png");
-          break;
-        }
-      case UPLOADED:
-        {
-          dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon6.png");
-          break;
-        }
+        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon.png");
+        break;
       }
-    }
-
-    void draw()
-    {
-      if (state != LocationState.DESTROYED)
+    case DATA:
       {
-        image(dispImage, x, y);
-        textAlign(CENTER);
-        text(address, x+59, y+59);
+        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon5.png");
+        break;
       }
-    }
-
-    void upload()
-    {
-      state = LocationState.UPLOADED;
-      dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon6.png");
-    }
-
-    void destroy()
-    {
-      if (state == LocationState.UPLOADED) return;
-      state = LocationState.DESTROYED;
-    }
-
-    void reset()
-    {
-      switch(state)
+    case UPLOADED:
       {
-      case EMPTY:
-        {
-          dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon.png");
-          break;
-        }
-      case DATA:
-        {
-          dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon5.png");
-          break;
-        }
-      case UPLOADED:
-        {
-          dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon6.png");
-          break;
-        }
+        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon6.png");
+        break;
       }
     }
   }
 
-  enum LocationState
+  void draw()
   {
-    EMPTY, 
-      DATA, 
-      UPLOADED, 
-      DESTROYED
+    if (state != LocationState.DESTROYED)
+    {
+      image(dispImage, x, y);
+      textAlign(CENTER);
+      text(address, x+59, y+59);
+    }
   }
 
-    class BossGameAI
+  void upload()
   {
-    boolean targetChosen = false;
-    String command;
-    String fromCommand = "destroy ";
-    BossGame game;
-    int targetLocation;
-    int timer;
-    int destroyed = 0;
-    ArrayList<PImage> targetImgs = new ArrayList<PImage>();
+    state = LocationState.UPLOADED;
+    dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon6.png");
+  }
 
-    BossGameAI(BossGame game)
+  void destroy()
+  {
+    if (state == LocationState.UPLOADED) return;
+    state = LocationState.DESTROYED;
+  }
+
+  void reset()
+  {
+    switch(state)
     {
-      this.game = game;
-      timer= millis();
+    case EMPTY:
+      {
+        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon.png");
+        break;
+      }
+    case DATA:
+      {
+        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon5.png");
+        break;
+      }
+    case UPLOADED:
+      {
+        dispImage = loadImage("Art_Assets/In_Game/BossFight/hexagon6.png");
+        break;
+      }
+    }
+  }
+}
+
+enum LocationState
+{
+  EMPTY, 
+    DATA, 
+    UPLOADED, 
+    DESTROYED
+}
+
+  class BossGameAI
+{
+  boolean targetChosen = false;
+  String command;
+  String fromCommand = "destroy ";
+  BossGame game;
+  int targetLocation;
+  int timer;
+  int destroyed = 0;
+  ArrayList<PImage> targetImgs = new ArrayList<PImage>();
+
+  BossGameAI(BossGame game)
+  {
+    this.game = game;
+    timer= millis();
+    findTarget();
+    command = "";
+    targetImgs.add(loadImage("Art_Assets/In_Game/BossFight/hexagon51.png"));
+    targetImgs.add(loadImage("Art_Assets/In_Game/BossFight/hexagon52.png"));
+    targetImgs.add(loadImage("Art_Assets/In_Game/BossFight/hexagon53.png"));
+    targetImgs.add(loadImage("Art_Assets/In_Game/BossFight/hexagon54.png"));
+    targetImgs.add(loadImage("Art_Assets/In_Game/BossFight/hexagon55.png"));
+    targetImgs.add(loadImage("Art_Assets/In_Game/BossFight/hexagon56.png"));
+  }
+
+  void run()
+  {
+    if (!targetChosen)
+    {
       findTarget();
-      command = "";
-      targetImgs.add(loadImage("Art_Assets/In_Game/BossFight/hexagon51.png"));
-      targetImgs.add(loadImage("Art_Assets/In_Game/BossFight/hexagon52.png"));
-      targetImgs.add(loadImage("Art_Assets/In_Game/BossFight/hexagon53.png"));
-      targetImgs.add(loadImage("Art_Assets/In_Game/BossFight/hexagon54.png"));
-      targetImgs.add(loadImage("Art_Assets/In_Game/BossFight/hexagon55.png"));
-      targetImgs.add(loadImage("Art_Assets/In_Game/BossFight/hexagon56.png"));
-    }
-
-    void run()
-    {
-      if (!targetChosen)
+    } else {
+      if (millis()-timer > 1000 - (50*destroyed))
       {
-        findTarget();
-      } else {
-        if (millis()-timer > 1000 - (50*destroyed))
-        {
-          timer = millis();
-          MemoryLocation target = game.gameGrid.get(targetLocation);
+        timer = millis();
+        MemoryLocation target = game.gameGrid.get(targetLocation);
 
-          if (command.length() < target.address.length() + fromCommand.length())
+        if (command.length() < target.address.length() + fromCommand.length())
+        {
+          if (command.length() < fromCommand.length())
           {
-            if (command.length() < fromCommand.length())
-            {
-              command += fromCommand.charAt(command.length());
-            } else {
-              command += target.address.charAt(command.length()-fromCommand.length());
-            }
+            command += fromCommand.charAt(command.length());
           } else {
-            if (game.gameGrid.get(targetLocation).gridRef.x == game.playerPos.x && game.gameGrid.get(targetLocation).gridRef.y == game.playerPos.y) game.playerDestroyed = true;
-            target.destroy();
-            destroyed++;
-            targetChosen = false;
-            command = "";
-            findTarget();
+            command += target.address.charAt(command.length()-fromCommand.length());
           }
-        }
-      }
-    }
-
-    void draw()
-    {
-      fill(0, 255, 255);
-      text("Incoming remote command: ", 50, 80);
-      fill(255, 0, 0);
-      text(command, 50, 100);
-      for (int i = 0; i < (command.length()/2); i++)
-      {
-        if ( i >= targetImgs.size()) return;
-        image(targetImgs.get(i), game.gameGrid.get(targetLocation).x, game.gameGrid.get(targetLocation).y);
-      }
-    }
-
-    void findTarget()
-    {
-      for (int i = 0; i < game.gameGrid.size(); i++)
-      {
-        MemoryLocation location = game.gameGrid.get(i);
-        if (location.gridRef.x == game.playerPos.x && location.gridRef.y == game.playerPos.y)
-        {
-          targetLocation = i;
-          targetChosen = true;
-          return;
+        } else {
+          if (game.gameGrid.get(targetLocation).gridRef.x == game.playerPos.x && game.gameGrid.get(targetLocation).gridRef.y == game.playerPos.y) game.playerDestroyed = true;
+          target.destroy();
+          destroyed++;
+          targetChosen = false;
+          command = "";
+          findTarget();
         }
       }
     }
   }
+
+  void draw()
+  {
+    fill(0, 255, 255);
+    text("Incoming remote command: ", 50, 80);
+    fill(255, 0, 0);
+    text(command, 50, 100);
+    for (int i = 0; i < (command.length()/2); i++)
+    {
+      if ( i >= targetImgs.size()) return;
+      image(targetImgs.get(i), game.gameGrid.get(targetLocation).x, game.gameGrid.get(targetLocation).y);
+    }
+  }
+
+  void findTarget()
+  {
+    for (int i = 0; i < game.gameGrid.size(); i++)
+    {
+      MemoryLocation location = game.gameGrid.get(i);
+      if (location.gridRef.x == game.playerPos.x && location.gridRef.y == game.playerPos.y)
+      {
+        targetLocation = i;
+        targetChosen = true;
+        return;
+      }
+    }
+  }
+}
