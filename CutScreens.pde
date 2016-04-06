@@ -51,10 +51,10 @@ class CutScreens {
     rectMode(CORNER);
     fill(0);
     if (!custom) rect(0, 560, 700, 60);
-    rect(1000, 560, 200, 60);
-    fill(255);
+    //rect(1000, 560, 200, 60);
+    //fill(255);
     textFont(cyber);
-    text("Skip", 1050, 600);
+    //text("Skip", 1050, 600);
     if (!custom) text("Click/Space to continue", 50, 600);
 
     //prevent out of bounds exception, allows users to automatically go to next level after conversation is over
@@ -117,7 +117,7 @@ class CutScreens {
       fill(59, 59, 59);
       strokeWeight(6);
       stroke(0);
-      rect(150, 400, 320, 90, 20);
+      rect(150, 400, 320, 200, 20);
       fill(255);
       textSize(20);
       text(text.get(convoPos).substring(3, text.get(convoPos).length()), 160, 415, 310, 85);
@@ -126,7 +126,7 @@ class CutScreens {
         fill(59, 59, 59);
         strokeWeight(6);
         stroke(0);
-        rect(275, 50, 300, 90, 20);
+        rect(275, 50, 300, 200, 20);
         fill(255);
         textSize(20);
         text(text.get(convoPos).substring(3, text.get(convoPos).length()), 285, 65, 290, 85);
@@ -134,15 +134,15 @@ class CutScreens {
         fill(59, 59, 59);
         strokeWeight(6);
         stroke(0);
-        rect(635, 50, 320, 90, 20);
+        rect(635, 50, 320, 200, 20);
         fill(255);
         textSize(20);
         text(text.get(convoPos).substring(3, text.get(convoPos).length()), 645, 65, 310, 85);
       }
     }
   }
-
-  void handleMouse() {
+/
+ 8 /*void handleMouse() {
     //if skip is pressed, switch to level based on currentLevel
     if (mouseX > 1000 && mouseX < 1200 && mouseY > 560 && mouseY < 620) {
       switch(currentLevel) {
@@ -188,7 +188,7 @@ class CutScreens {
         break;
       case 11:
         state.state = State.INGAME;
-      }
+      }*/
     }
     //if screen is clicked anywhere above the skip button
     if (mouseX > 0 && mouseX < 1200 && mouseY > 0 && mouseY < 560) {
