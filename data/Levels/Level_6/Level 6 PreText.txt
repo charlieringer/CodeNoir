@@ -1,9 +1,5 @@
-H: Awesome work Agent.
-H: Intel tell us that next up is the archives
+H: Awesome work Agent. Intel tell us that next up is the archives
 P: What do you need me to get?
-H: There is mostly paperwork stored here
-H: but there should be a server on this floor.
+H: There is mostly paperwork stored here but there should be a server on this floor.
 H: Get there, get the data and get out.
-P: More of the same then?
-H: Yes Agent Goldsmith. 
-P: Mission understood.
+P: More of the same then? Mission understood.

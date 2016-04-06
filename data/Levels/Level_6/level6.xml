@@ -56,7 +56,7 @@
 	
 	<desk sX="300" sY="100" eX="320" eY="200"></desk>	
 	
-	<desk sX="980" sY="450" eX="1050" eY="515"></desk>
+	<desk sX="981" sY="450" eX="1050" eY="515"></desk>
 	
 	<desk sX="880" sY="350" eX="900" eY="450"></desk>	
 	<desk sX="880" sY="480" eX="900" eY="580"></desk>	
@@ -135,9 +135,9 @@
 	<miscObj sX="330" sY="550" eX="360" eY="580" displayImage="Art_Assets/In_Game/Levels/Misc/seat12.png"></miscObj>
 	<miscObj sX="360" sY="550" eX="390" eY="580" displayImage="Art_Assets/In_Game/Levels/Misc/seat21.png"></miscObj>	
 	
-	<miscObj sX="350" sY="125" eX="380" eY="155" displayImage="Art_Assets/In_Game/Levels/Misc/chair0.png"></miscObj>
+	<miscObj sX="351" sY="125" eX="381" eY="155" displayImage="Art_Assets/In_Game/Levels/Misc/chair0.png"></miscObj>
 	
-	<miscObj sX="355" sY="400" eX="385" eY="430" displayImage="Art_Assets/In_Game/Levels/Misc/chair2.png"></miscObj>
+	<miscObj sX="355" sY="401" eX="385" eY="431" displayImage="Art_Assets/In_Game/Levels/Misc/chair2.png"></miscObj>
 	
 	<miscObj sX="920" sY="540" eX="950" eY="570" displayImage="Art_Assets/In_Game/Levels/Misc/plant.png"></miscObj>
 	<miscObj sX="920" sY="20" eX="950" eY="50" displayImage="Art_Assets/In_Game/Levels/Misc/plant2.png"></miscObj>
@@ -153,7 +153,7 @@
 	<end sX="20" sY="240" eX="60" eY="320" rotate="3"></end>
 	<player sX="1080" sY="540"></player>
 	<dataAmount needed = "1"></dataAmount>
-	<mug sX="980" sY="450" connectedDoorID = "0"></mug>
+	<mug sX="981" sY="450" connectedDoorID = "0"></mug>
 	<server sX="470" sY="490" eX="560" eY="580" level="Levels/Level_6/Server/level.txt" solution="Levels/Level_6//Server/solution.txt"></server>
 	<paper sX="880" sY="540" dataPath="Levels/Level_6/2.txt"></paper>
 	<paper sX="700" sY="20" dataPath="Levels/Level_6/3.txt"></paper>

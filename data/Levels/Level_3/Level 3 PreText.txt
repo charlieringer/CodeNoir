@@ -1,7 +1,4 @@
-P: There is something not right here
-P: Too many guards on duty
+P: There is something not right here, too many guards on duty.
 H: Yeah I get that feeling too
 P: What are they protecting?
-H: That is for you to find out Agent 
-H: Goldsmith. More of the same up ahead 
-H: I am afraid. Get the data and get out!
+H: That is for you to find out Agent Goldsmith. More of the same up ahead I am afraid. Get the data and get out!

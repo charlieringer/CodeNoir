@@ -51,10 +51,8 @@ class CutScreens {
     rectMode(CORNER);
     fill(0);
     if (!custom) rect(0, 560, 700, 60);
-    //rect(1000, 560, 200, 60);
-    //fill(255);
+    fill(255);
     textFont(cyber);
-    //text("Skip", 1050, 600);
     if (!custom) text("Click/Space to continue", 50, 600);
 
     //prevent out of bounds exception, allows users to automatically go to next level after conversation is over
@@ -120,7 +118,7 @@ class CutScreens {
       rect(150, 400, 320, 200, 20);
       fill(255);
       textSize(20);
-      text(text.get(convoPos).substring(3, text.get(convoPos).length()), 160, 415, 310, 85);
+      text(text.get(convoPos).substring(3, text.get(convoPos).length()), 160, 415, 310, 185);
     } else {
       if (text.get(convoPos).substring(0, 2).equals("P:")) {
         fill(59, 59, 59);
@@ -129,7 +127,7 @@ class CutScreens {
         rect(275, 50, 300, 200, 20);
         fill(255);
         textSize(20);
-        text(text.get(convoPos).substring(3, text.get(convoPos).length()), 285, 65, 290, 85);
+        text(text.get(convoPos).substring(3, text.get(convoPos).length()), 285, 65, 290, 185);
       } else if (text.get(convoPos).substring(0, 2).equals("H:")) {
         fill(59, 59, 59);
         strokeWeight(6);
@@ -137,12 +135,11 @@ class CutScreens {
         rect(635, 50, 320, 200, 20);
         fill(255);
         textSize(20);
-        text(text.get(convoPos).substring(3, text.get(convoPos).length()), 645, 65, 310, 85);
+        text(text.get(convoPos).substring(3, text.get(convoPos).length()), 645, 65, 310, 185);
       }
     }
   }
-/
- 8 /*void handleMouse() {
+  void handleMouse() {
     //if skip is pressed, switch to level based on currentLevel
     if (mouseX > 1000 && mouseX < 1200 && mouseY > 560 && mouseY < 620) {
       switch(currentLevel) {
@@ -188,9 +185,10 @@ class CutScreens {
         break;
       case 11:
         state.state = State.INGAME;
-      }*/
+      }
+      
     }
-    //if screen is clicked anywhere above the skip button
+      //if screen is clicked anywhere above the skip button
     if (mouseX > 0 && mouseX < 1200 && mouseY > 0 && mouseY < 560) {
       convoPos++;
     }

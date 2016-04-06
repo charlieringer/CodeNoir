@@ -113,12 +113,12 @@
 	<miscObj sX="482" sY="204" eX="518" eY="240" displayImage="Art_Assets/In_Game/Levels/Misc/filingcab.png"></miscObj>
 	
 	<miscObj sX="760" sY="540" eX="810" eY="580" displayImage="Art_Assets/In_Game/Levels/Misc/photocopier2.png"></miscObj>
-	<miscObj sX="380" sY="540" eX="430" eY="580" displayImage="Art_Assets/In_Game/Levels/Misc/photocopier2.png"></miscObj>
+	<miscObj sX="379" sY="540" eX="429" eY="580" displayImage="Art_Assets/In_Game/Levels/Misc/photocopier2.png"></miscObj>
 	
-	<miscObj sX="410" sY="80" eX="440" eY="110" displayImage="Art_Assets/In_Game/Levels/Misc/chair0.png"></miscObj>
-	<miscObj sX="500" sY="40" eX="530" eY="70" displayImage="Art_Assets/In_Game/Levels/Misc/chair3.png"></miscObj>
-	<miscObj sX="245" sY="500" eX="275" eY="530" displayImage="Art_Assets/In_Game/Levels/Misc/chair1.png"></miscObj>
-	<miscObj sX="875" sY="500" eX="905" eY="530" displayImage="Art_Assets/In_Game/Levels/Misc/chair1.png"></miscObj>
+	<miscObj sX="411" sY="80" eX="441" eY="110" displayImage="Art_Assets/In_Game/Levels/Misc/chair0.png"></miscObj>
+	<miscObj sX="499" sY="40" eX="529" eY="70" displayImage="Art_Assets/In_Game/Levels/Misc/chair3.png"></miscObj>
+	<miscObj sX="245" sY="499" eX="275" eY="529" displayImage="Art_Assets/In_Game/Levels/Misc/chair1.png"></miscObj>
+	<miscObj sX="875" sY="499" eX="905" eY="529" displayImage="Art_Assets/In_Game/Levels/Misc/chair1.png"></miscObj>
 	
 	<!-- End -->
 	<end sX="1040" sY="20" eX="1120" eY="60" rotate="0"></end>

@@ -1,8 +1,5 @@
-H: Looks like we found where they 
-H: store the roboguards
+H: Looks like we found where they store the roboguards
 P: What do you mean?
-H: The next floor is littered with them
-H: Looks like some sort of recharge room
-H: No data there however, just get though it
+H: The next floor is littered with them. Looks like some sort of recharge room. No data there however, just get though it.
 P: Ok thanks for the warning!
 H: Anytime Agent Goldsmiths.

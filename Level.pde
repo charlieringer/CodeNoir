@@ -270,9 +270,17 @@ class Level
   void drawOuterLevel()
   {
     drawFloor();
+    for (Guard guard : guards)
+    {
+      if (!gameOver) {
+        if (gameOver = guard.checkForPlayer(player)) return;
+      }
+      guard.moveandDrawGuard(hardObjects);
+    }
     for (Wall wall : walls) { 
       wall.drawWall();
     }
+
     for (LargeObject obj : hardObjects) { 
       obj.drawObj();
     }
@@ -292,13 +300,6 @@ class Level
     for (SecurityCamera secCam : secCams) { 
       secCam.drawCamera(); 
       if (secCam.checkForPlayer(player)) gameOver = true;
-    }
-    for (Guard guard : guards)
-    {
-      if (!gameOver) {
-        if (gameOver = guard.checkForPlayer(player)) return;
-      }
-      guard.moveandDrawGuard(hardObjects);
     }
 
     for (Server server : servers)
@@ -867,12 +868,12 @@ class PauseScreen
     //settings is pressed
     if (mouseX > 750 && mouseX < 1050 && mouseY > 300 && mouseY < 350) {
       if (save.bgMusic == 1) {
-          save.bgMusic = 0;
-          save.outputSave();
-        } else {
-          save.bgMusic = 1;
-          save.outputSave();
-        }
+        save.bgMusic = 0;
+        save.outputSave();
+      } else {
+        save.bgMusic = 1;
+        save.outputSave();
+      }
     }
     //return to menu is pressed
     if (mouseX > 750 && mouseX < 1050 && mouseY > 400 && mouseY < 450) {

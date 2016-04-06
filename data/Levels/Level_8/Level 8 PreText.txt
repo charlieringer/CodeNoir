@@ -1,10 +1,4 @@
-H: We received your camera feed 
-H: These guys are monsters
-P: It is not a pretty sight is it
-H: No, it is not. This floor is the HR department
-H: We now know they treat Humans 
-H: as a resource
-P: We need to take them down
-H: Agreed, find incriminating evidence
-H: on this floor and lets get them
-P: Understood
+H: We received your camera feed, these guys are monsters.
+P: It is not a pretty sight is it. Experimenting on people is sickening.
+H: I agree Agent. This floor is the HR department, we now know they treat Humans as a resource.
+H: Find incriminating evidence on this floor and help us bring them down!

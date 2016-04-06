@@ -70,17 +70,17 @@
     <miscObj sX="140" sY="20" eX="170" eY="60" displayImage="Art_Assets/In_Game/Levels/Misc/seat10.png"></miscObj>
     <miscObj sX="170" sY="20" eX="200" eY="60" displayImage="Art_Assets/In_Game/Levels/Misc/seat01.png"></miscObj>
 
-	<miscObj sX="400" sY="140" eX="430" eY="170" displayImage="Art_Assets/In_Game/Levels/Misc/chair1.png"></miscObj>
-	<miscObj sX="600" sY="140" eX="630" eY="170" displayImage="Art_Assets/In_Game/Levels/Misc/chair1.png"></miscObj>
-	<miscObj sX="500" sY="140" eX="530" eY="170" displayImage="Art_Assets/In_Game/Levels/Misc/chair1.png"></miscObj>
-	<miscObj sX="700" sY="140" eX="730" eY="170" displayImage="Art_Assets/In_Game/Levels/Misc/chair1.png"></miscObj>
+	<miscObj sX="400" sY="139" eX="430" eY="169" displayImage="Art_Assets/In_Game/Levels/Misc/chair1.png"></miscObj>
+	<miscObj sX="600" sY="139" eX="630" eY="169" displayImage="Art_Assets/In_Game/Levels/Misc/chair1.png"></miscObj>
+	<miscObj sX="500" sY="139" eX="530" eY="169" displayImage="Art_Assets/In_Game/Levels/Misc/chair1.png"></miscObj>
+	<miscObj sX="700" sY="139" eX="730" eY="169" displayImage="Art_Assets/In_Game/Levels/Misc/chair1.png"></miscObj>
 	
-	<miscObj sX="400" sY="450" eX="430" eY="480" displayImage="Art_Assets/In_Game/Levels/Misc/chair2.png"></miscObj>
-	<miscObj sX="600" sY="450" eX="630" eY="480" displayImage="Art_Assets/In_Game/Levels/Misc/chair2.png"></miscObj>
-    <miscObj sX="500" sY="450" eX="530" eY="480" displayImage="Art_Assets/In_Game/Levels/Misc/chair2.png"></miscObj>
-	<miscObj sX="700" sY="450" eX="730" eY="480" displayImage="Art_Assets/In_Game/Levels/Misc/chair2.png"></miscObj>
+	<miscObj sX="400" sY="451" eX="430" eY="481" displayImage="Art_Assets/In_Game/Levels/Misc/chair2.png"></miscObj>
+	<miscObj sX="600" sY="451" eX="630" eY="481" displayImage="Art_Assets/In_Game/Levels/Misc/chair2.png"></miscObj>
+    <miscObj sX="500" sY="451" eX="530" eY="481" displayImage="Art_Assets/In_Game/Levels/Misc/chair2.png"></miscObj>
+	<miscObj sX="700" sY="451" eX="730" eY="481" displayImage="Art_Assets/In_Game/Levels/Misc/chair2.png"></miscObj>
     
-    <miscObj sX="830" sY="280" eX="860" eY="310" displayImage="Art_Assets/In_Game/Levels/Misc/chair0.png"></miscObj>
+    <miscObj sX="831" sY="280" eX="861" eY="310" displayImage="Art_Assets/In_Game/Levels/Misc/chair0.png"></miscObj>
     
     <miscObj sX="210" sY="20" eX="250" eY="60" displayImage="Art_Assets/In_Game/Levels/Misc/plant.png"></miscObj>
     <miscObj sX="900" sY="20" eX="940" eY="60" displayImage="Art_Assets/In_Game/Levels/Misc/plant2.png"></miscObj>

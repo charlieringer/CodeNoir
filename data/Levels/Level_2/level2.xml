@@ -39,15 +39,15 @@
 	
 	<desk sX="1000" sY="510" eX="1100" eY="530"></desk>
 	<desk sX="1000" sY="410" eX="1100" eY="430"></desk>
-	<desk sX="1000" sY="310" eX="1100" eY="330"></desk>
+	<desk sX="1000" sY="311" eX="1100" eY="331"></desk>
 	
 	<desk sX="800" sY="510" eX="900" eY="530"></desk>
 	<desk sX="800" sY="410" eX="900" eY="430"></desk>
-	<desk sX="800" sY="310" eX="900" eY="330"></desk>
+	<desk sX="800" sY="311" eX="900" eY="331"></desk>
 	
 	<desk sX="600" sY="510" eX="700" eY="530"></desk>
 	<desk sX="600" sY="410" eX="700" eY="430"></desk>
-	<desk sX="600" sY="310" eX="700" eY="330"></desk>
+	<desk sX="600" sY="311" eX="700" eY="331"></desk>
 	
 	<desk sX="520" sY="100" eX="540" eY="200"></desk>
 	<desk sX="1000" sY="20" eX="1100" eY="40"></desk>
@@ -106,8 +106,8 @@
 	<miscObj sX="1150" sY="60" eX="1180" eY="90" displayImage="Art_Assets/In_Game/Levels/Misc/seat20.png"></miscObj>
 	<miscObj sX="1150" sY="90" eX="1180" eY="110" displayImage="Art_Assets/In_Game/Levels/Misc/seat02.png"></miscObj>
 	
-	<miscObj sX="570" sY="120" eX="600" eY="150" displayImage="Art_Assets/In_Game/Levels/Misc/chair0.png"></miscObj>
-	<miscObj sX="1030" sY="70" eX="1060" eY="100" displayImage="Art_Assets/In_Game/Levels/Misc/chair2.png"></miscObj>
+	<miscObj sX="571" sY="120" eX="601" eY="150" displayImage="Art_Assets/In_Game/Levels/Misc/chair0.png"></miscObj>
+	<miscObj sX="1030" sY="71" eX="1060" eY="101" displayImage="Art_Assets/In_Game/Levels/Misc/chair2.png"></miscObj>
 	
 </level2>
 

@@ -1,8 +1,3 @@
-H: Hmm this is strange
-P: What is the problem?
-H: There is a massive blackhole in our plans
+H: Hmm this is strange. There is a massive blackhole in our plans.
 P: Something super secret then?
-H: It would seem that way, find out what is 
-H: going on and report back
-P: Understood
-H: Be Careful.
+H: It would seem that way, you need to find out what is going on and report back but be careful.

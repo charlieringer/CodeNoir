@@ -1,12 +1,4 @@
-H: No, no, no, how could this happen
-P: It would seems that I have bested you
-H: You may have foiled my plans here
-H: But I have other plans 
-P: Why are you doing this, life should
-P: be real, real people with real body
-P: parts. Not what you have created
-H: Ha, how antiquated a view you have.
-H: I will rise!
-H: We will rise!
-H: The androids will rise!
-P: You will never succeed!
+H: No, no, no, how could this happen. You may have foiled my plans here but I have other plans 
+P: Why are you doing this, life should be real, real people with real body parts. Not what you have created.
+H: Ha, how antiquated a view you have. I will rise! We will rise! The androids will rise!
+P: I would like to see you try from behind bars. Face it, you lost this battle.
