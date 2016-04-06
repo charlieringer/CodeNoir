@@ -269,6 +269,7 @@ class mainMenu {
       buttons.get(i).checkHover();
     }
     textSize(20);
+    fill(255);
     text("Please play with brightness turned up.", 10, 600);
   }
 }
