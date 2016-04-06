@@ -145,6 +145,7 @@ class PapersObject extends SmallObject
 {
   PImage dispImage = loadImage("Art_Assets/In_Game/Levels/Papers/0.png");
   PImage template = loadImage("Art_Assets/In_Game/Levels/Papers/paperTemplate.png");
+  PImage office = loadImage("Art_Assets/In_Game/Terminal/office.jpeg");
   PFont monaco = createFont("Fonts/Monaco.ttf", 20);
   StringList dataList = new StringList();
   int x, y;
@@ -174,6 +175,7 @@ class PapersObject extends SmallObject
 
   void displayOnOwn()
   {
+    background(office);
     fill(255);
     image(template, 100, 40);
     textAlign(CENTER);
@@ -183,6 +185,8 @@ class PapersObject extends SmallObject
     {
       text(dataList.get(i), 600, 100 + (i*40));
     }
+    fill(255);
+    text("SPACE TO EXIT", 600,590);
     textAlign(LEFT);
   }
 

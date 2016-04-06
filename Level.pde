@@ -364,12 +364,12 @@ class Level
             status.drawStatusBar("Door (locked) - Find terminal to unlock");
           } else if (doors.get(i).doorType.equals("l"))
           {
-            status.drawStatusBar("Locked Door - press SPACE to pick lock");
+            status.drawStatusBar("Locked Door - press X to pick lock");
           } else if (doors.get(i).doorType.equals("f"))
           {
             if (doors.get(i).hasFingerPrint)
             {
-              status.drawStatusBar("Locked Door - Fingerprint found, press SPACE to unlock");
+              status.drawStatusBar("Locked Door - Fingerprint found, press X to unlock");
             } else 
             {
               status.drawStatusBar("Locked Door - Find fingerprint to unlock");
@@ -392,7 +392,7 @@ class Level
         (playerEX == termSX-1 && playerSY < termEY && playerEY > termSY) || 
         (playerEY == termSY-1 && playerSX < termEX && playerEX > termSX))
       {
-        status.drawStatusBar("Terminal - press SPACE to use");
+        status.drawStatusBar("Terminal - press X to use");
         return;
       }
     }
@@ -410,7 +410,7 @@ class Level
         (playerEX == papersSX-1 && playerSY < papersEY && playerEY > papersSY) || 
         (playerEY == papersSY-1 && playerSX < papersEX && playerEX > papersSX))
       {
-        status.drawStatusBar("Papers - press SPACE to read");
+        status.drawStatusBar("Papers - press X to read");
         return;
       }
     }
@@ -427,7 +427,7 @@ class Level
         (playerEX == serverSX-1 && playerSY < serverEY && playerEY > serverSY) || 
         (playerEY == serverSY-1 && playerSX < serverEX && playerEX > serverSX))
       {
-        status.drawStatusBar("Server - press SPACE to download data");
+        status.drawStatusBar("Server - press X to download data");
         return;
       }
     }
@@ -444,7 +444,7 @@ class Level
         (playerEX == mugsSX-1 && playerSY < mugsEY && playerEY > mugsSY) || 
         (playerEY == mugsSY-1 && playerSX < mugsEX && playerEX > mugsSX))
       {
-        status.drawStatusBar("Mug - press SPACE to copy fingerprint");
+        status.drawStatusBar("Mug - press X to copy fingerprint");
         return;
       }
     }
@@ -460,7 +460,7 @@ class Level
         (playerEX == wallSX-1 && playerSY < wallEY && playerEY > wallSY) || 
         (playerEY == wallSY-1 && playerSX < wallEX && playerEX > wallSX))
       {
-        status.drawStatusBar("Cracked wall - press SPACE to feed camera through hole");
+        status.drawStatusBar("Cracked wall - press X to feed camera through hole");
         return;
       }
     }
@@ -539,7 +539,7 @@ class Level
   void outerLevelKeyOn()
   {
     //We have pressed the interact button
-    if (key == ' ')
+    if (key == 'x')
     {
       int playerSX = player.posX;
       int playerSY = player.posY;
