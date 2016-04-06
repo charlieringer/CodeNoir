@@ -56,9 +56,8 @@
 	<door sX="1020" sY="340" orientation="h" locktype="f"></door>
 	<door sX="160" sY="80" orientation="v" locktype="t"></door>
 	<door sX="900" sY="80" orientation="v" locktype="t"></door>
-	<door sX="240" sY="240" orientation="h" locktype="l" pins="4"></door>
-	<door sX="700" sY="440" orientation="v" locktype="l" pins="4"></door>
-	
+	<door sX="240" sY="240" orientation="h" locktype="l" pins="3"></door>
+    
 	<!-- Guards -->
 	<guard sX="960" sY="200" startingOrientation="r" onCollisionTurn="b"></guard>
 	<guard sX="1140" sY="260" startingOrientation="l" onCollisionTurn="b"></guard>

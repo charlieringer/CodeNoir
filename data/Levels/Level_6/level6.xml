@@ -41,8 +41,7 @@
 	<door sX="560" sY="410" orientation="v" locktype="f"></door>
 	<door sX="280" sY="240" orientation="v" locktype="t"></door>
 	<door sX="500" sY="70" orientation="v" locktype="l" pins="4"></door>
-	<door sX="700" sY="330" orientation="h" locktype="l" pins="4"></door>
-	<door sX="620" sY="70" orientation="v" locktype="l" pins="4"></door>
+	<door sX="700" sY="330" orientation="h" locktype="l" pins="3"></door>
 	
     <!-- Guards -->
     <guard sX="550" sY="30" startingOrientation="d" onCollisionTurn="b"></guard>

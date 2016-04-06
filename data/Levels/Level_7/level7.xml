@@ -44,7 +44,7 @@
     <desk sX="820" sY="20" eX="920" eY="40"></desk>
     <paper sX="849" sY="20" dataPath="Levels/Level_7/4.txt"></paper>
     <desk sX="20" sY="20" eX="120" eY="40"></desk>
-    <terminal sX="40" sY="20" connectedDoorID="1" connectedDataPath="Levels/Level_7/1.txt" codeLength="4" rotate="0"></terminal>
+    <terminal sX="40" sY="20" connectedDoorID="0" connectedDataPath="Levels/Level_7/1.txt" codeLength="4" rotate="0"></terminal>
     <miscObj sX="41" sY="71" eX="71" eY="101" displayImage="Art_Assets/In_Game/Levels/Misc/chair2.png"></miscObj>
     <paper sX="100" sY="20" dataPath="Levels/Level_7/5.txt"></paper>
     <desk sX="20" sY="160" eX="40" eY="260"></desk>
@@ -52,7 +52,7 @@
     <miscObj sX="81" sY="199" eX="111" eY="229" displayImage="Art_Assets/In_Game/Levels/Misc/chair0.png"></miscObj>
     
     <desk sX="200" sY="560" eX="300" eY="580"></desk>
-    <terminal sX="220" sY="560" connectedDoorID="3" codeLength="4" rotate="2"></terminal>
+    <terminal sX="220" sY="560" connectedDoorID="2" codeLength="4" rotate="2"></terminal>
     <miscObj sX="215" sY="499" eX="245" eY="529" displayImage="Art_Assets/In_Game/Levels/Misc/chair1.png"></miscObj>
     
     <desk sX="590" sY="312" eX="610" eY="410"></desk>
@@ -74,9 +74,8 @@
     <desk sX="860" sY="540" eX="920" eY="580"></desk>
     <paper sX="900" sY="540" dataPath="Levels/Level_1/0.txt"></paper>
     
-    <door sX="960" sY="290" orientation="v" locktype="l" pins="4"></door>
     <door sX="825" sY="260" orientation="h" locktype="t"></door>
-    <door sX="660" sY="290" orientation="v" locktype="l" pins="4"></door>
+    <door sX="660" sY="290" orientation="v" locktype="l" pins="3"></door>
     <door sX="120" sY="260" orientation="h" locktype="t"></door>
     <door sX="120" sY="360" orientation="h" locktype="l" pins="4"></door>
     
