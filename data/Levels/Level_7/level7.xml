@@ -55,17 +55,17 @@
     <terminal sX="220" sY="560" connectedDoorID="3" codeLength="4" rotate="2"></terminal>
     <miscObj sX="215" sY="499" eX="245" eY="529" displayImage="Art_Assets/In_Game/Levels/Misc/chair1.png"></miscObj>
     
-    <desk sX="590" sY="311" eX="610" eY="410"></desk>
+    <desk sX="590" sY="312" eX="610" eY="410"></desk>
     <terminal sX="590" sY="330" connectedCamID="0" connectedDataPath="Levels/Level_7/0.txt" codeLength="4" rotate="1"></terminal>
     <miscObj sX="529" sY="325" eX="559" eY="355" displayImage="Art_Assets/In_Game/Levels/Misc/chair3.png"></miscObj>
     <desk sX="590" sY="450" eX="610" eY="549"></desk>
     <paper sX="590" sY="500" dataPath="Levels/Level_7/6.txt"></paper>
    
-    <desk sX="470" sY="311" eX="490" eY="410"></desk>
+    <desk sX="470" sY="312" eX="490" eY="410"></desk>
     <paper sX="470" sY="330" dataPath="Levels/Level_7/3.txt"></paper>
-    <desk sX="470" sY="450" eX="490" eY="549"></desk>
+    <desk sX="470" sY="450" eX="490" eY="548"></desk>
     
-    <desk sX="320" sY="450" eX="340" eY="549"></desk>
+    <desk sX="320" sY="450" eX="340" eY="548"></desk>
     <terminal sX="320" sY="480" connectedDataPath="Levels/Level_7/2.txt" codeLength="0" rotate="3"></terminal>
     <miscObj sX="381" sY="475" eX="411" eY="505" displayImage="Art_Assets/In_Game/Levels/Misc/chair0.png"></miscObj>
     
