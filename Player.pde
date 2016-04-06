@@ -144,22 +144,22 @@ class Player
       int wallEX = wallObjs.get(i).endX;
       int wallEY = wallObjs.get(i).endY;
 
-      if (goingUp && !hasGoneUp && posX < wallEX && posX+30 > wallSX && posY-speed <= wallEY && posY > wallEY)
+      if (goingUp && !hasGoneUp && posX < wallEX && posX+30 > wallSX && posY-speed <= wallEY && posY+1 > wallEY)
       {
         hasGoneUp = true;
         posY = wallEY+1;
       } 
-      if (goingDown && !hasGoneDown && posX < wallEX && posX+30 > wallSX && posY+30+speed >= wallSY && posY+30 < wallSY)
+      if (goingDown && !hasGoneDown && posX < wallEX && posX+30 > wallSX && posY+30+speed >= wallSY && posY+29 < wallSY)
       {
         hasGoneDown = true;
         posY = wallSY-31;
       }
-      if (goingLeft && !hasGoneLeft && posX-speed <= wallEX && posX > wallEX && posY < wallEY && posY+30  > wallSY)
+      if (goingLeft && !hasGoneLeft && posX-speed <= wallEX && posX+1 > wallEX && posY < wallEY && posY+30  > wallSY)
       {
         hasGoneLeft = true;
         posX = wallEX+1;
       }
-      if (goingRight && !hasGoneRight && posX+30+speed >= wallSX && posX+30 < wallSX && posY < wallEY && posY +30  > wallSY)
+      if (goingRight && !hasGoneRight && posX+30+speed >= wallSX && posX+29  < wallSX && posY < wallEY && posY +30  > wallSY)
       {
         hasGoneRight = true;
         posX = wallSX-31;
@@ -173,22 +173,22 @@ class Player
       int deskEX = desks.get(i).endX;
       int deskEY = desks.get(i).endY;
 
-      if (goingUp && !hasGoneUp && posX < deskEX && posX+30 > deskSX && posY-speed <= deskEY && posY > deskEY)
+      if (goingUp && !hasGoneUp && posX < deskEX && posX+30 > deskSX && posY-speed <= deskEY && posY+1 > deskEY)
       {
         hasGoneUp = true;
         posY = deskEY+1;
       } 
-      if (goingDown && !hasGoneDown && posX < deskEX && posX+30 > deskSX && posY+30+speed >= deskSY && posY+30 < deskSY)
+      if (goingDown && !hasGoneDown && posX < deskEX && posX+30 > deskSX && posY+30+speed >= deskSY && posY+29 < deskSY)
       {
         hasGoneDown = true;
         posY = deskSY-31;
       }
-      if (goingLeft && !hasGoneLeft && posX-speed <= deskEX && posX > deskEX && posY < deskEY && posY+30 > deskSY)
+      if (goingLeft && !hasGoneLeft && posX-speed <= deskEX && posX+1 > deskEX && posY < deskEY && posY+30 > deskSY)
       {
         hasGoneLeft = true;
         posX = deskEX+1;
       }
-      if (goingRight && !hasGoneRight && posX+30+speed >= deskSX && posX+30 < deskSX && posY < deskEY && posY +30  > deskSY)
+      if (goingRight && !hasGoneRight && posX+30+speed >= deskSX && posX+29 < deskSX && posY < deskEY && posY +30  > deskSY)
       {
         hasGoneRight = true;
         posX = deskSX-31;
@@ -202,22 +202,22 @@ class Player
       int doorEX = doors.get(i).endX;
       int doorEY = doors.get(i).endY;
 
-      if (goingUp && !hasGoneUp && posX < doorEX && posX+30 > doorSX && posY-speed <= doorEY && posY > doorEY)
+      if (goingUp && !hasGoneUp && posX < doorEX && posX+30 > doorSX && posY-speed <= doorEY && posY+1 > doorEY)
       {
         hasGoneUp = true;
         posY = doorEY+1;
       } 
-      if (goingDown && !hasGoneDown && posX < doorEX && posX+30 > doorSX && posY+30+speed >= doorSY && posY+30 < doorSY)
+      if (goingDown && !hasGoneDown && posX < doorEX && posX+30 > doorSX && posY+30+speed >= doorSY && posY+29 < doorSY)
       {
         hasGoneDown = true;
         posY = doorSY-31;
       }
-      if (goingLeft && !hasGoneLeft &&posX-speed <= doorEX && posX > doorEX && posY < doorEY && posY+30  > doorSY)
+      if (goingLeft && !hasGoneLeft &&posX-speed <= doorEX && posX+1 > doorEX && posY < doorEY && posY+30  > doorSY)
       {
         hasGoneLeft = true;
         posX = doorEX+1;
       }
-      if (goingRight && !hasGoneRight && posX+30+speed >= doorSX && posX+30 < doorSX && posY < doorEY&& posY +30  > doorSY)
+      if (goingRight && !hasGoneRight && posX+30+speed >= doorSX && posX+29 < doorSX && posY < doorEY&& posY +30  > doorSY)
       {
         hasGoneRight = true;
         posX = doorSX-31;
