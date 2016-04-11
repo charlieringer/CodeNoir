@@ -41,7 +41,7 @@
 	
 	
 	<!-- Rooms -->
-	<room sX="0" sY="0" eX="210" eY="580"></room>
+	<room sX="20" sY="20" eX="210" eY="580"></room>
 
 	<room sX="210" sY="260" eX="660" eY="350"></room>
 	<room sX="740" sY="260" eX="970" eY="350"></room>

@@ -22,11 +22,11 @@
     <wall sX="1080" sY="320" eX="1100" eY="600"></wall>
 
 	<!-- Rooms -->
-	<room sX="0" sY="0" eX="210" eY="600"></room>
-	<room sX="210" sY="0" eX="950" eY="600"></room>
-    <room sX="950" sY="0" eX="1020" eY="600"></room>
-    <room sX="1020" sY="0" eX="1090" eY="600"></room>
-    <room sX="1090" sY="0" eX="1200" eY="600"></room>
+	<room sX="20" sY="20" eX="210" eY="580"></room>
+	<room sX="210" sY="20" eX="950" eY="580"></room>
+    <room sX="950" sY="20" eX="1020" eY="580"></room>
+    <room sX="1020" sY="20" eX="1090" eY="580"></room>
+    <room sX="1090" sY="20" eX="1180" eY="580"></room>
     
 	<!-- Doors -->
 	<!-- terminal door -->

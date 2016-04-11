@@ -42,19 +42,19 @@
 		
 	<!-- Rooms -->
 	<!-- room with large table -->
-	<room sX="0" sY="0" eX="255" eY="350"></room>
+	<room sX="20" sY="20" eX="255" eY="350"></room>
 	<!-- small office -->
-	<room sX="0" sY="370" eX="255" eY="600"></room>
+	<room sX="20" sY="370" eX="255" eY="580"></room>
 	<!-- large office -->
-	<room sX="475" sY="265" eX="1010" eY="600"></room>
+	<room sX="475" sY="265" eX="1010" eY="580"></room>
     
-    <room sX="255" sY="0" eX="475" eY="600"></room>
-    <room sX="475" sY="200" eX="1200" eY="265"></room>
-    <room sX="1000" sY="250" eX="1200" eY="600"></room>
+    <room sX="255" sY="20" eX="475" eY="580"></room>
+    <room sX="475" sY="200" eX="1180" eY="265"></room>
+    <room sX="1000" sY="250" eX="1180" eY="580"></room>
     
-    <room sX="470" sY="0" eX="650" eY="200"></room>
-    <room sX="650" sY="0" eX="1000" eY="200"></room>
-    <room sX="1000" sY="0" eX="1200" eY="200"></room>
+    <room sX="470" sY="20" eX="650" eY="200"></room>
+    <room sX="650" sY="20" eX="1000" eY="200"></room>
+    <room sX="1000" sY="20" eX="1180" eY="200"></room>
 	
 	<!-- Tables -->
 	<!-- room with large table -->
