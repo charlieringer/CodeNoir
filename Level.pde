@@ -270,6 +270,9 @@ class Level
   void drawOuterLevel()
   {
     drawFloor();
+        for (LargeObject obj : hardObjects) { 
+      obj.drawObj();
+    }
     for (Guard guard : guards)
     {
       if (!gameOver) {
@@ -277,12 +280,9 @@ class Level
       }
       guard.moveandDrawGuard(hardObjects);
     }
+
     for (Wall wall : walls) { 
       wall.drawWall();
-    }
-
-    for (LargeObject obj : hardObjects) { 
-      obj.drawObj();
     }
     for (LargeObject door : doors) { 
       door.drawObj();
@@ -539,7 +539,7 @@ class Level
   void outerLevelKeyOn()
   {
     //We have pressed the interact button
-    if (key == 'x')
+    if (key == 'x' || key == 'X')
     {
       int playerSX = player.posX;
       int playerSY = player.posY;
