@@ -48,7 +48,7 @@
 
 	<!-- End -->
 	<!-- supposed to be a fireplace -->
-	<end sX="1140" sY="280" eX="1200" eY="340" rotate="1"></end>
+	<end sX="1140" sY="280" eX="1180" eY="370" rotate="1"></end>
 	<player sX="100" sY="520"></player>
 	<dataAmount needed = "0"></dataAmount>
     
