@@ -20,8 +20,8 @@
 	<wall sX="1100" sY="340" eX="1180" eY="360"></wall>
 	
 	<wall sX="180" sY="380" eX="700" eY="400"></wall>	
-	<wall sX="700" sY="380" eX="720" eY="440"></wall>
-	<wall sX="700" sY="520" eX="720" eY="581"></wall>	
+	<wall sX="700" sY="380" eX="720" eY="420"></wall>
+	<wall sX="700" sY="500" eX="720" eY="580"></wall>	
 	
 	
 	<!-- Rooms -->
