@@ -74,15 +74,6 @@ class PrintPuzzle
       partialChoice.get(i).drawPiece();
     }
     
-    //checks if each blank piece contains any partial pieces, also checks if the index of the piece is correct
-     for(int x = 0; x < blankPiece.size(); x++) {
-      for (int i = 0; i < partialChoice.size(); i++)
-      {
-        blankPiece.get(x).checkProx(partialChoice.get(i));
-        checkCorrect(i);
-      }
-    }
-    
     //display pop up if print is correct
     if(completed == true) {
       win();
@@ -94,6 +85,12 @@ class PrintPuzzle
       for (int i = 0; i < partialChoice.size(); i++) {
         partialChoice.get(i).reset();
       }
+      UL = false;
+      UR = false;
+      ML = false;
+      MR = false;
+      DL = false;
+      DR = false;
       return;
     }
     for (int i = 0; i < partialChoice.size(); i++) {
@@ -111,10 +108,13 @@ class PrintPuzzle
   } 
 
   void snapPiece() {
+    //when a partial piece is moved in the vicinity and released, snap the piece onto the blank piece
+    //also checks if the index of the partial piece is correct once snapped
     for(int x = 0; x < blankPiece.size(); x++) {
       for (int i = 0; i < partialChoice.size(); i++)
       {
         blankPiece.get(x).checkSnap(partialChoice.get(i));
+        checkCorrect(i);
       }
     }
     
@@ -220,6 +220,9 @@ class BlankPiece
     if(piece.x+50 > x && piece.x+50 < x+100 && piece.y+50 > y && piece.y+50 < y+100) {
       piece.x = x;
       piece.y = y;
+      contains = true;
+    } else {
+      contains = false;
     }
   }
   
